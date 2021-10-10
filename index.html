@@ -13,7 +13,7 @@
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="北辰">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -152,6 +152,150 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-nvm的安装-windows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">nvm的安装-windows</a>
+    </h1>
+  
+
+        
+        <a href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" class="archive-article-date">
+  	<time datetime="2021-10-09T14:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-10-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载nvm的安装包"><a href="#下载nvm的安装包" class="headerlink" title="下载nvm的安装包"></a>下载nvm的安装包</h2><p><strong>一定要下载1.1.7版本的nvm！</strong></p>
+<ul>
+<li>事先需要卸载原有的node.js<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></li>
+<li>下载后双击exe文件安装</li>
+<li>安装后在环境变量中会默认看到<br><img src="/images/photo_01.png"></li>
+<li>用户变量和系统变量中都会有</li>
+</ul>
+<p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>nvm -v</code> 检验是否成功<img src="https://beichenzero.oss-cn-beijing.aliyuncs.com/photo_02.png?Expires=1633876391&OSSAccessKeyId=TMP.3KjxVHNCmgpuQvdFjBZq6R1Lak1cdPXhKGu4kwfpUFdhp7rTWyufWkXQoeiA57Z62k7yvhJkTu7JAhn6UXGVKv34db6Hsi&Signature=WmZtxPBn8v0BKk741ofDVEtgPOI%3D"></li>
+</ul>
+<h2 id="安装node"><a href="#安装node" class="headerlink" title="安装node"></a>安装node</h2><ol>
+<li>查看版本 <code>nvm list available</code> </li>
+<li>下载node(选择你需要的版本下载即可)  <blockquote>
+<p>拿<code>16.11.0</code>版本作为例子<code>nvm install 16.11.0</code></p>
+</blockquote>
+</li>
+<li>紧接着上面的语句在终端输入：<code>nvm use 16.11.0</code></li>
+</ol>
+<p><strong>install完了node版本后，一定要use你所安装的版本，一定！一定！一定！</strong>  </p>
+<h2 id="nvm常用命令"><a href="#nvm常用命令" class="headerlink" title="nvm常用命令"></a>nvm常用命令</h2><table>
+<thead>
+<tr>
+<th>Tables</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>nvm list</td>
+<td align="center">查看已经安装的版本</td>
+</tr>
+<tr>
+<td>nvm list installed</td>
+<td align="center">查看已经安装的版本</td>
+</tr>
+<tr>
+<td>nvm list available</td>
+<td align="center">查看网络可以安装的版本</td>
+</tr>
+<tr>
+<td>nvm arch</td>
+<td align="center">查看当前系统的位数和当前nodejs的位数</td>
+</tr>
+<tr>
+<td>nvm install [arch]</td>
+<td align="center">安装制定版本的node 并且可以指定平台 version 版本号 arch 平台</td>
+</tr>
+<tr>
+<td>nvm on</td>
+<td align="center">打开nodejs版本控制</td>
+</tr>
+<tr>
+<td>nvm off</td>
+<td align="center">关闭nodejs版本控制</td>
+</tr>
+<tr>
+<td>nvm uninstall</td>
+<td align="center">卸载制定的版本</td>
+</tr>
+<tr>
+<td>nvm use [version] [arch]</td>
+<td align="center">切换制定的node版本和位数</td>
+</tr>
+<tr>
+<td>nvm version</td>
+<td align="center">查看当前的版本</td>
+</tr>
+</tbody></table>
+<p><em>其中 [arch]表示系统位数，直接用64/32代替就好了</em></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-electron" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -159,7 +303,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/09/electron/">electron</a>
+      <a class="article-title" href="/2021/10/09/electron/">electron创建项目</a>
     </h1>
   
 
@@ -172,7 +316,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><p>npm create electron-app my-app</p>
+        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
+<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
+<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
+<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
+<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
+<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
 
@@ -278,69 +430,6 @@
 
 
   
-    <article id="post-市场营销" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/07/08/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80/">市场营销</a>
-    </h1>
-  
-
-        
-        <a href="/2021/07/08/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80/" class="archive-article-date">
-  	<time datetime="2021-07-08T14:31:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-08</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="/.com//07/08/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80%E7%94%B5%E5%AD%90%E6%A1%A3.jpg"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/07/08/%E5%B8%82%E5%9C%BA%E8%90%A5%E9%94%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -351,7 +440,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 John Doe
+    		&copy; 2021 北辰
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -432,6 +521,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
