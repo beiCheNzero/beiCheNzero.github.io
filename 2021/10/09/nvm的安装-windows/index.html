@@ -417,41 +417,29 @@
 
 <script type="text/javascript">
 
-// if(true){
-//   var gitalk = new Gitalk({
-//     clientID: 'f3945134fb87ca80664e',
-//     clientSecret: 'b6b008adeebd013165a9da83ecd4fa20bba1ba95',
-//     repo: 'blog',
-//     owner: 'beiCheNzero',
-//     admin: ['beiCheNzero'],
-//     id: 'Sat Oct 09 2021 22:01:49 GMT+0800',
-//     distractionFreeMode: 'true'
-// })
-// gitalk.render('gitalk-container') 
-// }
-// </script>
+if(true){
+  var gitalk = new Gitalk({
+    clientID: 'b6bdcf0065b59dc3b1d9',
+    clientSecret: '868430cb9c32e56c479c2925f96f21ad6b43df09',
+    repo: 'blog',
+    owner: 'beiCheNzero',
+    admin: ['beiCheNzero'],
+    id: 'Sat Oct 09 2021 22:01:49 GMT+0800',
+    distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
 
-<script type="text/javascript">
-    var gitalk = new Gitalk({
-        id: '{{ page.url }}',
-        clientID: '{{ site.gitalk.clientID }}',
-        clientSecret: '{{ site.gitalk.clientSecret }}',
-        repo: 'blog',
-        owner: 'beiCheNzero',
-        admin: ['beiCheNzero'],
-        labels: ['Gitalk'],
-        perPage: 50
-    })
-    gitalk.render('gitalk-container')
- </script>
+
     
 
 
 
 
-
-<!-- {% elseif theme.gitalk.enable %}
-    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<!-- 
+{% elseif theme.gitalk.enable %}
+    {/* <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
 <div id="gitalk-container"></div>
 <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
 <script type="text/javascript">
@@ -464,7 +452,30 @@
         admin: '<%= theme.gitalk.admin %>'
     })
     gitalk.render('gitalk-container')
+</script> */}
+
+<link rel="stylesheet" href="<%- theme.libs.css.gitalk %>">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="<%- theme.libs.js.gitalk %>"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '<%- theme.gitalk.oauth.clientId %>',
+        clientSecret: '<%- theme.gitalk.oauth.clientSecret %>',
+        repo: '<%- theme.gitalk.repo %>',
+        owner: '<%- theme.gitalk.owner %>',
+        admin: <%- JSON.stringify(theme.gitalk.admin) %>,
+        id: '<%- date(page.date, 'YYYY-MM-DDTHH-mm-ss') %>',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
 </script>
+
 {% endif %} -->
           </div>
         </div>
