@@ -11,7 +11,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,secti
   /* background:#fff; */
   background: linear-gradient(rgba(189, 29, 29, 0.5), 
   rgba(255, 255, 255, 0.5)),
-  url('../../../source/images/photo_view_02.jpg') repeat 0% 20%/ cover;
+  url('http://beichenzero.top/photo_view_02.jpg') repeat 0% 20%/ cover;
   /* http://r17fot4e6.bkt.clouddn.com/photo_view_02.jpg */
   /* background-size: contain; */
   width:300px;position:fixed;opacity:1;transition:all .2s ease-in;
