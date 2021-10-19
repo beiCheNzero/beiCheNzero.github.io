@@ -43,8 +43,9 @@
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
     <div class="left-col" q-class="show:isShow">
       
-	<div class="overlay" style="background: #4d4d4d">
-	</div>
+	<!-- <div class="overlay" style="background: #00000">
+	</div> -->
+	<div class="overlay" ></div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<a href="/" class="profilepic">
@@ -59,27 +60,10 @@
 			</hgroup>
 				<!-- 音乐播放插件 -->
 				<nav class="header-nav">
-					<!-- <div class="social">
-						
-							<a class="github" target="_blank" href="https://github.com/beiCheNzero/beiCheNzero.github.io" title="github"><i
-									class="icon-github"></i></a>
-							
-							<a class="weibo" target="_blank" href="#" title="weibo"><i
-									class="icon-weibo"></i></a>
-							
-							<a class="rss" target="_blank" href="#" title="rss"><i
-									class="icon-rss"></i></a>
-							
-							<a class="zhihu" target="_blank" href="#" title="zhihu"><i
-									class="icon-zhihu"></i></a>
-							
-					</div> -->
+
 
 					<!--音乐播放插件-->
-					<div style="margin-top:30px;margin-left: -50px;margin-top: -350px;">
-						<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=323 height=86
-							src="//music.163.com/outchain/player?type=2&id=31445772&auto=1&height=66"></iframe>
-					</div>
+					
 				</nav>
 
 			
@@ -166,7 +150,7 @@
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
 <nav id="mobile-nav">
-  	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
+  	<div class="overlay js-overlay" style="background: #00000"></div>
 	<div class="btnctn js-mobile-btnctn">
   		<div class="slider-trigger list" q-on="click: openSlider(e)"><i class="icon icon-sort"></i></div>
 	</div>
@@ -238,7 +222,7 @@
 
 
         <!--显示阅读次数-->
-        
+        <!-- 
           <br/>
           <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
           <span class="icon-sort"></span>
@@ -246,10 +230,21 @@
                     阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
           </span>
           </a>
-        
+         -->
 
         <!--显示阅读次数完毕-->
-  
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+
 
         
         <a href="/2021/10/01/test%E5%9B%BE%E7%89%87/" class="archive-article-date">
@@ -604,15 +599,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
             
             <div class="clearfix"></div>
