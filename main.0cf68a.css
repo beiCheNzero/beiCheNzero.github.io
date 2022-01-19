@@ -9,12 +9,14 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,secti
 .mid-col.show{background:none;opacity:.9}.mid-col.show .article{background:hsla(0,0%,100%,.3)}
 .left-col{
   /* background:#fff; */
-  background: linear-gradient(rgba(189, 29, 29, 0.5), 
-  rgba(255, 255, 255, 0.5)),
-  url('http://beichenzero.top/photo_view_02.jpg') repeat 0% 20%/ cover;
+  background: 
+  /* linear-gradient(rgba(145, 218, 50, 0.2), 
+  rgba(192, 221, 62, 0.3)), */
+  url('https://beichenzero-1303842518.cos.ap-nanjing.myqcloud.com/left-photo/cat_01.jpeg') no-repeat 0% 20%/ cover ;
+  background-position-x: -10px;
   /* http://r17fot4e6.bkt.clouddn.com/photo_view_02.jpg */
   /* background-size: contain; */
-  width:300px;position:fixed;opacity:1;transition:all .2s ease-in;
+  width:300px;position:fixed;opacity:0.9;transition:all .2s ease-in;
   height:100%;z-index:999;overflow: hidden;overflow-y: auto;margin-bottom: 15px;}
 /* .left-col{
   background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
