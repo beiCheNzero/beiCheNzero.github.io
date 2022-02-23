@@ -16,7 +16,7 @@
 <meta property="og:description" content="loader首先解释一下loader是什么:loader可以用于对模块的源代码进行转换简单来说，就是把css文件看成一个模块，但是webpack并不知道这个模块是什么意思，通过loader将css模块转换成webpack能看懂的代码。 1、css-loader css-loader的安装  npm install css-loader -D  css-loader的使用   内联方式在引入的样式前">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-02-23T11:46:08.000Z">
-<meta property="article:modified_time" content="2022-02-23T12:22:19.395Z">
+<meta property="article:modified_time" content="2022-02-23T12:28:44.339Z">
 <meta property="article:author" content="北辰">
 <meta property="article:tag" content="webpack">
 <meta property="article:tag" content="插件">
@@ -287,12 +287,17 @@
 <h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
 <p>css-loader的安装</p>
 </blockquote>
-<p>npm install css-loader -D</p>
+<p><code>npm install css-loader -D</code></p>
 <blockquote>
 <p>css-loader的使用</p>
 </blockquote>
 <ul>
-<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割<br><br><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></li>
+<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
+</ul>
+<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
+<span id="more"></span>
+
+<ul>
 <li><strong>配置方式</strong><br><br>新建一个<strong>webpack.config.js</strong>文件<br><br>module.rules的配置如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const &#123; options &#125; = require(&#x27;less&#x27;);</span><br><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &quot;./src/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    //获取当前文件的路径 </span><br><span class="line">    path: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">    filename: &quot;build.js&quot;,</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/, //正则表达式</span><br><span class="line">        // 1.loader的语法(语法糖)</span><br><span class="line">        // loader: &quot;css-loader&quot;,</span><br><span class="line"></span><br><span class="line">        // 2.use,完整写法</span><br><span class="line">        // 可以添加其他参数</span><br><span class="line">        use: [</span><br><span class="line">          &#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 有不太清楚的地方我都进行了注释。</li>
 </ul>
@@ -300,7 +305,7 @@
 <h2 id="2、style-loader"><a href="#2、style-loader" class="headerlink" title="2、style-loader"></a>2、style-loader</h2><blockquote>
 <p>style-loader的安装</p>
 </blockquote>
-<p>npm install style-loader -D</p>
+<p><code>npm install style-loader -D</code></p>
 <blockquote>
 <p>style-loader的使用(同css-loader)</p>
 </blockquote>

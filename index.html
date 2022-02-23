@@ -264,71 +264,17 @@
 <h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
 <p>css-loader的安装</p>
 </blockquote>
-<p>npm install css-loader -D</p>
+<p><code>npm install css-loader -D</code></p>
 <blockquote>
 <p>css-loader的使用</p>
 </blockquote>
 <ul>
-<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割<br><br><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></li>
-<li><strong>配置方式</strong><br><br>新建一个<strong>webpack.config.js</strong>文件<br><br>module.rules的配置如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const &#123; options &#125; = require(&#x27;less&#x27;);</span><br><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &quot;./src/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    //获取当前文件的路径 </span><br><span class="line">    path: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">    filename: &quot;build.js&quot;,</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/, //正则表达式</span><br><span class="line">        // 1.loader的语法(语法糖)</span><br><span class="line">        // loader: &quot;css-loader&quot;,</span><br><span class="line"></span><br><span class="line">        // 2.use,完整写法</span><br><span class="line">        // 可以添加其他参数</span><br><span class="line">        use: [</span><br><span class="line">          &#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-有不太清楚的地方我都进行了注释。</li>
+<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
 </ul>
-<p><em><strong>此时css在代码界面并没有生效,css-loader只是负责将.css文件进行解析，并不会插入到界面中，此时还需要另外一个loader——style-loader。</strong></em></p>
-<h2 id="2、style-loader"><a href="#2、style-loader" class="headerlink" title="2、style-loader"></a>2、style-loader</h2><blockquote>
-<p>style-loader的安装</p>
-</blockquote>
-<p>npm install style-loader -D</p>
-<blockquote>
-<p>style-loader的使用(同css-loader)</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use: [</span><br><span class="line">	// 执行顺序应该是先css，然后style</span><br><span class="line">	// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">	&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">	&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="3、lessc、less-loader"><a href="#3、lessc、less-loader" class="headerlink" title="3、lessc、less-loader"></a>3、lessc、less-loader</h2><ul>
-<li>lessc</li>
-</ul>
-<p>lessc 独立的工具,与webpack没什么关系，主要用途就是把less转成css<br><br>全局/局部安装:<br><br><code>npm install less -g/-D</code></p>
-<p><em><strong>将lessc和less文件进行结合，需要less-loader插件。</strong></em></p>
-<ul>
-<li>less-loader</li>
-</ul>
-<p>全局/局部安装：<br><br><code>npm install lee-loader -g/-D</code><br><br>单独转换一个less文件命令：<br><code>npx lessc &quot;地址&quot; &quot;地址&quot;</code></p>
-<h2 id="4、postcss、postcss-loader"><a href="#4、postcss、postcss-loader" class="headerlink" title="4、postcss、postcss-loader"></a>4、postcss、postcss-loader</h2><ul>
-<li><strong>直接使用postCSS</strong><br><blockquote>
-<p>安装 <code>npm install postcss postcss-cli -D</code><br></p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>安装插件<br><em>自动添加浏览器前缀</em><br><code>npm install autoprefixer -D</code><br></p>
-</blockquote>
-<blockquote>
-<p>使用：<br><code>npx postcss --use autoprefixer -o demo.css test.css</code><br><br>解释：<br>–use + 需要使用的插件 -o (输出) demo.css(出口), test.css(入口)<br></p>
-</blockquote>
-<ul>
-<li><strong>结合使用</strong><br><blockquote>
-<p>安装 <code>npm install postcss-loader -D</code><br></p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>使用 <br></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">	rules: [</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.css$/, //正则表达式</span><br><span class="line">			// 1.loader的语法(语法糖)</span><br><span class="line">			// loader: &quot;css-loader&quot;,</span><br><span class="line">			// 2.use,完整写法</span><br><span class="line">			// 可以添加其他参数</span><br><span class="line">			use: [</span><br><span class="line">				// 执行顺序应该是先css，然后style</span><br><span class="line">				// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">				// &quot;style-loader&quot;</span><br><span class="line">				&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">				&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">				&#123;</span><br><span class="line">					loader: &quot;postcss-loader&quot;,</span><br><span class="line">					options: &#123;</span><br><span class="line">						postcssOptions: &#123;</span><br><span class="line">							plugins: [</span><br><span class="line">								require(&quot;autoprefixer&quot;)</span><br><span class="line">							]</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.less/,</span><br><span class="line">			use: [</span><br><span class="line">				&quot;style-loader&quot;,</span><br><span class="line">				&quot;css-loader&quot;,</span><br><span class="line">				&quot;less-loader&quot;</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>融合</strong></li>
-</ul>
-<p>将<code>webpack.config.js</code>中module下，rules中的less的转化和css的转化写在一起。<br><br><strong>1、分开写法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.css/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">	test: /\.less/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2、融合</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(less|css)$/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="插件postcss-preset-env"><a href="#插件postcss-preset-env" class="headerlink" title="插件postcss-preset-env"></a><em><strong>插件postcss-preset-env</strong></em></h4>等同于已经内置了<code>autoprefixer</code>插件，这个插件功能更全.<br></li>
-</ul>
-<p><strong>功能</strong> 进行css的转换和适配，自动添加浏览器的前缀，css样式的重置，可以识别#12345678, “78”就等同于是透明度，RGBA.</p>
-<blockquote>
-<p>安装 <code>npm install postcss-preset-env -D</code></p>
-</blockquote>
-<p><em><strong>以上笔记均是个人根据coderwhy老师的课程所写。</strong></em></p>
-
+<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
+        
+          <a class="article-more-a" href="/2022/02/23/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
       
 
       
@@ -454,7 +400,7 @@
 </blockquote>
 <ul>
 <li>可以通过nvm进行node安装以及管理。</li>
-<li>nvm的教程-地址:<a hred="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">nvm的安装-windows</a><blockquote>
+<li>nvm的教程-地址:<a target="_blank" rel="noopener" href="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" alt>nvm的安装-windows</a><blockquote>
 <p>3.webpack全局安装</p>
 </blockquote>
 </li>
@@ -469,25 +415,9 @@
 <li>然后列表文件会多一个<strong>package.json</strong></li>
 <li>很多配置都写在这个文件里面</li>
 </ul>
-<blockquote>
-<p>5.webpack局部安装</p>
-</blockquote>
-<p>简写：<code>npm install webpack webpack-cli -D</code></p>
-<p>展开：<code>npm install webpack webpack-cli --save-dev</code></p>
-<h2 id="webpack的基本使用"><a href="#webpack的基本使用" class="headerlink" title="webpack的基本使用"></a>webpack的基本使用</h2><blockquote>
-<p>1.<code>npx webpack</code></p>
-</blockquote>
-<p>执行后会出现打包的文件，默认在终端文件下的一个文件，文件名<strong>dist</strong></p>
-<blockquote>
-<p>2.修改打包方式</p>
-</blockquote>
-<p>修改package.json文件的script<br><br>添加<code>&quot;build&quot;: &quot;webpack&quot;</code><br><br>在运行<code>npm run build</code>时，会默认在当前文件夹下的src下寻找index.js文件进行打包，否则会报错。</p>
-<p>如果入口文件非默认(<code>index.js</code>)，则可以指定入口/出口<br><br><code>npx webpack --entry ./src/main.js --output-path ./build</code></p>
-<ul>
-<li><em><strong>webpack默认支持打包js</strong></em></li>
-<li><em><strong>如果需要webpack能打包css，则需要进行其他设置，详情请移步<a href>webpack-插件的安装及使用</a></strong></em></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2022/02/22/webpack%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
       
 
       
