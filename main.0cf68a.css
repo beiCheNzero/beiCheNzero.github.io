@@ -46,3 +46,108 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,secti
   background-position-x: -350px;
   background-position-y: -140px;
   }
+
+/* 添加categories */
+/*tag-cloud*/
+.tag-cloud {
+  text-align: center;
+  margin-top: 50px;
+}
+.tag-cloud a {
+  display: inline-block;
+  margin: 10px;
+}
+.tag-cloud-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+.tag-cloud-tags {
+  margin-top: 15px;}
+  .tag-cloud-tags a {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 10px;
+    color: #fff;
+    line-height: normal;
+    padding: 5px 5px 5px 10px;
+    position: relative;
+    border-radius: 0 5px 5px 0;
+    font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;}
+    .tag-cloud-tags:hover {
+      opacity: 0.8;
+    }
+    .tag-cloud-tags:before {
+      content: " ";
+      width: 0;
+      height: 0;
+      position: absolute;
+      top: 0;
+      left: -18px;
+      border: 9px solid transparent;
+    }
+    .tag-cloud-tags:after {
+      content: " ";
+      width: 4px;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .3);
+      position: absolute;
+      top: 7px;
+      left: 2px;
+    }
+  }
+  .tag-cloud-tags a.color1 {
+    background: #FF945C;
+  }
+  .tag-cloud-tags a.color1:before {
+    border-right-color: #FF945C;
+  }
+  
+  .tag-cloud-tags a.color2 {
+    background: #F5C7B7;}
+    .tag-cloud-tags a.color2:before {
+      border-right-color: #F5C7B7;
+    }
+    .tag-cloud-tags a.color3 {
+    background: #BA8F6C;}
+    .tag-cloud-tags a.color3:before {
+      border-right-color: #BA8F6C;
+    }
+  
+    .tag-cloud-tags a.color4 {
+    background: #CFB7C4;}
+    .tag-cloud-tags a.color4:before {
+      border-right-color: #CFB7C4;
+    }
+    .tag-cloud-tags a.color5 {
+    background: #7B5D5F;}
+    .tag-cloud-tags a.color5:before {
+      border-right-color: #7B5D5F;
+    }
+
+
+/*category-all-page*/
+.category-all-page {
+  margin-top: 50px;}
+  .category-all-page .category-all-title {
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+  }
+  .category-all-page.category-list-item:after {
+    content: '';
+    clear: both;
+    display: table;
+  }
+  .category-all-page .category-list-count {
+    float: right;
+    margin-left: 5px;
+  }
+  .category-all-page .category-list-count:before {
+    content: '一共 ';
+  }
+  .category-all-page .category-list-count:after {
+    content: ' 篇文章';
+  }
