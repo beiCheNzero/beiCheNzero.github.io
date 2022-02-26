@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 11
+						总文章数 13
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -219,6 +219,431 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue源码的打包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/26/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">vue源码的打包</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/02/26/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/" class="archive-article-date">
+	<time datetime="2022-02-26T11:28:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-26
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">798字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h3 id="vue源码打包"><a href="#vue源码打包" class="headerlink" title="vue源码打包"></a>vue源码打包</h3><ul>
+<li>1.导入<br><code>import &#123; createApp &#125; from &quot;vue&quot;</code></li>
+<li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
+</ul>
+<h3 id="vue打包后不同的版本解析"><a href="#vue打包后不同的版本解析" class="headerlink" title="vue打包后不同的版本解析"></a>vue打包后不同的版本解析</h3><ul>
+<li>1.vue.global.js  <ul>
+<li>通过浏览器的<code>&lt;script src=&quot;...&quot;&gt;</code>直接使用</li>
+<li>通过CDN引入和下载的Vue版本会暴露一个全局的Vue来使用</li>
+</ul>
+</li>
+<li>2.vue.esm-browser.js<ul>
+<li>通过原生ES模块导入使用(浏览器中通过<code>&lt;script type=&quot;module&quot;&gt;</code>来使用)</li>
+</ul>
+</li>
+<li>3.vue.esm-bundle.js<ul>
+<li>用于webpack，rollup和parcel等构建工具</li>
+<li>构建工具中默认的是vue,runtime.esm-bundle.js</li>
+<li>如果我们需要解析模板template，那么需要手动指定vue.esm-bundle.js</li>
+</ul>
+</li>
+<li>4.vue.cjs.js<ul>
+<li>服务器端渲染使用</li>
+<li>通过requires()和node.js中使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="webpack-deb-server"><a href="#webpack-deb-server" class="headerlink" title="webpack-deb-server"></a>webpack-deb-server</h3><ul>
+<li>安装<br><code>npm install webpack-dev-server -D</code>  </li>
+<li>配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./build&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在package.json的script中<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;webpack --watch&quot;,</span><br><span class="line">    &quot;serve&quot;: &quot;webpack serve&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+使用<code>npm run serve</code>执行，就可以开启一个本地服务。  </li>
+</ul>
+<p><em><strong>webpack-dev-server在编译之后<span color="red">不会写入到任何文件</span>,而是将bundle文件保留在内存中</strong></em></p>
+<h3 id="HMR-模块热替换"><a href="#HMR-模块热替换" class="headerlink" title="HMR(模块热替换)"></a>HMR(模块热替换)</h3><p>Hot Module Replacement——模块热替换<br>模块热替换是指在 应用程序运行中，替换，添加，删除模块，而无需重新刷新整个界面</p>
+<ul>
+<li><p><strong>如何使用HMR？</strong><br>默认情况下，webpack-dev-server已经支持HMR，直接开启就是了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">target: &quot;web&quot;,//hot的伴随设置 </span><br><span class="line">devServer: &#123;</span><br><span class="line">  hot: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>指定使用HMR的模块</strong><br>if(module.hot) {<br>module.hot.accept(“./util.js”, () =&gt; {<br>  console.log(“util更新了);<br>})<br>}</p>
+</li>
+<li><p>1.port设置监听端口，默认情况下时8080</p>
+</li>
+<li><p>2.open是否打开浏览器，默认时false</p>
+</li>
+<li><p>3.compress是否为静态文件开启gzip compression,默认时false</p>
+</li>
+<li><p>4.<strong>Proxy</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./public&quot;,</span><br><span class="line">  // 模块热替换HMR</span><br><span class="line">  hot: true,</span><br><span class="line">  host: &quot;0.0.0.0&quot;,</span><br><span class="line">  port: 8888,</span><br><span class="line">  open: true, // 在package.json中配置--open</span><br><span class="line">  compress: true, //压缩</span><br><span class="line">  Proxy: &#123;</span><br><span class="line">    // 开启本地代理</span><br><span class="line">    // 本地解决跨域的问题</span><br><span class="line">    &quot;/api&quot;: &#123;</span><br><span class="line">      target: &quot;url&quot;,</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &quot;^/api&quot;: &quot;&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      secure: false,// 不懂的文档去找，或者ppt</span><br><span class="line">      changeOrigin: true</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="extensions和alias配置"><a href="#extensions和alias配置" class="headerlink" title="extensions和alias配置"></a>extensions和alias配置</h3><ul>
+<li><strong>extensions</strong>是解析到文件时自动添加扩展名<br>默认值是[‘.wasm’, ‘.mjs’, ‘.js’, ‘.json’]  </li>
+<li><strong>alias</strong>是给某些常见的路径起一个别名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  extensions: [&#x27;.jsx&#x27;, &#x27;.ts&#x27;, &#x27;.vue&#x27;],</span><br><span class="line">  alias: &#123;</span><br><span class="line">    &quot;js&quot;: path.resolve(__dirname, &quot;./src/js&quot;),</span><br><span class="line">    &quot;@&quot;: path.resolve(__dirname, &quot;./sr&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开发-生产环境的分离"><a href="#开发-生产环境的分离" class="headerlink" title="开发/生产环境的分离"></a>开发/生产环境的分离</h2>建立三个文件放在主文件夹下的config文件夹下，<blockquote>
+<p>开发<br>common<br>生产</p>
+</blockquote>
+</li>
+</ul>
+<p>合并文件<br><code>npm install webpack-merge -D</code><br>在生产/开发的配置js文件中导入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; merge &#125; = require(&quot;webpack-merge&quot;);</span><br><span class="line">const commenConfig = require(&#x27;公共配置js文件的地址&#x27;)</span><br></pre></td></tr></table></figure>
+<p>合并语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports = merge(CommonConfig, &#123;</span><br><span class="line">  //生产/开发环境的部分配置。</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><em><strong>同时在package.json的脚本里面也需要配置.</strong></em><br>添加<code>--config url</code></p>
+
+          
+        
+      <!-- 
+        <h3 id="vue源码打包"><a href="#vue源码打包" class="headerlink" title="vue源码打包"></a>vue源码打包</h3><ul>
+<li>1.导入<br><code>import &#123; createApp &#125; from &quot;vue&quot;</code></li>
+<li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
+</ul>
+<h3 id="vue打包后不同的版本解析"><a href="#vue打包后不同的版本解析" class="headerlink" title="vue打包后不同的版本解析"></a>vue打包后不同的版本解析</h3><ul>
+<li>1.vue.global.js  <ul>
+<li>通过浏览器的<code>&lt;script src=&quot;...&quot;&gt;</code>直接使用</li>
+<li>通过CDN引入和下载的Vue版本会暴露一个全局的Vue来使用</li>
+</ul>
+</li>
+<li>2.vue.esm-browser.js<ul>
+<li>通过原生ES模块导入使用(浏览器中通过<code>&lt;script type=&quot;module&quot;&gt;</code>来使用)</li>
+</ul>
+</li>
+<li>3.vue.esm-bundle.js<ul>
+<li>用于webpack，rollup和parcel等构建工具</li>
+<li>构建工具中默认的是vue,runtime.esm-bundle.js</li>
+<li>如果我们需要解析模板template，那么需要手动指定vue.esm-bundle.js</li>
+</ul>
+</li>
+<li>4.vue.cjs.js<ul>
+<li>服务器端渲染使用</li>
+<li>通过requires()和node.js中使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="webpack-deb-server"><a href="#webpack-deb-server" class="headerlink" title="webpack-deb-server"></a>webpack-deb-server</h3><ul>
+<li>安装<br><code>npm install webpack-dev-server -D</code>  </li>
+<li>配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./build&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在package.json的script中<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;webpack --watch&quot;,</span><br><span class="line">    &quot;serve&quot;: &quot;webpack serve&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+使用<code>npm run serve</code>执行，就可以开启一个本地服务。  </li>
+</ul>
+<p><em><strong>webpack-dev-server在编译之后<span color="red">不会写入到任何文件</span>,而是将bundle文件保留在内存中</strong></em></p>
+<h3 id="HMR-模块热替换"><a href="#HMR-模块热替换" class="headerlink" title="HMR(模块热替换)"></a>HMR(模块热替换)</h3><p>Hot Module Replacement——模块热替换<br>模块热替换是指在 应用程序运行中，替换，添加，删除模块，而无需重新刷新整个界面</p>
+<ul>
+<li><p><strong>如何使用HMR？</strong><br>默认情况下，webpack-dev-server已经支持HMR，直接开启就是了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">target: &quot;web&quot;,//hot的伴随设置 </span><br><span class="line">devServer: &#123;</span><br><span class="line">  hot: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>指定使用HMR的模块</strong><br>if(module.hot) {<br>module.hot.accept(“./util.js”, () =&gt; {<br>  console.log(“util更新了);<br>})<br>}</p>
+</li>
+<li><p>1.port设置监听端口，默认情况下时8080</p>
+</li>
+<li><p>2.open是否打开浏览器，默认时false</p>
+</li>
+<li><p>3.compress是否为静态文件开启gzip compression,默认时false</p>
+</li>
+<li><p>4.<strong>Proxy</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./public&quot;,</span><br><span class="line">  // 模块热替换HMR</span><br><span class="line">  hot: true,</span><br><span class="line">  host: &quot;0.0.0.0&quot;,</span><br><span class="line">  port: 8888,</span><br><span class="line">  open: true, // 在package.json中配置--open</span><br><span class="line">  compress: true, //压缩</span><br><span class="line">  Proxy: &#123;</span><br><span class="line">    // 开启本地代理</span><br><span class="line">    // 本地解决跨域的问题</span><br><span class="line">    &quot;/api&quot;: &#123;</span><br><span class="line">      target: &quot;url&quot;,</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &quot;^/api&quot;: &quot;&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      secure: false,// 不懂的文档去找，或者ppt</span><br><span class="line">      changeOrigin: true</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="extensions和alias配置"><a href="#extensions和alias配置" class="headerlink" title="extensions和alias配置"></a>extensions和alias配置</h3><ul>
+<li><strong>extensions</strong>是解析到文件时自动添加扩展名<br>默认值是[‘.wasm’, ‘.mjs’, ‘.js’, ‘.json’]  </li>
+<li><strong>alias</strong>是给某些常见的路径起一个别名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  extensions: [&#x27;.jsx&#x27;, &#x27;.ts&#x27;, &#x27;.vue&#x27;],</span><br><span class="line">  alias: &#123;</span><br><span class="line">    &quot;js&quot;: path.resolve(__dirname, &quot;./src/js&quot;),</span><br><span class="line">    &quot;@&quot;: path.resolve(__dirname, &quot;./sr&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开发-生产环境的分离"><a href="#开发-生产环境的分离" class="headerlink" title="开发/生产环境的分离"></a>开发/生产环境的分离</h2>建立三个文件放在主文件夹下的config文件夹下，<blockquote>
+<p>开发<br>common<br>生产</p>
+</blockquote>
+</li>
+</ul>
+<p>合并文件<br><code>npm install webpack-merge -D</code><br>在生产/开发的配置js文件中导入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; merge &#125; = require(&quot;webpack-merge&quot;);</span><br><span class="line">const commenConfig = require(&#x27;公共配置js文件的地址&#x27;)</span><br></pre></td></tr></table></figure>
+<p>合并语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports = merge(CommonConfig, &#123;</span><br><span class="line">  //生产/开发环境的部分配置。</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><em><strong>同时在package.json的脚本里面也需要配置.</strong></em><br>添加<code>--config url</code></p>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/26/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-babel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/26/babel/">babel</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/02/26/babel/" class="archive-article-date">
+	<time datetime="2022-02-26T10:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-26
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">456字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h3 id="1-为什么用babel"><a href="#1-为什么用babel" class="headerlink" title="1.为什么用babel?"></a>1.为什么用babel?</h3><p><code>babel</code>是一个<span style="color: red">工具链</span>(<code>webpack</code>也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括<em>语法转换</em>，<em>源代码转换</em>等  </p>
+<h3 id="2-babel的使用"><a href="#2-babel的使用" class="headerlink" title="2.babel的使用"></a>2.babel的使用</h3><ul>
+<li>babel本身是一个独立的工具(和postcss一样)  </li>
+<li>安装库：<br>@babel/core - 核心代码<br>@babel/cli - 使我们在命令行使用babel(独立使用)<br><code>npx babel &quot;source-src&quot; --out-dir &quot;target-dist&quot;</code><br><code>npx babel &quot;源文件&quot; --out-dir &quot;目标文件&quot;</code></li>
+<li>1.<code>--out-dir</code>使输出一个文件夹，文件下存放有转换后的文件  </li>
+<li>2.<code>--out-file</code>使输出一个文件，输出的文件就在当前文件夹下  </li>
+<li>转换箭头使用的插件<br><code>npm install @babel/plugin-transform-arrow-funcitons -D</code>  </li>
+<li>转换语法<br><code>npx babel &quot;x.js&quot; --out-dir &quot;x.js&quot; --plugins=@babel/plugin-transform-arrow-functions</code>  </li>
+</ul>
+<p><strong>只能转换箭头函数</strong></p>
+<ul>
+<li>转换定义的数组/字符串的插件<br><code>npm install @babel/plugin-transform-block-scoping -D</code>  </li>
+</ul>
+<p><strong>不仅使定义的数组字符串转变，同时也将箭头函数一起转换了</strong><br><em><strong>我个人在这两个插件一起使用的时候就报错，单独使用任何一个都没问题</strong></em>  </p>
+<h3 id="3-babel的预设"><a href="#3-babel的预设" class="headerlink" title="3.babel的预设"></a>3.babel的预设</h3><ul>
+<li>安装<br><code>npm install @babel/preset-env -D</code></li>
+<li>使用<br><code>npx babel x.js --out-dir test -preset=@babel/preset-env</code></li>
+</ul>
+<blockquote>
+<p>将babel和webpack联系起来使用  </p>
+</blockquote>
+<p>先安装babel-loader:<br><code>npm install babel-loader -D</code><br>安装后添加配置到,添加指定使用的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        plugins: [</span><br><span class="line">          &quot;@babel/plugin-transform-arrow-funcitons&quot;,</span><br><span class="line">          &quot;@babel/plugin-transform-block-scoping&quot;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>使用预设(preset)</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        presets: [</span><br><span class="line">          [&quot;@babel/preset-env&quot;],</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+我们也可以将babel的配置信息独立放到一个文件中，抽离出来(babel.config.js):<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    [&quot;@babel/preset-env&quot;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><em><strong>tip：rc = runtime compiler(运行时编译)</strong></em></p>
+
+          
+        
+      <!-- 
+        <h3 id="1-为什么用babel"><a href="#1-为什么用babel" class="headerlink" title="1.为什么用babel?"></a>1.为什么用babel?</h3><p><code>babel</code>是一个<span style="color: red">工具链</span>(<code>webpack</code>也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括<em>语法转换</em>，<em>源代码转换</em>等  </p>
+<h3 id="2-babel的使用"><a href="#2-babel的使用" class="headerlink" title="2.babel的使用"></a>2.babel的使用</h3><ul>
+<li>babel本身是一个独立的工具(和postcss一样)  </li>
+<li>安装库：<br>@babel/core - 核心代码<br>@babel/cli - 使我们在命令行使用babel(独立使用)<br><code>npx babel &quot;source-src&quot; --out-dir &quot;target-dist&quot;</code><br><code>npx babel &quot;源文件&quot; --out-dir &quot;目标文件&quot;</code></li>
+<li>1.<code>--out-dir</code>使输出一个文件夹，文件下存放有转换后的文件  </li>
+<li>2.<code>--out-file</code>使输出一个文件，输出的文件就在当前文件夹下  </li>
+<li>转换箭头使用的插件<br><code>npm install @babel/plugin-transform-arrow-funcitons -D</code>  </li>
+<li>转换语法<br><code>npx babel &quot;x.js&quot; --out-dir &quot;x.js&quot; --plugins=@babel/plugin-transform-arrow-functions</code>  </li>
+</ul>
+<p><strong>只能转换箭头函数</strong></p>
+<ul>
+<li>转换定义的数组/字符串的插件<br><code>npm install @babel/plugin-transform-block-scoping -D</code>  </li>
+</ul>
+<p><strong>不仅使定义的数组字符串转变，同时也将箭头函数一起转换了</strong><br><em><strong>我个人在这两个插件一起使用的时候就报错，单独使用任何一个都没问题</strong></em>  </p>
+<h3 id="3-babel的预设"><a href="#3-babel的预设" class="headerlink" title="3.babel的预设"></a>3.babel的预设</h3><ul>
+<li>安装<br><code>npm install @babel/preset-env -D</code></li>
+<li>使用<br><code>npx babel x.js --out-dir test -preset=@babel/preset-env</code></li>
+</ul>
+<blockquote>
+<p>将babel和webpack联系起来使用  </p>
+</blockquote>
+<p>先安装babel-loader:<br><code>npm install babel-loader -D</code><br>安装后添加配置到,添加指定使用的插件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        plugins: [</span><br><span class="line">          &quot;@babel/plugin-transform-arrow-funcitons&quot;,</span><br><span class="line">          &quot;@babel/plugin-transform-block-scoping&quot;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>使用预设(preset)</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        presets: [</span><br><span class="line">          [&quot;@babel/preset-env&quot;],</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+我们也可以将babel的配置信息独立放到一个文件中，抽离出来(babel.config.js):<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    [&quot;@babel/preset-env&quot;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><em><strong>tip：rc = runtime compiler(运行时编译)</strong></em></p>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">babel</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/26/babel/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-webpack—plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1368,289 +1793,6 @@
 
 
   
-    <article id="post-nvm的安装-windows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">nvm的安装-windows</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" class="archive-article-date">
-	<time datetime="2021-10-09T14:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2021-10-09
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">400字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="下载nvm的安装包"><a href="#下载nvm的安装包" class="headerlink" title="下载nvm的安装包"></a>下载nvm的安装包</h2><p><strong>一定要下载1.1.7版本的nvm！</strong><br><strong>(目前最新是1.1.9版本,可以使用1.1.9,也比较稳定)</strong></p>
-<ul>
-<li>事先需要卸载原有的node.js<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></li>
-<li>下载后双击exe文件安装</li>
-<li>安装后在环境变量中会默认看到<br><img src="/images/photo_01.png"></li>
-<li>用户变量和系统变量中都会有</li>
-</ul>
-<p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
-          
-        
-      <!-- 
-        <h2 id="下载nvm的安装包"><a href="#下载nvm的安装包" class="headerlink" title="下载nvm的安装包"></a>下载nvm的安装包</h2><p><strong>一定要下载1.1.7版本的nvm！</strong><br><strong>(目前最新是1.1.9版本,可以使用1.1.9,也比较稳定)</strong></p>
-<ul>
-<li>事先需要卸载原有的node.js<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></li>
-<li>下载后双击exe文件安装</li>
-<li>安装后在环境变量中会默认看到<br><img src="/images/photo_01.png"></li>
-<li>用户变量和系统变量中都会有</li>
-</ul>
-<p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-electron" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/09/electron/">electron创建项目</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2021/10/09/electron/" class="archive-article-date">
-	<time datetime="2021-10-09T09:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2021-10-09
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">76字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      <!-- 
-        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/09/electron/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1798,6 +1940,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">model</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
             
             <div class="clearfix"></div>
