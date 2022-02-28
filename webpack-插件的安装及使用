@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>babel | 北辰的个人博客</title>
+  <title>webpack-插件的安装及使用 | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.为什么用babel?babel是一个工具链(webpack也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括语法转换，源代码转换等   2.babel的使用 babel本身是一个独立的工具(和postcss一样)   安装库：@babel&#x2F;core - 核心代码@babel&#x2F;cli - 使我们在命令行使用babel(独立使用)npx babel &quot;source-s">
+  <meta name="description" content="loader首先解释一下loader是什么:loader可以用于对模块的源代码进行转换简单来说，就是把css文件看成一个模块，但是webpack并不知道这个模块是什么意思，通过loader将css模块转换成webpack能看懂的代码。 1、css-loader css-loader的安装  npm install css-loader -D  css-loader的使用   内联方式在引入的样式前">
 <meta property="og:type" content="article">
-<meta property="og:title" content="babel">
-<meta property="og:url" content="http://example.com/2022/02/26/babel/index.html">
+<meta property="og:title" content="webpack-插件的安装及使用">
+<meta property="og:url" content="http://example.com/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8">
 <meta property="og:site_name" content="北辰的个人博客">
-<meta property="og:description" content="1.为什么用babel?babel是一个工具链(webpack也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括语法转换，源代码转换等   2.babel的使用 babel本身是一个独立的工具(和postcss一样)   安装库：@babel&#x2F;core - 核心代码@babel&#x2F;cli - 使我们在命令行使用babel(独立使用)npx babel &quot;source-s">
+<meta property="og:description" content="loader首先解释一下loader是什么:loader可以用于对模块的源代码进行转换简单来说，就是把css文件看成一个模块，但是webpack并不知道这个模块是什么意思，通过loader将css模块转换成webpack能看懂的代码。 1、css-loader css-loader的安装  npm install css-loader -D  css-loader的使用   内联方式在引入的样式前">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-26T10:53:59.000Z">
-<meta property="article:modified_time" content="2022-02-26T12:27:38.732Z">
+<meta property="article:published_time" content="2022-02-28T14:16:07.000Z">
+<meta property="article:modified_time" content="2022-02-28T15:01:25.418Z">
 <meta property="article:author" content="北辰">
-<meta property="article:tag" content="babel">
+<meta property="article:tag" content="plugin">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="北辰的个人博客" type="application/atom+xml">
@@ -81,17 +81,17 @@
 									</a></li>
 								
 								<li><a href="/categories/vue">
-										VUE
+										vue
 									</a></li>
 								
-								<li><a href="/categories/%E5%AD%A6%E4%B9%A0">
-										学习
+								<li><a href="/categories/webpack">
+										webpack
 									</a></li>
 								
 						</ul>
 					</nav>
 					<nav>
-						总文章数 13
+						总文章数 15
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -206,9 +206,9 @@
 		        
 					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/vue">VUE</a></li>
+					<li style="width: 25%"><a href="/categories/vue">vue</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/%E5%AD%A6%E4%B9%A0">学习</a></li>
+					<li style="width: 25%"><a href="/categories/webpack">webpack</a></li>
 		        
 				</ul>
 			</nav>
@@ -226,14 +226,14 @@
             <!-- 置顶 -->
 
 
-<article id="post-babel" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-webpack/webpack-插件的安装及使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      babel
+      webpack-插件的安装及使用
     </h1>
   
 
@@ -264,9 +264,9 @@
 
 
         
-        <a href="/2022/02/26/babel/" class="archive-article-date">
-	<time datetime="2022-02-26T10:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-26
+        <a href="/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8" class="archive-article-date">
+	<time datetime="2022-02-28T14:16:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
 	</time>
 </a>
 
@@ -280,7 +280,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">456字</span>
+      <span class="post-count">829字</span>
     </span>
   </span>
 
@@ -289,7 +289,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">2分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -300,68 +300,156 @@
       
         
           
-            <h3 id="1-为什么用babel"><a href="#1-为什么用babel" class="headerlink" title="1.为什么用babel?"></a>1.为什么用babel?</h3><p><code>babel</code>是一个<span style="color: red">工具链</span>(<code>webpack</code>也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括<em>语法转换</em>，<em>源代码转换</em>等  </p>
-<h3 id="2-babel的使用"><a href="#2-babel的使用" class="headerlink" title="2.babel的使用"></a>2.babel的使用</h3><ul>
-<li>babel本身是一个独立的工具(和postcss一样)  </li>
-<li>安装库：<br>@babel/core - 核心代码<br>@babel/cli - 使我们在命令行使用babel(独立使用)<br><code>npx babel &quot;source-src&quot; --out-dir &quot;target-dist&quot;</code><br><code>npx babel &quot;源文件&quot; --out-dir &quot;目标文件&quot;</code></li>
-<li>1.<code>--out-dir</code>使输出一个文件夹，文件下存放有转换后的文件  </li>
-<li>2.<code>--out-file</code>使输出一个文件，输出的文件就在当前文件夹下  </li>
-<li>转换箭头使用的插件<br><code>npm install @babel/plugin-transform-arrow-funcitons -D</code>  </li>
-<li>转换语法<br><code>npx babel &quot;x.js&quot; --out-dir &quot;x.js&quot; --plugins=@babel/plugin-transform-arrow-functions</code>  </li>
-</ul>
-<p><strong>只能转换箭头函数</strong></p>
-<span id="more"></span>
+            <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
+<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
+<p>css-loader的安装</p>
+</blockquote>
+<p><code>npm install css-loader -D</code></p>
+<blockquote>
+<p>css-loader的使用</p>
+</blockquote>
 <ul>
-<li>转换定义的数组/字符串的插件<br><code>npm install @babel/plugin-transform-block-scoping -D</code>  </li>
+<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
 </ul>
-<p><strong>不仅使定义的数组字符串转变，同时也将箭头函数一起转换了</strong><br><em><strong>我个人在这两个插件一起使用的时候就报错，单独使用任何一个都没问题</strong></em>  </p>
-<h3 id="3-babel的预设"><a href="#3-babel的预设" class="headerlink" title="3.babel的预设"></a>3.babel的预设</h3><ul>
-<li>安装<br><code>npm install @babel/preset-env -D</code></li>
-<li>使用<br><code>npx babel x.js --out-dir test -preset=@babel/preset-env</code></li>
+<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
+<span id="more"></span>
+
+<ul>
+<li><strong>配置方式</strong><br><br>新建一个<strong>webpack.config.js</strong>文件<br><br>module.rules的配置如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const &#123; options &#125; = require(&#x27;less&#x27;);</span><br><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &quot;./src/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    //获取当前文件的路径 </span><br><span class="line">    path: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">    filename: &quot;build.js&quot;,</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/, //正则表达式</span><br><span class="line">        // 1.loader的语法(语法糖)</span><br><span class="line">        // loader: &quot;css-loader&quot;,</span><br><span class="line"></span><br><span class="line">        // 2.use,完整写法</span><br><span class="line">        // 可以添加其他参数</span><br><span class="line">        use: [</span><br><span class="line">          &#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+有不太清楚的地方我都进行了注释。</li>
+</ul>
+<p><em><strong>此时css在代码界面并没有生效,css-loader只是负责将.css文件进行解析，并不会插入到界面中，此时还需要另外一个loader——style-loader。</strong></em></p>
+<h2 id="2、style-loader"><a href="#2、style-loader" class="headerlink" title="2、style-loader"></a>2、style-loader</h2><blockquote>
+<p>style-loader的安装</p>
+</blockquote>
+<p><code>npm install style-loader -D</code></p>
+<blockquote>
+<p>style-loader的使用(同css-loader)</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use: [</span><br><span class="line">	// 执行顺序应该是先css，然后style</span><br><span class="line">	// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">	&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">	&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="3、lessc、less-loader"><a href="#3、lessc、less-loader" class="headerlink" title="3、lessc、less-loader"></a>3、lessc、less-loader</h2><ul>
+<li>lessc</li>
+</ul>
+<p>lessc 独立的工具,与webpack没什么关系，主要用途就是把less转成css<br><br>全局/局部安装:<br><br><code>npm install less -g/-D</code></p>
+<p><em><strong>将lessc和less文件进行结合，需要less-loader插件。</strong></em></p>
+<ul>
+<li>less-loader</li>
+</ul>
+<p>全局/局部安装：<br><br><code>npm install lee-loader -g/-D</code><br><br>单独转换一个less文件命令：<br><code>npx lessc &quot;地址&quot; &quot;地址&quot;</code></p>
+<h2 id="4、postcss、postcss-loader"><a href="#4、postcss、postcss-loader" class="headerlink" title="4、postcss、postcss-loader"></a>4、postcss、postcss-loader</h2><ul>
+<li><strong>直接使用postCSS</strong><br><blockquote>
+<p>安装 <code>npm install postcss postcss-cli -D</code><br></p>
+</blockquote>
+</li>
 </ul>
 <blockquote>
-<p>将babel和webpack联系起来使用  </p>
+<p>安装插件<br><em>自动添加浏览器前缀</em><br><code>npm install autoprefixer -D</code><br></p>
 </blockquote>
-<p>先安装babel-loader:<br><code>npm install babel-loader -D</code><br>安装后添加配置到,添加指定使用的插件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        plugins: [</span><br><span class="line">          &quot;@babel/plugin-transform-arrow-funcitons&quot;,</span><br><span class="line">          &quot;@babel/plugin-transform-block-scoping&quot;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用：<br><code>npx postcss --use autoprefixer -o demo.css test.css</code><br><br>解释：<br>–use + 需要使用的插件 -o (输出) demo.css(出口), test.css(入口)<br></p>
+</blockquote>
 <ul>
-<li><strong>使用预设(preset)</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        presets: [</span><br><span class="line">          [&quot;@babel/preset-env&quot;],</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-我们也可以将babel的配置信息独立放到一个文件中，抽离出来(babel.config.js):<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    [&quot;@babel/preset-env&quot;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>结合使用</strong><br><blockquote>
+<p>安装 <code>npm install postcss-loader -D</code><br></p>
+</blockquote>
+</li>
 </ul>
-<p><em><strong>tip：rc = runtime compiler(运行时编译)</strong></em></p>
+<blockquote>
+<p>使用 <br></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">	rules: [</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.css$/, //正则表达式</span><br><span class="line">			// 1.loader的语法(语法糖)</span><br><span class="line">			// loader: &quot;css-loader&quot;,</span><br><span class="line">			// 2.use,完整写法</span><br><span class="line">			// 可以添加其他参数</span><br><span class="line">			use: [</span><br><span class="line">				// 执行顺序应该是先css，然后style</span><br><span class="line">				// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">				// &quot;style-loader&quot;</span><br><span class="line">				&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">				&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">				&#123;</span><br><span class="line">					loader: &quot;postcss-loader&quot;,</span><br><span class="line">					options: &#123;</span><br><span class="line">						postcssOptions: &#123;</span><br><span class="line">							plugins: [</span><br><span class="line">								require(&quot;autoprefixer&quot;)</span><br><span class="line">							]</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.less/,</span><br><span class="line">			use: [</span><br><span class="line">				&quot;style-loader&quot;,</span><br><span class="line">				&quot;css-loader&quot;,</span><br><span class="line">				&quot;less-loader&quot;</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>融合</strong></li>
+</ul>
+<p>将<code>webpack.config.js</code>中module下，rules中的less的转化和css的转化写在一起。<br><br><strong>1、分开写法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.css/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">	test: /\.less/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2、融合</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(less|css)$/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="插件postcss-preset-env"><a href="#插件postcss-preset-env" class="headerlink" title="插件postcss-preset-env"></a><em><strong>插件postcss-preset-env</strong></em></h4>等同于已经内置了<code>autoprefixer</code>插件，这个插件功能更全.<br></li>
+</ul>
+<p><strong>功能</strong> 进行css的转换和适配，自动添加浏览器的前缀，css样式的重置，可以识别#12345678, “78”就等同于是透明度，RGBA.</p>
+<blockquote>
+<p>安装 <code>npm install postcss-preset-env -D</code></p>
+</blockquote>
+<p><em><strong>以上笔记均是个人根据coderwhy老师的课程所写。</strong></em></p>
 
           
         
       <!-- 
-        <h3 id="1-为什么用babel"><a href="#1-为什么用babel" class="headerlink" title="1.为什么用babel?"></a>1.为什么用babel?</h3><p><code>babel</code>是一个<span style="color: red">工具链</span>(<code>webpack</code>也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括<em>语法转换</em>，<em>源代码转换</em>等  </p>
-<h3 id="2-babel的使用"><a href="#2-babel的使用" class="headerlink" title="2.babel的使用"></a>2.babel的使用</h3><ul>
-<li>babel本身是一个独立的工具(和postcss一样)  </li>
-<li>安装库：<br>@babel/core - 核心代码<br>@babel/cli - 使我们在命令行使用babel(独立使用)<br><code>npx babel &quot;source-src&quot; --out-dir &quot;target-dist&quot;</code><br><code>npx babel &quot;源文件&quot; --out-dir &quot;目标文件&quot;</code></li>
-<li>1.<code>--out-dir</code>使输出一个文件夹，文件下存放有转换后的文件  </li>
-<li>2.<code>--out-file</code>使输出一个文件，输出的文件就在当前文件夹下  </li>
-<li>转换箭头使用的插件<br><code>npm install @babel/plugin-transform-arrow-funcitons -D</code>  </li>
-<li>转换语法<br><code>npx babel &quot;x.js&quot; --out-dir &quot;x.js&quot; --plugins=@babel/plugin-transform-arrow-functions</code>  </li>
-</ul>
-<p><strong>只能转换箭头函数</strong></p>
-<span id="more"></span>
+        <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
+<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
+<p>css-loader的安装</p>
+</blockquote>
+<p><code>npm install css-loader -D</code></p>
+<blockquote>
+<p>css-loader的使用</p>
+</blockquote>
 <ul>
-<li>转换定义的数组/字符串的插件<br><code>npm install @babel/plugin-transform-block-scoping -D</code>  </li>
+<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
 </ul>
-<p><strong>不仅使定义的数组字符串转变，同时也将箭头函数一起转换了</strong><br><em><strong>我个人在这两个插件一起使用的时候就报错，单独使用任何一个都没问题</strong></em>  </p>
-<h3 id="3-babel的预设"><a href="#3-babel的预设" class="headerlink" title="3.babel的预设"></a>3.babel的预设</h3><ul>
-<li>安装<br><code>npm install @babel/preset-env -D</code></li>
-<li>使用<br><code>npx babel x.js --out-dir test -preset=@babel/preset-env</code></li>
+<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
+<span id="more"></span>
+
+<ul>
+<li><strong>配置方式</strong><br><br>新建一个<strong>webpack.config.js</strong>文件<br><br>module.rules的配置如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const &#123; options &#125; = require(&#x27;less&#x27;);</span><br><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &quot;./src/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    //获取当前文件的路径 </span><br><span class="line">    path: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">    filename: &quot;build.js&quot;,</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/, //正则表达式</span><br><span class="line">        // 1.loader的语法(语法糖)</span><br><span class="line">        // loader: &quot;css-loader&quot;,</span><br><span class="line"></span><br><span class="line">        // 2.use,完整写法</span><br><span class="line">        // 可以添加其他参数</span><br><span class="line">        use: [</span><br><span class="line">          &#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+有不太清楚的地方我都进行了注释。</li>
+</ul>
+<p><em><strong>此时css在代码界面并没有生效,css-loader只是负责将.css文件进行解析，并不会插入到界面中，此时还需要另外一个loader——style-loader。</strong></em></p>
+<h2 id="2、style-loader"><a href="#2、style-loader" class="headerlink" title="2、style-loader"></a>2、style-loader</h2><blockquote>
+<p>style-loader的安装</p>
+</blockquote>
+<p><code>npm install style-loader -D</code></p>
+<blockquote>
+<p>style-loader的使用(同css-loader)</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use: [</span><br><span class="line">	// 执行顺序应该是先css，然后style</span><br><span class="line">	// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">	&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">	&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h2 id="3、lessc、less-loader"><a href="#3、lessc、less-loader" class="headerlink" title="3、lessc、less-loader"></a>3、lessc、less-loader</h2><ul>
+<li>lessc</li>
+</ul>
+<p>lessc 独立的工具,与webpack没什么关系，主要用途就是把less转成css<br><br>全局/局部安装:<br><br><code>npm install less -g/-D</code></p>
+<p><em><strong>将lessc和less文件进行结合，需要less-loader插件。</strong></em></p>
+<ul>
+<li>less-loader</li>
+</ul>
+<p>全局/局部安装：<br><br><code>npm install lee-loader -g/-D</code><br><br>单独转换一个less文件命令：<br><code>npx lessc &quot;地址&quot; &quot;地址&quot;</code></p>
+<h2 id="4、postcss、postcss-loader"><a href="#4、postcss、postcss-loader" class="headerlink" title="4、postcss、postcss-loader"></a>4、postcss、postcss-loader</h2><ul>
+<li><strong>直接使用postCSS</strong><br><blockquote>
+<p>安装 <code>npm install postcss postcss-cli -D</code><br></p>
+</blockquote>
+</li>
 </ul>
 <blockquote>
-<p>将babel和webpack联系起来使用  </p>
+<p>安装插件<br><em>自动添加浏览器前缀</em><br><code>npm install autoprefixer -D</code><br></p>
 </blockquote>
-<p>先安装babel-loader:<br><code>npm install babel-loader -D</code><br>安装后添加配置到,添加指定使用的插件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        plugins: [</span><br><span class="line">          &quot;@babel/plugin-transform-arrow-funcitons&quot;,</span><br><span class="line">          &quot;@babel/plugin-transform-block-scoping&quot;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用：<br><code>npx postcss --use autoprefixer -o demo.css test.css</code><br><br>解释：<br>–use + 需要使用的插件 -o (输出) demo.css(出口), test.css(入口)<br></p>
+</blockquote>
 <ul>
-<li><strong>使用预设(preset)</strong><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rules: [</span><br><span class="line">  &#123;</span><br><span class="line">    test: /\.m?js$/,</span><br><span class="line">    use: &#123;</span><br><span class="line">      loader: &quot;babel-loader&quot;,</span><br><span class="line">      options: &#123;</span><br><span class="line">        presets: [</span><br><span class="line">          [&quot;@babel/preset-env&quot;],</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-我们也可以将babel的配置信息独立放到一个文件中，抽离出来(babel.config.js):<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    [&quot;@babel/preset-env&quot;]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><strong>结合使用</strong><br><blockquote>
+<p>安装 <code>npm install postcss-loader -D</code><br></p>
+</blockquote>
+</li>
 </ul>
-<p><em><strong>tip：rc = runtime compiler(运行时编译)</strong></em></p>
+<blockquote>
+<p>使用 <br></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">	rules: [</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.css$/, //正则表达式</span><br><span class="line">			// 1.loader的语法(语法糖)</span><br><span class="line">			// loader: &quot;css-loader&quot;,</span><br><span class="line">			// 2.use,完整写法</span><br><span class="line">			// 可以添加其他参数</span><br><span class="line">			use: [</span><br><span class="line">				// 执行顺序应该是先css，然后style</span><br><span class="line">				// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">				// &quot;style-loader&quot;</span><br><span class="line">				&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">				&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">				&#123;</span><br><span class="line">					loader: &quot;postcss-loader&quot;,</span><br><span class="line">					options: &#123;</span><br><span class="line">						postcssOptions: &#123;</span><br><span class="line">							plugins: [</span><br><span class="line">								require(&quot;autoprefixer&quot;)</span><br><span class="line">							]</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.less/,</span><br><span class="line">			use: [</span><br><span class="line">				&quot;style-loader&quot;,</span><br><span class="line">				&quot;css-loader&quot;,</span><br><span class="line">				&quot;less-loader&quot;</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>融合</strong></li>
+</ul>
+<p>将<code>webpack.config.js</code>中module下，rules中的less的转化和css的转化写在一起。<br><br><strong>1、分开写法</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.css/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">	test: /\.less/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2、融合</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(less|css)$/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="插件postcss-preset-env"><a href="#插件postcss-preset-env" class="headerlink" title="插件postcss-preset-env"></a><em><strong>插件postcss-preset-env</strong></em></h4>等同于已经内置了<code>autoprefixer</code>插件，这个插件功能更全.<br></li>
+</ul>
+<p><strong>功能</strong> 进行css的转换和适配，自动添加浏览器的前缀，css样式的重置，可以识别#12345678, “78”就等同于是透明度，RGBA.</p>
+<blockquote>
+<p>安装 <code>npm install postcss-preset-env -D</code></p>
+</blockquote>
+<p><em><strong>以上笔记均是个人根据coderwhy老师的课程所写。</strong></em></p>
 
        -->
 
@@ -375,7 +463,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">babel</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
         		</li>
       		
 		</ul>
@@ -442,7 +530,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/02/26/babel/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8" alt="微信分享二维码">
     </div>
 </div>
 
@@ -457,7 +545,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/02/26/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -467,8 +555,8 @@
     </a>
   
   
-    <a href="/2022/02/25/webpack%E2%80%94plugin/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">webpack—plugin</div>
+    <a href="/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack_基本使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -495,7 +583,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8babel"><span class="toc-number">1.</span> <span class="toc-text">1.为什么用babel?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-babel%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2.babel的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-babel%E7%9A%84%E9%A2%84%E8%AE%BE"><span class="toc-number">3.</span> <span class="toc-text">3.babel的预设</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#loader"><span class="toc-number">1.</span> <span class="toc-text">loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81css-loader"><span class="toc-number">2.</span> <span class="toc-text">1、css-loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81style-loader"><span class="toc-number">3.</span> <span class="toc-text">2、style-loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81lessc%E3%80%81less-loader"><span class="toc-number">4.</span> <span class="toc-text">3、lessc、less-loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81postcss%E3%80%81postcss-loader"><span class="toc-number">5.</span> <span class="toc-text">4、postcss、postcss-loader</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6postcss-preset-env"><span class="toc-number">5.0.1.</span> <span class="toc-text">插件postcss-preset-env</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -530,7 +618,7 @@ if(true){
     repo: 'blog',
     owner: 'beiCheNzero',
     admin: ['beiCheNzero'],
-    id: 'Sat Feb 26 2022 18:53:59 GMT+0800',
+    id: 'Mon Feb 28 2022 22:16:07 GMT+0800',
     distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -696,19 +784,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -720,15 +804,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
             
             <div class="clearfix"></div>

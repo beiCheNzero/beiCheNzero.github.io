@@ -76,17 +76,17 @@
 									</a></li>
 								
 								<li><a href="/categories/vue">
-										VUE
+										vue
 									</a></li>
 								
-								<li><a href="/categories/%E5%AD%A6%E4%B9%A0">
-										学习
+								<li><a href="/categories/webpack">
+										webpack
 									</a></li>
 								
 						</ul>
 					</nav>
 					<nav>
-						总文章数 13
+						总文章数 15
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -201,9 +201,9 @@
 		        
 					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/vue">VUE</a></li>
+					<li style="width: 25%"><a href="/categories/vue">vue</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/%E5%AD%A6%E4%B9%A0">学习</a></li>
+					<li style="width: 25%"><a href="/categories/webpack">webpack</a></li>
 		        
 				</ul>
 			</nav>
@@ -220,14 +220,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-nvm的安装-windows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-essay/vue源码的打包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">nvm的安装-windows</a>
+      <a class="article-title" href="/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85">vue源码的打包</a>
     </h1>
   
 
@@ -242,9 +242,9 @@
 
 
         
-        <a href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" class="archive-article-date">
-	<time datetime="2021-10-09T14:01:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2021-10-09
+        <a href="/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85" class="archive-article-date">
+	<time datetime="2022-02-28T14:17:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
 	</time>
 </a>
 
@@ -258,7 +258,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">400字</span>
+      <span class="post-count">798字</span>
     </span>
   </span>
 
@@ -267,7 +267,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -277,29 +277,19 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<h2 id="下载nvm的安装包"><a href="#下载nvm的安装包" class="headerlink" title="下载nvm的安装包"></a>下载nvm的安装包</h2><p><strong>一定要下载1.1.7版本的nvm！</strong><br><strong>(目前最新是1.1.9版本,可以使用1.1.9,也比较稳定)</strong></p>
-<ul>
-<li>事先需要卸载原有的node.js<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></li>
-<li>下载后双击exe文件安装</li>
-<li>安装后在环境变量中会默认看到<br><img src="/images/photo_01.png"></li>
-<li>用户变量和系统变量中都会有</li>
+          		<h3 id="vue源码打包"><a href="#vue源码打包" class="headerlink" title="vue源码打包"></a>vue源码打包</h3><ul>
+<li>1.导入<br><code>import &#123; createApp &#125; from &quot;vue&quot;</code></li>
+<li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
 </ul>
-<p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
           
         
       <!-- 
-        <h2 id="下载nvm的安装包"><a href="#下载nvm的安装包" class="headerlink" title="下载nvm的安装包"></a>下载nvm的安装包</h2><p><strong>一定要下载1.1.7版本的nvm！</strong><br><strong>(目前最新是1.1.9版本,可以使用1.1.9,也比较稳定)</strong></p>
-<ul>
-<li>事先需要卸载原有的node.js<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></li>
-<li>下载后双击exe文件安装</li>
-<li>安装后在环境变量中会默认看到<br><img src="/images/photo_01.png"></li>
-<li>用户变量和系统变量中都会有</li>
+        <h3 id="vue源码打包"><a href="#vue源码打包" class="headerlink" title="vue源码打包"></a>vue源码打包</h3><ul>
+<li>1.导入<br><code>import &#123; createApp &#125; from &quot;vue&quot;</code></li>
+<li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
 </ul>
-<p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/#more">more >></a>
+          <a class="article-more-a" href="/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85#more">more >></a>
         
        -->
 
@@ -308,22 +298,22 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nvm</a>
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">展开全文 >></a>
+          <a class="article-more-a" href="/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85">展开全文 >></a>
         </p>
       
         
@@ -356,14 +346,14 @@
 
 
   
-    <article id="post-electron" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-webpack/webpack-插件的安装及使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/10/09/electron/">electron创建项目</a>
+      <a class="article-title" href="/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8">webpack-插件的安装及使用</a>
     </h1>
   
 
@@ -378,9 +368,9 @@
 
 
         
-        <a href="/2021/10/09/electron/" class="archive-article-date">
-	<time datetime="2021-10-09T09:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2021-10-09
+        <a href="/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8" class="archive-article-date">
+	<time datetime="2022-02-28T14:16:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
 	</time>
 </a>
 
@@ -394,7 +384,160 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">76字</span>
+      <span class="post-count">829字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
+<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
+<p>css-loader的安装</p>
+</blockquote>
+<p><code>npm install css-loader -D</code></p>
+<blockquote>
+<p>css-loader的使用</p>
+</blockquote>
+<ul>
+<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
+</ul>
+<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
+          
+        
+      <!-- 
+        <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
+<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
+<p>css-loader的安装</p>
+</blockquote>
+<p><code>npm install css-loader -D</code></p>
+<blockquote>
+<p>css-loader的使用</p>
+</blockquote>
+<ul>
+<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
+</ul>
+<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
+        
+          <a class="article-more-a" href="/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-webpack/webpack_基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">webpack_基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" class="archive-article-date">
+	<time datetime="2022-02-28T14:14:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">314字</span>
     </span>
   </span>
 
@@ -413,30 +556,204 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          
-            <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+          		<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p><strong>环境</strong></p>
+<blockquote>
+<p>1.安装nodejs</p>
+</blockquote>
+<p>在终端中可以通过<code>node -v</code>,<code>npm -v</code>来是否安装成功</p>
+<blockquote>
+<p>2.npm是跟随nodejs一起安装的</p>
+</blockquote>
+<ul>
+<li>可以通过nvm进行node安装以及管理。</li>
+<li>nvm的教程-地址:<a target="_blank" rel="noopener" href="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" alt>nvm的安装-windows</a><blockquote>
+<p>3.webpack全局安装</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>webpack和webpack-cli是一起安装的，方便项目使用</strong></p>
+<p><code>npm install webpack webpack-cli -g</code></p>
+<blockquote>
+<p>4.执行<code>npm init (-y)</code></p>
+</blockquote>
+<ul>
+<li>这里的-y是默认全都yes执行</li>
+<li>然后列表文件会多一个<strong>package.json</strong></li>
+<li>很多配置都写在这个文件里面</li>
+</ul>
           
         
       <!-- 
-        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
+        <h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p><strong>环境</strong></p>
+<blockquote>
+<p>1.安装nodejs</p>
+</blockquote>
+<p>在终端中可以通过<code>node -v</code>,<code>npm -v</code>来是否安装成功</p>
+<blockquote>
+<p>2.npm是跟随nodejs一起安装的</p>
+</blockquote>
+<ul>
+<li>可以通过nvm进行node安装以及管理。</li>
+<li>nvm的教程-地址:<a target="_blank" rel="noopener" href="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" alt>nvm的安装-windows</a><blockquote>
+<p>3.webpack全局安装</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>webpack和webpack-cli是一起安装的，方便项目使用</strong></p>
+<p><code>npm install webpack webpack-cli -g</code></p>
+<blockquote>
+<p>4.执行<code>npm init (-y)</code></p>
+</blockquote>
+<ul>
+<li>这里的-y是默认全都yes执行</li>
+<li>然后列表文件会多一个<strong>package.json</strong></li>
+<li>很多配置都写在这个文件里面</li>
+</ul>
+        
+          <a class="article-more-a" href="/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8#more">more >></a>
+        
+       -->
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-webpack/webpack_plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/page">webpack_pligin</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/page" class="archive-article-date">
+	<time datetime="2022-02-28T14:11:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">485字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="插件plugin"><a href="#插件plugin" class="headerlink" title="插件plugin"></a>插件plugin</h2><blockquote>
+<p>补充<br></p>
+</blockquote>
+<p>不需要安装，直接引入就好<br><code>const path = require(&#39;path&#39;)</code><br>获取当前文件所在位置，以<code>webpack.config.js</code>文件的父级文件夹为准，具体视情况而定</p>
+<ul>
+<li><strong>用法</strong><br><br><code>path.resolve(__dirname, &quot;./build&quot;)</code><br>表示路径在你父级文件下的build文件</li>
+</ul>
+<blockquote>
+<p>clean-webpack-plugin</p>
+</blockquote>
+<ul>
+<li><p><strong>tip：以下的插件都为局部安装，如需全局安装，-D改成-g就好，一般不建议全局安装</strong></p></li></ul>
+          
+        
+      <!-- 
+        <h2 id="插件plugin"><a href="#插件plugin" class="headerlink" title="插件plugin"></a>插件plugin</h2><blockquote>
+<p>补充<br></p>
+</blockquote>
+<p>不需要安装，直接引入就好<br><code>const path = require(&#39;path&#39;)</code><br>获取当前文件所在位置，以<code>webpack.config.js</code>文件的父级文件夹为准，具体视情况而定</p>
+<ul>
+<li><strong>用法</strong><br><br><code>path.resolve(__dirname, &quot;./build&quot;)</code><br>表示路径在你父级文件下的build文件</li>
+</ul>
+<blockquote>
+<p>clean-webpack-plugin</p>
+</blockquote>
+<ul>
+<li><p><strong>tip：以下的插件都为局部安装，如需全局安装，-D改成-g就好，一般不建议全局安装</strong></p></li></ul>
+        
+          <a class="article-more-a" href="/page#more">more >></a>
+        
        -->
 
       
@@ -449,7 +766,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
         		</li>
       		
 		</ul>
@@ -461,7 +778,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
+        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -470,7 +787,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/10/09/electron/">展开全文 >></a>
+          <a class="article-more-a" href="/page">展开全文 >></a>
         </p>
       
         
@@ -730,19 +1047,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -754,15 +1067,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
             
             <div class="clearfix"></div>

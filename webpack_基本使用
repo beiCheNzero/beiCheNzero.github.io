@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>electron创建项目 | 北辰的个人博客</title>
+  <title>webpack_基本使用 | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用脚手架创建一个新的项目 创建一个electron的基础模板1npm create electron-app my-app 进入项目目录下1cd my-app 运行项目1npm start  打包程序 打包程序，变为可运行exe程序1npm run make 打包程序，变为可运行exe程序1npm run dist">
+  <meta name="description" content="安装webpack环境  1.安装nodejs  在终端中可以通过node -v,npm -v来是否安装成功  2.npm是跟随nodejs一起安装的   可以通过nvm进行node安装以及管理。 nvm的教程-地址:nvm的安装-windows 3.webpack全局安装    webpack和webpack-cli是一起安装的，方便项目使用 npm install webpack webpac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="electron创建项目">
-<meta property="og:url" content="http://example.com/2021/10/09/electron/index.html">
+<meta property="og:title" content="webpack_基本使用">
+<meta property="og:url" content="http://example.com/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">
 <meta property="og:site_name" content="北辰的个人博客">
-<meta property="og:description" content="利用脚手架创建一个新的项目 创建一个electron的基础模板1npm create electron-app my-app 进入项目目录下1cd my-app 运行项目1npm start  打包程序 打包程序，变为可运行exe程序1npm run make 打包程序，变为可运行exe程序1npm run dist">
+<meta property="og:description" content="安装webpack环境  1.安装nodejs  在终端中可以通过node -v,npm -v来是否安装成功  2.npm是跟随nodejs一起安装的   可以通过nvm进行node安装以及管理。 nvm的教程-地址:nvm的安装-windows 3.webpack全局安装    webpack和webpack-cli是一起安装的，方便项目使用 npm install webpack webpac">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-10-09T09:14:23.000Z">
-<meta property="article:modified_time" content="2022-02-24T13:33:23.853Z">
+<meta property="article:published_time" content="2022-02-28T14:14:21.000Z">
+<meta property="article:modified_time" content="2022-02-28T15:01:16.088Z">
 <meta property="article:author" content="北辰">
-<meta property="article:tag" content="electron">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="北辰的个人博客" type="application/atom+xml">
@@ -81,17 +80,17 @@
 									</a></li>
 								
 								<li><a href="/categories/vue">
-										VUE
+										vue
 									</a></li>
 								
-								<li><a href="/categories/%E5%AD%A6%E4%B9%A0">
-										学习
+								<li><a href="/categories/webpack">
+										webpack
 									</a></li>
 								
 						</ul>
 					</nav>
 					<nav>
-						总文章数 13
+						总文章数 15
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -206,9 +205,9 @@
 		        
 					<li style="width: 25%"><a href="/archives/index.html">归档</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/vue">VUE</a></li>
+					<li style="width: 25%"><a href="/categories/vue">vue</a></li>
 		        
-					<li style="width: 25%"><a href="/categories/%E5%AD%A6%E4%B9%A0">学习</a></li>
+					<li style="width: 25%"><a href="/categories/webpack">webpack</a></li>
 		        
 				</ul>
 			</nav>
@@ -226,14 +225,14 @@
             <!-- 置顶 -->
 
 
-<article id="post-electron" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-webpack/webpack_基本使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      electron创建项目
+      webpack_基本使用
     </h1>
   
 
@@ -264,9 +263,9 @@
 
 
         
-        <a href="/2021/10/09/electron/" class="archive-article-date">
-	<time datetime="2021-10-09T09:14:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2021-10-09
+        <a href="/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" class="archive-article-date">
+	<time datetime="2022-02-28T14:14:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
 	</time>
 </a>
 
@@ -280,7 +279,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">76字</span>
+      <span class="post-count">314字</span>
     </span>
   </span>
 
@@ -300,28 +299,100 @@
       
         
           
-            <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
+            <h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p><strong>环境</strong></p>
+<blockquote>
+<p>1.安装nodejs</p>
+</blockquote>
+<p>在终端中可以通过<code>node -v</code>,<code>npm -v</code>来是否安装成功</p>
+<blockquote>
+<p>2.npm是跟随nodejs一起安装的</p>
+</blockquote>
+<ul>
+<li>可以通过nvm进行node安装以及管理。</li>
+<li>nvm的教程-地址:<a target="_blank" rel="noopener" href="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" alt>nvm的安装-windows</a><blockquote>
+<p>3.webpack全局安装</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>webpack和webpack-cli是一起安装的，方便项目使用</strong></p>
+<p><code>npm install webpack webpack-cli -g</code></p>
+<blockquote>
+<p>4.执行<code>npm init (-y)</code></p>
+</blockquote>
+<ul>
+<li>这里的-y是默认全都yes执行</li>
+<li>然后列表文件会多一个<strong>package.json</strong></li>
+<li>很多配置都写在这个文件里面</li>
+</ul>
+<span id="more"></span>
+
+<blockquote>
+<p>5.webpack局部安装</p>
+</blockquote>
+<p>简写：<code>npm install webpack webpack-cli -D</code></p>
+<p>展开：<code>npm install webpack webpack-cli --save-dev</code></p>
+<h2 id="webpack的基本使用"><a href="#webpack的基本使用" class="headerlink" title="webpack的基本使用"></a>webpack的基本使用</h2><blockquote>
+<p>1.<code>npx webpack</code></p>
+</blockquote>
+<p>执行后会出现打包的文件，默认在终端文件下的一个文件，文件名<strong>dist</strong></p>
+<blockquote>
+<p>2.修改打包方式</p>
+</blockquote>
+<p>修改package.json文件的script<br><br>添加<code>&quot;build&quot;: &quot;webpack&quot;</code><br><br>在运行<code>npm run build</code>时，会默认在当前文件夹下的src下寻找index.js文件进行打包，否则会报错。</p>
+<p>如果入口文件非默认(<code>index.js</code>)，则可以指定入口/出口<br><br><code>npx webpack --entry ./src/main.js --output-path ./build</code></p>
+<ul>
+<li><em><strong>webpack默认支持打包js</strong></em></li>
+<li><em><strong>如果需要webpack能打包css，则需要进行其他设置，详情请移步<a target="_blank" rel="noopener" href="https://beichenzero.github.io/2022/02/23/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">webpack-插件的安装及使用</a></strong></em></li>
+</ul>
 
           
         
       <!-- 
-        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
+        <h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p><strong>环境</strong></p>
+<blockquote>
+<p>1.安装nodejs</p>
+</blockquote>
+<p>在终端中可以通过<code>node -v</code>,<code>npm -v</code>来是否安装成功</p>
+<blockquote>
+<p>2.npm是跟随nodejs一起安装的</p>
+</blockquote>
+<ul>
+<li>可以通过nvm进行node安装以及管理。</li>
+<li>nvm的教程-地址:<a target="_blank" rel="noopener" href="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" alt>nvm的安装-windows</a><blockquote>
+<p>3.webpack全局安装</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>webpack和webpack-cli是一起安装的，方便项目使用</strong></p>
+<p><code>npm install webpack webpack-cli -g</code></p>
+<blockquote>
+<p>4.执行<code>npm init (-y)</code></p>
+</blockquote>
+<ul>
+<li>这里的-y是默认全都yes执行</li>
+<li>然后列表文件会多一个<strong>package.json</strong></li>
+<li>很多配置都写在这个文件里面</li>
+</ul>
+<span id="more"></span>
+
+<blockquote>
+<p>5.webpack局部安装</p>
+</blockquote>
+<p>简写：<code>npm install webpack webpack-cli -D</code></p>
+<p>展开：<code>npm install webpack webpack-cli --save-dev</code></p>
+<h2 id="webpack的基本使用"><a href="#webpack的基本使用" class="headerlink" title="webpack的基本使用"></a>webpack的基本使用</h2><blockquote>
+<p>1.<code>npx webpack</code></p>
+</blockquote>
+<p>执行后会出现打包的文件，默认在终端文件下的一个文件，文件名<strong>dist</strong></p>
+<blockquote>
+<p>2.修改打包方式</p>
+</blockquote>
+<p>修改package.json文件的script<br><br>添加<code>&quot;build&quot;: &quot;webpack&quot;</code><br><br>在运行<code>npm run build</code>时，会默认在当前文件夹下的src下寻找index.js文件进行打包，否则会报错。</p>
+<p>如果入口文件非默认(<code>index.js</code>)，则可以指定入口/出口<br><br><code>npx webpack --entry ./src/main.js --output-path ./build</code></p>
+<ul>
+<li><em><strong>webpack默认支持打包js</strong></em></li>
+<li><em><strong>如果需要webpack能打包css，则需要进行其他设置，详情请移步<a target="_blank" rel="noopener" href="https://beichenzero.github.io/2022/02/23/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">webpack-插件的安装及使用</a></strong></em></li>
+</ul>
 
        -->
 
@@ -330,24 +401,13 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
+        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -402,7 +462,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/10/09/electron/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" alt="微信分享二维码">
     </div>
 </div>
 
@@ -417,18 +477,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          nvm的安装-windows
+          webpack-插件的安装及使用
         
       </div>
     </a>
   
   
-    <a href="/2021/10/01/test%E5%9B%BE%E7%89%87/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">test图片</div>
+    <a href="/page" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack_pligin</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -455,7 +515,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">利用脚手架创建一个新的项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">打包程序</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85webpack"><span class="toc-number">1.</span> <span class="toc-text">安装webpack</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webpack%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">webpack的基本使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -490,7 +550,7 @@ if(true){
     repo: 'blog',
     owner: 'beiCheNzero',
     admin: ['beiCheNzero'],
-    id: 'Sat Oct 09 2021 17:14:23 GMT+0800',
+    id: 'Mon Feb 28 2022 22:14:21 GMT+0800',
     distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -656,19 +716,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,15 +736,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
             
             <div class="clearfix"></div>
