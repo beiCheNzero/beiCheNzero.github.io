@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com/blog">
-  <title>vite的基本使用 | 北辰的个人博客</title>
+  <title>webpack_pligin | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vite安装 1.安装   全局安装npm install vite -g 局部安装npm install vite -Dnpx vite  vite对css的处理默认对css的加载  1.安装lessnpm install less -D   2.安装postcssnpm install postcss -D还需要安装npm install postcss-preset-env -D">
+  <meta name="description" content="插件plugin 补充  不需要安装，直接引入就好const path &#x3D; require(&#39;path&#39;)获取当前文件所在位置，以webpack.config.js文件的父级文件夹为准，具体视情况而定  用法path.resolve(__dirname, &quot;.&#x2F;build&quot;)表示路径在你父级文件下的build文件   clean-webpack-plugin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vite的基本使用">
-<meta property="og:url" content="http://example.com/blog/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8">
+<meta property="og:title" content="webpack_pligin">
+<meta property="og:url" content="http://example.com/blog/2022/02/28/webpack/webpack_plugin/">
 <meta property="og:site_name" content="北辰的个人博客">
-<meta property="og:description" content="vite安装 1.安装   全局安装npm install vite -g 局部安装npm install vite -Dnpx vite  vite对css的处理默认对css的加载  1.安装lessnpm install less -D   2.安装postcssnpm install postcss -D还需要安装npm install postcss-preset-env -D">
+<meta property="og:description" content="插件plugin 补充  不需要安装，直接引入就好const path &#x3D; require(&#39;path&#39;)获取当前文件所在位置，以webpack.config.js文件的父级文件夹为准，具体视情况而定  用法path.resolve(__dirname, &quot;.&#x2F;build&quot;)表示路径在你父级文件下的build文件   clean-webpack-plugin">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-28T14:21:27.000Z">
-<meta property="article:modified_time" content="2022-02-28T15:00:16.711Z">
+<meta property="article:published_time" content="2022-02-28T14:11:07.000Z">
+<meta property="article:modified_time" content="2022-03-01T14:20:17.346Z">
 <meta property="article:author" content="北辰">
-<meta property="article:tag" content="vite">
+<meta property="article:tag" content="plugin">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="北辰的个人博客" type="application/atom+xml">
@@ -50,7 +50,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<a href="/" class="profilepic">
-				<img src="/images/beichen.jpg" class="js-avatar">
+				<img src="images/beichen.jpg" class="js-avatar">
 			</a>
 			<hgroup>
 				<h1 class="header-author">
@@ -166,7 +166,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/beichen.jpg" class="js-avatar">
+				<img src="images/beichen.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">北辰</h1>
@@ -226,14 +226,14 @@
             <!-- 置顶 -->
 
 
-<article id="post-随笔/vite的基本使用" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-webpack/webpack_plugin" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vite的基本使用
+      webpack_pligin
     </h1>
   
 
@@ -264,8 +264,8 @@
 
 
         
-        <a href="/blog/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" class="archive-article-date">
-	<time datetime="2022-02-28T14:21:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+        <a href="/blog/2022/02/28/webpack/webpack_plugin/" class="archive-article-date">
+	<time datetime="2022-02-28T14:11:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-02-28
 	</time>
 </a>
@@ -280,7 +280,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">387字</span>
+      <span class="post-count">485字</span>
     </span>
   </span>
 
@@ -289,7 +289,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -300,142 +300,104 @@
       
         
           
-            <h2 id="vite安装"><a href="#vite安装" class="headerlink" title="vite安装"></a>vite安装</h2><blockquote>
-<p><strong>1.安装</strong></p>
+            <h2 id="插件plugin"><a href="#插件plugin" class="headerlink" title="插件plugin"></a>插件plugin</h2><blockquote>
+<p>补充<br></p>
+</blockquote>
+<p>不需要安装，直接引入就好<br><code>const path = require(&#39;path&#39;)</code><br>获取当前文件所在位置，以<code>webpack.config.js</code>文件的父级文件夹为准，具体视情况而定</p>
+<ul>
+<li><strong>用法</strong><br><br><code>path.resolve(__dirname, &quot;./build&quot;)</code><br>表示路径在你父级文件下的build文件</li>
+</ul>
+<blockquote>
+<p>clean-webpack-plugin</p>
 </blockquote>
 <ul>
-<li>全局安装<br><code>npm install vite -g</code></li>
-<li>局部安装<br><code>npm install vite -D</code><br>npx vite</li>
+<li><p><strong>tip：以下的插件都为局部安装，如需全局安装，-D改成-g就好，一般不建议全局安装</strong></p>
+<span id="more"></span></li>
+<li><p><strong>安装</strong><br><br><code>npm install clean-webpack-plugin -D</code></p>
+</li>
+<li><p><strong>作用</strong><br><br>让你的项目打包更方便。<br><br>每次打包之前先把之前的文件删掉，避免每次打包之前需要删除旧的打包文件。会默认读取output里面需要删除的文件</p>
+</li>
+<li><p><strong>用法</strong><br><br>先导入：<br><code>const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);</code><br>在webpack.config.js的导出中，具体代码如下：</p>
+</li>
 </ul>
-<h2 id="vite对css的处理"><a href="#vite对css的处理" class="headerlink" title="vite对css的处理"></a>vite对css的处理</h2><p><strong>默认对css的加载</strong></p>
-<ul>
-<li>1.安装less<br><code>npm install less -D</code>  </li>
-<li>2.安装postcss<br><code>npm install postcss -D</code><br>还需要安装<br><code>npm install postcss-preset-env -D</code>  </li>
-</ul>
-<span id="more"></span>
-<p>配置<em>postcss.config.js</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.export = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    require(&quot;postcss-preset-env&quot;),</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em><strong>插件没有执行顺序</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">	new CleanWebpackPlugin(),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<p><strong>vite对ts文件也是支持的</strong></p>
-<p><strong>vite对vue的支持</strong></p>
-<ul>
-<li>安装:<br><code>npm install vue@next -D</code></li>
-</ul>
-<p><em><strong>vite对vue提供第一优先级支持</strong></em></p>
-<ul>
-<li>1.Vue3单文件组件支持：<br><code>@vitejs/plugin-vue</code></li>
-<li>2.Vue3 JSX支持：<br><code>@vitejs/plugin-vue-jsx</code></li>
-<li>3.Vue2支持：<br><code>underfin/vite-plugin-vue2</code></li>
-</ul>
-<p>配置<em>vite.config.js</em>  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const vue = require(&#x27;@vitejs/plugin-vue&#x27;)</span><br><span class="line">//导出的是一个函数</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    vue()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>报错后继续安装：<br><code>npm install @vue/compiler-sfc -D</code>  </p>
 <blockquote>
-<p>打包  </p>
-</blockquote>
-<p><code>npx vite build</code><br>在package.json中配置script  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;serve&quot;: &quot;vite&quot;,</span><br><span class="line">&quot;build&quot;: &quot;vite build&quot;,</span><br><span class="line">&quot;preview&quot;: &quot;vite preview&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="vite的脚手架"><a href="#vite的脚手架" class="headerlink" title="vite的脚手架"></a>vite的脚手架</h2><p><em><strong>支持多种语言的框架</strong></em> </p>
-<ul>
-<li><p>安装：<br><code>npm install @vitejs/create-app -g/-D</code>  </p>
-</li>
-<li><p>创建项目：<br><code>create-app &quot;name&quot;</code>  </p>
-</li>
-<li><p>安装依赖：<br><code>npm install</code>  </p>
-</li>
-</ul>
-<h2 id="ESbuild解析"><a href="#ESbuild解析" class="headerlink" title="ESbuild解析"></a>ESbuild解析</h2><blockquote>
-<p>1.特点</p>
+<p>html-webpack-plugin</p>
 </blockquote>
 <ul>
-<li>超快的构建速度<a style="color: red">(极快)</a>，并且不需要缓存</li>
-<li>支持ES6和CommonJS的模块化</li>
-<li>支持ES6的Tree Shaking</li>
-<li>支持Go，JavaScript的API</li>
-<li>支持TypeScript,JSX等语法编译</li>
-<li>支持sourceMap</li>
-<li>支持代码压缩</li>
-<li>支持扩展其他插件</li>
+<li><strong>安装</strong><br><br><code>npm install html-webpack-plugin -D</code></li>
+<li><strong>作用</strong><br><br>对index.js进行打包，这样就不需要在父级文件夹下在创建一个index.js文件</li>
+<li><strong>用法</strong><br><br>导入：<br><code>const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;)</code></li>
 </ul>
+<p><em><strong>这里不同于CleanWebpackPlugin的是，不需要加大括号</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">	new HtmlWebpackPlugin(),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>其他用法</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new HtmlWebpackPlugin(),&#123;</span><br><span class="line">	template: &quot;./public/index.html&quot;,</span><br><span class="line">	title: &#x27;hahha&#x27;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<code>template</code>是引用的模板。<br><code>title</code>修改index.html的title标签(网页的标题)</li>
+</ul>
+<p><em><strong>如果是引用vue的模板，还需要引入<code>DefinePlugin</code>插件，此插件是webpack的内置插件,不需要安装，但是引入和使用都和其他插件一样</strong></em></p>
 <blockquote>
-<p>2.本身使用Go语言编写的，可以直接转化为机器码，无需经过字节码(ESbuild这么快？)</p>
+<p>copy-webpack-plugin</p>
 </blockquote>
-<blockquote>
-<p>3.ESbuild可以充分利用CPU的多内核，尽可能让他们饱和运行</p>
-</blockquote>
-<blockquote>
-<p>4.ES6的所有代码都是从零去编写的，没有借用外部的包</p>
-</blockquote>
+<ul>
+<li><strong>安装</strong><br><br><code>npm install copy-webpack-plugin -D</code></li>
+<li><strong>作用</strong><br><br>它是复制源树中已经存在的文件，作为构建过程的一部分。</li>
+<li><strong>用法</strong><br><br>导入：<br><code>const CopyWebpackPlugin = require(&quot;copy-webpack-plugin&quot;)</code><br><br>使用：<br><code>plugins: [new CopyWebpackPlugin()]</code></li>
+<li><strong>更多用法</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">plugins: [new CopyWebpackPlugin(&#123;</span><br><span class="line">	patterns: [</span><br><span class="line">		from: path.resolve(__dirname, &quot;./public&quot;),</span><br><span class="line">		to: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">		globOptions: &#123;</span><br><span class="line">			dot: true,</span><br><span class="line">			gitignore: true,</span><br><span class="line">			ignore: [</span><br><span class="line">				// public文件下需要有两个文件以上，才能正确执行</span><br><span class="line">				&quot;**/index.html&quot;,</span><br><span class="line">			],</span><br><span class="line">		&#125;   </span><br><span class="line">	]</span><br><span class="line">&#125;)]</span><br></pre></td></tr></table></figure></li>
+</ul>
 
           
         
       <!-- 
-        <h2 id="vite安装"><a href="#vite安装" class="headerlink" title="vite安装"></a>vite安装</h2><blockquote>
-<p><strong>1.安装</strong></p>
+        <h2 id="插件plugin"><a href="#插件plugin" class="headerlink" title="插件plugin"></a>插件plugin</h2><blockquote>
+<p>补充<br></p>
+</blockquote>
+<p>不需要安装，直接引入就好<br><code>const path = require(&#39;path&#39;)</code><br>获取当前文件所在位置，以<code>webpack.config.js</code>文件的父级文件夹为准，具体视情况而定</p>
+<ul>
+<li><strong>用法</strong><br><br><code>path.resolve(__dirname, &quot;./build&quot;)</code><br>表示路径在你父级文件下的build文件</li>
+</ul>
+<blockquote>
+<p>clean-webpack-plugin</p>
 </blockquote>
 <ul>
-<li>全局安装<br><code>npm install vite -g</code></li>
-<li>局部安装<br><code>npm install vite -D</code><br>npx vite</li>
+<li><p><strong>tip：以下的插件都为局部安装，如需全局安装，-D改成-g就好，一般不建议全局安装</strong></p>
+<span id="more"></span></li>
+<li><p><strong>安装</strong><br><br><code>npm install clean-webpack-plugin -D</code></p>
+</li>
+<li><p><strong>作用</strong><br><br>让你的项目打包更方便。<br><br>每次打包之前先把之前的文件删掉，避免每次打包之前需要删除旧的打包文件。会默认读取output里面需要删除的文件</p>
+</li>
+<li><p><strong>用法</strong><br><br>先导入：<br><code>const &#123; CleanWebpackPlugin &#125; = require(&quot;clean-webpack-plugin&quot;);</code><br>在webpack.config.js的导出中，具体代码如下：</p>
+</li>
 </ul>
-<h2 id="vite对css的处理"><a href="#vite对css的处理" class="headerlink" title="vite对css的处理"></a>vite对css的处理</h2><p><strong>默认对css的加载</strong></p>
-<ul>
-<li>1.安装less<br><code>npm install less -D</code>  </li>
-<li>2.安装postcss<br><code>npm install postcss -D</code><br>还需要安装<br><code>npm install postcss-preset-env -D</code>  </li>
-</ul>
-<span id="more"></span>
-<p>配置<em>postcss.config.js</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">module.export = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    require(&quot;postcss-preset-env&quot;),</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em><strong>插件没有执行顺序</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">	new CleanWebpackPlugin(),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
 
-<p><strong>vite对ts文件也是支持的</strong></p>
-<p><strong>vite对vue的支持</strong></p>
-<ul>
-<li>安装:<br><code>npm install vue@next -D</code></li>
-</ul>
-<p><em><strong>vite对vue提供第一优先级支持</strong></em></p>
-<ul>
-<li>1.Vue3单文件组件支持：<br><code>@vitejs/plugin-vue</code></li>
-<li>2.Vue3 JSX支持：<br><code>@vitejs/plugin-vue-jsx</code></li>
-<li>3.Vue2支持：<br><code>underfin/vite-plugin-vue2</code></li>
-</ul>
-<p>配置<em>vite.config.js</em>  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const vue = require(&#x27;@vitejs/plugin-vue&#x27;)</span><br><span class="line">//导出的是一个函数</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    vue()</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>报错后继续安装：<br><code>npm install @vue/compiler-sfc -D</code>  </p>
 <blockquote>
-<p>打包  </p>
-</blockquote>
-<p><code>npx vite build</code><br>在package.json中配置script  </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;serve&quot;: &quot;vite&quot;,</span><br><span class="line">&quot;build&quot;: &quot;vite build&quot;,</span><br><span class="line">&quot;preview&quot;: &quot;vite preview&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="vite的脚手架"><a href="#vite的脚手架" class="headerlink" title="vite的脚手架"></a>vite的脚手架</h2><p><em><strong>支持多种语言的框架</strong></em> </p>
-<ul>
-<li><p>安装：<br><code>npm install @vitejs/create-app -g/-D</code>  </p>
-</li>
-<li><p>创建项目：<br><code>create-app &quot;name&quot;</code>  </p>
-</li>
-<li><p>安装依赖：<br><code>npm install</code>  </p>
-</li>
-</ul>
-<h2 id="ESbuild解析"><a href="#ESbuild解析" class="headerlink" title="ESbuild解析"></a>ESbuild解析</h2><blockquote>
-<p>1.特点</p>
+<p>html-webpack-plugin</p>
 </blockquote>
 <ul>
-<li>超快的构建速度<a style="color: red">(极快)</a>，并且不需要缓存</li>
-<li>支持ES6和CommonJS的模块化</li>
-<li>支持ES6的Tree Shaking</li>
-<li>支持Go，JavaScript的API</li>
-<li>支持TypeScript,JSX等语法编译</li>
-<li>支持sourceMap</li>
-<li>支持代码压缩</li>
-<li>支持扩展其他插件</li>
+<li><strong>安装</strong><br><br><code>npm install html-webpack-plugin -D</code></li>
+<li><strong>作用</strong><br><br>对index.js进行打包，这样就不需要在父级文件夹下在创建一个index.js文件</li>
+<li><strong>用法</strong><br><br>导入：<br><code>const HtmlWebpackPlugin = require(&quot;html-webpack-plugin&quot;)</code></li>
 </ul>
+<p><em><strong>这里不同于CleanWebpackPlugin的是，不需要加大括号</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">	new HtmlWebpackPlugin(),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>其他用法</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new HtmlWebpackPlugin(),&#123;</span><br><span class="line">	template: &quot;./public/index.html&quot;,</span><br><span class="line">	title: &#x27;hahha&#x27;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<code>template</code>是引用的模板。<br><code>title</code>修改index.html的title标签(网页的标题)</li>
+</ul>
+<p><em><strong>如果是引用vue的模板，还需要引入<code>DefinePlugin</code>插件，此插件是webpack的内置插件,不需要安装，但是引入和使用都和其他插件一样</strong></em></p>
 <blockquote>
-<p>2.本身使用Go语言编写的，可以直接转化为机器码，无需经过字节码(ESbuild这么快？)</p>
+<p>copy-webpack-plugin</p>
 </blockquote>
-<blockquote>
-<p>3.ESbuild可以充分利用CPU的多内核，尽可能让他们饱和运行</p>
-</blockquote>
-<blockquote>
-<p>4.ES6的所有代码都是从零去编写的，没有借用外部的包</p>
-</blockquote>
+<ul>
+<li><strong>安装</strong><br><br><code>npm install copy-webpack-plugin -D</code></li>
+<li><strong>作用</strong><br><br>它是复制源树中已经存在的文件，作为构建过程的一部分。</li>
+<li><strong>用法</strong><br><br>导入：<br><code>const CopyWebpackPlugin = require(&quot;copy-webpack-plugin&quot;)</code><br><br>使用：<br><code>plugins: [new CopyWebpackPlugin()]</code></li>
+<li><strong>更多用法</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">plugins: [new CopyWebpackPlugin(&#123;</span><br><span class="line">	patterns: [</span><br><span class="line">		from: path.resolve(__dirname, &quot;./public&quot;),</span><br><span class="line">		to: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">		globOptions: &#123;</span><br><span class="line">			dot: true,</span><br><span class="line">			gitignore: true,</span><br><span class="line">			ignore: [</span><br><span class="line">				// public文件下需要有两个文件以上，才能正确执行</span><br><span class="line">				&quot;**/index.html&quot;,</span><br><span class="line">			],</span><br><span class="line">		&#125;   </span><br><span class="line">	]</span><br><span class="line">&#125;)]</span><br></pre></td></tr></table></figure></li>
+</ul>
 
        -->
 
@@ -449,7 +411,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vite</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
         		</li>
       		
 		</ul>
@@ -461,7 +423,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/blog/categories/vite//" class="article-tag-list-link color5">vite</a>
+        			<a href="/blog/categories/webpack//" class="article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -516,7 +478,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/blog/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/blog/2022/02/28/webpack/webpack_plugin/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -531,18 +493,18 @@
   
 <nav id="article-nav">
   
-    <a href="/blog/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2022/02/28/webpack/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          v-model的基本使用
+          webpack_基本使用
         
       </div>
     </a>
   
   
-    <a href="/blog/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">nvm的安装-windows</div>
+    <a href="/blog/2021/10/01/test%E5%9B%BE%E7%89%87/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">test图片</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -569,7 +531,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vite%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">vite安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vite%E5%AF%B9css%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">vite对css的处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vite%E7%9A%84%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-number">3.</span> <span class="toc-text">vite的脚手架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ESbuild%E8%A7%A3%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">ESbuild解析</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6plugin"><span class="toc-number">1.</span> <span class="toc-text">插件plugin</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -604,7 +566,7 @@ if(true){
     repo: 'blog',
     owner: 'beiCheNzero',
     admin: ['beiCheNzero'],
-    id: 'Mon Feb 28 2022 22:21:27 GMT+0800',
+    id: 'Mon Feb 28 2022 22:11:07 GMT+0800',
     distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -770,15 +732,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">model</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -786,19 +740,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,7 +756,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
             
             <div class="clearfix"></div>

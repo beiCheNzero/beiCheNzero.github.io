@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com/blog">
-  <title>electron出使用 | 北辰的个人博客</title>
+  <title>vue-watch | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="利用脚手架创建一个新的项目 创建一个electron的基础模板1npm create electron-app my-app 进入项目目录下1cd my-app 运行项目1npm start  打包程序 打包程序，变为可运行exe程序1npm run make 打包程序，变为可运行exe程序1npm run dist">
+  <meta name="description" content="1. 监听器&#x2F;侦听器的基本使用watch12345678910watch: &amp;#123;    &#x2F;&#x2F; message是需要监听的data中的属性名称    &#x2F;&#x2F; newValue是变化后的新值    &#x2F;&#x2F; oldValue是变化前的旧值    message: function(newValue, oldValue) &amp;#123;        &#x2F;&#x2F; console.log(&quot;新值&amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="electron出使用">
-<meta property="og:url" content="http://example.com/blog/electron%E5%87%BA%E4%BD%BF%E7%94%A8">
+<meta property="og:title" content="vue-watch">
+<meta property="og:url" content="http://example.com/blog/2022/02/28/vue-essay/vue-watch/">
 <meta property="og:site_name" content="北辰的个人博客">
-<meta property="og:description" content="利用脚手架创建一个新的项目 创建一个electron的基础模板1npm create electron-app my-app 进入项目目录下1cd my-app 运行项目1npm start  打包程序 打包程序，变为可运行exe程序1npm run make 打包程序，变为可运行exe程序1npm run dist">
+<meta property="og:description" content="1. 监听器&#x2F;侦听器的基本使用watch12345678910watch: &amp;#123;    &#x2F;&#x2F; message是需要监听的data中的属性名称    &#x2F;&#x2F; newValue是变化后的新值    &#x2F;&#x2F; oldValue是变化前的旧值    message: function(newValue, oldValue) &amp;#123;        &#x2F;&#x2F; console.log(&quot;新值&amp;qu">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-28T14:28:01.000Z">
-<meta property="article:modified_time" content="2022-02-28T15:06:56.879Z">
+<meta property="article:published_time" content="2022-02-28T14:33:41.000Z">
+<meta property="article:modified_time" content="2022-03-01T14:19:22.488Z">
 <meta property="article:author" content="北辰">
-<meta property="article:tag" content="electron">
+<meta property="article:tag" content="watch">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="北辰的个人博客" type="application/atom+xml">
@@ -50,7 +50,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<a href="/" class="profilepic">
-				<img src="/images/beichen.jpg" class="js-avatar">
+				<img src="images/beichen.jpg" class="js-avatar">
 			</a>
 			<hgroup>
 				<h1 class="header-author">
@@ -166,7 +166,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/beichen.jpg" class="js-avatar">
+				<img src="images/beichen.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">北辰</h1>
@@ -226,14 +226,14 @@
             <!-- 置顶 -->
 
 
-<article id="post-随笔/electron出使用" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-vue-essay/vue-watch" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      electron出使用
+      vue-watch
     </h1>
   
 
@@ -264,8 +264,8 @@
 
 
         
-        <a href="/blog/electron%E5%87%BA%E4%BD%BF%E7%94%A8" class="archive-article-date">
-	<time datetime="2022-02-28T14:28:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+        <a href="/blog/2022/02/28/vue-essay/vue-watch/" class="archive-article-date">
+	<time datetime="2022-02-28T14:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-02-28
 	</time>
 </a>
@@ -280,7 +280,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">76字</span>
+      <span class="post-count">259字</span>
     </span>
   </span>
 
@@ -300,29 +300,17 @@
       
         
           
-            <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+            <h2 id="1-监听器-侦听器的基本使用watch"><a href="#1-监听器-侦听器的基本使用watch" class="headerlink" title="1. 监听器/侦听器的基本使用watch"></a>1. 监听器/侦听器的基本使用watch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    // message是需要监听的data中的属性名称</span><br><span class="line">    // newValue是变化后的新值</span><br><span class="line">    // oldValue是变化前的旧值</span><br><span class="line">    message: function(newValue, oldValue) &#123;</span><br><span class="line">        // console.log(&quot;新值&quot;, newValue, &quot;旧值&quot; ,oldValue);</span><br><span class="line">        this.queryAnwser();</span><br><span class="line">        // 监听到变化后就执行搜索答案的方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
+<h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       <!-- 
-        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+        <h2 id="1-监听器-侦听器的基本使用watch"><a href="#1-监听器-侦听器的基本使用watch" class="headerlink" title="1. 监听器/侦听器的基本使用watch"></a>1. 监听器/侦听器的基本使用watch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    // message是需要监听的data中的属性名称</span><br><span class="line">    // newValue是变化后的新值</span><br><span class="line">    // oldValue是变化前的旧值</span><br><span class="line">    message: function(newValue, oldValue) &#123;</span><br><span class="line">        // console.log(&quot;新值&quot;, newValue, &quot;旧值&quot; ,oldValue);</span><br><span class="line">        this.queryAnwser();</span><br><span class="line">        // 监听到变化后就执行搜索答案的方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
+<h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
        -->
 
       
@@ -335,7 +323,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">watch</a>
         		</li>
       		
 		</ul>
@@ -347,7 +335,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/blog/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="/blog/categories/vue//" class="article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -402,7 +390,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/blog/electron%E5%87%BA%E4%BD%BF%E7%94%A8" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/blog/2022/02/28/vue-essay/vue-watch/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -417,18 +405,9 @@
   
 <nav id="article-nav">
   
-    <a href="/blog/webpack-babel" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          webpack-babel
-        
-      </div>
-    </a>
   
-  
-    <a href="/blog/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown常用语法</div>
+    <a href="/blog/2022/02/28/webpack/webpack-babel/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack-babel</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -455,7 +434,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">利用脚手架创建一个新的项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.1.</span> <span class="toc-text">打包程序</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%9B%91%E5%90%AC%E5%99%A8-%E4%BE%A6%E5%90%AC%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8watch"><span class="toc-number">1.</span> <span class="toc-text">1. 监听器&#x2F;侦听器的基本使用watch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%9B%91%E5%90%AC%E5%99%A8%E7%9A%84%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9"><span class="toc-number">1.1.</span> <span class="toc-text">2. 监听器的配置选项</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -490,7 +469,7 @@ if(true){
     repo: 'blog',
     owner: 'beiCheNzero',
     admin: ['beiCheNzero'],
-    id: 'Mon Feb 28 2022 22:28:01 GMT+0800',
+    id: 'Mon Feb 28 2022 22:33:41 GMT+0800',
     distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -656,15 +635,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">model</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,19 +643,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -696,7 +659,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
             
             <div class="clearfix"></div>

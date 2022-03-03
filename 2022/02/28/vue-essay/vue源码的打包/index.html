@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com/blog">
-  <title>webpack-插件的安装及使用 | 北辰的个人博客</title>
+  <title>vue源码的打包 | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="loader首先解释一下loader是什么:loader可以用于对模块的源代码进行转换简单来说，就是把css文件看成一个模块，但是webpack并不知道这个模块是什么意思，通过loader将css模块转换成webpack能看懂的代码。 1、css-loader css-loader的安装  npm install css-loader -D  css-loader的使用   内联方式在引入的样式前">
+  <meta name="description" content="vue源码打包 1.导入import &amp;#123; createApp &amp;#125; from &quot;vue&quot; 2.安装npm install vue@nextERROR in .&#x2F;src&#x2F;vue&#x2F;App&#x2F;vue 1:0 Module parse failed : Unexpected token错误时，在安装：npm install vue-loader -D并在webpack.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="webpack-插件的安装及使用">
-<meta property="og:url" content="http://example.com/blog/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8">
+<meta property="og:title" content="vue源码的打包">
+<meta property="og:url" content="http://example.com/blog/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">
 <meta property="og:site_name" content="北辰的个人博客">
-<meta property="og:description" content="loader首先解释一下loader是什么:loader可以用于对模块的源代码进行转换简单来说，就是把css文件看成一个模块，但是webpack并不知道这个模块是什么意思，通过loader将css模块转换成webpack能看懂的代码。 1、css-loader css-loader的安装  npm install css-loader -D  css-loader的使用   内联方式在引入的样式前">
+<meta property="og:description" content="vue源码打包 1.导入import &amp;#123; createApp &amp;#125; from &quot;vue&quot; 2.安装npm install vue@nextERROR in .&#x2F;src&#x2F;vue&#x2F;App&#x2F;vue 1:0 Module parse failed : Unexpected token错误时，在安装：npm install vue-loader -D并在webpack.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-02-28T14:16:07.000Z">
-<meta property="article:modified_time" content="2022-02-28T15:01:25.418Z">
+<meta property="article:published_time" content="2022-02-28T14:17:15.000Z">
+<meta property="article:modified_time" content="2022-03-01T14:19:53.264Z">
 <meta property="article:author" content="北辰">
-<meta property="article:tag" content="plugin">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="北辰的个人博客" type="application/atom+xml">
@@ -50,7 +49,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<a href="/" class="profilepic">
-				<img src="/images/beichen.jpg" class="js-avatar">
+				<img src="images/beichen.jpg" class="js-avatar">
 			</a>
 			<hgroup>
 				<h1 class="header-author">
@@ -166,7 +165,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="/images/beichen.jpg" class="js-avatar">
+				<img src="images/beichen.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">北辰</h1>
@@ -226,14 +225,14 @@
             <!-- 置顶 -->
 
 
-<article id="post-webpack/webpack-插件的安装及使用" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-vue-essay/vue源码的打包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      webpack-插件的安装及使用
+      vue源码的打包
     </h1>
   
 
@@ -264,8 +263,8 @@
 
 
         
-        <a href="/blog/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8" class="archive-article-date">
-	<time datetime="2022-02-28T14:16:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+        <a href="/blog/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/" class="archive-article-date">
+	<time datetime="2022-02-28T14:17:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-02-28
 	</time>
 </a>
@@ -280,7 +279,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">829字</span>
+      <span class="post-count">798字</span>
     </span>
   </span>
 
@@ -300,156 +299,136 @@
       
         
           
-            <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
-<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
-<p>css-loader的安装</p>
-</blockquote>
-<p><code>npm install css-loader -D</code></p>
-<blockquote>
-<p>css-loader的使用</p>
-</blockquote>
-<ul>
-<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
+            <h3 id="vue源码打包"><a href="#vue源码打包" class="headerlink" title="vue源码打包"></a>vue源码打包</h3><ul>
+<li>1.导入<br><code>import &#123; createApp &#125; from &quot;vue&quot;</code></li>
+<li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
 </ul>
-<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
 <span id="more"></span>
 
+<h3 id="vue打包后不同的版本解析"><a href="#vue打包后不同的版本解析" class="headerlink" title="vue打包后不同的版本解析"></a>vue打包后不同的版本解析</h3><ul>
+<li>1.vue.global.js  <ul>
+<li>通过浏览器的<code>&lt;script src=&quot;...&quot;&gt;</code>直接使用</li>
+<li>通过CDN引入和下载的Vue版本会暴露一个全局的Vue来使用</li>
+</ul>
+</li>
+<li>2.vue.esm-browser.js<ul>
+<li>通过原生ES模块导入使用(浏览器中通过<code>&lt;script type=&quot;module&quot;&gt;</code>来使用)</li>
+</ul>
+</li>
+<li>3.vue.esm-bundle.js<ul>
+<li>用于webpack，rollup和parcel等构建工具</li>
+<li>构建工具中默认的是vue,runtime.esm-bundle.js</li>
+<li>如果我们需要解析模板template，那么需要手动指定vue.esm-bundle.js</li>
+</ul>
+</li>
+<li>4.vue.cjs.js<ul>
+<li>服务器端渲染使用</li>
+<li>通过requires()和node.js中使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="webpack-deb-server"><a href="#webpack-deb-server" class="headerlink" title="webpack-deb-server"></a>webpack-deb-server</h3><ul>
+<li>安装<br><code>npm install webpack-dev-server -D</code>  </li>
+<li>配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./build&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在package.json的script中<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;webpack --watch&quot;,</span><br><span class="line">    &quot;serve&quot;: &quot;webpack serve&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+使用<code>npm run serve</code>执行，就可以开启一个本地服务。  </li>
+</ul>
+<p><em><strong>webpack-dev-server在编译之后<span color="red">不会写入到任何文件</span>,而是将bundle文件保留在内存中</strong></em></p>
+<h3 id="HMR-模块热替换"><a href="#HMR-模块热替换" class="headerlink" title="HMR(模块热替换)"></a>HMR(模块热替换)</h3><p>Hot Module Replacement——模块热替换<br>模块热替换是指在 应用程序运行中，替换，添加，删除模块，而无需重新刷新整个界面</p>
 <ul>
-<li><strong>配置方式</strong><br><br>新建一个<strong>webpack.config.js</strong>文件<br><br>module.rules的配置如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const &#123; options &#125; = require(&#x27;less&#x27;);</span><br><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &quot;./src/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    //获取当前文件的路径 </span><br><span class="line">    path: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">    filename: &quot;build.js&quot;,</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/, //正则表达式</span><br><span class="line">        // 1.loader的语法(语法糖)</span><br><span class="line">        // loader: &quot;css-loader&quot;,</span><br><span class="line"></span><br><span class="line">        // 2.use,完整写法</span><br><span class="line">        // 可以添加其他参数</span><br><span class="line">        use: [</span><br><span class="line">          &#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-有不太清楚的地方我都进行了注释。</li>
+<li><p><strong>如何使用HMR？</strong><br>默认情况下，webpack-dev-server已经支持HMR，直接开启就是了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">target: &quot;web&quot;,//hot的伴随设置 </span><br><span class="line">devServer: &#123;</span><br><span class="line">  hot: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>指定使用HMR的模块</strong><br>if(module.hot) {<br>module.hot.accept(“./util.js”, () =&gt; {<br>  console.log(“util更新了);<br>})<br>}</p>
+</li>
+<li><p>1.port设置监听端口，默认情况下时8080</p>
+</li>
+<li><p>2.open是否打开浏览器，默认时false</p>
+</li>
+<li><p>3.compress是否为静态文件开启gzip compression,默认时false</p>
+</li>
+<li><p>4.<strong>Proxy</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./public&quot;,</span><br><span class="line">  // 模块热替换HMR</span><br><span class="line">  hot: true,</span><br><span class="line">  host: &quot;0.0.0.0&quot;,</span><br><span class="line">  port: 8888,</span><br><span class="line">  open: true, // 在package.json中配置--open</span><br><span class="line">  compress: true, //压缩</span><br><span class="line">  Proxy: &#123;</span><br><span class="line">    // 开启本地代理</span><br><span class="line">    // 本地解决跨域的问题</span><br><span class="line">    &quot;/api&quot;: &#123;</span><br><span class="line">      target: &quot;url&quot;,</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &quot;^/api&quot;: &quot;&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      secure: false,// 不懂的文档去找，或者ppt</span><br><span class="line">      changeOrigin: true</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p><em><strong>此时css在代码界面并没有生效,css-loader只是负责将.css文件进行解析，并不会插入到界面中，此时还需要另外一个loader——style-loader。</strong></em></p>
-<h2 id="2、style-loader"><a href="#2、style-loader" class="headerlink" title="2、style-loader"></a>2、style-loader</h2><blockquote>
-<p>style-loader的安装</p>
-</blockquote>
-<p><code>npm install style-loader -D</code></p>
-<blockquote>
-<p>style-loader的使用(同css-loader)</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use: [</span><br><span class="line">	// 执行顺序应该是先css，然后style</span><br><span class="line">	// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">	&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">	&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="3、lessc、less-loader"><a href="#3、lessc、less-loader" class="headerlink" title="3、lessc、less-loader"></a>3、lessc、less-loader</h2><ul>
-<li>lessc</li>
-</ul>
-<p>lessc 独立的工具,与webpack没什么关系，主要用途就是把less转成css<br><br>全局/局部安装:<br><br><code>npm install less -g/-D</code></p>
-<p><em><strong>将lessc和less文件进行结合，需要less-loader插件。</strong></em></p>
-<ul>
-<li>less-loader</li>
-</ul>
-<p>全局/局部安装：<br><br><code>npm install lee-loader -g/-D</code><br><br>单独转换一个less文件命令：<br><code>npx lessc &quot;地址&quot; &quot;地址&quot;</code></p>
-<h2 id="4、postcss、postcss-loader"><a href="#4、postcss、postcss-loader" class="headerlink" title="4、postcss、postcss-loader"></a>4、postcss、postcss-loader</h2><ul>
-<li><strong>直接使用postCSS</strong><br><blockquote>
-<p>安装 <code>npm install postcss postcss-cli -D</code><br></p>
+<h3 id="extensions和alias配置"><a href="#extensions和alias配置" class="headerlink" title="extensions和alias配置"></a>extensions和alias配置</h3><ul>
+<li><strong>extensions</strong>是解析到文件时自动添加扩展名<br>默认值是[‘.wasm’, ‘.mjs’, ‘.js’, ‘.json’]  </li>
+<li><strong>alias</strong>是给某些常见的路径起一个别名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  extensions: [&#x27;.jsx&#x27;, &#x27;.ts&#x27;, &#x27;.vue&#x27;],</span><br><span class="line">  alias: &#123;</span><br><span class="line">    &quot;js&quot;: path.resolve(__dirname, &quot;./src/js&quot;),</span><br><span class="line">    &quot;@&quot;: path.resolve(__dirname, &quot;./sr&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开发-生产环境的分离"><a href="#开发-生产环境的分离" class="headerlink" title="开发/生产环境的分离"></a>开发/生产环境的分离</h2>建立三个文件放在主文件夹下的config文件夹下，<blockquote>
+<p>开发<br>common<br>生产</p>
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<p>安装插件<br><em>自动添加浏览器前缀</em><br><code>npm install autoprefixer -D</code><br></p>
-</blockquote>
-<blockquote>
-<p>使用：<br><code>npx postcss --use autoprefixer -o demo.css test.css</code><br><br>解释：<br>–use + 需要使用的插件 -o (输出) demo.css(出口), test.css(入口)<br></p>
-</blockquote>
-<ul>
-<li><strong>结合使用</strong><br><blockquote>
-<p>安装 <code>npm install postcss-loader -D</code><br></p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>使用 <br></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">	rules: [</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.css$/, //正则表达式</span><br><span class="line">			// 1.loader的语法(语法糖)</span><br><span class="line">			// loader: &quot;css-loader&quot;,</span><br><span class="line">			// 2.use,完整写法</span><br><span class="line">			// 可以添加其他参数</span><br><span class="line">			use: [</span><br><span class="line">				// 执行顺序应该是先css，然后style</span><br><span class="line">				// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">				// &quot;style-loader&quot;</span><br><span class="line">				&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">				&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">				&#123;</span><br><span class="line">					loader: &quot;postcss-loader&quot;,</span><br><span class="line">					options: &#123;</span><br><span class="line">						postcssOptions: &#123;</span><br><span class="line">							plugins: [</span><br><span class="line">								require(&quot;autoprefixer&quot;)</span><br><span class="line">							]</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.less/,</span><br><span class="line">			use: [</span><br><span class="line">				&quot;style-loader&quot;,</span><br><span class="line">				&quot;css-loader&quot;,</span><br><span class="line">				&quot;less-loader&quot;</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>融合</strong></li>
-</ul>
-<p>将<code>webpack.config.js</code>中module下，rules中的less的转化和css的转化写在一起。<br><br><strong>1、分开写法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.css/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">	test: /\.less/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2、融合</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(less|css)$/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="插件postcss-preset-env"><a href="#插件postcss-preset-env" class="headerlink" title="插件postcss-preset-env"></a><em><strong>插件postcss-preset-env</strong></em></h4>等同于已经内置了<code>autoprefixer</code>插件，这个插件功能更全.<br></li>
-</ul>
-<p><strong>功能</strong> 进行css的转换和适配，自动添加浏览器的前缀，css样式的重置，可以识别#12345678, “78”就等同于是透明度，RGBA.</p>
-<blockquote>
-<p>安装 <code>npm install postcss-preset-env -D</code></p>
-</blockquote>
-<p><em><strong>以上笔记均是个人根据coderwhy老师的课程所写。</strong></em></p>
+<p>合并文件<br><code>npm install webpack-merge -D</code><br>在生产/开发的配置js文件中导入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; merge &#125; = require(&quot;webpack-merge&quot;);</span><br><span class="line">const commenConfig = require(&#x27;公共配置js文件的地址&#x27;)</span><br></pre></td></tr></table></figure>
+<p>合并语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports = merge(CommonConfig, &#123;</span><br><span class="line">  //生产/开发环境的部分配置。</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><em><strong>同时在package.json的脚本里面也需要配置.</strong></em><br>添加<code>--config url</code></p>
 
           
         
       <!-- 
-        <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
-<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
-<p>css-loader的安装</p>
-</blockquote>
-<p><code>npm install css-loader -D</code></p>
-<blockquote>
-<p>css-loader的使用</p>
-</blockquote>
-<ul>
-<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
+        <h3 id="vue源码打包"><a href="#vue源码打包" class="headerlink" title="vue源码打包"></a>vue源码打包</h3><ul>
+<li>1.导入<br><code>import &#123; createApp &#125; from &quot;vue&quot;</code></li>
+<li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
 </ul>
-<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
 <span id="more"></span>
 
+<h3 id="vue打包后不同的版本解析"><a href="#vue打包后不同的版本解析" class="headerlink" title="vue打包后不同的版本解析"></a>vue打包后不同的版本解析</h3><ul>
+<li>1.vue.global.js  <ul>
+<li>通过浏览器的<code>&lt;script src=&quot;...&quot;&gt;</code>直接使用</li>
+<li>通过CDN引入和下载的Vue版本会暴露一个全局的Vue来使用</li>
+</ul>
+</li>
+<li>2.vue.esm-browser.js<ul>
+<li>通过原生ES模块导入使用(浏览器中通过<code>&lt;script type=&quot;module&quot;&gt;</code>来使用)</li>
+</ul>
+</li>
+<li>3.vue.esm-bundle.js<ul>
+<li>用于webpack，rollup和parcel等构建工具</li>
+<li>构建工具中默认的是vue,runtime.esm-bundle.js</li>
+<li>如果我们需要解析模板template，那么需要手动指定vue.esm-bundle.js</li>
+</ul>
+</li>
+<li>4.vue.cjs.js<ul>
+<li>服务器端渲染使用</li>
+<li>通过requires()和node.js中使用</li>
+</ul>
+</li>
+</ul>
+<h3 id="webpack-deb-server"><a href="#webpack-deb-server" class="headerlink" title="webpack-deb-server"></a>webpack-deb-server</h3><ul>
+<li>安装<br><code>npm install webpack-dev-server -D</code>  </li>
+<li>配置<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./build&quot;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+在package.json的script中<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;build&quot;: &quot;webpack --watch&quot;,</span><br><span class="line">    &quot;serve&quot;: &quot;webpack serve&quot;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+使用<code>npm run serve</code>执行，就可以开启一个本地服务。  </li>
+</ul>
+<p><em><strong>webpack-dev-server在编译之后<span color="red">不会写入到任何文件</span>,而是将bundle文件保留在内存中</strong></em></p>
+<h3 id="HMR-模块热替换"><a href="#HMR-模块热替换" class="headerlink" title="HMR(模块热替换)"></a>HMR(模块热替换)</h3><p>Hot Module Replacement——模块热替换<br>模块热替换是指在 应用程序运行中，替换，添加，删除模块，而无需重新刷新整个界面</p>
 <ul>
-<li><strong>配置方式</strong><br><br>新建一个<strong>webpack.config.js</strong>文件<br><br>module.rules的配置如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">const &#123; options &#125; = require(&#x27;less&#x27;);</span><br><span class="line">const path = require(&#x27;path&#x27;);</span><br><span class="line"></span><br><span class="line">module.exports = &#123;</span><br><span class="line">  entry: &quot;./src/main.js&quot;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    //获取当前文件的路径 </span><br><span class="line">    path: path.resolve(__dirname, &quot;./build&quot;),</span><br><span class="line">    filename: &quot;build.js&quot;,</span><br><span class="line">  &#125;,</span><br><span class="line">  module: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">      &#123;</span><br><span class="line">        test: /\.css$/, //正则表达式</span><br><span class="line">        // 1.loader的语法(语法糖)</span><br><span class="line">        // loader: &quot;css-loader&quot;,</span><br><span class="line"></span><br><span class="line">        // 2.use,完整写法</span><br><span class="line">        // 可以添加其他参数</span><br><span class="line">        use: [</span><br><span class="line">          &#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-有不太清楚的地方我都进行了注释。</li>
+<li><p><strong>如何使用HMR？</strong><br>默认情况下，webpack-dev-server已经支持HMR，直接开启就是了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">target: &quot;web&quot;,//hot的伴随设置 </span><br><span class="line">devServer: &#123;</span><br><span class="line">  hot: true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p><strong>指定使用HMR的模块</strong><br>if(module.hot) {<br>module.hot.accept(“./util.js”, () =&gt; {<br>  console.log(“util更新了);<br>})<br>}</p>
+</li>
+<li><p>1.port设置监听端口，默认情况下时8080</p>
+</li>
+<li><p>2.open是否打开浏览器，默认时false</p>
+</li>
+<li><p>3.compress是否为静态文件开启gzip compression,默认时false</p>
+</li>
+<li><p>4.<strong>Proxy</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  contentBase: &quot;./public&quot;,</span><br><span class="line">  // 模块热替换HMR</span><br><span class="line">  hot: true,</span><br><span class="line">  host: &quot;0.0.0.0&quot;,</span><br><span class="line">  port: 8888,</span><br><span class="line">  open: true, // 在package.json中配置--open</span><br><span class="line">  compress: true, //压缩</span><br><span class="line">  Proxy: &#123;</span><br><span class="line">    // 开启本地代理</span><br><span class="line">    // 本地解决跨域的问题</span><br><span class="line">    &quot;/api&quot;: &#123;</span><br><span class="line">      target: &quot;url&quot;,</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &quot;^/api&quot;: &quot;&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      secure: false,// 不懂的文档去找，或者ppt</span><br><span class="line">      changeOrigin: true</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p><em><strong>此时css在代码界面并没有生效,css-loader只是负责将.css文件进行解析，并不会插入到界面中，此时还需要另外一个loader——style-loader。</strong></em></p>
-<h2 id="2、style-loader"><a href="#2、style-loader" class="headerlink" title="2、style-loader"></a>2、style-loader</h2><blockquote>
-<p>style-loader的安装</p>
-</blockquote>
-<p><code>npm install style-loader -D</code></p>
-<blockquote>
-<p>style-loader的使用(同css-loader)</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">use: [</span><br><span class="line">	// 执行顺序应该是先css，然后style</span><br><span class="line">	// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">	&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">	&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-<h2 id="3、lessc、less-loader"><a href="#3、lessc、less-loader" class="headerlink" title="3、lessc、less-loader"></a>3、lessc、less-loader</h2><ul>
-<li>lessc</li>
-</ul>
-<p>lessc 独立的工具,与webpack没什么关系，主要用途就是把less转成css<br><br>全局/局部安装:<br><br><code>npm install less -g/-D</code></p>
-<p><em><strong>将lessc和less文件进行结合，需要less-loader插件。</strong></em></p>
-<ul>
-<li>less-loader</li>
-</ul>
-<p>全局/局部安装：<br><br><code>npm install lee-loader -g/-D</code><br><br>单独转换一个less文件命令：<br><code>npx lessc &quot;地址&quot; &quot;地址&quot;</code></p>
-<h2 id="4、postcss、postcss-loader"><a href="#4、postcss、postcss-loader" class="headerlink" title="4、postcss、postcss-loader"></a>4、postcss、postcss-loader</h2><ul>
-<li><strong>直接使用postCSS</strong><br><blockquote>
-<p>安装 <code>npm install postcss postcss-cli -D</code><br></p>
+<h3 id="extensions和alias配置"><a href="#extensions和alias配置" class="headerlink" title="extensions和alias配置"></a>extensions和alias配置</h3><ul>
+<li><strong>extensions</strong>是解析到文件时自动添加扩展名<br>默认值是[‘.wasm’, ‘.mjs’, ‘.js’, ‘.json’]  </li>
+<li><strong>alias</strong>是给某些常见的路径起一个别名<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">resolve: &#123;</span><br><span class="line">  extensions: [&#x27;.jsx&#x27;, &#x27;.ts&#x27;, &#x27;.vue&#x27;],</span><br><span class="line">  alias: &#123;</span><br><span class="line">    &quot;js&quot;: path.resolve(__dirname, &quot;./src/js&quot;),</span><br><span class="line">    &quot;@&quot;: path.resolve(__dirname, &quot;./sr&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开发-生产环境的分离"><a href="#开发-生产环境的分离" class="headerlink" title="开发/生产环境的分离"></a>开发/生产环境的分离</h2>建立三个文件放在主文件夹下的config文件夹下，<blockquote>
+<p>开发<br>common<br>生产</p>
 </blockquote>
 </li>
 </ul>
-<blockquote>
-<p>安装插件<br><em>自动添加浏览器前缀</em><br><code>npm install autoprefixer -D</code><br></p>
-</blockquote>
-<blockquote>
-<p>使用：<br><code>npx postcss --use autoprefixer -o demo.css test.css</code><br><br>解释：<br>–use + 需要使用的插件 -o (输出) demo.css(出口), test.css(入口)<br></p>
-</blockquote>
-<ul>
-<li><strong>结合使用</strong><br><blockquote>
-<p>安装 <code>npm install postcss-loader -D</code><br></p>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>使用 <br></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">module: &#123;</span><br><span class="line">	rules: [</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.css$/, //正则表达式</span><br><span class="line">			// 1.loader的语法(语法糖)</span><br><span class="line">			// loader: &quot;css-loader&quot;,</span><br><span class="line">			// 2.use,完整写法</span><br><span class="line">			// 可以添加其他参数</span><br><span class="line">			use: [</span><br><span class="line">				// 执行顺序应该是先css，然后style</span><br><span class="line">				// 但是use[]是从下往上、从后往前执行。</span><br><span class="line">				// &quot;style-loader&quot;</span><br><span class="line">				&#123;loader: &quot;style-loader&quot;&#125;,</span><br><span class="line">				&#123;loader: &quot;css-loader&quot;&#125;,</span><br><span class="line">				&#123;</span><br><span class="line">					loader: &quot;postcss-loader&quot;,</span><br><span class="line">					options: &#123;</span><br><span class="line">						postcssOptions: &#123;</span><br><span class="line">							plugins: [</span><br><span class="line">								require(&quot;autoprefixer&quot;)</span><br><span class="line">							]</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;,</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">		&#123;</span><br><span class="line">			test: /\.less/,</span><br><span class="line">			use: [</span><br><span class="line">				&quot;style-loader&quot;,</span><br><span class="line">				&quot;css-loader&quot;,</span><br><span class="line">				&quot;less-loader&quot;</span><br><span class="line">			]</span><br><span class="line">		&#125;,</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>融合</strong></li>
-</ul>
-<p>将<code>webpack.config.js</code>中module下，rules中的less的转化和css的转化写在一起。<br><br><strong>1、分开写法</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.css/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">	test: /\.less/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>2、融合</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(less|css)$/,</span><br><span class="line">	use: [</span><br><span class="line">		&quot;style-loader&quot;,</span><br><span class="line">		&quot;css-loader&quot;,</span><br><span class="line">		&quot;less-loader&quot;,</span><br><span class="line">		&quot;postcss-loader&quot;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h4 id="插件postcss-preset-env"><a href="#插件postcss-preset-env" class="headerlink" title="插件postcss-preset-env"></a><em><strong>插件postcss-preset-env</strong></em></h4>等同于已经内置了<code>autoprefixer</code>插件，这个插件功能更全.<br></li>
-</ul>
-<p><strong>功能</strong> 进行css的转换和适配，自动添加浏览器的前缀，css样式的重置，可以识别#12345678, “78”就等同于是透明度，RGBA.</p>
-<blockquote>
-<p>安装 <code>npm install postcss-preset-env -D</code></p>
-</blockquote>
-<p><em><strong>以上笔记均是个人根据coderwhy老师的课程所写。</strong></em></p>
+<p>合并文件<br><code>npm install webpack-merge -D</code><br>在生产/开发的配置js文件中导入</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; merge &#125; = require(&quot;webpack-merge&quot;);</span><br><span class="line">const commenConfig = require(&#x27;公共配置js文件的地址&#x27;)</span><br></pre></td></tr></table></figure>
+<p>合并语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">module.exports = merge(CommonConfig, &#123;</span><br><span class="line">  //生产/开发环境的部分配置。</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">  xxx: &quot;&quot;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><em><strong>同时在package.json的脚本里面也需要配置.</strong></em><br>添加<code>--config url</code></p>
 
        -->
 
@@ -458,24 +437,13 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/blog/categories/webpack//" class="article-tag-list-link color3">webpack</a>
+        			<a href="/blog/categories/vue//" class="article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -530,7 +498,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/blog/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/blog/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -545,18 +513,18 @@
   
 <nav id="article-nav">
   
-    <a href="/blog/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/blog/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          vue源码的打包
+          vue初期学习笔记
         
       </div>
     </a>
   
   
-    <a href="/blog/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">webpack_基本使用</div>
+    <a href="/blog/2022/02/28/webpack/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">webpack-插件的安装及使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -583,7 +551,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#loader"><span class="toc-number">1.</span> <span class="toc-text">loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81css-loader"><span class="toc-number">2.</span> <span class="toc-text">1、css-loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81style-loader"><span class="toc-number">3.</span> <span class="toc-text">2、style-loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81lessc%E3%80%81less-loader"><span class="toc-number">4.</span> <span class="toc-text">3、lessc、less-loader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81postcss%E3%80%81postcss-loader"><span class="toc-number">5.</span> <span class="toc-text">4、postcss、postcss-loader</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6postcss-preset-env"><span class="toc-number">5.0.1.</span> <span class="toc-text">插件postcss-preset-env</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E6%BA%90%E7%A0%81%E6%89%93%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">vue源码打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue%E6%89%93%E5%8C%85%E5%90%8E%E4%B8%8D%E5%90%8C%E7%9A%84%E7%89%88%E6%9C%AC%E8%A7%A3%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">vue打包后不同的版本解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-deb-server"><span class="toc-number">3.</span> <span class="toc-text">webpack-deb-server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HMR-%E6%A8%A1%E5%9D%97%E7%83%AD%E6%9B%BF%E6%8D%A2"><span class="toc-number">4.</span> <span class="toc-text">HMR(模块热替换)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extensions%E5%92%8Calias%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">extensions和alias配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91-%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E7%9A%84%E5%88%86%E7%A6%BB"><span class="toc-number"></span> <span class="toc-text">开发&#x2F;生产环境的分离</span></a>
                     </div>
                 </span>
             </div>
@@ -618,7 +586,7 @@ if(true){
     repo: 'blog',
     owner: 'beiCheNzero',
     admin: ['beiCheNzero'],
-    id: 'Mon Feb 28 2022 22:16:07 GMT+0800',
+    id: 'Mon Feb 28 2022 22:17:15 GMT+0800',
     distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -784,15 +752,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">model</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,19 +760,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -824,7 +776,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
             
             <div class="clearfix"></div>
