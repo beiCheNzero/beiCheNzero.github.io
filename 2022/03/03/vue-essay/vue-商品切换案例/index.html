@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://beichenzero.github.io">
-  <title>Category: vue | 北辰的个人博客</title>
+  <title>vue-商品切换案例 | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="北辰的个人博客">
-<meta property="og:url" content="http://beichenzero.github.io/categories/vue/">
+  <meta name="description" content="商品切换小案例 思路  1.父组件中定义titles数组2.利用父传子的方式将titles数组传给子组件3.子组件中接收，利用v-for指令遍历数组，动态绑定key。4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。5.props可以限定父组件传过来的值使什么，并添加默认值。6.通过@click的方式，将index的值通">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-商品切换案例">
+<meta property="og:url" content="http://beichenzero.github.io/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">
 <meta property="og:site_name" content="北辰的个人博客">
+<meta property="og:description" content="商品切换小案例 思路  1.父组件中定义titles数组2.利用父传子的方式将titles数组传给子组件3.子组件中接收，利用v-for指令遍历数组，动态绑定key。4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。5.props可以限定父组件传过来的值使什么，并添加默认值。6.通过@click的方式，将index的值通">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-03-03T10:50:43.000Z">
+<meta property="article:modified_time" content="2022-03-03T11:16:06.293Z">
 <meta property="article:author" content="北辰">
+<meta property="article:tag" content="vue案例">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="北辰的个人博客" type="application/atom+xml">
@@ -218,24 +223,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <!-- 置顶 -->
+
+
+<article id="post-vue-essay/vue-商品切换案例" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      vue-商品切换案例
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/" class="archive-article-date">
+
+
+        <!--显示阅读次数-->
+        <!-- 
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+         -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/" class="archive-article-date">
 	<time datetime="2022-03-03T10:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-03-03
 	</time>
@@ -243,16 +272,73 @@
 
 <!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">vue-商品切换案例</a>
-    </h1>
-  
+        
 
-        <div class="article-info info-on-right">
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">536字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
           
+            <h2 id="商品切换小案例"><a href="#商品切换小案例" class="headerlink" title="商品切换小案例"></a>商品切换小案例</h2><blockquote>
+<p><strong>思路</strong></p>
+</blockquote>
+<p>1.父组件中定义<code>titles</code>数组<br>2.利用父传子的方式将<code>titles</code>数组传给子组件<br>3.子组件中接收，利用<code>v-for</code>指令遍历数组，动态绑定key。<br>4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。<br>5.<code>props</code>可以限定父组件传过来的值使什么，并添加默认值。<br>6.通过<code>@click</code>的方式，将<code>index</code>的值通过子传父传递父组件，同时在点击事件传值的同时将index的值赋给currentsIndex。<br>7.定义<code>contents</code>数组，并再次定义currentIndex，默认值为0。<br>8.最后监听子组件的传递并执行函数titleCLick，将index的值也赋值给currentIndex，目的是为了让title和content的变化是一致的。  </p>
+<ul>
+<li>代码如下</li>
+</ul>
+<span id="more"></span>
+<p>App.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;tab-control :title=&quot;titles&quot; @titleClick=&quot;titleClick&quot;&gt;&lt;/tab-control&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;contents[currentIndex]&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import TabControl from &quot;./TabControl.vue&quot;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">      TabControl</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        titles: [&quot;衣服&quot;, &quot;鞋子&quot;, &quot;裤子&quot;],</span><br><span class="line">        contents: [&quot;衣服内容&quot;, &quot;鞋子内容&quot;, &quot;裤子内容&quot;],</span><br><span class="line">        currentIndex: 0</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      titleClick(index) &#123; </span><br><span class="line">        this.currentIndex = index;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>TabControl.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;tab-control&quot;&gt;</span><br><span class="line">    &lt;div  v-for=&quot;(item ,index) in title&quot;</span><br><span class="line">          :key=&quot;index&quot;</span><br><span class="line">          class=&quot;tab-control-item&quot;</span><br><span class="line">          :class=&quot;&#123;active: currentIndex === index&#125;&quot;</span><br><span class="line">          @click=&quot;itemClick(index)&quot;&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123;item&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    // 可以通过 emits 选项来定义组件可触发的事件</span><br><span class="line">    emits: [&quot;titleClick&quot;],</span><br><span class="line">    props: &#123;</span><br><span class="line">      title: &#123;</span><br><span class="line">        type: Array,</span><br><span class="line">        default() &#123;</span><br><span class="line">          return []</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        currentIndex: 0,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      itemClick(index) &#123;</span><br><span class="line">        this.currentIndex = index;</span><br><span class="line">        this.$emit(&quot;titleClick&quot;, index)</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .tab-control &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .tab-control-item&#123;</span><br><span class="line">    flex: 1;</span><br><span class="line">    text-align: center;</span><br><span class="line">  &#125;</span><br><span class="line">  .tab-control-item.active &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">  .tab-control-item.active span &#123;</span><br><span class="line">    border-bottom: 3px solid red;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>以上代码均在vue-cli创建的项目中完成，主要看思路。</p>
+
+            
+          
+        
+      <!-- 
+        <h2 id="商品切换小案例"><a href="#商品切换小案例" class="headerlink" title="商品切换小案例"></a>商品切换小案例</h2><blockquote>
+<p><strong>思路</strong></p>
+</blockquote>
+<p>1.父组件中定义<code>titles</code>数组<br>2.利用父传子的方式将<code>titles</code>数组传给子组件<br>3.子组件中接收，利用<code>v-for</code>指令遍历数组，动态绑定key。<br>4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。<br>5.<code>props</code>可以限定父组件传过来的值使什么，并添加默认值。<br>6.通过<code>@click</code>的方式，将<code>index</code>的值通过子传父传递父组件，同时在点击事件传值的同时将index的值赋给currentsIndex。<br>7.定义<code>contents</code>数组，并再次定义currentIndex，默认值为0。<br>8.最后监听子组件的传递并执行函数titleCLick，将index的值也赋值给currentIndex，目的是为了让title和content的变化是一致的。  </p>
+<ul>
+<li>代码如下</li>
+</ul>
+<span id="more"></span>
+<p>App.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;tab-control :title=&quot;titles&quot; @titleClick=&quot;titleClick&quot;&gt;&lt;/tab-control&gt;</span><br><span class="line">    &lt;h2&gt;&#123;&#123;contents[currentIndex]&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import TabControl from &quot;./TabControl.vue&quot;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">      TabControl</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        titles: [&quot;衣服&quot;, &quot;鞋子&quot;, &quot;裤子&quot;],</span><br><span class="line">        contents: [&quot;衣服内容&quot;, &quot;鞋子内容&quot;, &quot;裤子内容&quot;],</span><br><span class="line">        currentIndex: 0</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      titleClick(index) &#123; </span><br><span class="line">        this.currentIndex = index;</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>TabControl.vue</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;tab-control&quot;&gt;</span><br><span class="line">    &lt;div  v-for=&quot;(item ,index) in title&quot;</span><br><span class="line">          :key=&quot;index&quot;</span><br><span class="line">          class=&quot;tab-control-item&quot;</span><br><span class="line">          :class=&quot;&#123;active: currentIndex === index&#125;&quot;</span><br><span class="line">          @click=&quot;itemClick(index)&quot;&gt;</span><br><span class="line">      &lt;span&gt;&#123;&#123;item&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    // 可以通过 emits 选项来定义组件可触发的事件</span><br><span class="line">    emits: [&quot;titleClick&quot;],</span><br><span class="line">    props: &#123;</span><br><span class="line">      title: &#123;</span><br><span class="line">        type: Array,</span><br><span class="line">        default() &#123;</span><br><span class="line">          return []</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        currentIndex: 0,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      itemClick(index) &#123;</span><br><span class="line">        this.currentIndex = index;</span><br><span class="line">        this.$emit(&quot;titleClick&quot;, index)</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .tab-control &#123;</span><br><span class="line">    display: flex;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .tab-control-item&#123;</span><br><span class="line">    flex: 1;</span><br><span class="line">    text-align: center;</span><br><span class="line">  &#125;</span><br><span class="line">  .tab-control-item.active &#123;</span><br><span class="line">    color: red;</span><br><span class="line">  &#125;</span><br><span class="line">  .tab-control-item.active span &#123;</span><br><span class="line">    border-bottom: 3px solid red;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>以上代码均在vue-cli创建的项目中完成，主要看思路。</p>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -264,7 +350,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -277,333 +363,188 @@
 	</div>
 
 
+      
+        
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://beichenzero.github.io/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" class="archive-article-date">
-	<time datetime="2022-03-03T10:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-03-03
-	</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-组件传值</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">vue-组件传值</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">组件传值</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E5%B0%8F%E6%A1%88%E4%BE%8B"><span class="toc-number">1.</span> <span class="toc-text">商品切换小案例</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/28/vue-essay/vue-watch/" class="archive-article-date">
-	<time datetime="2022-02-28T14:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
+        
+    </div>
+</aside>
 
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
 
-        </div>
-    	 
+
+  <!--  -->
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/28/vue-essay/vue-watch/">vue-watch</a>
-    </h1>
+  <!-- 
+
+   -->
+
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">watch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/28/vue-essay/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-02-28T14:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/28/vue-essay/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">v-model的基本使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" class="archive-article-date">
-	<time datetime="2022-02-28T14:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">vue-组件通信</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vue-components</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-	<time datetime="2022-02-28T14:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">vue初期学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/" class="archive-article-date">
-	<time datetime="2022-02-28T14:17:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">vue源码的打包</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
-  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+
+if(true){
+  var gitalk = new Gitalk({
+    clientID: 'b6bdcf0065b59dc3b1d9',
+    clientSecret: '868430cb9c32e56c479c2925f96f21ad6b43df09',
+    repo: 'blog',
+    owner: 'beiCheNzero',
+    admin: ['beiCheNzero'],
+    id: 'Thu Mar 03 2022 18:50:43 GMT+0800',
+    distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
 
     
 
 
 
+
+
+
+<!-- 
+{% elseif theme.gitalk.enable %}
+    {/* <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '<%= theme.gitalk.clientID %>',
+        clientSecret: '<%= theme.gitalk.clientSecret %>',
+        id: window.location.pathname,
+        repo: '<%= theme.gitalk.repo %>',
+        owner: '<%= theme.gitalk.owner %>',
+        admin: '<%= theme.gitalk.admin %>'
+    })
+    gitalk.render('gitalk-container')
+</script> */}
+
+<link rel="stylesheet" href="<%- theme.libs.css.gitalk %>">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="<%- theme.libs.js.gitalk %>"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '<%- theme.gitalk.oauth.clientId %>',
+        clientSecret: '<%- theme.gitalk.oauth.clientSecret %>',
+        repo: '<%- theme.gitalk.repo %>',
+        owner: '<%- theme.gitalk.owner %>',
+        admin: <%- JSON.stringify(theme.gitalk.admin) %>,
+        id: '<%- date(page.date, 'YYYY-MM-DDTHH-mm-ss') %>',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+{% endif %} -->
           </div>
         </div>
       </div>
@@ -639,10 +580,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

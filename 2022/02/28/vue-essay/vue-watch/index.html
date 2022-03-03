@@ -91,7 +91,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 15
+						总文章数 17
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -304,6 +304,7 @@
 <p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
 <h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            
           
         
       <!-- 
@@ -404,6 +405,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vue-组件传值
+        
+      </div>
+    </a>
   
   
     <a href="/2022/02/28/webpack/webpack-babel/" id="article-nav-older" class="article-nav-link-wrap">
@@ -639,27 +649,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">loader</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue案例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">组件传值</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -676,6 +682,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">loader</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>

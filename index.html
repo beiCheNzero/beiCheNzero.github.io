@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 15
+						总文章数 17
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -220,6 +220,310 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-essay/vue-商品切换案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">vue-商品切换案例</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/" class="archive-article-date">
+	<time datetime="2022-03-03T10:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-03-03
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">536字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="商品切换小案例"><a href="#商品切换小案例" class="headerlink" title="商品切换小案例"></a>商品切换小案例</h2><blockquote>
+<p><strong>思路</strong></p>
+</blockquote>
+<p>1.父组件中定义<code>titles</code>数组<br>2.利用父传子的方式将<code>titles</code>数组传给子组件<br>3.子组件中接收，利用<code>v-for</code>指令遍历数组，动态绑定key。<br>4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。<br>5.<code>props</code>可以限定父组件传过来的值使什么，并添加默认值。<br>6.通过<code>@click</code>的方式，将<code>index</code>的值通过子传父传递父组件，同时在点击事件传值的同时将index的值赋给currentsIndex。<br>7.定义<code>contents</code>数组，并再次定义currentIndex，默认值为0。<br>8.最后监听子组件的传递并执行函数titleCLick，将index的值也赋值给currentIndex，目的是为了让title和content的变化是一致的。  </p>
+<ul>
+<li>代码如下</li>
+</ul>
+            
+              <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="商品切换小案例"><a href="#商品切换小案例" class="headerlink" title="商品切换小案例"></a>商品切换小案例</h2><blockquote>
+<p><strong>思路</strong></p>
+</blockquote>
+<p>1.父组件中定义<code>titles</code>数组<br>2.利用父传子的方式将<code>titles</code>数组传给子组件<br>3.子组件中接收，利用<code>v-for</code>指令遍历数组，动态绑定key。<br>4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。<br>5.<code>props</code>可以限定父组件传过来的值使什么，并添加默认值。<br>6.通过<code>@click</code>的方式，将<code>index</code>的值通过子传父传递父组件，同时在点击事件传值的同时将index的值赋给currentsIndex。<br>7.定义<code>contents</code>数组，并再次定义currentIndex，默认值为0。<br>8.最后监听子组件的传递并执行函数titleCLick，将index的值也赋值给currentIndex，目的是为了让title和content的变化是一致的。  </p>
+<ul>
+<li>代码如下</li>
+</ul>
+        
+          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue案例</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-vue-essay/vue-组件传值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">vue-组件传值</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" class="archive-article-date">
+	<time datetime="2022-03-03T10:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-03-03
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">398字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h3 id="禁用Attribute继承和多根节点"><a href="#禁用Attribute继承和多根节点" class="headerlink" title="禁用Attribute继承和多根节点"></a>禁用Attribute继承和多根节点</h3><blockquote>
+<p><strong>父(组件)传子(组件)时</strong></p>
+</blockquote>
+<p>父组件中有<code>class</code>、<code>id</code>等元素的时候<br>在需要传值给子组件时<br>子组件中:<br><code>&lt;h2 :=&quot;$attrs&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</code><br>父组件中:<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;哈哈哈&quot; content=&quot;嘿嘿嘿&quot;&gt;&lt;/show-message</code></p>
+<blockquote>
+<p>inherirAttrs</p>
+</blockquote>
+<p><code>inheritAttrs: flase,</code></p>
+<blockquote>
+<p><strong>子组件传递信息给父组件</strong></p>
+</blockquote>
+<p>逻辑关系：<br>在子组件中定义需要传递的name -&gt; 通过<code>$emit</code>来传递。</p>
+            
+              <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="禁用Attribute继承和多根节点"><a href="#禁用Attribute继承和多根节点" class="headerlink" title="禁用Attribute继承和多根节点"></a>禁用Attribute继承和多根节点</h3><blockquote>
+<p><strong>父(组件)传子(组件)时</strong></p>
+</blockquote>
+<p>父组件中有<code>class</code>、<code>id</code>等元素的时候<br>在需要传值给子组件时<br>子组件中:<br><code>&lt;h2 :=&quot;$attrs&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</code><br>父组件中:<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;哈哈哈&quot; content=&quot;嘿嘿嘿&quot;&gt;&lt;/show-message</code></p>
+<blockquote>
+<p>inherirAttrs</p>
+</blockquote>
+<p><code>inheritAttrs: flase,</code></p>
+<blockquote>
+<p><strong>子组件传递信息给父组件</strong></p>
+</blockquote>
+<p>逻辑关系：<br>在子组件中定义需要传递的name -&gt; 通过<code>$emit</code>来传递。</p>
+        
+          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">组件传值</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-vue-essay/vue-watch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -282,6 +586,7 @@
 <p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
 <h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            
           
         
       <!-- 
@@ -422,6 +727,10 @@
 <li>转换语法<br><code>npx babel &quot;x.js&quot; --out-dir &quot;x.js&quot; --plugins=@babel/plugin-transform-arrow-functions</code>  </li>
 </ul>
 <p><strong>只能转换箭头函数</strong></p>
+            
+              <a class="article-more-a" href="/2022/02/28/webpack/webpack-babel/#more">more >></a>
+            
+
           
         
       <!-- 
@@ -572,6 +881,7 @@
 <li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
 </ol>
 
+            
           
         
       <!-- 
@@ -713,6 +1023,10 @@
 <h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a><strong>效果</strong></h3><blockquote>
 <h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></blockquote>
 <p></p>
+            
+              <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/#more">more >></a>
+            
+
           
         
       <!-- 
@@ -850,6 +1164,10 @@
           		<h2 id="file-loader-url-loader的使用-加载字体文件"><a href="#file-loader-url-loader的使用-加载字体文件" class="headerlink" title="file-loader/url-loader的使用,加载字体文件"></a>file-loader/url-loader的使用,加载字体文件</h2><ul>
 <li>安装<br><br><code>npm install file-loader -D</code><br><br><code>npm install url-loader -D</code></li>
 <li>使用方式①<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(eot|ttf|woff2?)$/,</span><br><span class="line">	use: [&#123;</span><br><span class="line">		loader: &quot;file-loader&quot;,</span><br><span class="line">		//loader: &quot;url-loader&quot;,</span><br><span class="line">		options: &#123;</span><br><span class="line">			name: &quot;font/[name]_[hash.6].[ext]&quot;,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>
+            
+              <a class="article-more-a" href="/2022/02/28/webpack/webpack-url_file_loader-%E5%AD%97%E4%BD%93/#more">more >></a>
+            
+
           
         
       <!-- 
@@ -990,6 +1308,7 @@
 <strong>仅截取部分核心代码</strong><br>EX:<br>217498daowh   值为217498      类型为number<br>njdkhaw3431   值为njdkhaw3431 类型为string</li>
 </ul>
 
+            
           
         
       <!-- 
@@ -1135,6 +1454,10 @@
 <li>1.安装less<br><code>npm install less -D</code>  </li>
 <li>2.安装postcss<br><code>npm install postcss -D</code><br>还需要安装<br><code>npm install postcss-preset-env -D</code>  </li>
 </ul>
+            
+              <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+            
+
           
         
       <!-- 
@@ -1285,6 +1608,10 @@
 </ul>
 <p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+            
+              <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/#more">more >></a>
+            
+
           
         
       <!-- 
@@ -1334,296 +1661,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-learn/vue-组件通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">vue-组件通信</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" class="archive-article-date">
-	<time datetime="2022-02-28T14:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">627字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="父子组件之间通信的方式"><a href="#父子组件之间通信的方式" class="headerlink" title="父子组件之间通信的方式"></a>父子组件之间通信的方式</h2><blockquote>
-<p>1.<strong>父组件(Patent)传递给子组件(Child)</strong>  </p>
-</blockquote>
-<p>通过<span style="color: red"><strong>props</strong></span>属性传递  </p>
-<blockquote>
-<p>2.<strong>子组件传递给父组件</strong>  </p>
-</blockquote>
-<p>通过<span style="color: red"><strong>$emit Events</strong></span></p>
-<h2 id="传值时props可以是数组也可以是对象"><a href="#传值时props可以是数组也可以是对象" class="headerlink" title="传值时props可以是数组也可以是对象"></a>传值时props可以是数组也可以是对象</h2><blockquote>
-<p><strong>1.传值对象————数组</strong>  </p>
-</blockquote>
-<p><em><strong>一般不用这种方式</strong></em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  props: [</span><br><span class="line">    &#x27;title&#x27;,</span><br><span class="line">    &#x27;content&#x27;,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      <!-- 
-        <h2 id="父子组件之间通信的方式"><a href="#父子组件之间通信的方式" class="headerlink" title="父子组件之间通信的方式"></a>父子组件之间通信的方式</h2><blockquote>
-<p>1.<strong>父组件(Patent)传递给子组件(Child)</strong>  </p>
-</blockquote>
-<p>通过<span style="color: red"><strong>props</strong></span>属性传递  </p>
-<blockquote>
-<p>2.<strong>子组件传递给父组件</strong>  </p>
-</blockquote>
-<p>通过<span style="color: red"><strong>$emit Events</strong></span></p>
-<h2 id="传值时props可以是数组也可以是对象"><a href="#传值时props可以是数组也可以是对象" class="headerlink" title="传值时props可以是数组也可以是对象"></a>传值时props可以是数组也可以是对象</h2><blockquote>
-<p><strong>1.传值对象————数组</strong>  </p>
-</blockquote>
-<p><em><strong>一般不用这种方式</strong></em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  props: [</span><br><span class="line">    &#x27;title&#x27;,</span><br><span class="line">    &#x27;content&#x27;,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vue-components</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-essay/vue初期学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">vue初期学习笔记</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-	<time datetime="2022-02-28T14:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">356字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h3 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h3><p><strong>①命令式编程 (how to do)</strong><br>  EX:js/jquery<br><strong>②声明式编程 what to do  框架(机器)帮助完成</strong><br>    EX:vue/react/angular</p>
-<h3 id="MVC——modle-view-controller-MVC"><a href="#MVC——modle-view-controller-MVC" class="headerlink" title="MVC——modle view controller(MVC)"></a>MVC——modle view controller(MVC)</h3><p>modle: 操作的数据<br>view: body里面的内容<br>controller: script里面的内容</p>
-<h3 id="MVVM——modle-view-view-modle-MVVC"><a href="#MVVM——modle-view-view-modle-MVVC" class="headerlink" title="MVVM——modle view view_modle(MVVC)"></a>MVVM——modle view view_modle(MVVC)</h3><p>view: DOM           template<br>view_modle: VUE<br>modle: plain js object    data、methods…</p>
-          
-        
-      <!-- 
-        <h3 id="编程范式"><a href="#编程范式" class="headerlink" title="编程范式"></a>编程范式</h3><p><strong>①命令式编程 (how to do)</strong><br>  EX:js/jquery<br><strong>②声明式编程 what to do  框架(机器)帮助完成</strong><br>    EX:vue/react/angular</p>
-<h3 id="MVC——modle-view-controller-MVC"><a href="#MVC——modle-view-controller-MVC" class="headerlink" title="MVC——modle view controller(MVC)"></a>MVC——modle view controller(MVC)</h3><p>modle: 操作的数据<br>view: body里面的内容<br>controller: script里面的内容</p>
-<h3 id="MVVM——modle-view-view-modle-MVVC"><a href="#MVVM——modle-view-view-modle-MVVC" class="headerlink" title="MVVM——modle view view_modle(MVVC)"></a>MVVM——modle view view_modle(MVVC)</h3><p>view: DOM           template<br>view_modle: VUE<br>modle: plain js object    data、methods…</p>
-        
-          <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
         
@@ -1778,27 +1815,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">loader</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color1">vue案例</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">组件传值</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1815,6 +1848,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">loader</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>
