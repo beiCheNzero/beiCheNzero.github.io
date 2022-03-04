@@ -16,7 +16,7 @@
 <meta property="og:description" content="禁用Attribute继承和多根节点 父(组件)传子(组件)时  父组件中有class、id等元素的时候在需要传值给子组件时子组件中:&lt;h2 :&#x3D;&quot;$attrs&quot;&gt;&amp;#123;&amp;#123;title&amp;#125;&amp;#125;&lt;&#x2F;h2&gt;&lt;h2 :class&#x3D;&quot;$attrs.class&quot;&gt;&amp;#123;&amp;#123;title&amp;#1">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-03T10:43:30.000Z">
-<meta property="article:modified_time" content="2022-03-03T11:16:14.576Z">
+<meta property="article:modified_time" content="2022-03-04T11:43:41.372Z">
 <meta property="article:author" content="北辰">
 <meta property="article:tag" content="组件传值">
 <meta name="twitter:card" content="summary">
@@ -91,7 +91,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 17
+						总文章数 18
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -280,7 +280,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">398字</span>
+      <span class="post-count">395字</span>
     </span>
   </span>
 
@@ -305,10 +305,6 @@
 </blockquote>
 <p>父组件中有<code>class</code>、<code>id</code>等元素的时候<br>在需要传值给子组件时<br>子组件中:<br><code>&lt;h2 :=&quot;$attrs&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</code><br>父组件中:<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;哈哈哈&quot; content=&quot;嘿嘿嘿&quot;&gt;&lt;/show-message</code></p>
 <blockquote>
-<p>inherirAttrs</p>
-</blockquote>
-<p><code>inheritAttrs: flase,</code></p>
-<blockquote>
 <p><strong>子组件传递信息给父组件</strong></p>
 </blockquote>
 <p>逻辑关系：<br>在子组件中定义需要传递的name -&gt; 通过<code>$emit</code>来传递。</p>
@@ -330,10 +326,6 @@
 <p><strong>父(组件)传子(组件)时</strong></p>
 </blockquote>
 <p>父组件中有<code>class</code>、<code>id</code>等元素的时候<br>在需要传值给子组件时<br>子组件中:<br><code>&lt;h2 :=&quot;$attrs&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</code><br>父组件中:<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;哈哈哈&quot; content=&quot;嘿嘿嘿&quot;&gt;&lt;/show-message</code></p>
-<blockquote>
-<p>inherirAttrs</p>
-</blockquote>
-<p><code>inheritAttrs: flase,</code></p>
 <blockquote>
 <p><strong>子组件传递信息给父组件</strong></p>
 </blockquote>
@@ -730,6 +722,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attribute</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">attrs</a>
               </li>
             
             <div class="clearfix"></div>
