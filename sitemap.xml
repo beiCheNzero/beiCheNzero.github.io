@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://beichenzero.github.io/2022/03/05/vue-learn/slot/</loc>
+    
+    <lastmod>2022-03-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://beichenzero.github.io/2022/03/04/vue-essay/attribute%E5%92%8Cattrs/</loc>
     
     <lastmod>2022-03-04</lastmod>
@@ -250,6 +257,13 @@
   
   <url>
     <loc>http://beichenzero.github.io/tags/nvm/</loc>
+    <lastmod>2022-03-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/slot/</loc>
     <lastmod>2022-03-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
