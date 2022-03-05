@@ -16,7 +16,7 @@
 <meta property="og:description" content="inherirAttrs Attribute继承问题首先，attribute是我们在父组件中定义了非prop的Attribute，该属性没有定义对应的props或者emits。   常见的包括class,style,id属性等例如我们在父组件中定义了如下的值：&lt;show-message class&#x3D;&quot;beichen&quot; id&#x3D;&quot;beichenzero&quot;&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-04T11:42:39.000Z">
-<meta property="article:modified_time" content="2022-03-04T12:09:37.070Z">
+<meta property="article:modified_time" content="2022-03-04T13:05:32.214Z">
 <meta property="article:author" content="北辰">
 <meta property="article:tag" content="attribute">
 <meta property="article:tag" content="attrs">
@@ -51,7 +51,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<a href="/" class="profilepic">
-				<img src="../../images/beichen.jpg" class="js-avatar">
+				<img src="https://haixia-1303842518.cos.ap-guangzhou.myqcloud.com/%E6%B5%B7%E9%9C%9E/head-photo/-4ad73ad5fcaad4be(1).jpg" class="js-avatar">
 			</a>
 			<hgroup>
 				<h1 class="header-author">
@@ -167,7 +167,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="images/beichen.jpg" class="js-avatar">
+				<img src="https://haixia-1303842518.cos.ap-guangzhou.myqcloud.com/%E6%B5%B7%E9%9C%9E/head-photo/-4ad73ad5fcaad4be(1).jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author">北辰</h1>
@@ -302,14 +302,14 @@
         
           
             <h2 id="inherirAttrs"><a href="#inherirAttrs" class="headerlink" title="inherirAttrs"></a>inherirAttrs</h2><blockquote>
-<p>Attribute继承问题<br>首先，attribute是我们在父组件中定义了<span style="color: red">非prop的Attribute<span>，该属性没有定义对应的props或者emits。</span></span></p>
+<p>Attribute继承问题<br>首先，attribute是我们在父组件中定义了<span style="color: red">非prop的Attribute</span>，该属性没有定义对应的props或者emits。</p>
 </blockquote>
 <ul>
-<li>常见的包括class,style,id属性等<br>例如我们在父组件中定义了如下的值：<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/show-message&gt;</code><br>这里的<code>class=&quot;beichen&quot;</code>和<code>id=&quot;beichenzero&quot;</code>就是<span style="color: red">非prop的Attribute<span><br>如果我们的子组件中包含有根组件,例如<code>&lt;div&gt;&lt;/div&gt;</code>。<br>运行项目时，我们就会看到它自动变成<code>&lt;div class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/div&gt;</code>,添加了class属性和id属性。</span></span></li>
+<li>常见的包括class,style,id属性等<br>例如我们在父组件中定义了如下的值：<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/show-message&gt;</code><br>这里的<code>class=&quot;beichen&quot;</code>和<code>id=&quot;beichenzero&quot;</code>就是<span style="color: red">非prop的Attribute</span><br>如果我们的子组件中包含有根组件,例如<code>&lt;div&gt;&lt;/div&gt;</code>。<br>运行项目时，我们就会看到它自动变成<code>&lt;div class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/div&gt;</code>,添加了class属性和id属性。</li>
 </ul>
 <p>当我们不想出现这种特殊的情况是，我们可以在子组件中添加：<br><code>inheritAttrs: flase,</code>代码，这就等于时禁用了，<code>inheritAttrs</code>默认的值时true。</p>
 <span id="more"></span>
-<h2 id="attrs"><a href="#attrs" class="headerlink" title="$attrs"></a>$attrs</h2><p><strong><span style="color: red">$attrs<span>可以访问所有的非props的attribute。</span></span></strong><br>案例:</p>
+<h2 id="attrs"><a href="#attrs" class="headerlink" title="$attrs"></a>$attrs</h2><p><strong><span style="color: red">$attrs</span>可以访问所有的非props的attribute。</strong><br>案例:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">App.vue</span><br><span class="line">&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;title&quot; content=&quot;content&quot;&gt;&lt;/show-message&gt;</span><br><span class="line">ShowMessage.vue</span><br><span class="line">&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
 <p>在ShowMessage.vue中禁用了<code>inheritAttrs: false</code>.<br>页面显示效果：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class=&quot;beichen&quot;&gt;title&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
@@ -318,14 +318,14 @@
         
       <!-- 
         <h2 id="inherirAttrs"><a href="#inherirAttrs" class="headerlink" title="inherirAttrs"></a>inherirAttrs</h2><blockquote>
-<p>Attribute继承问题<br>首先，attribute是我们在父组件中定义了<span style="color: red">非prop的Attribute<span>，该属性没有定义对应的props或者emits。</span></span></p>
+<p>Attribute继承问题<br>首先，attribute是我们在父组件中定义了<span style="color: red">非prop的Attribute</span>，该属性没有定义对应的props或者emits。</p>
 </blockquote>
 <ul>
-<li>常见的包括class,style,id属性等<br>例如我们在父组件中定义了如下的值：<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/show-message&gt;</code><br>这里的<code>class=&quot;beichen&quot;</code>和<code>id=&quot;beichenzero&quot;</code>就是<span style="color: red">非prop的Attribute<span><br>如果我们的子组件中包含有根组件,例如<code>&lt;div&gt;&lt;/div&gt;</code>。<br>运行项目时，我们就会看到它自动变成<code>&lt;div class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/div&gt;</code>,添加了class属性和id属性。</span></span></li>
+<li>常见的包括class,style,id属性等<br>例如我们在父组件中定义了如下的值：<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/show-message&gt;</code><br>这里的<code>class=&quot;beichen&quot;</code>和<code>id=&quot;beichenzero&quot;</code>就是<span style="color: red">非prop的Attribute</span><br>如果我们的子组件中包含有根组件,例如<code>&lt;div&gt;&lt;/div&gt;</code>。<br>运行项目时，我们就会看到它自动变成<code>&lt;div class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/div&gt;</code>,添加了class属性和id属性。</li>
 </ul>
 <p>当我们不想出现这种特殊的情况是，我们可以在子组件中添加：<br><code>inheritAttrs: flase,</code>代码，这就等于时禁用了，<code>inheritAttrs</code>默认的值时true。</p>
 <span id="more"></span>
-<h2 id="attrs"><a href="#attrs" class="headerlink" title="$attrs"></a>$attrs</h2><p><strong><span style="color: red">$attrs<span>可以访问所有的非props的attribute。</span></span></strong><br>案例:</p>
+<h2 id="attrs"><a href="#attrs" class="headerlink" title="$attrs"></a>$attrs</h2><p><strong><span style="color: red">$attrs</span>可以访问所有的非props的attribute。</strong><br>案例:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">App.vue</span><br><span class="line">&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;title&quot; content=&quot;content&quot;&gt;&lt;/show-message&gt;</span><br><span class="line">ShowMessage.vue</span><br><span class="line">&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
 <p>在ShowMessage.vue中禁用了<code>inheritAttrs: false</code>.<br>页面显示效果：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2 class=&quot;beichen&quot;&gt;title&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
@@ -657,15 +657,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color5">attribute</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
+                <a href="javascript:void(0)" class="js-tag color1">attrs</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">watch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,22 +685,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">babel</a>
               </li>
              
@@ -709,11 +697,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attribute</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">attrs</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
             
             <div class="clearfix"></div>
