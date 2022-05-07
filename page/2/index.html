@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 19
+						总文章数 17
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -219,6 +219,148 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue-easy/v-model的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/28/vue-easy/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">v-model的基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/02/28/vue-easy/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-02-28T14:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">166字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h3 id="v-model的基本使用"><a href="#v-model的基本使用" class="headerlink" title="v-model的基本使用"></a>v-model的基本使用</h3><ul>
+<li>v-model三种常见的修饰符默认是string</li>
+<li>number的修饰符主要是将string转化成number类型</li>
+<li>trim修饰符主要是去除内容前后的空格<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; v-model.trim=&quot;message&quot;&gt;</span><br><span class="line">  // &lt;input type=&quot;text&quot; v-model.number=&quot;message&quot;&gt;</span><br><span class="line">  &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;showType()&quot;&gt;查看类型&lt;/button&gt;</span><br><span class="line">  &lt;button @click=&quot;showCon()&quot;&gt;查看内容&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  showType() &#123;</span><br><span class="line">    console.log(this.message, typeof this.message);</span><br><span class="line">  &#125;,</span><br><span class="line">  showCon() &#123;</span><br><span class="line">    console.log(this.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<strong>仅截取部分核心代码</strong><br>EX:<br>217498daowh   值为217498      类型为number<br>njdkhaw3431   值为njdkhaw3431 类型为string</li>
+</ul>
+
+            
+          
+        
+      <!-- 
+        <h3 id="v-model的基本使用"><a href="#v-model的基本使用" class="headerlink" title="v-model的基本使用"></a>v-model的基本使用</h3><ul>
+<li>v-model三种常见的修饰符默认是string</li>
+<li>number的修饰符主要是将string转化成number类型</li>
+<li>trim修饰符主要是去除内容前后的空格<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; v-model.trim=&quot;message&quot;&gt;</span><br><span class="line">  // &lt;input type=&quot;text&quot; v-model.number=&quot;message&quot;&gt;</span><br><span class="line">  &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;showType()&quot;&gt;查看类型&lt;/button&gt;</span><br><span class="line">  &lt;button @click=&quot;showCon()&quot;&gt;查看内容&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  showType() &#123;</span><br><span class="line">    console.log(this.message, typeof this.message);</span><br><span class="line">  &#125;,</span><br><span class="line">  showCon() &#123;</span><br><span class="line">    console.log(this.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<strong>仅截取部分核心代码</strong><br>EX:<br>217498daowh   值为217498      类型为number<br>njdkhaw3431   值为njdkhaw3431 类型为string</li>
+</ul>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/28/vue-easy/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-随笔/vite的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -687,14 +829,14 @@
 
 
   
-    <article id="post-vue-essay/vue初期学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-easy/vue初期学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">vue初期学习笔记</a>
+      <a class="article-title" href="/2022/02/28/vue-easy/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">vue初期学习笔记</a>
     </h1>
   
 
@@ -709,7 +851,7 @@
 
 
         
-        <a href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+        <a href="/2022/02/28/vue-easy/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
 	<time datetime="2022-02-28T14:18:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-02-28
 	</time>
@@ -748,7 +890,7 @@
 <h3 id="MVC——modle-view-controller-MVC"><a href="#MVC——modle-view-controller-MVC" class="headerlink" title="MVC——modle view controller(MVC)"></a>MVC——modle view controller(MVC)</h3><p>modle: 操作的数据<br>view: body里面的内容<br>controller: script里面的内容</p>
 <h3 id="MVVM——modle-view-view-modle-MVVC"><a href="#MVVM——modle-view-view-modle-MVVC" class="headerlink" title="MVVM——modle view view_modle(MVVC)"></a>MVVM——modle view view_modle(MVVC)</h3><p>view: DOM           template<br>view_modle: VUE<br>modle: plain js object    data、methods…</p>
             
-              <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+              <a class="article-more-a" href="/2022/02/28/vue-easy/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
             
 
           
@@ -758,7 +900,7 @@
 <h3 id="MVC——modle-view-controller-MVC"><a href="#MVC——modle-view-controller-MVC" class="headerlink" title="MVC——modle view controller(MVC)"></a>MVC——modle view controller(MVC)</h3><p>modle: 操作的数据<br>view: body里面的内容<br>controller: script里面的内容</p>
 <h3 id="MVVM——modle-view-view-modle-MVVC"><a href="#MVVM——modle-view-view-modle-MVVC" class="headerlink" title="MVVM——modle view view_modle(MVVC)"></a>MVVM——modle view view_modle(MVVC)</h3><p>view: DOM           template<br>view_modle: VUE<br>modle: plain js object    data、methods…</p>
         
-          <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
+          <a class="article-more-a" href="/2022/02/28/vue-easy/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more">more >></a>
         
        -->
 
@@ -793,7 +935,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/02/28/vue-easy/vue%E5%88%9D%E6%9C%9F%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
         
@@ -826,14 +968,14 @@
 
 
   
-    <article id="post-vue-essay/vue源码的打包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-easy/vue源码的打包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">vue源码的打包</a>
+      <a class="article-title" href="/2022/02/28/vue-easy/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">vue源码的打包</a>
     </h1>
   
 
@@ -848,7 +990,7 @@
 
 
         
-        <a href="/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/" class="archive-article-date">
+        <a href="/2022/02/28/vue-easy/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/" class="archive-article-date">
 	<time datetime="2022-02-28T14:17:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-02-28
 	</time>
@@ -888,7 +1030,7 @@
 <li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
 </ul>
             
-              <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/#more">more >></a>
+              <a class="article-more-a" href="/2022/02/28/vue-easy/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/#more">more >></a>
             
 
           
@@ -899,7 +1041,7 @@
 <li>2.安装<br><code>npm install vue@next</code><br>ERROR in ./src/vue/App/vue 1:0 Module parse failed : Unexpected token错误时，在安装：<br><code>npm install vue-loader -D</code><br>并在webpack.config.js中配置(配置方法同其他的loader一样)<br>继续安装：<br><code>npm install @vue/compiler-sfc -D</code><br>在webpack.config.js中继续配置：<br>引入：<br><code>const &#123; VueLoaderPlugin &#125; = require(&quot;vue-loader/dist/index&quot;)</code><br>插件配置：<br><code>new VueLoaderPlugin()</code></li>
 </ul>
         
-          <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/#more">more >></a>
+          <a class="article-more-a" href="/2022/02/28/vue-easy/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/#more">more >></a>
         
        -->
 
@@ -923,493 +1065,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-essay/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-webpack/webpack-插件的安装及使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/webpack/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">webpack-插件的安装及使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/webpack/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-02-28T14:16:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">829字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
-<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
-<p>css-loader的安装</p>
-</blockquote>
-<p><code>npm install css-loader -D</code></p>
-<blockquote>
-<p>css-loader的使用</p>
-</blockquote>
-<ul>
-<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
-</ul>
-<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
-            
-              <a class="article-more-a" href="/2022/02/28/webpack/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="loader"><a href="#loader" class="headerlink" title="loader"></a>loader</h2><p>首先解释一下loader是什么:<br>loader可以用于对<strong>模块的源代码</strong>进行转换<br><br>简单来说，就是把<strong>css文件看成一个模块</strong>，但是webpack并不知道这个模块是什么意思，通过loader将css模块<strong>转换</strong>成webpack能看懂的代码。</p>
-<h2 id="1、css-loader"><a href="#1、css-loader" class="headerlink" title="1、css-loader"></a>1、css-loader</h2><blockquote>
-<p>css-loader的安装</p>
-</blockquote>
-<p><code>npm install css-loader -D</code></p>
-<blockquote>
-<p>css-loader的使用</p>
-</blockquote>
-<ul>
-<li><strong>内联方式</strong><br><br>在引入的样式前加上使用的loader，并用**!**进行分割</li>
-</ul>
-<p><code>import &quot;css-loader!../...(css文件地址)&quot;;</code></p>
-        
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack-%E6%8F%92%E4%BB%B6%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-webpack/webpack_基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/webpack/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">webpack_基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/webpack/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-02-28T14:14:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">314字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p><strong>环境</strong></p>
-<blockquote>
-<p>1.安装nodejs</p>
-</blockquote>
-<p>在终端中可以通过<code>node -v</code>,<code>npm -v</code>来是否安装成功</p>
-<blockquote>
-<p>2.npm是跟随nodejs一起安装的</p>
-</blockquote>
-<ul>
-<li>可以通过nvm进行node安装以及管理。</li>
-<li>nvm的教程-地址:<a href="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" alt>nvm的安装-windows</a><blockquote>
-<p>3.webpack全局安装</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>webpack和webpack-cli是一起安装的，方便项目使用</strong></p>
-<p><code>npm install webpack webpack-cli -g</code></p>
-<blockquote>
-<p>4.执行<code>npm init (-y)</code></p>
-</blockquote>
-<ul>
-<li>这里的-y是默认全都yes执行</li>
-<li>然后列表文件会多一个<strong>package.json</strong></li>
-<li>很多配置都写在这个文件里面</li>
-</ul>
-            
-              <a class="article-more-a" href="/2022/02/28/webpack/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><p><strong>环境</strong></p>
-<blockquote>
-<p>1.安装nodejs</p>
-</blockquote>
-<p>在终端中可以通过<code>node -v</code>,<code>npm -v</code>来是否安装成功</p>
-<blockquote>
-<p>2.npm是跟随nodejs一起安装的</p>
-</blockquote>
-<ul>
-<li>可以通过nvm进行node安装以及管理。</li>
-<li>nvm的教程-地址:<a href="https://beichenzero.github.io/2021/10/09/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" alt>nvm的安装-windows</a><blockquote>
-<p>3.webpack全局安装</p>
-</blockquote>
-</li>
-</ul>
-<p><strong>webpack和webpack-cli是一起安装的，方便项目使用</strong></p>
-<p><code>npm install webpack webpack-cli -g</code></p>
-<blockquote>
-<p>4.执行<code>npm init (-y)</code></p>
-</blockquote>
-<ul>
-<li>这里的-y是默认全都yes执行</li>
-<li>然后列表文件会多一个<strong>package.json</strong></li>
-<li>很多配置都写在这个文件里面</li>
-</ul>
-        
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-webpack/webpack_plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/webpack/webpack_plugin/">webpack_pligin</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/webpack/webpack_plugin/" class="archive-article-date">
-	<time datetime="2022-02-28T14:11:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">485字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="插件plugin"><a href="#插件plugin" class="headerlink" title="插件plugin"></a>插件plugin</h2><blockquote>
-<p>补充<br></p>
-</blockquote>
-<p>不需要安装，直接引入就好<br><code>const path = require(&#39;path&#39;)</code><br>获取当前文件所在位置，以<code>webpack.config.js</code>文件的父级文件夹为准，具体视情况而定</p>
-<ul>
-<li><strong>用法</strong><br><br><code>path.resolve(__dirname, &quot;./build&quot;)</code><br>表示路径在你父级文件下的build文件</li>
-</ul>
-<blockquote>
-<p>clean-webpack-plugin</p>
-</blockquote>
-<ul>
-<li><p><strong>tip：以下的插件都为局部安装，如需全局安装，-D改成-g就好，一般不建议全局安装</strong></p></li></ul>
-            
-              <a class="article-more-a" href="/2022/02/28/webpack/webpack_plugin/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="插件plugin"><a href="#插件plugin" class="headerlink" title="插件plugin"></a>插件plugin</h2><blockquote>
-<p>补充<br></p>
-</blockquote>
-<p>不需要安装，直接引入就好<br><code>const path = require(&#39;path&#39;)</code><br>获取当前文件所在位置，以<code>webpack.config.js</code>文件的父级文件夹为准，具体视情况而定</p>
-<ul>
-<li><strong>用法</strong><br><br><code>path.resolve(__dirname, &quot;./build&quot;)</code><br>表示路径在你父级文件下的build文件</li>
-</ul>
-<blockquote>
-<p>clean-webpack-plugin</p>
-</blockquote>
-<ul>
-<li><p><strong>tip：以下的插件都为局部安装，如需全局安装，-D改成-g就好，一般不建议全局安装</strong></p></li></ul>
-        
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack_plugin/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack_plugin/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/02/28/vue-easy/vue%E6%BA%90%E7%A0%81%E7%9A%84%E6%89%93%E5%8C%85/">展开全文 >></a>
         </p>
       
         
@@ -1681,11 +1337,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1701,19 +1357,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color3">animate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">loader</a>
+                <a href="javascript:void(0)" class="js-tag color5">gsap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">slot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">transition</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">案例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">transiton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1721,7 +1389,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1730,10 +1398,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">slot</a>
               </li>
             
             <div class="clearfix"></div>

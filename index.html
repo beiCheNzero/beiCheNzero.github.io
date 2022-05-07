@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 19
+						总文章数 17
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -219,6 +219,526 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue-learn/列表元素的过渡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/">列表元素的过渡</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/" class="archive-article-date">
+	<time datetime="2022-05-07T12:44:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-07
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">744字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="列表元素的过渡"><a href="#列表元素的过渡" class="headerlink" title="列表元素的过渡"></a>列表元素的过渡</h2><ul>
+<li>过渡元素一般时针对单个元素或组件的。<br>那么如果我们渲染的时一个列表，那么就要用到<code>&lt;transition-group&gt;</code>组件来完成  </li>
+</ul>
+<h5 id="使用transition-group的特点"><a href="#使用transition-group的特点" class="headerlink" title="使用transition-group的特点"></a>使用transition-group的特点</h5><ul>
+<li>默认情况下，它不会渲染一个元素的包裹器，但是你可以指定一个元素并以 tag attribute 进行渲染</li>
+<li>过渡模式不可用，因为我们不再相互切换特有的元素</li>
+<li>内部元素总是需要提供唯一的 key attribute 值</li>
+<li>CSS 过渡的类将会应用在内部的元素中，而不是这个组/容器本身</li>
+</ul>
+<h4 id="列表过渡的基本使用"><a href="#列表过渡的基本使用" class="headerlink" title="列表过渡的基本使用"></a>列表过渡的基本使用</h4><p>我们以一个小案例了解他的基本使用：添加/删除数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;addNum&quot;&gt;添加数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;removeNum&quot;&gt;删除数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;shuffleNum&quot;&gt;打乱顺序&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;transition-group tag=&quot;p&quot; name=&quot;beichen&quot;&gt;</span><br><span class="line">      &lt;span v-for=&quot;item in numbers&quot; :key=&quot;item&quot; class=&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/transition-group&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import _ from &quot;lodash&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],</span><br><span class="line">        numberCounter: 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      addNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 0, this.numberCounter++);</span><br><span class="line">      &#125;,</span><br><span class="line">      removeNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 1);</span><br><span class="line">      &#125;,</span><br><span class="line">      shuffleNum() &#123;</span><br><span class="line">        this.numbers = _.shuffle(this.numbers);</span><br><span class="line">      &#125;,</span><br><span class="line">      randomIndex() &#123;</span><br><span class="line">        return Math.floor(Math.random() * this.numbers.length)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .item &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-from,</span><br><span class="line">  .beichen-leave-to &#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    transform: translateY(30px);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-active,</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    transition: all 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    /* 脱离标准流，在移除一个元素开始时就开始移动后面的元素 */</span><br><span class="line">    position: absolute;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-move &#123;</span><br><span class="line">    transition: transform 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+            
+              <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="列表元素的过渡"><a href="#列表元素的过渡" class="headerlink" title="列表元素的过渡"></a>列表元素的过渡</h2><ul>
+<li>过渡元素一般时针对单个元素或组件的。<br>那么如果我们渲染的时一个列表，那么就要用到<code>&lt;transition-group&gt;</code>组件来完成  </li>
+</ul>
+<h5 id="使用transition-group的特点"><a href="#使用transition-group的特点" class="headerlink" title="使用transition-group的特点"></a>使用transition-group的特点</h5><ul>
+<li>默认情况下，它不会渲染一个元素的包裹器，但是你可以指定一个元素并以 tag attribute 进行渲染</li>
+<li>过渡模式不可用，因为我们不再相互切换特有的元素</li>
+<li>内部元素总是需要提供唯一的 key attribute 值</li>
+<li>CSS 过渡的类将会应用在内部的元素中，而不是这个组/容器本身</li>
+</ul>
+<h4 id="列表过渡的基本使用"><a href="#列表过渡的基本使用" class="headerlink" title="列表过渡的基本使用"></a>列表过渡的基本使用</h4><p>我们以一个小案例了解他的基本使用：添加/删除数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;addNum&quot;&gt;添加数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;removeNum&quot;&gt;删除数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;shuffleNum&quot;&gt;打乱顺序&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;transition-group tag=&quot;p&quot; name=&quot;beichen&quot;&gt;</span><br><span class="line">      &lt;span v-for=&quot;item in numbers&quot; :key=&quot;item&quot; class=&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/transition-group&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import _ from &quot;lodash&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],</span><br><span class="line">        numberCounter: 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      addNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 0, this.numberCounter++);</span><br><span class="line">      &#125;,</span><br><span class="line">      removeNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 1);</span><br><span class="line">      &#125;,</span><br><span class="line">      shuffleNum() &#123;</span><br><span class="line">        this.numbers = _.shuffle(this.numbers);</span><br><span class="line">      &#125;,</span><br><span class="line">      randomIndex() &#123;</span><br><span class="line">        return Math.floor(Math.random() * this.numbers.length)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .item &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-from,</span><br><span class="line">  .beichen-leave-to &#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    transform: translateY(30px);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-active,</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    transition: all 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    /* 脱离标准流，在移除一个元素开始时就开始移动后面的元素 */</span><br><span class="line">    position: absolute;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-move &#123;</span><br><span class="line">    transition: transform 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">transition</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">案例</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-vue-learn/animate和gsap的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/">animate和gsap的基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-05-07T12:43:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-07
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">652字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="安装Animate-css"><a href="#安装Animate-css" class="headerlink" title="安装Animate.css"></a>安装Animate.css</h2><ul>
+<li>yarn安装: <code>yarn add animate.css</code></li>
+<li>npm安装: <code>npm install animate.css</code></li>
+</ul>
+<h4 id="animate-css的导入"><a href="#animate-css的导入" class="headerlink" title="animate.css的导入"></a>animate.css的导入</h4><ul>
+<li>在main.js中直接引入: <code>import &quot;animate.css&quot;</code></li>
+</ul>
+<h4 id="animate-css的使用"><a href="#animate-css的使用" class="headerlink" title="animate.css的使用"></a>animate.css的使用</h4><p>1.用法一：直接使用animate库中定义的keyframes动画</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.beichen-enter-active &#123;</span><br><span class="line">  animation: flip 1s ease;</span><br><span class="line">&#125;</span><br><span class="line">.beichen-leave-active &#123;</span><br><span class="line">  animation: flip 1s ease reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.用法二：直接使用animate库提供给我们的类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transiton name=&quot;beichen&quot;</span><br><span class="line">           enter-active-class=&quot;animate__animated animate__lightSpeedInRight&quot;</span><br><span class="line">           leave-active-class=&quot;animate__animated animate__lishtSpeedOutRight&quot;&gt;</span><br><span class="line">  &lt;h2 v-if=&quot;isShow&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>其中<code>animate__animated</code>类时必须要添加的</strong></p>
+<h2 id="gsap库"><a href="#gsap库" class="headerlink" title="gsap库"></a>gsap库</h2><h4 id="实现一些动画的库"><a href="#实现一些动画的库" class="headerlink" title="实现一些动画的库"></a>实现一些动画的库</h4><p>利用gsap来完成js最基本的动画</p>
+<ul>
+<li><p>安装gsap库<br><code>yarn add gsap</code> or <code>npm install gsap</code></p>
+</li>
+<li><p>导入gsap库<br><code>import gsap from &quot;gsap&quot;;</code></p>
+</li>
+</ul>
+<p>transition组件提供给我们的JavaScript钩子：</p>
+<ul>
+<li>@before-enter=”beforeEnter”</li>
+<li>@enter=”enter”</li>
+<li>@after-enter=”afterEnter”</li>
+<li>@before-leave=”beforeLeave”</li>
+<li>@leave=”leave”</li>
+<li>@after-leave=”afterLeave”</li></ul>
+            
+              <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="安装Animate-css"><a href="#安装Animate-css" class="headerlink" title="安装Animate.css"></a>安装Animate.css</h2><ul>
+<li>yarn安装: <code>yarn add animate.css</code></li>
+<li>npm安装: <code>npm install animate.css</code></li>
+</ul>
+<h4 id="animate-css的导入"><a href="#animate-css的导入" class="headerlink" title="animate.css的导入"></a>animate.css的导入</h4><ul>
+<li>在main.js中直接引入: <code>import &quot;animate.css&quot;</code></li>
+</ul>
+<h4 id="animate-css的使用"><a href="#animate-css的使用" class="headerlink" title="animate.css的使用"></a>animate.css的使用</h4><p>1.用法一：直接使用animate库中定义的keyframes动画</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.beichen-enter-active &#123;</span><br><span class="line">  animation: flip 1s ease;</span><br><span class="line">&#125;</span><br><span class="line">.beichen-leave-active &#123;</span><br><span class="line">  animation: flip 1s ease reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.用法二：直接使用animate库提供给我们的类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transiton name=&quot;beichen&quot;</span><br><span class="line">           enter-active-class=&quot;animate__animated animate__lightSpeedInRight&quot;</span><br><span class="line">           leave-active-class=&quot;animate__animated animate__lishtSpeedOutRight&quot;&gt;</span><br><span class="line">  &lt;h2 v-if=&quot;isShow&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>其中<code>animate__animated</code>类时必须要添加的</strong></p>
+<h2 id="gsap库"><a href="#gsap库" class="headerlink" title="gsap库"></a>gsap库</h2><h4 id="实现一些动画的库"><a href="#实现一些动画的库" class="headerlink" title="实现一些动画的库"></a>实现一些动画的库</h4><p>利用gsap来完成js最基本的动画</p>
+<ul>
+<li><p>安装gsap库<br><code>yarn add gsap</code> or <code>npm install gsap</code></p>
+</li>
+<li><p>导入gsap库<br><code>import gsap from &quot;gsap&quot;;</code></p>
+</li>
+</ul>
+<p>transition组件提供给我们的JavaScript钩子：</p>
+<ul>
+<li>@before-enter=”beforeEnter”</li>
+<li>@enter=”enter”</li>
+<li>@after-enter=”afterEnter”</li>
+<li>@before-leave=”beforeLeave”</li>
+<li>@leave=”leave”</li>
+<li>@after-leave=”afterLeave”</li></ul>
+        
+          <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">animate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gsap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-vue-learn/动画的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">动画的基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-05-07T12:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-07
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">552字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h2 id="过渡动画class"><a href="#过渡动画class" class="headerlink" title="过渡动画class"></a>过渡动画class</h2><ul>
+<li><span style="color:red">v-enter-from</span>:定义进入过过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</li>
+<li><span style="color:red">v-enter-active</span>定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-enter-to</span>定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter-from 被移除)，在过渡/动画完成之后移除</li>
+<li><span style="color:red">v-leave-from</span>定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除</li>
+<li><span style="color:red">v-leave-active</span>定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-leave-to</span>离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡/动画完成之后移除。</li>
+</ul>
+<p><strong>如果我们在transition中没有添加name属性,那么他的默认前缀就v-,如果添加了name属性，以name=”beichen”为例，那么所有的class会以beichen-开头。</strong></p>
+<ul>
+<li>如果同时设置了animationend和transitionend，我们可以在transition中设置type属性为transition和animation来明确告知vue监听的类型。<h4 id="显示指定动画时间"><a href="#显示指定动画时间" class="headerlink" title="显示指定动画时间"></a>显示指定动画时间</h4></li>
+<li>显示指定动画时间可以通过duration属性。<br>1.number类型：同时设置进入和离开的时间<br>ex：<code>:duration: 1000</code><br>2.object类型：分别设置进入和离开的时间<br>ex：<code>:duration: &#123;enter: 1000, leave: 800&#125;</code></li>
+</ul>
+<h4 id="过渡模式的mode"><a href="#过渡模式的mode" class="headerlink" title="过渡模式的mode"></a>过渡模式的<code>mode</code></h4><ul>
+<li><code>in-out</code>:新元素先进行过渡，完成之后当前元素过渡离开(<strong>先进后出</strong>)</li>
+<li><code>out-in</code>:当前元素先进行过渡，完成之后新元素过渡进入(<strong>先出后进</strong>)</li>
+</ul>
+<h4 id="appear属性"><a href="#appear属性" class="headerlink" title="appear属性"></a><code>appear</code>属性</h4><ul>
+<li>用来设置在加载界面/初次渲染时也是有动画显示的。</li>
+</ul>
+
+            
+          
+        
+      <!-- 
+        <h2 id="过渡动画class"><a href="#过渡动画class" class="headerlink" title="过渡动画class"></a>过渡动画class</h2><ul>
+<li><span style="color:red">v-enter-from</span>:定义进入过过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</li>
+<li><span style="color:red">v-enter-active</span>定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-enter-to</span>定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter-from 被移除)，在过渡/动画完成之后移除</li>
+<li><span style="color:red">v-leave-from</span>定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除</li>
+<li><span style="color:red">v-leave-active</span>定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-leave-to</span>离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡/动画完成之后移除。</li>
+</ul>
+<p><strong>如果我们在transition中没有添加name属性,那么他的默认前缀就v-,如果添加了name属性，以name=”beichen”为例，那么所有的class会以beichen-开头。</strong></p>
+<ul>
+<li>如果同时设置了animationend和transitionend，我们可以在transition中设置type属性为transition和animation来明确告知vue监听的类型。<h4 id="显示指定动画时间"><a href="#显示指定动画时间" class="headerlink" title="显示指定动画时间"></a>显示指定动画时间</h4></li>
+<li>显示指定动画时间可以通过duration属性。<br>1.number类型：同时设置进入和离开的时间<br>ex：<code>:duration: 1000</code><br>2.object类型：分别设置进入和离开的时间<br>ex：<code>:duration: &#123;enter: 1000, leave: 800&#125;</code></li>
+</ul>
+<h4 id="过渡模式的mode"><a href="#过渡模式的mode" class="headerlink" title="过渡模式的mode"></a>过渡模式的<code>mode</code></h4><ul>
+<li><code>in-out</code>:新元素先进行过渡，完成之后当前元素过渡离开(<strong>先进后出</strong>)</li>
+<li><code>out-in</code>:当前元素先进行过渡，完成之后新元素过渡进入(<strong>先出后进</strong>)</li>
+</ul>
+<h4 id="appear属性"><a href="#appear属性" class="headerlink" title="appear属性"></a><code>appear</code>属性</h4><ul>
+<li>用来设置在加载界面/初次渲染时也是有动画显示的。</li>
+</ul>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">transiton</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-vue-learn/slot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -377,14 +897,14 @@
 
 
   
-    <article id="post-vue-essay/attribute和attrs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-easy/attribute和attrs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/vue-essay/attribute%E5%92%8Cattrs/">attribute和$attrs</a>
+      <a class="article-title" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/">attribute和$attrs</a>
     </h1>
   
 
@@ -399,7 +919,7 @@
 
 
         
-        <a href="/2022/03/04/vue-essay/attribute%E5%92%8Cattrs/" class="archive-article-date">
+        <a href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/" class="archive-article-date">
 	<time datetime="2022-03-04T11:42:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-03-04
 	</time>
@@ -442,7 +962,7 @@
 </ul>
 <p>当我们不想出现这种特殊的情况是，我们可以在子组件中添加：<br><code>inheritAttrs: flase,</code>代码，这就等于时禁用了，<code>inheritAttrs</code>默认的值时true。</p>
             
-              <a class="article-more-a" href="/2022/03/04/vue-essay/attribute%E5%92%8Cattrs/#more">more >></a>
+              <a class="article-more-a" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/#more">more >></a>
             
 
           
@@ -456,7 +976,7 @@
 </ul>
 <p>当我们不想出现这种特殊的情况是，我们可以在子组件中添加：<br><code>inheritAttrs: flase,</code>代码，这就等于时禁用了，<code>inheritAttrs</code>默认的值时true。</p>
         
-          <a class="article-more-a" href="/2022/03/04/vue-essay/attribute%E5%92%8Cattrs/#more">more >></a>
+          <a class="article-more-a" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/#more">more >></a>
         
        -->
 
@@ -495,7 +1015,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/vue-essay/attribute%E5%92%8Cattrs/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/">展开全文 >></a>
         </p>
       
         
@@ -528,14 +1048,14 @@
 
 
   
-    <article id="post-vue-essay/vue-商品切换案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-easy/vue-商品切换案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">vue-商品切换案例</a>
+      <a class="article-title" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">vue-商品切换案例</a>
     </h1>
   
 
@@ -550,7 +1070,7 @@
 
 
         
-        <a href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/" class="archive-article-date">
+        <a href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/" class="archive-article-date">
 	<time datetime="2022-03-03T10:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-03-03
 	</time>
@@ -593,7 +1113,7 @@
 <li>代码如下</li>
 </ul>
             
-              <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
+              <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
             
 
           
@@ -607,7 +1127,7 @@
 <li>代码如下</li>
 </ul>
         
-          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
+          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
         
        -->
 
@@ -642,7 +1162,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">展开全文 >></a>
         </p>
       
         
@@ -675,14 +1195,14 @@
 
 
   
-    <article id="post-vue-essay/vue-组件传值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-easy/vue-组件传值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">vue-组件传值</a>
+      <a class="article-title" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">vue-组件传值</a>
     </h1>
   
 
@@ -697,7 +1217,7 @@
 
 
         
-        <a href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" class="archive-article-date">
+        <a href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" class="archive-article-date">
 	<time datetime="2022-03-03T10:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-03-03
 	</time>
@@ -741,7 +1261,7 @@
 </blockquote>
 <p>逻辑关系：<br>在子组件中定义需要传递的name -&gt; 通过<code>$emit</code>来传递。</p>
             
-              <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
+              <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
             
 
           
@@ -756,7 +1276,7 @@
 </blockquote>
 <p>逻辑关系：<br>在子组件中定义需要传递的name -&gt; 通过<code>$emit</code>来传递。</p>
         
-          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
+          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
         
        -->
 
@@ -791,7 +1311,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/03/vue-essay/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">展开全文 >></a>
         </p>
       
         
@@ -824,14 +1344,14 @@
 
 
   
-    <article id="post-vue-essay/vue-watch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue-easy/vue-watch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-essay/vue-watch/">vue-watch</a>
+      <a class="article-title" href="/2022/02/28/vue-easy/vue-watch/">vue-watch</a>
     </h1>
   
 
@@ -846,7 +1366,7 @@
 
 
         
-        <a href="/2022/02/28/vue-essay/vue-watch/" class="archive-article-date">
+        <a href="/2022/02/28/vue-easy/vue-watch/" class="archive-article-date">
 	<time datetime="2022-02-28T14:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
 		2022-02-28
 	</time>
@@ -927,160 +1447,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-essay/vue-watch/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-webpack/webpack-babel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/webpack/webpack-babel/">webpack-babel</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/webpack/webpack-babel/" class="archive-article-date">
-	<time datetime="2022-02-28T14:29:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">456字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h3 id="1-为什么用babel"><a href="#1-为什么用babel" class="headerlink" title="1.为什么用babel?"></a>1.为什么用babel?</h3><p><code>babel</code>是一个<span style="color: red">工具链</span>(<code>webpack</code>也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括<em>语法转换</em>，<em>源代码转换</em>等  </p>
-<h3 id="2-babel的使用"><a href="#2-babel的使用" class="headerlink" title="2.babel的使用"></a>2.babel的使用</h3><ul>
-<li>babel本身是一个独立的工具(和postcss一样)  </li>
-<li>安装库：<br>@babel/core - 核心代码<br>@babel/cli - 使我们在命令行使用babel(独立使用)<br><code>npx babel &quot;source-src&quot; --out-dir &quot;target-dist&quot;</code><br><code>npx babel &quot;源文件&quot; --out-dir &quot;目标文件&quot;</code></li>
-<li>1.<code>--out-dir</code>使输出一个文件夹，文件下存放有转换后的文件  </li>
-<li>2.<code>--out-file</code>使输出一个文件，输出的文件就在当前文件夹下  </li>
-<li>转换箭头使用的插件<br><code>npm install @babel/plugin-transform-arrow-funcitons -D</code>  </li>
-<li>转换语法<br><code>npx babel &quot;x.js&quot; --out-dir &quot;x.js&quot; --plugins=@babel/plugin-transform-arrow-functions</code>  </li>
-</ul>
-<p><strong>只能转换箭头函数</strong></p>
-            
-              <a class="article-more-a" href="/2022/02/28/webpack/webpack-babel/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h3 id="1-为什么用babel"><a href="#1-为什么用babel" class="headerlink" title="1.为什么用babel?"></a>1.为什么用babel?</h3><p><code>babel</code>是一个<span style="color: red">工具链</span>(<code>webpack</code>也是),ES6以上的代码转换为向后兼容版本的JavaScript.包括<em>语法转换</em>，<em>源代码转换</em>等  </p>
-<h3 id="2-babel的使用"><a href="#2-babel的使用" class="headerlink" title="2.babel的使用"></a>2.babel的使用</h3><ul>
-<li>babel本身是一个独立的工具(和postcss一样)  </li>
-<li>安装库：<br>@babel/core - 核心代码<br>@babel/cli - 使我们在命令行使用babel(独立使用)<br><code>npx babel &quot;source-src&quot; --out-dir &quot;target-dist&quot;</code><br><code>npx babel &quot;源文件&quot; --out-dir &quot;目标文件&quot;</code></li>
-<li>1.<code>--out-dir</code>使输出一个文件夹，文件下存放有转换后的文件  </li>
-<li>2.<code>--out-file</code>使输出一个文件，输出的文件就在当前文件夹下  </li>
-<li>转换箭头使用的插件<br><code>npm install @babel/plugin-transform-arrow-funcitons -D</code>  </li>
-<li>转换语法<br><code>npx babel &quot;x.js&quot; --out-dir &quot;x.js&quot; --plugins=@babel/plugin-transform-arrow-functions</code>  </li>
-</ul>
-<p><strong>只能转换箭头函数</strong></p>
-        
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack-babel/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">babel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack-babel/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/02/28/vue-easy/vue-watch/">展开全文 >></a>
         </p>
       
         
@@ -1404,287 +1771,6 @@
 
 
   
-    <article id="post-webpack/webpack-url_file_loader-字体" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/webpack/webpack-url_file_loader-%E5%AD%97%E4%BD%93/">webpack-url_file_loader,字体</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/webpack/webpack-url_file_loader-%E5%AD%97%E4%BD%93/" class="archive-article-date">
-	<time datetime="2022-02-28T14:25:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">254字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="file-loader-url-loader的使用-加载字体文件"><a href="#file-loader-url-loader的使用-加载字体文件" class="headerlink" title="file-loader/url-loader的使用,加载字体文件"></a>file-loader/url-loader的使用,加载字体文件</h2><ul>
-<li>安装<br><br><code>npm install file-loader -D</code><br><br><code>npm install url-loader -D</code></li>
-<li>使用方式①<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(eot|ttf|woff2?)$/,</span><br><span class="line">	use: [&#123;</span><br><span class="line">		loader: &quot;file-loader&quot;,</span><br><span class="line">		//loader: &quot;url-loader&quot;,</span><br><span class="line">		options: &#123;</span><br><span class="line">			name: &quot;font/[name]_[hash.6].[ext]&quot;,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>
-            
-              <a class="article-more-a" href="/2022/02/28/webpack/webpack-url_file_loader-%E5%AD%97%E4%BD%93/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="file-loader-url-loader的使用-加载字体文件"><a href="#file-loader-url-loader的使用-加载字体文件" class="headerlink" title="file-loader/url-loader的使用,加载字体文件"></a>file-loader/url-loader的使用,加载字体文件</h2><ul>
-<li>安装<br><br><code>npm install file-loader -D</code><br><br><code>npm install url-loader -D</code></li>
-<li>使用方式①<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	test: /\.(eot|ttf|woff2?)$/,</span><br><span class="line">	use: [&#123;</span><br><span class="line">		loader: &quot;file-loader&quot;,</span><br><span class="line">		//loader: &quot;url-loader&quot;,</span><br><span class="line">		options: &#123;</span><br><span class="line">			name: &quot;font/[name]_[hash.6].[ext]&quot;,</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul>
-        
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack-url_file_loader-%E5%AD%97%E4%BD%93/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">loader</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/webpack/webpack-url_file_loader-%E5%AD%97%E4%BD%93/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-essay/v-model的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-essay/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">v-model的基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/vue-essay/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-02-28T14:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">166字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h3 id="v-model的基本使用"><a href="#v-model的基本使用" class="headerlink" title="v-model的基本使用"></a>v-model的基本使用</h3><ul>
-<li>v-model三种常见的修饰符默认是string</li>
-<li>number的修饰符主要是将string转化成number类型</li>
-<li>trim修饰符主要是去除内容前后的空格<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; v-model.trim=&quot;message&quot;&gt;</span><br><span class="line">  // &lt;input type=&quot;text&quot; v-model.number=&quot;message&quot;&gt;</span><br><span class="line">  &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;showType()&quot;&gt;查看类型&lt;/button&gt;</span><br><span class="line">  &lt;button @click=&quot;showCon()&quot;&gt;查看内容&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  showType() &#123;</span><br><span class="line">    console.log(this.message, typeof this.message);</span><br><span class="line">  &#125;,</span><br><span class="line">  showCon() &#123;</span><br><span class="line">    console.log(this.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<strong>仅截取部分核心代码</strong><br>EX:<br>217498daowh   值为217498      类型为number<br>njdkhaw3431   值为njdkhaw3431 类型为string</li>
-</ul>
-
-            
-          
-        
-      <!-- 
-        <h3 id="v-model的基本使用"><a href="#v-model的基本使用" class="headerlink" title="v-model的基本使用"></a>v-model的基本使用</h3><ul>
-<li>v-model三种常见的修饰符默认是string</li>
-<li>number的修饰符主要是将string转化成number类型</li>
-<li>trim修饰符主要是去除内容前后的空格<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; v-model.trim=&quot;message&quot;&gt;</span><br><span class="line">  // &lt;input type=&quot;text&quot; v-model.number=&quot;message&quot;&gt;</span><br><span class="line">  &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;showType()&quot;&gt;查看类型&lt;/button&gt;</span><br><span class="line">  &lt;button @click=&quot;showCon()&quot;&gt;查看内容&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  showType() &#123;</span><br><span class="line">    console.log(this.message, typeof this.message);</span><br><span class="line">  &#125;,</span><br><span class="line">  showCon() &#123;</span><br><span class="line">    console.log(this.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<strong>仅截取部分核心代码</strong><br>EX:<br>217498daowh   值为217498      类型为number<br>njdkhaw3431   值为njdkhaw3431 类型为string</li>
-</ul>
-
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-essay/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1811,11 +1897,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1831,19 +1917,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">babel</a>
+                <a href="javascript:void(0)" class="js-tag color3">animate</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">loader</a>
+                <a href="javascript:void(0)" class="js-tag color5">gsap</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">slot</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">transition</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">案例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">transiton</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1851,7 +1949,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vue-components</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1860,10 +1958,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">slot</a>
               </li>
             
             <div class="clearfix"></div>
