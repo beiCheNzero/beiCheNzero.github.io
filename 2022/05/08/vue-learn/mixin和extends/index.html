@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://beichenzero.github.io">
-  <title>Tag: gsap | 北辰的个人博客</title>
+  <title>mixin和extends | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="北辰的个人博客">
-<meta property="og:url" content="http://beichenzero.github.io/tags/gsap/">
+  <meta name="description" content="mixin1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能2.一个Mixin对象可以包含任何组件选项3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中mixin的基本使用ex:写入公共内容到demoMixin.js文件中 123456789101112131415export const demoMixin &#x3D; &amp;#123;  data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mixin和extends">
+<meta property="og:url" content="http://beichenzero.github.io/2022/05/08/vue-learn/mixin%E5%92%8Cextends/">
 <meta property="og:site_name" content="北辰的个人博客">
+<meta property="og:description" content="mixin1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能2.一个Mixin对象可以包含任何组件选项3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中mixin的基本使用ex:写入公共内容到demoMixin.js文件中 123456789101112131415export const demoMixin &#x3D; &amp;#123;  data">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-08T07:15:54.000Z">
+<meta property="article:modified_time" content="2022-05-08T07:16:43.412Z">
 <meta property="article:author" content="北辰">
 <meta name="twitter:card" content="summary">
   
@@ -218,82 +222,323 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <!-- 置顶 -->
+
+
+<article id="post-vue-learn/mixin和extends" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      mixin和extends
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-05-07T12:43:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-07
+
+
+        <!--显示阅读次数-->
+        <!-- 
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+         -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+            阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/" class="archive-article-date">
+	<time datetime="2022-05-08T07:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-08
 	</time>
 </a>
 
 <!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
 
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/">animate和gsap的基本使用</a>
-    </h1>
-  
+        
 
-        <div class="article-info info-on-right">
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">413字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
           
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">animate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gsap</a>
-        		</li>
-      		
-		</ul>
-	</div>
+            <h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>在需要调用的vue文件下引入即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
+<span id="more"></span>
+<h3 id="Mixin的合并规则"><a href="#Mixin的合并规则" class="headerlink" title="Mixin的合并规则"></a>Mixin的合并规则</h3><h5 id="1-如果时data函数的返回值对象"><a href="#1-如果时data函数的返回值对象" class="headerlink" title="1.如果时data函数的返回值对象"></a>1.如果时data函数的返回值对象</h5><ul>
+<li>默认情况下时会进行合并</li>
+<li>如果data返回值对象的属性发生了冲突，那么会保留vue组件自身的数据<h5 id="2-如果是生命周期钩子函数"><a href="#2-如果是生命周期钩子函数" class="headerlink" title="2.如果是生命周期钩子函数"></a>2.如果是生命周期钩子函数</h5></li>
+<li>生命周期的钩子函数会被合并到数组中，并依次执行，都会被调用<h5 id="3-值为对象的选项，如methods-watch-components等，会被合并为一个对象"><a href="#3-值为对象的选项，如methods-watch-components等，会被合并为一个对象" class="headerlink" title="3.值为对象的选项，如methods/watch/components等，会被合并为一个对象"></a>3.值为对象的选项，如methods/watch/components等，会被合并为一个对象</h5></li>
+<li>不同方法名可以合并</li>
+<li>如果方法名等发生了冲突，还是会优先保留自身组件的方法。</li>
+</ul>
+<h3 id="Mixin全局混入"><a href="#Mixin全局混入" class="headerlink" title="Mixin全局混入"></a>Mixin全局混入</h3><p>使用Mixin全局混入，这样可以在所有的组件中都能使用全局的Mixin。<br>一旦注册，那么全局混入的选项将会影响每一个组件。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const app = createApp(App);</span><br><span class="line">app.mixin(&#123;</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;global mixin created&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+            
           
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+      <!-- 
+        <h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>在需要调用的vue文件下引入即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
+<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
+<span id="more"></span>
+<h3 id="Mixin的合并规则"><a href="#Mixin的合并规则" class="headerlink" title="Mixin的合并规则"></a>Mixin的合并规则</h3><h5 id="1-如果时data函数的返回值对象"><a href="#1-如果时data函数的返回值对象" class="headerlink" title="1.如果时data函数的返回值对象"></a>1.如果时data函数的返回值对象</h5><ul>
+<li>默认情况下时会进行合并</li>
+<li>如果data返回值对象的属性发生了冲突，那么会保留vue组件自身的数据<h5 id="2-如果是生命周期钩子函数"><a href="#2-如果是生命周期钩子函数" class="headerlink" title="2.如果是生命周期钩子函数"></a>2.如果是生命周期钩子函数</h5></li>
+<li>生命周期的钩子函数会被合并到数组中，并依次执行，都会被调用<h5 id="3-值为对象的选项，如methods-watch-components等，会被合并为一个对象"><a href="#3-值为对象的选项，如methods-watch-components等，会被合并为一个对象" class="headerlink" title="3.值为对象的选项，如methods/watch/components等，会被合并为一个对象"></a>3.值为对象的选项，如methods/watch/components等，会被合并为一个对象</h5></li>
+<li>不同方法名可以合并</li>
+<li>如果方法名等发生了冲突，还是会优先保留自身组件的方法。</li>
+</ul>
+<h3 id="Mixin全局混入"><a href="#Mixin全局混入" class="headerlink" title="Mixin全局混入"></a>Mixin全局混入</h3><p>使用Mixin全局混入，这样可以在所有的组件中都能使用全局的Mixin。<br>一旦注册，那么全局混入的选项将会影响每一个组件。  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">const app = createApp(App);</span><br><span class="line">app.mixin(&#123;</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;global mixin created&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://beichenzero.github.io/2022/05/08/vue-learn/mixin%E5%92%8Cextends/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+    
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/05/08/vue-learn/composition_api/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          CompositionAPI
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">列表元素的过渡</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mixin"><span class="toc-number">1.</span> <span class="toc-text">mixin</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-Mixin%E6%8F%90%E4%BE%9B%E4%BA%86%E4%B8%80%E7%A7%8D%E9%9D%9E%E5%B8%B8%E7%81%B5%E6%B4%BB%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E6%9D%A5%E5%88%86%E5%8F%91Vue%E7%BB%84%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%8F%AF%E5%A4%8D%E7%94%A8%E5%8A%9F%E8%83%BD"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%B8%80%E4%B8%AAMixin%E5%AF%B9%E8%B1%A1%E5%8F%AF%E4%BB%A5%E5%8C%85%E5%90%AB%E4%BB%BB%E4%BD%95%E7%BB%84%E4%BB%B6%E9%80%89%E9%A1%B9"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">2.一个Mixin对象可以包含任何组件选项</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%BD%93%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8Mixin%E5%AF%B9%E8%B1%A1%E6%97%B6%EF%BC%8C%E6%89%80%E6%9C%89Mixin%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%80%89%E9%A1%B9%E5%B0%86%E8%A2%AB-%E6%B7%B7%E5%90%88-%E8%BF%9B%E5%85%A5%E8%AF%A5%E7%BB%84%E4%BB%B6%E6%9C%AC%E8%BA%AB%E7%9A%84%E9%80%89%E9%A1%B9%E4%B8%AD"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mixin%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">mixin的基本使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mixin%E7%9A%84%E5%90%88%E5%B9%B6%E8%A7%84%E5%88%99"><span class="toc-number">1.2.</span> <span class="toc-text">Mixin的合并规则</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%A6%82%E6%9E%9C%E6%97%B6data%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.0.1.</span> <span class="toc-text">1.如果时data函数的返回值对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%A6%82%E6%9E%9C%E6%98%AF%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.0.2.</span> <span class="toc-text">2.如果是生命周期钩子函数</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%80%BC%E4%B8%BA%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%80%89%E9%A1%B9%EF%BC%8C%E5%A6%82methods-watch-components%E7%AD%89%EF%BC%8C%E4%BC%9A%E8%A2%AB%E5%90%88%E5%B9%B6%E4%B8%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.2.0.3.</span> <span class="toc-text">3.值为对象的选项，如methods&#x2F;watch&#x2F;components等，会被合并为一个对象</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mixin%E5%85%A8%E5%B1%80%E6%B7%B7%E5%85%A5"><span class="toc-number">1.3.</span> <span class="toc-text">Mixin全局混入</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  <!--  -->
+  
+  <!-- 
+
+   -->
+
+  
+
+  
+  
+    <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+<script type="text/javascript">
+
+if(true){
+  var gitalk = new Gitalk({
+    clientID: 'b6bdcf0065b59dc3b1d9',
+    clientSecret: '868430cb9c32e56c479c2925f96f21ad6b43df09',
+    repo: 'blog',
+    owner: 'beiCheNzero',
+    admin: ['beiCheNzero'],
+    id: 'Sun May 08 2022 15:15:54 GMT+0800',
+    distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+
 
     
 
 
+
+
+
+
+<!-- 
+{% elseif theme.gitalk.enable %}
+    {/* <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<div id="gitalk-container"></div>
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '<%= theme.gitalk.clientID %>',
+        clientSecret: '<%= theme.gitalk.clientSecret %>',
+        id: window.location.pathname,
+        repo: '<%= theme.gitalk.repo %>',
+        owner: '<%= theme.gitalk.owner %>',
+        admin: '<%= theme.gitalk.admin %>'
+    })
+    gitalk.render('gitalk-container')
+</script> */}
+
+<link rel="stylesheet" href="<%- theme.libs.css.gitalk %>">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="<%- theme.libs.js.gitalk %>"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '<%- theme.gitalk.oauth.clientId %>',
+        clientSecret: '<%- theme.gitalk.oauth.clientSecret %>',
+        repo: '<%- theme.gitalk.repo %>',
+        owner: '<%- theme.gitalk.owner %>',
+        admin: <%- JSON.stringify(theme.gitalk.admin) %>,
+        id: '<%- date(page.date, 'YYYY-MM-DDTHH-mm-ss') %>',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+
+{% endif %} -->
           </div>
         </div>
       </div>
@@ -329,9 +574,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

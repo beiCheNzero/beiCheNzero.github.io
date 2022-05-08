@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 17
+						总文章数 19
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -219,6 +219,272 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue-learn/composition_api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/08/vue-learn/composition_api/">CompositionAPI</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/08/vue-learn/composition_api/" class="archive-article-date">
+	<time datetime="2022-05-08T07:17:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-08
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="optionsAPi的弊端"><a href="#optionsAPi的弊端" class="headerlink" title="optionsAPi的弊端"></a>optionsAPi的弊端</h2><ul>
+<li>在vue2中我们编写组件的方式是optionsAPI<br>例如：data定义的数据、methods定义的方法、computed中定义的计算属性、watch中监听属性的改变，还包括生命周期钩子</li>
+</ul>
+<h4 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h4><p>在我们实现某些功能的时候，例如写一个计数器<br>往往我们需要定义methods，其中定义一个+1/-1的函数、需要定义data中的counter数据、监听counter的改变。<br>当我们的代码逻辑变得很庞大的时候，逻辑就会变得不清晰，且代码量会变大很大，定义的方法和数据不连贯，使得代码的阅读和理解会变得很困难。</p>
+<h2 id="CompositionAPI"><a href="#CompositionAPI" class="headerlink" title="CompositionAPI"></a>CompositionAPI</h2><p>我们要使用Composition API时我们需要在vue组件中使用setup函数。<br>setup函数就是用来替代之前所编写的大部分选项。包括methods、computed、data、watch、生命周期等</p>
+<h4 id="setup函数的参数"><a href="#setup函数的参数" class="headerlink" title="setup函数的参数"></a>setup函数的参数</h4><p>1.props<br>props非常好理解，它其实就是父组件传递过来的属性会被放到props对象中，我们在setup中如果需要使用，那么就可以直接通过props参数获取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;home message=&quot;父组件中的message&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>子组件中接收父组件传过来的messsage并指定类型和是否必须传过来。否则会报一个<strong>warning</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">      message: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        required: true,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>2.context<br>context也被称之为<strong>setupcontext</strong>,他包含三个属性：</p>
+<ul>
+<li>attrs<br>所有的非prop的attribute</li>
+<li>solts<br>父组件传递过来的插槽</li>
+<li>emit<br>当我们组件内部需要发出事件时会用到emit（因为我们不能访问this，所以不可以通过 this.$emit发出事件）</li>
+</ul>
+            
+              <a class="article-more-a" href="/2022/05/08/vue-learn/composition_api/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="optionsAPi的弊端"><a href="#optionsAPi的弊端" class="headerlink" title="optionsAPi的弊端"></a>optionsAPi的弊端</h2><ul>
+<li>在vue2中我们编写组件的方式是optionsAPI<br>例如：data定义的数据、methods定义的方法、computed中定义的计算属性、watch中监听属性的改变，还包括生命周期钩子</li>
+</ul>
+<h4 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h4><p>在我们实现某些功能的时候，例如写一个计数器<br>往往我们需要定义methods，其中定义一个+1/-1的函数、需要定义data中的counter数据、监听counter的改变。<br>当我们的代码逻辑变得很庞大的时候，逻辑就会变得不清晰，且代码量会变大很大，定义的方法和数据不连贯，使得代码的阅读和理解会变得很困难。</p>
+<h2 id="CompositionAPI"><a href="#CompositionAPI" class="headerlink" title="CompositionAPI"></a>CompositionAPI</h2><p>我们要使用Composition API时我们需要在vue组件中使用setup函数。<br>setup函数就是用来替代之前所编写的大部分选项。包括methods、computed、data、watch、生命周期等</p>
+<h4 id="setup函数的参数"><a href="#setup函数的参数" class="headerlink" title="setup函数的参数"></a>setup函数的参数</h4><p>1.props<br>props非常好理解，它其实就是父组件传递过来的属性会被放到props对象中，我们在setup中如果需要使用，那么就可以直接通过props参数获取。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;home message=&quot;父组件中的message&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p>子组件中接收父组件传过来的messsage并指定类型和是否必须传过来。否则会报一个<strong>warning</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">      message: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        required: true,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+<p>2.context<br>context也被称之为<strong>setupcontext</strong>,他包含三个属性：</p>
+<ul>
+<li>attrs<br>所有的非prop的attribute</li>
+<li>solts<br>父组件传递过来的插槽</li>
+<li>emit<br>当我们组件内部需要发出事件时会用到emit（因为我们不能访问this，所以不可以通过 this.$emit发出事件）</li>
+</ul>
+        
+          <a class="article-more-a" href="/2022/05/08/vue-learn/composition_api/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/08/vue-learn/composition_api/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-vue-learn/mixin和extends" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/">mixin和extends</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/" class="archive-article-date">
+	<time datetime="2022-05-08T07:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-08
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">413字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在需要调用的vue文件下引入即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
+            
+              <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在需要调用的vue文件下引入即可</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
+        
+          <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-vue-learn/列表元素的过渡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1448,297 +1714,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/02/28/vue-easy/vue-watch/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-随笔/electron出使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/%E9%9A%8F%E7%AC%94/electron%E5%87%BA%E4%BD%BF%E7%94%A8/">electron出使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/%E9%9A%8F%E7%AC%94/electron%E5%87%BA%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-02-28T14:28:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">76字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-            
-          
-        
-      <!-- 
-        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/electron%E5%87%BA%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-随笔/markdown常用语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/%E9%9A%8F%E7%AC%94/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">markdown常用语法</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/%E9%9A%8F%E7%AC%94/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-	<time datetime="2022-02-28T14:26:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">644字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">2分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<p>本文主要记录markdown的基本语法，更多详细的语法请查看<a target="_blank" rel="noopener" href="http://markdown.p2hp.com/basic-syntax/">markdown官网</a></p>
-<h2 id="一、标题等级"><a href="#一、标题等级" class="headerlink" title="一、标题等级"></a>一、标题等级</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a><strong>效果</strong></h3><blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></blockquote>
-<p></p>
-            
-              <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <p>本文主要记录markdown的基本语法，更多详细的语法请查看<a target="_blank" rel="noopener" href="http://markdown.p2hp.com/basic-syntax/">markdown官网</a></p>
-<h2 id="一、标题等级"><a href="#一、标题等级" class="headerlink" title="一、标题等级"></a>一、标题等级</h2><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a><strong>代码</strong></h3>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题</span><br></pre></td></tr></table></figure>
-<h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a><strong>效果</strong></h3><blockquote>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题"></a>六级标题</h6></blockquote>
-<p></p>
-        
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/markdown%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95/">展开全文 >></a>
         </p>
       
         
