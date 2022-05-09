@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 23
+						总文章数 24
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -219,6 +219,165 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue-learn/vue-组件通信" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">vue-组件通信</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" class="archive-article-date">
+	<time datetime="2022-02-28T14:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">627字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="父子组件之间通信的方式"><a href="#父子组件之间通信的方式" class="headerlink" title="父子组件之间通信的方式"></a>父子组件之间通信的方式</h2><blockquote>
+<p>1.<strong>父组件(Patent)传递给子组件(Child)</strong>  </p>
+</blockquote>
+<p>通过<span style="color: red"><strong>props</strong></span>属性传递  </p>
+<blockquote>
+<p>2.<strong>子组件传递给父组件</strong>  </p>
+</blockquote>
+<p>通过<span style="color: red"><strong>$emit Events</strong></span></p>
+<h2 id="传值时props可以是数组也可以是对象"><a href="#传值时props可以是数组也可以是对象" class="headerlink" title="传值时props可以是数组也可以是对象"></a>传值时props可以是数组也可以是对象</h2><blockquote>
+<p><strong>1.传值对象————数组</strong>  </p>
+</blockquote>
+<p><em><strong>一般不用这种方式</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  props: [</span><br><span class="line">    &#x27;title&#x27;,</span><br><span class="line">    &#x27;content&#x27;,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            
+              <a class="article-more-a" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="父子组件之间通信的方式"><a href="#父子组件之间通信的方式" class="headerlink" title="父子组件之间通信的方式"></a>父子组件之间通信的方式</h2><blockquote>
+<p>1.<strong>父组件(Patent)传递给子组件(Child)</strong>  </p>
+</blockquote>
+<p>通过<span style="color: red"><strong>props</strong></span>属性传递  </p>
+<blockquote>
+<p>2.<strong>子组件传递给父组件</strong>  </p>
+</blockquote>
+<p>通过<span style="color: red"><strong>$emit Events</strong></span></p>
+<h2 id="传值时props可以是数组也可以是对象"><a href="#传值时props可以是数组也可以是对象" class="headerlink" title="传值时props可以是数组也可以是对象"></a>传值时props可以是数组也可以是对象</h2><blockquote>
+<p><strong>1.传值对象————数组</strong>  </p>
+</blockquote>
+<p><em><strong>一般不用这种方式</strong></em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  props: [</span><br><span class="line">    &#x27;title&#x27;,</span><br><span class="line">    &#x27;content&#x27;,</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vue-components</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/28/vue-learn/vue-%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-vue-easy/vue初期学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -720,6 +879,34 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">attribute</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">attrs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vue案例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">组件传值</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">animate</a>
               </li>
              
@@ -760,14 +947,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">watchEffect</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">transition</a>
               </li>
              
@@ -776,35 +955,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attribute</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">attrs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">transiton</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue案例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">组件传值</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">watchEffect</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">transiton</a>
               </li>
              
               <li class="article-tag-list-item">
