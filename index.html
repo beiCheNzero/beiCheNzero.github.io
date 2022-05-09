@@ -277,8 +277,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          
-            <h2 id="Reactive判断的API"><a href="#Reactive判断的API" class="headerlink" title="Reactive判断的API"></a>Reactive判断的API</h2><h4 id="1-isProxy"><a href="#1-isProxy" class="headerlink" title="1.isProxy"></a>1.isProxy</h4><ul>
+          		<h2 id="Reactive判断的API"><a href="#Reactive判断的API" class="headerlink" title="Reactive判断的API"></a>Reactive判断的API</h2><h4 id="1-isProxy"><a href="#1-isProxy" class="headerlink" title="1.isProxy"></a>1.isProxy</h4><ul>
 <li>检查对象是否是由 reactive 或 readonly创建的 proxy。<h4 id="2-isReactive"><a href="#2-isReactive" class="headerlink" title="2.isReactive"></a>2.isReactive</h4></li>
 <li>检查对象是否是由 reactive创建的响应式代理： </li>
 <li>如果该代理是 readonly 建的，但包裹了由 reactive 创建的另一个代理，它也会返回 true.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(reactive(&#123;name: &quot;beichen&quot;&#125;));</span><br></pre></td></tr></table></figure>
@@ -290,18 +289,10 @@
 <h4 id="4-toRaw"><a href="#4-toRaw" class="headerlink" title="4.toRaw"></a>4.toRaw</h4><ul>
 <li>返回 reactive 或 readonly 代理的原始对象（不建议保留对原始对象的持久引用。请谨慎使用）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 第一种(常见用法)</span><br><span class="line">const info = &#123;name: &quot;beichen&quot;&#125;;</span><br><span class="line">const readonlyInfo = readonly(info);</span><br><span class="line">// 这里的info就是原始对象</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="5-shallowReactive"><a href="#5-shallowReactive" class="headerlink" title="5.shallowReactive"></a>5.shallowReactive</h4><ul>
-<li>创建一个响应式代理，它跟踪其自身 property 的响应性，但不执行嵌套对象的深层响应式转换 (深层还是原生对象)。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>自身原本是对info.name以及info.friends.name都包含响应式的转换</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>此时的info里面只有info.name是响应式改变的，原因是shallowReactive只做了一个浅层代理</strong></li>
-</ul>
-<h4 id="5-shallowReadonly"><a href="#5-shallowReadonly" class="headerlink" title="5.shallowReadonly"></a>5.shallowReadonly</h4><ul>
-<li>创建一个 proxy，使其自身的 property 为只读，但不执行嵌套对象的深度只读转换（深层还是可读、可写的）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>自身原本是对info.name以及info.friends.name都是不可改写的，都会报一个警告</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReadonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>此时的info里面只有info.name是只读的，原因是shallowReadonly只做了一个浅层代理</strong></li>
-</ul>
-
             
+              <a class="article-more-a" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/#more">more >></a>
+            
+
           
         
       <!-- 
@@ -317,17 +308,9 @@
 <h4 id="4-toRaw"><a href="#4-toRaw" class="headerlink" title="4.toRaw"></a>4.toRaw</h4><ul>
 <li>返回 reactive 或 readonly 代理的原始对象（不建议保留对原始对象的持久引用。请谨慎使用）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 第一种(常见用法)</span><br><span class="line">const info = &#123;name: &quot;beichen&quot;&#125;;</span><br><span class="line">const readonlyInfo = readonly(info);</span><br><span class="line">// 这里的info就是原始对象</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h4 id="5-shallowReactive"><a href="#5-shallowReactive" class="headerlink" title="5.shallowReactive"></a>5.shallowReactive</h4><ul>
-<li>创建一个响应式代理，它跟踪其自身 property 的响应性，但不执行嵌套对象的深层响应式转换 (深层还是原生对象)。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>自身原本是对info.name以及info.friends.name都包含响应式的转换</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>此时的info里面只有info.name是响应式改变的，原因是shallowReactive只做了一个浅层代理</strong></li>
-</ul>
-<h4 id="5-shallowReadonly"><a href="#5-shallowReadonly" class="headerlink" title="5.shallowReadonly"></a>5.shallowReadonly</h4><ul>
-<li>创建一个 proxy，使其自身的 property 为只读，但不执行嵌套对象的深度只读转换（深层还是可读、可写的）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>自身原本是对info.name以及info.friends.name都是不可改写的，都会报一个警告</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReadonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
-<li><strong>此时的info里面只有info.name是只读的，原因是shallowReadonly只做了一个浅层代理</strong></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/#more">more >></a>
+        
        -->
 
       
