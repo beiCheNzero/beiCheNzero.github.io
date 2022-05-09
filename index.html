@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 19
+						总文章数 20
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -220,6 +220,180 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-learn/compositionapi补充" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/">compositionAPI补充知识</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/" class="archive-article-date">
+	<time datetime="2022-05-09T08:54:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-09
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">429字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h2 id="Reactive判断的API"><a href="#Reactive判断的API" class="headerlink" title="Reactive判断的API"></a>Reactive判断的API</h2><h4 id="1-isProxy"><a href="#1-isProxy" class="headerlink" title="1.isProxy"></a>1.isProxy</h4><ul>
+<li>检查对象是否是由 reactive 或 readonly创建的 proxy。<h4 id="2-isReactive"><a href="#2-isReactive" class="headerlink" title="2.isReactive"></a>2.isReactive</h4></li>
+<li>检查对象是否是由 reactive创建的响应式代理： </li>
+<li>如果该代理是 readonly 建的，但包裹了由 reactive 创建的另一个代理，它也会返回 true.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(reactive(&#123;name: &quot;beichen&quot;&#125;));</span><br></pre></td></tr></table></figure>
+这个时候就是返回<code>true</code></li>
+</ul>
+<h4 id="3-isReadonly"><a href="#3-isReadonly" class="headerlink" title="3.isReadonly"></a>3.isReadonly</h4><ul>
+<li>检查对象是否是由 readonly 创建的只读代理。</li>
+</ul>
+<h4 id="4-toRaw"><a href="#4-toRaw" class="headerlink" title="4.toRaw"></a>4.toRaw</h4><ul>
+<li>返回 reactive 或 readonly 代理的原始对象（不建议保留对原始对象的持久引用。请谨慎使用）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 第一种(常见用法)</span><br><span class="line">const info = &#123;name: &quot;beichen&quot;&#125;;</span><br><span class="line">const readonlyInfo = readonly(info);</span><br><span class="line">// 这里的info就是原始对象</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-shallowReactive"><a href="#5-shallowReactive" class="headerlink" title="5.shallowReactive"></a>5.shallowReactive</h4><ul>
+<li>创建一个响应式代理，它跟踪其自身 property 的响应性，但不执行嵌套对象的深层响应式转换 (深层还是原生对象)。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>自身原本是对info.name以及info.friends.name都包含响应式的转换</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>此时的info里面只有info.name是响应式改变的，原因是shallowReactive只做了一个浅层代理</strong></li>
+</ul>
+<h4 id="5-shallowReadonly"><a href="#5-shallowReadonly" class="headerlink" title="5.shallowReadonly"></a>5.shallowReadonly</h4><ul>
+<li>创建一个 proxy，使其自身的 property 为只读，但不执行嵌套对象的深度只读转换（深层还是可读、可写的）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>自身原本是对info.name以及info.friends.name都是不可改写的，都会报一个警告</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReadonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>此时的info里面只有info.name是只读的，原因是shallowReadonly只做了一个浅层代理</strong></li>
+</ul>
+
+            
+          
+        
+      <!-- 
+        <h2 id="Reactive判断的API"><a href="#Reactive判断的API" class="headerlink" title="Reactive判断的API"></a>Reactive判断的API</h2><h4 id="1-isProxy"><a href="#1-isProxy" class="headerlink" title="1.isProxy"></a>1.isProxy</h4><ul>
+<li>检查对象是否是由 reactive 或 readonly创建的 proxy。<h4 id="2-isReactive"><a href="#2-isReactive" class="headerlink" title="2.isReactive"></a>2.isReactive</h4></li>
+<li>检查对象是否是由 reactive创建的响应式代理： </li>
+<li>如果该代理是 readonly 建的，但包裹了由 reactive 创建的另一个代理，它也会返回 true.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(reactive(&#123;name: &quot;beichen&quot;&#125;));</span><br></pre></td></tr></table></figure>
+这个时候就是返回<code>true</code></li>
+</ul>
+<h4 id="3-isReadonly"><a href="#3-isReadonly" class="headerlink" title="3.isReadonly"></a>3.isReadonly</h4><ul>
+<li>检查对象是否是由 readonly 创建的只读代理。</li>
+</ul>
+<h4 id="4-toRaw"><a href="#4-toRaw" class="headerlink" title="4.toRaw"></a>4.toRaw</h4><ul>
+<li>返回 reactive 或 readonly 代理的原始对象（不建议保留对原始对象的持久引用。请谨慎使用）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 第一种(常见用法)</span><br><span class="line">const info = &#123;name: &quot;beichen&quot;&#125;;</span><br><span class="line">const readonlyInfo = readonly(info);</span><br><span class="line">// 这里的info就是原始对象</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="5-shallowReactive"><a href="#5-shallowReactive" class="headerlink" title="5.shallowReactive"></a>5.shallowReactive</h4><ul>
+<li>创建一个响应式代理，它跟踪其自身 property 的响应性，但不执行嵌套对象的深层响应式转换 (深层还是原生对象)。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>自身原本是对info.name以及info.friends.name都包含响应式的转换</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReactive(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>此时的info里面只有info.name是响应式改变的，原因是shallowReactive只做了一个浅层代理</strong></li>
+</ul>
+<h4 id="5-shallowReadonly"><a href="#5-shallowReadonly" class="headerlink" title="5.shallowReadonly"></a>5.shallowReadonly</h4><ul>
+<li>创建一个 proxy，使其自身的 property 为只读，但不执行嵌套对象的深度只读转换（深层还是可读、可写的）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>自身原本是对info.name以及info.friends.name都是不可改写的，都会报一个警告</strong><br>当如我们执行：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = shallowReadonly(&#123;name: &quot;beichen&quot;, friends: &#123;name: &quot;beichenzero&#125;&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><strong>此时的info里面只有info.name是只读的，原因是shallowReadonly只做了一个浅层代理</strong></li>
+</ul>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">composition</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
     <article id="post-vue-learn/composition_api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -324,7 +498,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Composition API</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -449,7 +645,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mixin</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -1610,142 +1828,6 @@
 
 
   
-    <article id="post-vue-easy/vue-watch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-easy/vue-watch/">vue-watch</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/vue-easy/vue-watch/" class="archive-article-date">
-	<time datetime="2022-02-28T14:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">259字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h2 id="1-监听器-侦听器的基本使用watch"><a href="#1-监听器-侦听器的基本使用watch" class="headerlink" title="1. 监听器/侦听器的基本使用watch"></a>1. 监听器/侦听器的基本使用watch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    // message是需要监听的data中的属性名称</span><br><span class="line">    // newValue是变化后的新值</span><br><span class="line">    // oldValue是变化前的旧值</span><br><span class="line">    message: function(newValue, oldValue) &#123;</span><br><span class="line">        // console.log(&quot;新值&quot;, newValue, &quot;旧值&quot; ,oldValue);</span><br><span class="line">        this.queryAnwser();</span><br><span class="line">        // 监听到变化后就执行搜索答案的方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
-<h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-            
-          
-        
-      <!-- 
-        <h2 id="1-监听器-侦听器的基本使用watch"><a href="#1-监听器-侦听器的基本使用watch" class="headerlink" title="1. 监听器/侦听器的基本使用watch"></a>1. 监听器/侦听器的基本使用watch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    // message是需要监听的data中的属性名称</span><br><span class="line">    // newValue是变化后的新值</span><br><span class="line">    // oldValue是变化前的旧值</span><br><span class="line">    message: function(newValue, oldValue) &#123;</span><br><span class="line">        // console.log(&quot;新值&quot;, newValue, &quot;旧值&quot; ,oldValue);</span><br><span class="line">        this.queryAnwser();</span><br><span class="line">        // 监听到变化后就执行搜索答案的方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
-<h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">watch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-easy/vue-watch/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1864,31 +1946,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">attribute</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">attrs</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">model</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">watch</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">vue案例</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">组件传值</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1897,6 +1967,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">gsap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Composition API</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">composition</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mixin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1920,19 +2002,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">attribute</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color1">attrs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+                <a href="javascript:void(0)" class="js-tag color1">model</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+                <a href="javascript:void(0)" class="js-tag color1">watch</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">vue案例</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">组件传值</a>
               </li>
             
             <div class="clearfix"></div>

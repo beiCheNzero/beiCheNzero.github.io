@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://beichenzero.github.io/2022/05/08/vue-learn/composition_api/</loc>
+    <loc>http://beichenzero.github.io/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/</loc>
+    
+    <lastmod>2022-05-09</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/05/08/vue-learn/mixin%E5%92%8Cextends/</loc>
     
     <lastmod>2022-05-08</lastmod>
     
   </url>
   
   <url>
-    <loc>http://beichenzero.github.io/2022/05/08/vue-learn/mixin%E5%92%8Cextends/</loc>
+    <loc>http://beichenzero.github.io/2022/05/08/vue-learn/composition_api/</loc>
     
     <lastmod>2022-05-08</lastmod>
     
@@ -151,134 +158,155 @@
 
   <url>
     <loc>http://beichenzero.github.io/</loc>
-    <lastmod>2022-05-08</lastmod>
+    <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://beichenzero.github.io/tags/attribute/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/attrs/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/model/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/watch/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/vue%E6%A1%88%E4%BE%8B/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/animate/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/gsap/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/slot/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/vue-components/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/transition/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/%E6%A1%88%E4%BE%8B/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/transiton/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://beichenzero.github.io/tags/electron/</loc>
-    <lastmod>2022-05-08</lastmod>
+    <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/markdown/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/vite/</loc>
-    <lastmod>2022-05-08</lastmod>
+    <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/nvm/</loc>
-    <lastmod>2022-05-08</lastmod>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/vite/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/animate/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/gsap/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/Composition-API/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/composition/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/mixin/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/slot/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/vue-components/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/transition/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E6%A1%88%E4%BE%8B/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/transiton/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/attribute/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/attrs/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/model/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/watch/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/vue%E6%A1%88%E4%BE%8B/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</loc>
+    <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -286,29 +314,29 @@
 
   
   <url>
-    <loc>http://beichenzero.github.io/categories/vue/</loc>
-    <lastmod>2022-05-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://beichenzero.github.io/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-05-08</lastmod>
+    <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-05-08</lastmod>
+    <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/categories/vite/</loc>
-    <lastmod>2022-05-08</lastmod>
+    <lastmod>2022-05-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/categories/vue/</loc>
+    <lastmod>2022-05-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
