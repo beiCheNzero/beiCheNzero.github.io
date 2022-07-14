@@ -258,7 +258,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">34字</span>
+      <span class="post-count">7字</span>
     </span>
   </span>
 
@@ -279,13 +279,13 @@
         
           
             <p>登录可进行留言……</p>
-<p style="color: red">union all将多个查询结果集合并成一个结果集，不会去掉重复的数据</p>
+
             
           
         
       <!-- 
         <p>登录可进行留言……</p>
-<p style="color: red">union all将多个查询结果集合并成一个结果集，不会去掉重复的数据</p>
+
        -->
 
       
@@ -396,12 +396,6 @@
 <p>这里的v-focus，focus是我们自己定义的，前缀是<code>v-</code>，简单来说就是<code>v-</code> + <code>自定义的名称</code>。</p>
 <p>这里的局部指令是仅限于当前组件中，我们需要在那个地方获取焦点，就将<code>v-focus</code>添加到那个标签里面。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-focus&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    /*</span><br><span class="line">     * 局部指令</span><br><span class="line">    */</span><br><span class="line">    directives: &#123;</span><br><span class="line">      focus: &#123;</span><br><span class="line">        mounted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">          console.log(&quot;focus mounted&quot;)</span><br><span class="line">          el.focus()</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="全局指令"><a href="#全局指令" class="headerlink" title="全局指令"></a>全局指令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createApp &#125; from &#x27;vue&#x27;</span><br><span class="line">import App from &#x27;./04_teleport的内置组件/App.vue&#x27;</span><br><span class="line"></span><br><span class="line">const app = createApp(App)</span><br><span class="line"></span><br><span class="line">// 注意，这里是不需要加s的</span><br><span class="line">app.directive(&#x27;focus&#x27;, &#123;</span><br><span class="line">	mouted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">		console.log(&#x27;focus mounted&#x27;)</span><br><span class="line">		el.focus()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在main.js里面配置好全局指令后，我们可以可以在任意指令中直接调用<code>v-focus</code>，和局部指令用法一样，只是作用域不同。</li>
-</ul>
             
               <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/#more">more >></a>
             
@@ -413,12 +407,6 @@
 <p>这里的v-focus，focus是我们自己定义的，前缀是<code>v-</code>，简单来说就是<code>v-</code> + <code>自定义的名称</code>。</p>
 <p>这里的局部指令是仅限于当前组件中，我们需要在那个地方获取焦点，就将<code>v-focus</code>添加到那个标签里面。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-focus&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    /*</span><br><span class="line">     * 局部指令</span><br><span class="line">    */</span><br><span class="line">    directives: &#123;</span><br><span class="line">      focus: &#123;</span><br><span class="line">        mounted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">          console.log(&quot;focus mounted&quot;)</span><br><span class="line">          el.focus()</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="全局指令"><a href="#全局指令" class="headerlink" title="全局指令"></a>全局指令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; createApp &#125; from &#x27;vue&#x27;</span><br><span class="line">import App from &#x27;./04_teleport的内置组件/App.vue&#x27;</span><br><span class="line"></span><br><span class="line">const app = createApp(App)</span><br><span class="line"></span><br><span class="line">// 注意，这里是不需要加s的</span><br><span class="line">app.directive(&#x27;focus&#x27;, &#123;</span><br><span class="line">	mouted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">		console.log(&#x27;focus mounted&#x27;)</span><br><span class="line">		el.focus()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">app.mount(&#x27;#app&#x27;)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>在main.js里面配置好全局指令后，我们可以可以在任意指令中直接调用<code>v-focus</code>，和局部指令用法一样，只是作用域不同。</li>
-</ul>
         
           <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/#more">more >></a>
         
