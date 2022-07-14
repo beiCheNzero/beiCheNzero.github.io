@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 24
+						总文章数 26
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -219,6 +219,367 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue-learn/animate和gsap的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/">animate和gsap的基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-05-07T12:43:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-07
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">652字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">3分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="安装Animate-css"><a href="#安装Animate-css" class="headerlink" title="安装Animate.css"></a>安装Animate.css</h2><ul>
+<li>yarn安装: <code>yarn add animate.css</code></li>
+<li>npm安装: <code>npm install animate.css</code></li>
+</ul>
+<h4 id="animate-css的导入"><a href="#animate-css的导入" class="headerlink" title="animate.css的导入"></a>animate.css的导入</h4><ul>
+<li>在main.js中直接引入: <code>import &quot;animate.css&quot;</code></li>
+</ul>
+<h4 id="animate-css的使用"><a href="#animate-css的使用" class="headerlink" title="animate.css的使用"></a>animate.css的使用</h4><p>1.用法一：直接使用animate库中定义的keyframes动画</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.beichen-enter-active &#123;</span><br><span class="line">  animation: flip 1s ease;</span><br><span class="line">&#125;</span><br><span class="line">.beichen-leave-active &#123;</span><br><span class="line">  animation: flip 1s ease reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.用法二：直接使用animate库提供给我们的类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transiton name=&quot;beichen&quot;</span><br><span class="line">           enter-active-class=&quot;animate__animated animate__lightSpeedInRight&quot;</span><br><span class="line">           leave-active-class=&quot;animate__animated animate__lishtSpeedOutRight&quot;&gt;</span><br><span class="line">  &lt;h2 v-if=&quot;isShow&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>其中<code>animate__animated</code>类时必须要添加的</strong></p>
+<h2 id="gsap库"><a href="#gsap库" class="headerlink" title="gsap库"></a>gsap库</h2><h4 id="实现一些动画的库"><a href="#实现一些动画的库" class="headerlink" title="实现一些动画的库"></a>实现一些动画的库</h4><p>利用gsap来完成js最基本的动画</p>
+<ul>
+<li><p>安装gsap库<br><code>yarn add gsap</code> or <code>npm install gsap</code></p>
+</li>
+<li><p>导入gsap库<br><code>import gsap from &quot;gsap&quot;;</code></p>
+</li>
+</ul>
+<p>transition组件提供给我们的JavaScript钩子：</p>
+<ul>
+<li>@before-enter=”beforeEnter”</li>
+<li>@enter=”enter”</li>
+<li>@after-enter=”afterEnter”</li>
+<li>@before-leave=”beforeLeave”</li>
+<li>@leave=”leave”</li>
+<li>@after-leave=”afterLeave”</li></ul>
+            
+              <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="安装Animate-css"><a href="#安装Animate-css" class="headerlink" title="安装Animate.css"></a>安装Animate.css</h2><ul>
+<li>yarn安装: <code>yarn add animate.css</code></li>
+<li>npm安装: <code>npm install animate.css</code></li>
+</ul>
+<h4 id="animate-css的导入"><a href="#animate-css的导入" class="headerlink" title="animate.css的导入"></a>animate.css的导入</h4><ul>
+<li>在main.js中直接引入: <code>import &quot;animate.css&quot;</code></li>
+</ul>
+<h4 id="animate-css的使用"><a href="#animate-css的使用" class="headerlink" title="animate.css的使用"></a>animate.css的使用</h4><p>1.用法一：直接使用animate库中定义的keyframes动画</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.beichen-enter-active &#123;</span><br><span class="line">  animation: flip 1s ease;</span><br><span class="line">&#125;</span><br><span class="line">.beichen-leave-active &#123;</span><br><span class="line">  animation: flip 1s ease reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.用法二：直接使用animate库提供给我们的类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transiton name=&quot;beichen&quot;</span><br><span class="line">           enter-active-class=&quot;animate__animated animate__lightSpeedInRight&quot;</span><br><span class="line">           leave-active-class=&quot;animate__animated animate__lishtSpeedOutRight&quot;&gt;</span><br><span class="line">  &lt;h2 v-if=&quot;isShow&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>其中<code>animate__animated</code>类时必须要添加的</strong></p>
+<h2 id="gsap库"><a href="#gsap库" class="headerlink" title="gsap库"></a>gsap库</h2><h4 id="实现一些动画的库"><a href="#实现一些动画的库" class="headerlink" title="实现一些动画的库"></a>实现一些动画的库</h4><p>利用gsap来完成js最基本的动画</p>
+<ul>
+<li><p>安装gsap库<br><code>yarn add gsap</code> or <code>npm install gsap</code></p>
+</li>
+<li><p>导入gsap库<br><code>import gsap from &quot;gsap&quot;;</code></p>
+</li>
+</ul>
+<p>transition组件提供给我们的JavaScript钩子：</p>
+<ul>
+<li>@before-enter=”beforeEnter”</li>
+<li>@enter=”enter”</li>
+<li>@after-enter=”afterEnter”</li>
+<li>@before-leave=”beforeLeave”</li>
+<li>@leave=”leave”</li>
+<li>@after-leave=”afterLeave”</li></ul>
+        
+          <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">animate</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gsap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-vue-learn/动画的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">动画的基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-05-07T12:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-05-07
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">552字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h2 id="过渡动画class"><a href="#过渡动画class" class="headerlink" title="过渡动画class"></a>过渡动画class</h2><ul>
+<li><span style="color:red">v-enter-from</span>:定义进入过过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</li>
+<li><span style="color:red">v-enter-active</span>定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-enter-to</span>定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter-from 被移除)，在过渡/动画完成之后移除</li>
+<li><span style="color:red">v-leave-from</span>定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除</li>
+<li><span style="color:red">v-leave-active</span>定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-leave-to</span>离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡/动画完成之后移除。</li>
+</ul>
+<p><strong>如果我们在transition中没有添加name属性,那么他的默认前缀就v-,如果添加了name属性，以name=”beichen”为例，那么所有的class会以beichen-开头。</strong></p>
+<ul>
+<li>如果同时设置了animationend和transitionend，我们可以在transition中设置type属性为transition和animation来明确告知vue监听的类型。<h4 id="显示指定动画时间"><a href="#显示指定动画时间" class="headerlink" title="显示指定动画时间"></a>显示指定动画时间</h4></li>
+<li>显示指定动画时间可以通过duration属性。<br>1.number类型：同时设置进入和离开的时间<br>ex：<code>:duration: 1000</code><br>2.object类型：分别设置进入和离开的时间<br>ex：<code>:duration: &#123;enter: 1000, leave: 800&#125;</code></li>
+</ul>
+<h4 id="过渡模式的mode"><a href="#过渡模式的mode" class="headerlink" title="过渡模式的mode"></a>过渡模式的<code>mode</code></h4><ul>
+<li><code>in-out</code>:新元素先进行过渡，完成之后当前元素过渡离开(<strong>先进后出</strong>)</li>
+<li><code>out-in</code>:当前元素先进行过渡，完成之后新元素过渡进入(<strong>先出后进</strong>)</li>
+</ul>
+<h4 id="appear属性"><a href="#appear属性" class="headerlink" title="appear属性"></a><code>appear</code>属性</h4><ul>
+<li>用来设置在加载界面/初次渲染时也是有动画显示的。</li>
+</ul>
+
+            
+          
+        
+      <!-- 
+        <h2 id="过渡动画class"><a href="#过渡动画class" class="headerlink" title="过渡动画class"></a>过渡动画class</h2><ul>
+<li><span style="color:red">v-enter-from</span>:定义进入过过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</li>
+<li><span style="color:red">v-enter-active</span>定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-enter-to</span>定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter-from 被移除)，在过渡/动画完成之后移除</li>
+<li><span style="color:red">v-leave-from</span>定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除</li>
+<li><span style="color:red">v-leave-active</span>定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li>
+<li><span style="color:red">v-leave-to</span>离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡/动画完成之后移除。</li>
+</ul>
+<p><strong>如果我们在transition中没有添加name属性,那么他的默认前缀就v-,如果添加了name属性，以name=”beichen”为例，那么所有的class会以beichen-开头。</strong></p>
+<ul>
+<li>如果同时设置了animationend和transitionend，我们可以在transition中设置type属性为transition和animation来明确告知vue监听的类型。<h4 id="显示指定动画时间"><a href="#显示指定动画时间" class="headerlink" title="显示指定动画时间"></a>显示指定动画时间</h4></li>
+<li>显示指定动画时间可以通过duration属性。<br>1.number类型：同时设置进入和离开的时间<br>ex：<code>:duration: 1000</code><br>2.object类型：分别设置进入和离开的时间<br>ex：<code>:duration: &#123;enter: 1000, leave: 800&#125;</code></li>
+</ul>
+<h4 id="过渡模式的mode"><a href="#过渡模式的mode" class="headerlink" title="过渡模式的mode"></a>过渡模式的<code>mode</code></h4><ul>
+<li><code>in-out</code>:新元素先进行过渡，完成之后当前元素过渡离开(<strong>先进后出</strong>)</li>
+<li><code>out-in</code>:当前元素先进行过渡，完成之后新元素过渡进入(<strong>先出后进</strong>)</li>
+</ul>
+<h4 id="appear属性"><a href="#appear属性" class="headerlink" title="appear属性"></a><code>appear</code>属性</h4><ul>
+<li>用来设置在加载界面/初次渲染时也是有动画显示的。</li>
+</ul>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">transiton</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-vue-learn/slot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1393,314 +1754,6 @@
 
 
   
-    <article id="post-随笔/vite的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/%E9%9A%8F%E7%AC%94/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">vite的基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/%E9%9A%8F%E7%AC%94/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-02-28T14:21:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">387字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="vite安装"><a href="#vite安装" class="headerlink" title="vite安装"></a>vite安装</h2><blockquote>
-<p><strong>1.安装</strong></p>
-</blockquote>
-<ul>
-<li>全局安装<br><code>npm install vite -g</code></li>
-<li>局部安装<br><code>npm install vite -D</code><br>npx vite</li>
-</ul>
-<h2 id="vite对css的处理"><a href="#vite对css的处理" class="headerlink" title="vite对css的处理"></a>vite对css的处理</h2><p><strong>默认对css的加载</strong></p>
-<ul>
-<li>1.安装less<br><code>npm install less -D</code>  </li>
-<li>2.安装postcss<br><code>npm install postcss -D</code><br>还需要安装<br><code>npm install postcss-preset-env -D</code>  </li>
-</ul>
-            
-              <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="vite安装"><a href="#vite安装" class="headerlink" title="vite安装"></a>vite安装</h2><blockquote>
-<p><strong>1.安装</strong></p>
-</blockquote>
-<ul>
-<li>全局安装<br><code>npm install vite -g</code></li>
-<li>局部安装<br><code>npm install vite -D</code><br>npx vite</li>
-</ul>
-<h2 id="vite对css的处理"><a href="#vite对css的处理" class="headerlink" title="vite对css的处理"></a>vite对css的处理</h2><p><strong>默认对css的加载</strong></p>
-<ul>
-<li>1.安装less<br><code>npm install less -D</code>  </li>
-<li>2.安装postcss<br><code>npm install postcss -D</code><br>还需要安装<br><code>npm install postcss-preset-env -D</code>  </li>
-</ul>
-        
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vite//" class="article-tag-list-link color5">vite</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/vite%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-随笔/nvm的安装-windows" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/%E9%9A%8F%E7%AC%94/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">nvm的安装-windows</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/%E9%9A%8F%E7%AC%94/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/" class="archive-article-date">
-	<time datetime="2022-02-28T14:20:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">400字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="下载nvm的安装包"><a href="#下载nvm的安装包" class="headerlink" title="下载nvm的安装包"></a>下载nvm的安装包</h2><p><strong>一定要下载1.1.7版本的nvm！</strong><br><strong>(目前最新是1.1.9版本,可以使用1.1.9,也比较稳定)</strong></p>
-<ul>
-<li>事先需要卸载原有的node.js<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></li>
-<li>下载后双击exe文件安装</li>
-<li>安装后在环境变量中会默认看到<br><img src="/images/photo_01.png"></li>
-<li>用户变量和系统变量中都会有</li>
-</ul>
-<p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
-            
-              <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="下载nvm的安装包"><a href="#下载nvm的安装包" class="headerlink" title="下载nvm的安装包"></a>下载nvm的安装包</h2><p><strong>一定要下载1.1.7版本的nvm！</strong><br><strong>(目前最新是1.1.9版本,可以使用1.1.9,也比较稳定)</strong></p>
-<ul>
-<li>事先需要卸载原有的node.js<br>下载地址：<a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></li>
-<li>下载后双击exe文件安装</li>
-<li>安装后在环境变量中会默认看到<br><img src="/images/photo_01.png"></li>
-<li>用户变量和系统变量中都会有</li>
-</ul>
-<p>对了下载完找到nvm的安装目录，打开setting.txt文件，添加上下面两个配置(选做)：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvm node_mirror https://npm.taobao.org/mirrors/node/</span><br><span class="line">nvm npm_mirror https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nvm</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/nvm%E7%9A%84%E5%AE%89%E8%A3%85-windows/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">到头了</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
@@ -1916,6 +1969,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">md5</a>
               </li>
             
             <div class="clearfix"></div>
