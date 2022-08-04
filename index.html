@@ -392,127 +392,24 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          
-            <h2 id="使用宝塔部署node项目"><a href="#使用宝塔部署node项目" class="headerlink" title="使用宝塔部署node项目"></a>使用宝塔部署node项目</h2><p>我的项目是vue+node+mysql完成的前后端分离项目</p>
+          		<h2 id="使用宝塔部署node项目"><a href="#使用宝塔部署node项目" class="headerlink" title="使用宝塔部署node项目"></a>使用宝塔部署node项目</h2><p>我的项目是vue+node+mysql完成的前后端分离项目</p>
 <p>如果你想通过域名或者ip访问的话，需要购买域名或者服务器，购买任意一个就可以了。</p>
 <h4 id="1-注册宝塔"><a href="#1-注册宝塔" class="headerlink" title="1.注册宝塔"></a>1.注册宝塔</h4><p>这个我就不多介绍了，宝塔也是比较好用的，是一个服务器面板，里面很多东西都是免费的，感兴趣的朋友可以去了解一下，用法不难。</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\宝塔面板.png" alt="宝塔面板首页"></p>
-<h4 id="2-添加项目到文件"><a href="#2-添加项目到文件" class="headerlink" title="2.添加项目到文件"></a>2.添加项目到文件</h4><p>文件-&gt;wwwroot</p>
-<p>一般在wwwroot根目录下添加自己的项目，如果是vue项目，可以先把node_modules依赖包删除掉，然后上传到文件之后，在项目文件夹下打开终端，执行<code>npm install</code> 安装一下以来就可以了，也可以启动你的项目，看一下能否正常运行，这里的终端就和你在其他编译器上的终端是一样的，一般是<code>npm run serve</code>启动项目。</p>
-<p>像这样：</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\宝塔终端运行项目.png" alt="宝塔终端运行vue项目"></p>
-<p>其中之后你可以<code>alt+右键</code>(windows)在浏览器打开，但是此时看到的只是一个静态的界面，没有启动服务，是不能进行登录，或者其他的网络请求的。</p>
-<ul>
-<li>项目运行测试没问题，接下来就是部署项目了。</li>
-</ul>
-<h4 id="3-添加项目"><a href="#3-添加项目" class="headerlink" title="3.添加项目"></a>3.添加项目</h4><p>这里的项目是指你的vue项目，或是其他的项目。</p>
-<ul>
-<li>在添加之前应该会需要进行下载一下环境，当然，在你搭建宝塔的时候就要提示你安装部分环境，像node的版本什么的，你可以自己去控制，有推荐官方的node版本，下载和替换。</li>
-</ul>
-<p>网站-&gt;node项目-&gt;添加node项目</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\添加node项目.png"></p>
-<p>添加完之后，也可以在当前项目的设置里面配置域名/服务器，我这里是配置了我自己服务器，并添加了默认端口(80)，也就是说打开这个ip地址默认是进到80端口的，也就是进入到了我的项目中。</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\添加ip.png"></p>
-<p>这里完成之后，就可以通过你的ip地址访问你的项目了，但是此时依然是没有服务器的，不能进行登录和网络请求等功能。</p>
-<h4 id="4-添加数据库"><a href="#4-添加数据库" class="headerlink" title="4.添加数据库"></a>4.添加数据库</h4><p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\添加数据库.png"></p>
-<p>这里添加数据库，设置数据库名和用户名，还有密码。这里要记好，待会在服务端项目会用到。</p>
-<p>可以在数据库面板中进入到phpMyAdmin界面查看自己id数据库，也可以通过sql yog等其他工具导出sql脚本，然后在添加好的数据库进行导入，在本地找到相应的sql文件，导入数据。</p>
-<p>可以通过工具查看当前数据库的结构。</p>
-<h4 id="5-安装PM2"><a href="#5-安装PM2" class="headerlink" title="5.安装PM2"></a>5.安装PM2</h4><p>在软件商店搜索<strong>PM2</strong>，会搜到pm2管理器，点击安装就可以，然后等待安装完毕，就可以在首页的软件中找到这个工具，如果找不到，就去软件商店的已安装中搜索。同时也可以勾选<strong>首页显示</strong>这样就可以在首页的软件里面找到了。</p>
-<h5 id="5-1测试服务是否可以启动"><a href="#5-1测试服务是否可以启动" class="headerlink" title="5.1测试服务是否可以启动"></a>5.1测试服务是否可以启动</h5><p>我们在导入项目的时候可以把服务的文件夹一起上传，也可以单独上传，上传到wwwroot的根目录一下，也可以是其他你想放入的文件夹中，点到启动服务器所在的文件夹，然后点击终端，利用<code>node app.js</code>启动服务，当然，我的是设置启动文件问<code>app.js</code>，也有很多人是设置的<code>index.js</code>，无论是什么，都可以，只要是能启动服务器就可以了。</p>
-<h5 id="5-1-1服务器配置"><a href="#5-1-1服务器配置" class="headerlink" title="5.1.1服务器配置"></a>5.1.1服务器配置</h5><p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\服务端数据库的配置.png"></p>
-<p>配置如图所示，这里在的三个参数在<strong>添加数据库</strong>中已经提到了，按照对应的内容填写就好了</p>
-<h5 id="5-2测试服务能否正常启动"><a href="#5-2测试服务能否正常启动" class="headerlink" title="5.2测试服务能否正常启动"></a>5.2测试服务能否正常启动</h5><p>这里我使用的<code>nodemon</code>，nodemon是一款非常好用的node工具</p>
-<p>接下来就简单介绍一下nodemon，我认为他最好用的就是监听服务文件的改变，并实时更新。相当于是加强版。</p>
-<p>当然，node启动js文件的方式也是可以的。</p>
-<p><strong>nodemon 特性</strong></p>
-<ul>
-<li>自动重新启动应用程序。</li>
-<li>检测要监视的默认文件扩展名。</li>
-<li>默认支持 node，但易于运行任何可执行文件，如 python、ruby、make 等。</li>
-<li>忽略特定的文件或目录。</li>
-<li>监视特定目录。</li>
-<li>使用服务器应用程序或一次性运行实用程序和 REPL。</li>
-<li>可通过 Node require 语句编写脚本。</li>
-</ul>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\测试服务能否正常启动.png"></p>
-<p>这里可以看到服务器成功启动了。接下来就是部署到PM2上面了</p>
-<h4 id="6-配置PM2"><a href="#6-配置PM2" class="headerlink" title="6.配置PM2"></a>6.配置PM2</h4><p>首页-&gt;PM2管理器</p>
-<p>点进去之后，点击添加项目</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\PM2配置.png"></p>
-<p>这里可以看到图片中的启动文件，只需要在你的服务的文件夹中找到启动的js文件就可以了。</p>
-<ul>
-<li>TIPs</li>
-</ul>
-<p>项目可能需要修改跨域的问题，在vue.config.js中添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    &#x27;^/api&#x27;: &#123;</span><br><span class="line">      target: &#x27;http://ip+端口号&#x27;,</span><br><span class="line">      ws: true,        //如果要代理 websockets，配置这个参数</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &#x27;^/api&#x27;: &#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      changeOrigin: true //虚拟的站点需要更管origin</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<p>在你的配置中修改axios请求的地址<code>axios.defaults.baseURL =&quot;http://ip+端口号&quot;</code></p>
-<p>最后这里的也是我自己试错了好久才反应过来需要修改这里的，因为之前都是本地启动服务并运行项目，没有不会请求到这里的数据，也就不需要做这么多修改。</p>
-<p>好了，到此，宝塔配置node项目就结束了，如果有什么疑问都可以评论留言。</p>
-
+<p><img src="/../../images/baota/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF.png" alt="宝塔面板首页"></p>
             
+              <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/#more">more >></a>
+            
+
           
         
       <!-- 
         <h2 id="使用宝塔部署node项目"><a href="#使用宝塔部署node项目" class="headerlink" title="使用宝塔部署node项目"></a>使用宝塔部署node项目</h2><p>我的项目是vue+node+mysql完成的前后端分离项目</p>
 <p>如果你想通过域名或者ip访问的话，需要购买域名或者服务器，购买任意一个就可以了。</p>
 <h4 id="1-注册宝塔"><a href="#1-注册宝塔" class="headerlink" title="1.注册宝塔"></a>1.注册宝塔</h4><p>这个我就不多介绍了，宝塔也是比较好用的，是一个服务器面板，里面很多东西都是免费的，感兴趣的朋友可以去了解一下，用法不难。</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\宝塔面板.png" alt="宝塔面板首页"></p>
-<h4 id="2-添加项目到文件"><a href="#2-添加项目到文件" class="headerlink" title="2.添加项目到文件"></a>2.添加项目到文件</h4><p>文件-&gt;wwwroot</p>
-<p>一般在wwwroot根目录下添加自己的项目，如果是vue项目，可以先把node_modules依赖包删除掉，然后上传到文件之后，在项目文件夹下打开终端，执行<code>npm install</code> 安装一下以来就可以了，也可以启动你的项目，看一下能否正常运行，这里的终端就和你在其他编译器上的终端是一样的，一般是<code>npm run serve</code>启动项目。</p>
-<p>像这样：</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\宝塔终端运行项目.png" alt="宝塔终端运行vue项目"></p>
-<p>其中之后你可以<code>alt+右键</code>(windows)在浏览器打开，但是此时看到的只是一个静态的界面，没有启动服务，是不能进行登录，或者其他的网络请求的。</p>
-<ul>
-<li>项目运行测试没问题，接下来就是部署项目了。</li>
-</ul>
-<h4 id="3-添加项目"><a href="#3-添加项目" class="headerlink" title="3.添加项目"></a>3.添加项目</h4><p>这里的项目是指你的vue项目，或是其他的项目。</p>
-<ul>
-<li>在添加之前应该会需要进行下载一下环境，当然，在你搭建宝塔的时候就要提示你安装部分环境，像node的版本什么的，你可以自己去控制，有推荐官方的node版本，下载和替换。</li>
-</ul>
-<p>网站-&gt;node项目-&gt;添加node项目</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\添加node项目.png"></p>
-<p>添加完之后，也可以在当前项目的设置里面配置域名/服务器，我这里是配置了我自己服务器，并添加了默认端口(80)，也就是说打开这个ip地址默认是进到80端口的，也就是进入到了我的项目中。</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\添加ip.png"></p>
-<p>这里完成之后，就可以通过你的ip地址访问你的项目了，但是此时依然是没有服务器的，不能进行登录和网络请求等功能。</p>
-<h4 id="4-添加数据库"><a href="#4-添加数据库" class="headerlink" title="4.添加数据库"></a>4.添加数据库</h4><p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\添加数据库.png"></p>
-<p>这里添加数据库，设置数据库名和用户名，还有密码。这里要记好，待会在服务端项目会用到。</p>
-<p>可以在数据库面板中进入到phpMyAdmin界面查看自己id数据库，也可以通过sql yog等其他工具导出sql脚本，然后在添加好的数据库进行导入，在本地找到相应的sql文件，导入数据。</p>
-<p>可以通过工具查看当前数据库的结构。</p>
-<h4 id="5-安装PM2"><a href="#5-安装PM2" class="headerlink" title="5.安装PM2"></a>5.安装PM2</h4><p>在软件商店搜索<strong>PM2</strong>，会搜到pm2管理器，点击安装就可以，然后等待安装完毕，就可以在首页的软件中找到这个工具，如果找不到，就去软件商店的已安装中搜索。同时也可以勾选<strong>首页显示</strong>这样就可以在首页的软件里面找到了。</p>
-<h5 id="5-1测试服务是否可以启动"><a href="#5-1测试服务是否可以启动" class="headerlink" title="5.1测试服务是否可以启动"></a>5.1测试服务是否可以启动</h5><p>我们在导入项目的时候可以把服务的文件夹一起上传，也可以单独上传，上传到wwwroot的根目录一下，也可以是其他你想放入的文件夹中，点到启动服务器所在的文件夹，然后点击终端，利用<code>node app.js</code>启动服务，当然，我的是设置启动文件问<code>app.js</code>，也有很多人是设置的<code>index.js</code>，无论是什么，都可以，只要是能启动服务器就可以了。</p>
-<h5 id="5-1-1服务器配置"><a href="#5-1-1服务器配置" class="headerlink" title="5.1.1服务器配置"></a>5.1.1服务器配置</h5><p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\服务端数据库的配置.png"></p>
-<p>配置如图所示，这里在的三个参数在<strong>添加数据库</strong>中已经提到了，按照对应的内容填写就好了</p>
-<h5 id="5-2测试服务能否正常启动"><a href="#5-2测试服务能否正常启动" class="headerlink" title="5.2测试服务能否正常启动"></a>5.2测试服务能否正常启动</h5><p>这里我使用的<code>nodemon</code>，nodemon是一款非常好用的node工具</p>
-<p>接下来就简单介绍一下nodemon，我认为他最好用的就是监听服务文件的改变，并实时更新。相当于是加强版。</p>
-<p>当然，node启动js文件的方式也是可以的。</p>
-<p><strong>nodemon 特性</strong></p>
-<ul>
-<li>自动重新启动应用程序。</li>
-<li>检测要监视的默认文件扩展名。</li>
-<li>默认支持 node，但易于运行任何可执行文件，如 python、ruby、make 等。</li>
-<li>忽略特定的文件或目录。</li>
-<li>监视特定目录。</li>
-<li>使用服务器应用程序或一次性运行实用程序和 REPL。</li>
-<li>可通过 Node require 语句编写脚本。</li>
-</ul>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\测试服务能否正常启动.png"></p>
-<p>这里可以看到服务器成功启动了。接下来就是部署到PM2上面了</p>
-<h4 id="6-配置PM2"><a href="#6-配置PM2" class="headerlink" title="6.配置PM2"></a>6.配置PM2</h4><p>首页-&gt;PM2管理器</p>
-<p>点进去之后，点击添加项目</p>
-<p><img src="/.io//Blog\blog\source_posts\随笔\宝塔部署node项目-vue+node+mysql\PM2配置.png"></p>
-<p>这里可以看到图片中的启动文件，只需要在你的服务的文件夹中找到启动的js文件就可以了。</p>
-<ul>
-<li>TIPs</li>
-</ul>
-<p>项目可能需要修改跨域的问题，在vue.config.js中添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  proxy: &#123;</span><br><span class="line">    &#x27;^/api&#x27;: &#123;</span><br><span class="line">      target: &#x27;http://ip+端口号&#x27;,</span><br><span class="line">      ws: true,        //如果要代理 websockets，配置这个参数</span><br><span class="line">      pathRewrite: &#123;</span><br><span class="line">        &#x27;^/api&#x27;: &#x27;&#x27;</span><br><span class="line">      &#125;,</span><br><span class="line">      changeOrigin: true //虚拟的站点需要更管origin</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-<p>在你的配置中修改axios请求的地址<code>axios.defaults.baseURL =&quot;http://ip+端口号&quot;</code></p>
-<p>最后这里的也是我自己试错了好久才反应过来需要修改这里的，因为之前都是本地启动服务并运行项目，没有不会请求到这里的数据，也就不需要做这么多修改。</p>
-<p>好了，到此，宝塔配置node项目就结束了，如果有什么疑问都可以评论留言。</p>
-
+<p><img src="/../../images/baota/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF.png" alt="宝塔面板首页"></p>
+        
+          <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/#more">more >></a>
+        
        -->
 
       
