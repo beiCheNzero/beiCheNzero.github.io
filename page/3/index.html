@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 26
+						总文章数 27
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -219,6 +219,148 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-vue-easy/v-model的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/02/28/vue-easy/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">v-model的基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/02/28/vue-easy/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-02-28T14:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-02-28
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">166字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          
+            <h3 id="v-model的基本使用"><a href="#v-model的基本使用" class="headerlink" title="v-model的基本使用"></a>v-model的基本使用</h3><ul>
+<li>v-model三种常见的修饰符默认是string</li>
+<li>number的修饰符主要是将string转化成number类型</li>
+<li>trim修饰符主要是去除内容前后的空格<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; v-model.trim=&quot;message&quot;&gt;</span><br><span class="line">  // &lt;input type=&quot;text&quot; v-model.number=&quot;message&quot;&gt;</span><br><span class="line">  &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;showType()&quot;&gt;查看类型&lt;/button&gt;</span><br><span class="line">  &lt;button @click=&quot;showCon()&quot;&gt;查看内容&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  showType() &#123;</span><br><span class="line">    console.log(this.message, typeof this.message);</span><br><span class="line">  &#125;,</span><br><span class="line">  showCon() &#123;</span><br><span class="line">    console.log(this.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<strong>仅截取部分核心代码</strong><br>EX:<br>217498daowh   值为217498      类型为number<br>njdkhaw3431   值为njdkhaw3431 类型为string</li>
+</ul>
+
+            
+          
+        
+      <!-- 
+        <h3 id="v-model的基本使用"><a href="#v-model的基本使用" class="headerlink" title="v-model的基本使用"></a>v-model的基本使用</h3><ul>
+<li>v-model三种常见的修饰符默认是string</li>
+<li>number的修饰符主要是将string转化成number类型</li>
+<li>trim修饰符主要是去除内容前后的空格<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input type=&quot;text&quot; v-model.trim=&quot;message&quot;&gt;</span><br><span class="line">  // &lt;input type=&quot;text&quot; v-model.number=&quot;message&quot;&gt;</span><br><span class="line">  &lt;h2&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">  &lt;button @click=&quot;showType()&quot;&gt;查看类型&lt;/button&gt;</span><br><span class="line">  &lt;button @click=&quot;showCon()&quot;&gt;查看内容&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  showType() &#123;</span><br><span class="line">    console.log(this.message, typeof this.message);</span><br><span class="line">  &#125;,</span><br><span class="line">  showCon() &#123;</span><br><span class="line">    console.log(this.message);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<strong>仅截取部分核心代码</strong><br>EX:<br>217498daowh   值为217498      类型为number<br>njdkhaw3431   值为njdkhaw3431 类型为string</li>
+</ul>
+
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">model</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/02/28/vue-easy/v-model%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
   
     <article id="post-随笔/vite的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1288,6 +1430,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">md5</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">宝塔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
             
             <div class="clearfix"></div>
