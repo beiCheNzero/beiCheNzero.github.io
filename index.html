@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 27
+						总文章数 28
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -303,6 +303,191 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/05/09/%E7%95%99%E8%A8%80%E6%9D%BF/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-随笔/git基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">git基本使用</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-08-05T14:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-08-05
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">409字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<ul>
+<li>前期准备</li>
+</ul>
+<ol>
+<li>下载git</li>
+<li>登录github创建仓库</li>
+</ol>
+<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
+<ol>
+<li>设置用户名、密码、邮箱</li>
+</ol>
+<p><code>git config --global user.name &quot;yourname&quot;</code></p>
+<p><code>git config --global user.password &quot;password&quot;</code></p>
+<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
+<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
+<ol start="2">
+<li>生成密钥</li>
+</ol>
+<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
+<ol start="3">
+<li>添加密钥并验证</li>
+</ol>
+<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
+<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
+            
+              <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <ul>
+<li>前期准备</li>
+</ul>
+<ol>
+<li>下载git</li>
+<li>登录github创建仓库</li>
+</ol>
+<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
+<ol>
+<li>设置用户名、密码、邮箱</li>
+</ol>
+<p><code>git config --global user.name &quot;yourname&quot;</code></p>
+<p><code>git config --global user.password &quot;password&quot;</code></p>
+<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
+<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
+<ol start="2">
+<li>生成密钥</li>
+</ol>
+<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
+<ol start="3">
+<li>添加密钥并验证</li>
+</ol>
+<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
+<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
+        
+          <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
         
@@ -1523,153 +1708,6 @@
 
 
   
-    <article id="post-vue-learn/mixin和extends" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/">mixin和extends</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/" class="archive-article-date">
-	<time datetime="2022-05-08T07:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-08
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">413字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在需要调用的vue文件下引入即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
-            
-              <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在需要调用的vue文件下引入即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
-        
-          <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mixin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1897,6 +1935,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
             
             <div class="clearfix"></div>

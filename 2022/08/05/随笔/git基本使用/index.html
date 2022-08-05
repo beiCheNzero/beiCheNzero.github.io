@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://beichenzero.github.io">
-  <title>留言板 | 北辰的个人博客</title>
+  <title>git基本使用 | 北辰的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="登录可进行留言……">
+  <meta name="description" content="前期准备   下载git 登录github创建仓库  一.git的配置在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。  设置用户名、密码、邮箱  git config --global user.name &quot;yourname&quot; git config --global user.passw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="留言板">
-<meta property="og:url" content="http://beichenzero.github.io/2021/05/09/%E7%95%99%E8%A8%80%E6%9D%BF/">
+<meta property="og:title" content="git基本使用">
+<meta property="og:url" content="http://beichenzero.github.io/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
 <meta property="og:site_name" content="北辰的个人博客">
-<meta property="og:description" content="登录可进行留言……">
+<meta property="og:description" content="前期准备   下载git 登录github创建仓库  一.git的配置在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。  设置用户名、密码、邮箱  git config --global user.name &quot;yourname&quot; git config --global user.passw">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-05-09T14:25:54.000Z">
-<meta property="article:modified_time" content="2022-07-14T13:50:34.238Z">
+<meta property="article:published_time" content="2022-08-05T14:09:11.000Z">
+<meta property="article:modified_time" content="2022-08-05T15:24:15.213Z">
 <meta property="article:author" content="北辰">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="北辰的个人博客" type="application/atom+xml">
@@ -224,19 +225,15 @@
           <div id="js-content" class="content-ll">
             <!-- 置顶 -->
 
-  <i class="fa fa-thumb-tack"></i>
-  <font color=7D26CD>置顶</font>
-  <span class="post-meta-divider">|</span>
 
-
-<article id="post-留言板" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-随笔/git基本使用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      留言板
+      git基本使用
     </h1>
   
 
@@ -267,9 +264,9 @@
 
 
         
-        <a href="/2021/05/09/%E7%95%99%E8%A8%80%E6%9D%BF/" class="archive-article-date">
-	<time datetime="2021-05-09T14:25:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2021-05-09
+        <a href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-08-05T14:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-08-05
 	</time>
 </a>
 
@@ -283,7 +280,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">7字</span>
+      <span class="post-count">409字</span>
     </span>
   </span>
 
@@ -303,13 +300,95 @@
       
         
           
-            <p>登录可进行留言……</p>
+            <ul>
+<li>前期准备</li>
+</ul>
+<ol>
+<li>下载git</li>
+<li>登录github创建仓库</li>
+</ol>
+<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
+<ol>
+<li>设置用户名、密码、邮箱</li>
+</ol>
+<p><code>git config --global user.name &quot;yourname&quot;</code></p>
+<p><code>git config --global user.password &quot;password&quot;</code></p>
+<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
+<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
+<ol start="2">
+<li>生成密钥</li>
+</ol>
+<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
+<ol start="3">
+<li>添加密钥并验证</li>
+</ol>
+<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
+<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
+<span id="more"></span>>
+
+<h3 id="二-建立连接"><a href="#二-建立连接" class="headerlink" title="二.建立连接"></a>二.建立连接</h3><p>初始化仓库</p>
+<p><code>git init</code></p>
+<p>与远程仓库建立连接</p>
+<p><code>git remote add origin URL</code></p>
+<p>URL -&gt; 这里是你仓库的地址，一般建议用<a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;</a>:用户名/仓库名.git。</p>
+<p>查看工作目录的状态</p>
+<p><code>git status</code></p>
+<p>将文件添加到暂存区</p>
+<p><code>git add &lt;file&gt;</code> / <code>git add .</code> 提交所有文件到暂缓区</p>
+<p>提交更改,添加备注信息(此时将暂存区的信息提交到本地仓库)</p>
+<p><code>git commit -m &quot;commnet&quot;</code></p>
+<p>将本地仓库的文件push到远程仓库(若 push 不成功，可加 -f 进行强推操作)</p>
+<p><code>git push origin master</code></p>
+<p>此时你就可以在你github仓库中看到你的代码了。</p>
 
             
           
         
       <!-- 
-        <p>登录可进行留言……</p>
+        <ul>
+<li>前期准备</li>
+</ul>
+<ol>
+<li>下载git</li>
+<li>登录github创建仓库</li>
+</ol>
+<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
+<ol>
+<li>设置用户名、密码、邮箱</li>
+</ol>
+<p><code>git config --global user.name &quot;yourname&quot;</code></p>
+<p><code>git config --global user.password &quot;password&quot;</code></p>
+<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
+<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
+<ol start="2">
+<li>生成密钥</li>
+</ol>
+<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
+<ol start="3">
+<li>添加密钥并验证</li>
+</ol>
+<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
+<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
+<span id="more"></span>>
+
+<h3 id="二-建立连接"><a href="#二-建立连接" class="headerlink" title="二.建立连接"></a>二.建立连接</h3><p>初始化仓库</p>
+<p><code>git init</code></p>
+<p>与远程仓库建立连接</p>
+<p><code>git remote add origin URL</code></p>
+<p>URL -&gt; 这里是你仓库的地址，一般建议用<a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;">&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#109;</a>:用户名/仓库名.git。</p>
+<p>查看工作目录的状态</p>
+<p><code>git status</code></p>
+<p>将文件添加到暂存区</p>
+<p><code>git add &lt;file&gt;</code> / <code>git add .</code> 提交所有文件到暂缓区</p>
+<p>提交更改,添加备注信息(此时将暂存区的信息提交到本地仓库)</p>
+<p><code>git commit -m &quot;commnet&quot;</code></p>
+<p>将本地仓库的文件push到远程仓库(若 push 不成功，可加 -f 进行强推操作)</p>
+<p><code>git push origin master</code></p>
+<p>此时你就可以在你github仓库中看到你的代码了。</p>
 
        -->
 
@@ -317,13 +396,30 @@
     </div>
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
-      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         
@@ -373,7 +469,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://beichenzero.github.io/2021/05/09/%E7%95%99%E8%A8%80%E6%9D%BF/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://beichenzero.github.io/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -388,15 +484,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/10/01/test%E5%9B%BE%E7%89%87/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          test图片
-        
-      </div>
-    </a>
   
+    <a href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">宝塔部署node项目-vue+node+mysql(前后端分离)</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -421,7 +513,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80-git%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">一.git的配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C-%E5%BB%BA%E7%AB%8B%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.</span> <span class="toc-text">二.建立连接</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -456,7 +548,7 @@ if(true){
     repo: 'blog',
     owner: 'beiCheNzero',
     admin: ['beiCheNzero'],
-    id: 'Sun May 09 2021 22:25:54 GMT+0800',
+    id: 'Fri Aug 05 2022 22:09:11 GMT+0800',
     distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
