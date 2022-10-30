@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 28
+						总文章数 43
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -220,14 +220,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-vue-learn/mixin和extends" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/原型继承关系图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/">mixin和extends</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E5%9B%BE/">原型继承关系图</a>
     </h1>
   
 
@@ -242,9 +242,9 @@
 
 
         
-        <a href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/" class="archive-article-date">
-	<time datetime="2022-05-08T07:15:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-08
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E5%9B%BE/" class="archive-article-date">
+	<time datetime="2022-10-30T05:23:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -258,504 +258,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">413字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在需要调用的vue文件下引入即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
-            
-              <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="mixin"><a href="#mixin" class="headerlink" title="mixin"></a>mixin</h2><h5 id="1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"><a href="#1-Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能" class="headerlink" title="1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能"></a>1.Mixin提供了一种非常灵活的方式，来分发Vue组件中的可复用功能</h5><h5 id="2-一个Mixin对象可以包含任何组件选项"><a href="#2-一个Mixin对象可以包含任何组件选项" class="headerlink" title="2.一个Mixin对象可以包含任何组件选项"></a>2.一个Mixin对象可以包含任何组件选项</h5><h5 id="3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中"><a href="#3-当组件使用Mixin对象时，所有Mixin对象的选项将被-混合-进入该组件本身的选项中" class="headerlink" title="3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中"></a>3.当组件使用Mixin对象时，所有Mixin对象的选项将被 混合 进入该组件本身的选项中</h5><h3 id="mixin的基本使用"><a href="#mixin的基本使用" class="headerlink" title="mixin的基本使用"></a>mixin的基本使用</h3><p>ex:写入公共内容到demoMixin.js文件中</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">export const demoMixin = &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      message: &quot;hello demoMixin&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    foo() &#123;</span><br><span class="line">      console.log(&quot;hello Mixin foo&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    console.log(&quot;Mixin created&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在需要调用的vue文件下引入即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import &#123; demoMixin &#125; from &quot;./minins/demoMixin&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    mixins: [demoMixin],</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后就可以在当前vue文件中使用demoMixin.js文件下创建的内容(data/methods/生命周期函数等)</p>
-        
-          <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mixin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/08/vue-learn/mixin%E5%92%8Cextends/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-learn/列表元素的过渡" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/">列表元素的过渡</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/" class="archive-article-date">
-	<time datetime="2022-05-07T12:44:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-07
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">744字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="列表元素的过渡"><a href="#列表元素的过渡" class="headerlink" title="列表元素的过渡"></a>列表元素的过渡</h2><ul>
-<li>过渡元素一般时针对单个元素或组件的。<br>那么如果我们渲染的时一个列表，那么就要用到<code>&lt;transition-group&gt;</code>组件来完成  </li>
-</ul>
-<h5 id="使用transition-group的特点"><a href="#使用transition-group的特点" class="headerlink" title="使用transition-group的特点"></a>使用transition-group的特点</h5><ul>
-<li>默认情况下，它不会渲染一个元素的包裹器，但是你可以指定一个元素并以 tag attribute 进行渲染</li>
-<li>过渡模式不可用，因为我们不再相互切换特有的元素</li>
-<li>内部元素总是需要提供唯一的 key attribute 值</li>
-<li>CSS 过渡的类将会应用在内部的元素中，而不是这个组/容器本身</li>
-</ul>
-<h4 id="列表过渡的基本使用"><a href="#列表过渡的基本使用" class="headerlink" title="列表过渡的基本使用"></a>列表过渡的基本使用</h4><p>我们以一个小案例了解他的基本使用：添加/删除数字</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;addNum&quot;&gt;添加数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;removeNum&quot;&gt;删除数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;shuffleNum&quot;&gt;打乱顺序&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;transition-group tag=&quot;p&quot; name=&quot;beichen&quot;&gt;</span><br><span class="line">      &lt;span v-for=&quot;item in numbers&quot; :key=&quot;item&quot; class=&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/transition-group&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import _ from &quot;lodash&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],</span><br><span class="line">        numberCounter: 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      addNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 0, this.numberCounter++);</span><br><span class="line">      &#125;,</span><br><span class="line">      removeNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 1);</span><br><span class="line">      &#125;,</span><br><span class="line">      shuffleNum() &#123;</span><br><span class="line">        this.numbers = _.shuffle(this.numbers);</span><br><span class="line">      &#125;,</span><br><span class="line">      randomIndex() &#123;</span><br><span class="line">        return Math.floor(Math.random() * this.numbers.length)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .item &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-from,</span><br><span class="line">  .beichen-leave-to &#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    transform: translateY(30px);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-active,</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    transition: all 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    /* 脱离标准流，在移除一个元素开始时就开始移动后面的元素 */</span><br><span class="line">    position: absolute;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-move &#123;</span><br><span class="line">    transition: transform 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-            
-              <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="列表元素的过渡"><a href="#列表元素的过渡" class="headerlink" title="列表元素的过渡"></a>列表元素的过渡</h2><ul>
-<li>过渡元素一般时针对单个元素或组件的。<br>那么如果我们渲染的时一个列表，那么就要用到<code>&lt;transition-group&gt;</code>组件来完成  </li>
-</ul>
-<h5 id="使用transition-group的特点"><a href="#使用transition-group的特点" class="headerlink" title="使用transition-group的特点"></a>使用transition-group的特点</h5><ul>
-<li>默认情况下，它不会渲染一个元素的包裹器，但是你可以指定一个元素并以 tag attribute 进行渲染</li>
-<li>过渡模式不可用，因为我们不再相互切换特有的元素</li>
-<li>内部元素总是需要提供唯一的 key attribute 值</li>
-<li>CSS 过渡的类将会应用在内部的元素中，而不是这个组/容器本身</li>
-</ul>
-<h4 id="列表过渡的基本使用"><a href="#列表过渡的基本使用" class="headerlink" title="列表过渡的基本使用"></a>列表过渡的基本使用</h4><p>我们以一个小案例了解他的基本使用：添加/删除数字</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;button @click=&quot;addNum&quot;&gt;添加数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;removeNum&quot;&gt;删除数字&lt;/button&gt;</span><br><span class="line">    &lt;button @click=&quot;shuffleNum&quot;&gt;打乱顺序&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;transition-group tag=&quot;p&quot; name=&quot;beichen&quot;&gt;</span><br><span class="line">      &lt;span v-for=&quot;item in numbers&quot; :key=&quot;item&quot; class=&quot;item&quot;&gt;&#123;&#123;item&#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/transition-group&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import _ from &quot;lodash&quot;;</span><br><span class="line"></span><br><span class="line">  export default &#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9],</span><br><span class="line">        numberCounter: 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;</span><br><span class="line">      addNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 0, this.numberCounter++);</span><br><span class="line">      &#125;,</span><br><span class="line">      removeNum() &#123;</span><br><span class="line">        this.numbers.splice(this.randomIndex(), 1);</span><br><span class="line">      &#125;,</span><br><span class="line">      shuffleNum() &#123;</span><br><span class="line">        this.numbers = _.shuffle(this.numbers);</span><br><span class="line">      &#125;,</span><br><span class="line">      randomIndex() &#123;</span><br><span class="line">        return Math.floor(Math.random() * this.numbers.length)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">  .item &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    margin-right: 10px;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-from,</span><br><span class="line">  .beichen-leave-to &#123;</span><br><span class="line">    opacity: 0;</span><br><span class="line">    transform: translateY(30px);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-enter-active,</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    transition: all 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">  .beichen-leave-active &#123;</span><br><span class="line">    /* 脱离标准流，在移除一个元素开始时就开始移动后面的元素 */</span><br><span class="line">    position: absolute;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .beichen-move &#123;</span><br><span class="line">    transition: transform 1s ease;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">transition</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">案例</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%88%97%E8%A1%A8%E5%85%83%E7%B4%A0%E7%9A%84%E8%BF%87%E6%B8%A1/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-learn/animate和gsap的使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/">animate和gsap的基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-05-07T12:43:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-07
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">652字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="安装Animate-css"><a href="#安装Animate-css" class="headerlink" title="安装Animate.css"></a>安装Animate.css</h2><ul>
-<li>yarn安装: <code>yarn add animate.css</code></li>
-<li>npm安装: <code>npm install animate.css</code></li>
-</ul>
-<h4 id="animate-css的导入"><a href="#animate-css的导入" class="headerlink" title="animate.css的导入"></a>animate.css的导入</h4><ul>
-<li>在main.js中直接引入: <code>import &quot;animate.css&quot;</code></li>
-</ul>
-<h4 id="animate-css的使用"><a href="#animate-css的使用" class="headerlink" title="animate.css的使用"></a>animate.css的使用</h4><p>1.用法一：直接使用animate库中定义的keyframes动画</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.beichen-enter-active &#123;</span><br><span class="line">  animation: flip 1s ease;</span><br><span class="line">&#125;</span><br><span class="line">.beichen-leave-active &#123;</span><br><span class="line">  animation: flip 1s ease reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.用法二：直接使用animate库提供给我们的类</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transiton name=&quot;beichen&quot;</span><br><span class="line">           enter-active-class=&quot;animate__animated animate__lightSpeedInRight&quot;</span><br><span class="line">           leave-active-class=&quot;animate__animated animate__lishtSpeedOutRight&quot;&gt;</span><br><span class="line">  &lt;h2 v-if=&quot;isShow&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>其中<code>animate__animated</code>类时必须要添加的</strong></p>
-<h2 id="gsap库"><a href="#gsap库" class="headerlink" title="gsap库"></a>gsap库</h2><h4 id="实现一些动画的库"><a href="#实现一些动画的库" class="headerlink" title="实现一些动画的库"></a>实现一些动画的库</h4><p>利用gsap来完成js最基本的动画</p>
-<ul>
-<li><p>安装gsap库<br><code>yarn add gsap</code> or <code>npm install gsap</code></p>
-</li>
-<li><p>导入gsap库<br><code>import gsap from &quot;gsap&quot;;</code></p>
-</li>
-</ul>
-<p>transition组件提供给我们的JavaScript钩子：</p>
-<ul>
-<li>@before-enter=”beforeEnter”</li>
-<li>@enter=”enter”</li>
-<li>@after-enter=”afterEnter”</li>
-<li>@before-leave=”beforeLeave”</li>
-<li>@leave=”leave”</li>
-<li>@after-leave=”afterLeave”</li></ul>
-            
-              <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="安装Animate-css"><a href="#安装Animate-css" class="headerlink" title="安装Animate.css"></a>安装Animate.css</h2><ul>
-<li>yarn安装: <code>yarn add animate.css</code></li>
-<li>npm安装: <code>npm install animate.css</code></li>
-</ul>
-<h4 id="animate-css的导入"><a href="#animate-css的导入" class="headerlink" title="animate.css的导入"></a>animate.css的导入</h4><ul>
-<li>在main.js中直接引入: <code>import &quot;animate.css&quot;</code></li>
-</ul>
-<h4 id="animate-css的使用"><a href="#animate-css的使用" class="headerlink" title="animate.css的使用"></a>animate.css的使用</h4><p>1.用法一：直接使用animate库中定义的keyframes动画</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.beichen-enter-active &#123;</span><br><span class="line">  animation: flip 1s ease;</span><br><span class="line">&#125;</span><br><span class="line">.beichen-leave-active &#123;</span><br><span class="line">  animation: flip 1s ease reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.用法二：直接使用animate库提供给我们的类</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;transiton name=&quot;beichen&quot;</span><br><span class="line">           enter-active-class=&quot;animate__animated animate__lightSpeedInRight&quot;</span><br><span class="line">           leave-active-class=&quot;animate__animated animate__lishtSpeedOutRight&quot;&gt;</span><br><span class="line">  &lt;h2 v-if=&quot;isShow&quot;&gt;&#123;&#123;message&#125;&#125;&lt;/h2&gt;</span><br><span class="line">&lt;/transition&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>其中<code>animate__animated</code>类时必须要添加的</strong></p>
-<h2 id="gsap库"><a href="#gsap库" class="headerlink" title="gsap库"></a>gsap库</h2><h4 id="实现一些动画的库"><a href="#实现一些动画的库" class="headerlink" title="实现一些动画的库"></a>实现一些动画的库</h4><p>利用gsap来完成js最基本的动画</p>
-<ul>
-<li><p>安装gsap库<br><code>yarn add gsap</code> or <code>npm install gsap</code></p>
-</li>
-<li><p>导入gsap库<br><code>import gsap from &quot;gsap&quot;;</code></p>
-</li>
-</ul>
-<p>transition组件提供给我们的JavaScript钩子：</p>
-<ul>
-<li>@before-enter=”beforeEnter”</li>
-<li>@enter=”enter”</li>
-<li>@after-enter=”afterEnter”</li>
-<li>@before-leave=”beforeLeave”</li>
-<li>@leave=”leave”</li>
-<li>@after-leave=”afterLeave”</li></ul>
-        
-          <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">animate</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">gsap</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/07/vue-learn/animate%E5%92%8Cgsap%E7%9A%84%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-learn/动画的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">动画的基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-05-07T12:40:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-07
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">552字</span>
+      <span class="post-count">10字</span>
     </span>
   </span>
 
@@ -775,51 +278,13 @@
       
         
           
-            <h2 id="过渡动画class"><a href="#过渡动画class" class="headerlink" title="过渡动画class"></a>过渡动画class</h2><ul>
-<li><span style="color:red">v-enter-from</span>:定义进入过过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</li>
-<li><span style="color:red">v-enter-active</span>定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</li>
-<li><span style="color:red">v-enter-to</span>定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter-from 被移除)，在过渡/动画完成之后移除</li>
-<li><span style="color:red">v-leave-from</span>定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除</li>
-<li><span style="color:red">v-leave-active</span>定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li>
-<li><span style="color:red">v-leave-to</span>离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡/动画完成之后移除。</li>
-</ul>
-<p><strong>如果我们在transition中没有添加name属性,那么他的默认前缀就v-,如果添加了name属性，以name=”beichen”为例，那么所有的class会以beichen-开头。</strong></p>
-<ul>
-<li>如果同时设置了animationend和transitionend，我们可以在transition中设置type属性为transition和animation来明确告知vue监听的类型。<h4 id="显示指定动画时间"><a href="#显示指定动画时间" class="headerlink" title="显示指定动画时间"></a>显示指定动画时间</h4></li>
-<li>显示指定动画时间可以通过duration属性。<br>1.number类型：同时设置进入和离开的时间<br>ex：<code>:duration: 1000</code><br>2.object类型：分别设置进入和离开的时间<br>ex：<code>:duration: &#123;enter: 1000, leave: 800&#125;</code></li>
-</ul>
-<h4 id="过渡模式的mode"><a href="#过渡模式的mode" class="headerlink" title="过渡模式的mode"></a>过渡模式的<code>mode</code></h4><ul>
-<li><code>in-out</code>:新元素先进行过渡，完成之后当前元素过渡离开(<strong>先进后出</strong>)</li>
-<li><code>out-in</code>:当前元素先进行过渡，完成之后新元素过渡进入(<strong>先出后进</strong>)</li>
-</ul>
-<h4 id="appear属性"><a href="#appear属性" class="headerlink" title="appear属性"></a><code>appear</code>属性</h4><ul>
-<li>用来设置在加载界面/初次渲染时也是有动画显示的。</li>
-</ul>
+            <p>就一张图，没什么其他的。<br><img src="/../../images/img/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB.jpg"></p>
 
             
           
         
       <!-- 
-        <h2 id="过渡动画class"><a href="#过渡动画class" class="headerlink" title="过渡动画class"></a>过渡动画class</h2><ul>
-<li><span style="color:red">v-enter-from</span>:定义进入过过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。</li>
-<li><span style="color:red">v-enter-active</span>定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。</li>
-<li><span style="color:red">v-enter-to</span>定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter-from 被移除)，在过渡/动画完成之后移除</li>
-<li><span style="color:red">v-leave-from</span>定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除</li>
-<li><span style="color:red">v-leave-active</span>定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。</li>
-<li><span style="color:red">v-leave-to</span>离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave-from 被删除)，在过渡/动画完成之后移除。</li>
-</ul>
-<p><strong>如果我们在transition中没有添加name属性,那么他的默认前缀就v-,如果添加了name属性，以name=”beichen”为例，那么所有的class会以beichen-开头。</strong></p>
-<ul>
-<li>如果同时设置了animationend和transitionend，我们可以在transition中设置type属性为transition和animation来明确告知vue监听的类型。<h4 id="显示指定动画时间"><a href="#显示指定动画时间" class="headerlink" title="显示指定动画时间"></a>显示指定动画时间</h4></li>
-<li>显示指定动画时间可以通过duration属性。<br>1.number类型：同时设置进入和离开的时间<br>ex：<code>:duration: 1000</code><br>2.object类型：分别设置进入和离开的时间<br>ex：<code>:duration: &#123;enter: 1000, leave: 800&#125;</code></li>
-</ul>
-<h4 id="过渡模式的mode"><a href="#过渡模式的mode" class="headerlink" title="过渡模式的mode"></a>过渡模式的<code>mode</code></h4><ul>
-<li><code>in-out</code>:新元素先进行过渡，完成之后当前元素过渡离开(<strong>先进后出</strong>)</li>
-<li><code>out-in</code>:当前元素先进行过渡，完成之后新元素过渡进入(<strong>先出后进</strong>)</li>
-</ul>
-<h4 id="appear属性"><a href="#appear属性" class="headerlink" title="appear属性"></a><code>appear</code>属性</h4><ul>
-<li>用来设置在加载界面/初次渲染时也是有动画显示的。</li>
-</ul>
+        <p>就一张图，没什么其他的。<br><img src="/../../images/img/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB.jpg"></p>
 
        -->
 
@@ -833,7 +298,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">transiton</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原型</a>
         		</li>
       		
 		</ul>
@@ -845,7 +314,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -854,7 +323,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/07/vue-learn/%E5%8A%A8%E7%94%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E5%9B%BE/">展开全文 >></a>
         </p>
       
         
@@ -887,14 +356,14 @@
 
 
   
-    <article id="post-vue-learn/slot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/6.继承的多种方案及其优缺点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/05/vue-learn/slot/">slot</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/6.%E7%BB%A7%E6%89%BF%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E6%A1%88%E5%8F%8A%E5%85%B6%E4%BC%98%E7%BC%BA%E7%82%B9/">6.继承的多种方案及其优缺点</a>
     </h1>
   
 
@@ -909,9 +378,9 @@
 
 
         
-        <a href="/2022/03/05/vue-learn/slot/" class="archive-article-date">
-	<time datetime="2022-03-05T12:56:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-03-05
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/6.%E7%BB%A7%E6%89%BF%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E6%A1%88%E5%8F%8A%E5%85%B6%E4%BC%98%E7%BC%BA%E7%82%B9/" class="archive-article-date">
+	<time datetime="2022-10-30T05:21:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -925,7 +394,176 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">579字</span>
+      <span class="post-count">2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h3 id="继承的方案以及优缺点"><a href="#继承的方案以及优缺点" class="headerlink" title="继承的方案以及优缺点"></a>继承的方案以及优缺点</h3><p><strong>1. 通过原型链实现继承</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义父类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.info = <span class="string">&quot;beichen&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.在父类原型上添加eating方法</span></span><br><span class="line">Person.prototype.eating = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;eating&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.定义子类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;student&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 4.创建父类对象，并作为子类的原型对象</span></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="comment">// 5.在子类原型上添加running方法</span></span><br><span class="line">Student.prototype.running = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;running&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student()</span><br><span class="line">stu1.running() <span class="comment">// running</span></span><br><span class="line">stu1.eating() <span class="comment">// eating</span></span><br></pre></td></tr></table></figure>
+
+<p>优点: 子类可以继承父类的方法</p>
+<p>缺点: </p>
+<ul>
+<li>第一，我们通过直接打印对象是看不到这个属性的； </li>
+<li>第二，这个属性会被多个对象共享，如果这个对象是一个引用类型，那么就会造成问题； </li>
+<li>第三，不能给Person传递参数（让每个stu有自己的属性），因为这个对象是一次性创建的（没办法定制化）；</li>
+</ul>
+<p><strong>2. 借用构造函数继承</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义父类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">info, age</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.info = info</span><br><span class="line">	<span class="built_in">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.在父类原型上添加eating方法</span></span><br><span class="line">Person.prototype.eating = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;eating&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.定义子类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">info, age, name</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 借用构造函数继承</span></span><br><span class="line">    Person.apply(<span class="built_in">this</span>, [info, age])</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 5.在子类原型上添加running方法</span></span><br><span class="line">Student.prototype.running = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;running&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="built_in">console</span>.log(stu1.info) <span class="comment">// beichen</span></span><br><span class="line"><span class="built_in">console</span>.log(stu1.name) <span class="comment">// student</span></span><br><span class="line"><span class="built_in">console</span>.log(stu1.age) <span class="comment">// 22</span></span><br></pre></td></tr></table></figure>
+
+<p>在子类中可以通过apply或call调用都可以</p>
+<p>优点：属性不会被共享，可以给父类传入参数</p>
+<p>缺点：父类的方法不能复用，子类实例的方法每次都是单独创建的。</p>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/6.%E7%BB%A7%E6%89%BF%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E6%A1%88%E5%8F%8A%E5%85%B6%E4%BC%98%E7%BC%BA%E7%82%B9/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="继承的方案以及优缺点"><a href="#继承的方案以及优缺点" class="headerlink" title="继承的方案以及优缺点"></a>继承的方案以及优缺点</h3><p><strong>1. 通过原型链实现继承</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义父类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.info = <span class="string">&quot;beichen&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.在父类原型上添加eating方法</span></span><br><span class="line">Person.prototype.eating = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;eating&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.定义子类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;student&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 4.创建父类对象，并作为子类的原型对象</span></span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person()</span><br><span class="line"><span class="comment">// 5.在子类原型上添加running方法</span></span><br><span class="line">Student.prototype.running = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;running&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student()</span><br><span class="line">stu1.running() <span class="comment">// running</span></span><br><span class="line">stu1.eating() <span class="comment">// eating</span></span><br></pre></td></tr></table></figure>
+
+<p>优点: 子类可以继承父类的方法</p>
+<p>缺点: </p>
+<ul>
+<li>第一，我们通过直接打印对象是看不到这个属性的； </li>
+<li>第二，这个属性会被多个对象共享，如果这个对象是一个引用类型，那么就会造成问题； </li>
+<li>第三，不能给Person传递参数（让每个stu有自己的属性），因为这个对象是一次性创建的（没办法定制化）；</li>
+</ul>
+<p><strong>2. 借用构造函数继承</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.定义父类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">info, age</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">this</span>.info = info</span><br><span class="line">	<span class="built_in">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2.在父类原型上添加eating方法</span></span><br><span class="line">Person.prototype.eating = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;eating&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3.定义子类构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">info, age, name</span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 借用构造函数继承</span></span><br><span class="line">    Person.apply(<span class="built_in">this</span>, [info, age])</span><br><span class="line">    <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 5.在子类原型上添加running方法</span></span><br><span class="line">Student.prototype.running = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;running&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> stu1 = <span class="keyword">new</span> Student()</span><br><span class="line"><span class="built_in">console</span>.log(stu1.info) <span class="comment">// beichen</span></span><br><span class="line"><span class="built_in">console</span>.log(stu1.name) <span class="comment">// student</span></span><br><span class="line"><span class="built_in">console</span>.log(stu1.age) <span class="comment">// 22</span></span><br></pre></td></tr></table></figure>
+
+<p>在子类中可以通过apply或call调用都可以</p>
+<p>优点：属性不会被共享，可以给父类传入参数</p>
+<p>缺点：父类的方法不能复用，子类实例的方法每次都是单独创建的。</p>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/6.%E7%BB%A7%E6%89%BF%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E6%A1%88%E5%8F%8A%E5%85%B6%E4%BC%98%E7%BC%BA%E7%82%B9/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">继承</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES5及ES6+</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/6.%E7%BB%A7%E6%89%BF%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E6%A1%88%E5%8F%8A%E5%85%B6%E4%BC%98%E7%BC%BA%E7%82%B9/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/5.对象增强" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/5.%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA/">5.对象增强</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/5.%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA/" class="archive-article-date">
+	<time datetime="2022-10-30T05:19:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">528字</span>
     </span>
   </span>
 
@@ -944,39 +582,101 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<h3 id="渲染作用域"><a href="#渲染作用域" class="headerlink" title="渲染作用域"></a>渲染作用域</h3><blockquote>
-<p>父级模板里面的所有内容都是在父级作用域中编译的<br>子模板里面的所有内容都是在子作用域中编译的</p>
-</blockquote>
-<h3 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h3><ul>
-<li>我们希望插槽<strong>可以访问到子组件中的内容</strong>是非常重要的</li>
-<li>1.在App.vue中定义好数据</li>
-<li>2.传递给ShowNames组件中</li>
-<li>3.ShowNames组件中遍历name数组的数据</li>
-<li>4.定义插槽的prop</li>
-<li>5.通过v-slot:default的方式获取到slot的props</li>
-<li>6.使用slotProps中的item和index<br>代码如下<br>ShowNames.vue</li>
+          		<h3 id="对象增强"><a href="#对象增强" class="headerlink" title="对象增强"></a>对象增强</h3><p><strong>属性描述符需要使用到<code>Object.defineProperty</code></strong></p>
+<p>接收三个参数：</p>
+<p>​    第一个参数: obj</p>
+<p>​    第二个参数: prop要定义或修改的属性的名称或Symbol</p>
+<p>​    第三个参数: descriptor要定义或修改的属性描述</p>
+<p><strong>属性描述符有类：数据属性、存取属性</strong></p>
+<ul>
+<li><p>数据属性描述符</p>
+<ul>
+<li>configurable </li>
 </ul>
+<p>设置为false不可配置(不可被删除,不可在把值变为true)，默认为true</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(&#123;</span><br><span class="line">	configurable: false</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>enumerable</li>
+</ul>
+<p>设为false不可被枚举</p>
+<ul>
+<li>writable</li>
+</ul>
+<p>不可被写入(只读)</p>
+<ul>
+<li>value</li>
+</ul>
+<p>设置之后每次读取的值都为固定的值。</p>
+</li>
+<li><p>存取属性描述符</p>
+<ul>
+<li>configurable</li>
+<li>enumerable</li>
+<li>set</li>
+</ul>
+<p>当定义的属性被修改/赋值，就会执行set方法，并将修改的值传入set函数的参数中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var _name = &#x27;&#x27; // 私有变量</span><br><span class="line">Object.defineProperty(&#123;</span><br><span class="line">	set: function(value) &#123;</span><br><span class="line">		console.log(value) //value为修改后的值 默认为undefined</span><br><span class="line">	&#125;，</span><br><span class="line">	get: function() &#123;</span><br><span class="line">		return _name</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>get</li>
+</ul>
+<p>在调用obj.name就会执行get方法，默认的值也为undefined。</p>
+</li>
+</ul>
+<p><code>Object.defineProperties</code>可以监听多个属性描述符。</p>
             
-              <a class="article-more-a" href="/2022/03/05/vue-learn/slot/#more">more >></a>
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/5.%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA/#more">more >></a>
             
 
           
         
       <!-- 
-        <h3 id="渲染作用域"><a href="#渲染作用域" class="headerlink" title="渲染作用域"></a>渲染作用域</h3><blockquote>
-<p>父级模板里面的所有内容都是在父级作用域中编译的<br>子模板里面的所有内容都是在子作用域中编译的</p>
-</blockquote>
-<h3 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h3><ul>
-<li>我们希望插槽<strong>可以访问到子组件中的内容</strong>是非常重要的</li>
-<li>1.在App.vue中定义好数据</li>
-<li>2.传递给ShowNames组件中</li>
-<li>3.ShowNames组件中遍历name数组的数据</li>
-<li>4.定义插槽的prop</li>
-<li>5.通过v-slot:default的方式获取到slot的props</li>
-<li>6.使用slotProps中的item和index<br>代码如下<br>ShowNames.vue</li>
+        <h3 id="对象增强"><a href="#对象增强" class="headerlink" title="对象增强"></a>对象增强</h3><p><strong>属性描述符需要使用到<code>Object.defineProperty</code></strong></p>
+<p>接收三个参数：</p>
+<p>​    第一个参数: obj</p>
+<p>​    第二个参数: prop要定义或修改的属性的名称或Symbol</p>
+<p>​    第三个参数: descriptor要定义或修改的属性描述</p>
+<p><strong>属性描述符有类：数据属性、存取属性</strong></p>
+<ul>
+<li><p>数据属性描述符</p>
+<ul>
+<li>configurable </li>
 </ul>
+<p>设置为false不可配置(不可被删除,不可在把值变为true)，默认为true</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object.defineProperty(&#123;</span><br><span class="line">	configurable: false</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>enumerable</li>
+</ul>
+<p>设为false不可被枚举</p>
+<ul>
+<li>writable</li>
+</ul>
+<p>不可被写入(只读)</p>
+<ul>
+<li>value</li>
+</ul>
+<p>设置之后每次读取的值都为固定的值。</p>
+</li>
+<li><p>存取属性描述符</p>
+<ul>
+<li>configurable</li>
+<li>enumerable</li>
+<li>set</li>
+</ul>
+<p>当定义的属性被修改/赋值，就会执行set方法，并将修改的值传入set函数的参数中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var _name = &#x27;&#x27; // 私有变量</span><br><span class="line">Object.defineProperty(&#123;</span><br><span class="line">	set: function(value) &#123;</span><br><span class="line">		console.log(value) //value为修改后的值 默认为undefined</span><br><span class="line">	&#125;，</span><br><span class="line">	get: function() &#123;</span><br><span class="line">		return _name</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>get</li>
+</ul>
+<p>在调用obj.name就会执行get方法，默认的值也为undefined。</p>
+</li>
+</ul>
+<p><code>Object.defineProperties</code>可以监听多个属性描述符。</p>
         
-          <a class="article-more-a" href="/2022/03/05/vue-learn/slot/#more">more >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/5.%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA/#more">more >></a>
         
        -->
 
@@ -985,24 +685,13 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">slot</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -1011,7 +700,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/05/vue-learn/slot/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/5.%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA/">展开全文 >></a>
         </p>
       
         
@@ -1044,14 +733,14 @@
 
 
   
-    <article id="post-vue-easy/attribute和attrs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/4.柯里化-纯函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/">attribute和$attrs</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/4.%E6%9F%AF%E9%87%8C%E5%8C%96-%E7%BA%AF%E5%87%BD%E6%95%B0/">4.柯里化函数-纯函数</a>
     </h1>
   
 
@@ -1066,9 +755,9 @@
 
 
         
-        <a href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/" class="archive-article-date">
-	<time datetime="2022-03-04T11:42:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-03-04
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/4.%E6%9F%AF%E9%87%8C%E5%8C%96-%E7%BA%AF%E5%87%BD%E6%95%B0/" class="archive-article-date">
+	<time datetime="2022-10-30T05:18:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -1082,158 +771,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">284字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="inherirAttrs"><a href="#inherirAttrs" class="headerlink" title="inherirAttrs"></a>inherirAttrs</h2><blockquote>
-<p>Attribute继承问题<br>首先，attribute是我们在父组件中定义了<span style="color: red">非prop的Attribute</span>，该属性没有定义对应的props或者emits。</p>
-</blockquote>
-<ul>
-<li>常见的包括class,style,id属性等<br>例如我们在父组件中定义了如下的值：<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/show-message&gt;</code><br>这里的<code>class=&quot;beichen&quot;</code>和<code>id=&quot;beichenzero&quot;</code>就是<span style="color: red">非prop的Attribute</span><br>如果我们的子组件中包含有根组件,例如<code>&lt;div&gt;&lt;/div&gt;</code>。<br>运行项目时，我们就会看到它自动变成<code>&lt;div class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/div&gt;</code>,添加了class属性和id属性。</li>
-</ul>
-<p>当我们不想出现这种特殊的情况是，我们可以在子组件中添加：<br><code>inheritAttrs: flase,</code>代码，这就等于时禁用了，<code>inheritAttrs</code>默认的值时true。</p>
-            
-              <a class="article-more-a" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="inherirAttrs"><a href="#inherirAttrs" class="headerlink" title="inherirAttrs"></a>inherirAttrs</h2><blockquote>
-<p>Attribute继承问题<br>首先，attribute是我们在父组件中定义了<span style="color: red">非prop的Attribute</span>，该属性没有定义对应的props或者emits。</p>
-</blockquote>
-<ul>
-<li>常见的包括class,style,id属性等<br>例如我们在父组件中定义了如下的值：<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/show-message&gt;</code><br>这里的<code>class=&quot;beichen&quot;</code>和<code>id=&quot;beichenzero&quot;</code>就是<span style="color: red">非prop的Attribute</span><br>如果我们的子组件中包含有根组件,例如<code>&lt;div&gt;&lt;/div&gt;</code>。<br>运行项目时，我们就会看到它自动变成<code>&lt;div class=&quot;beichen&quot; id=&quot;beichenzero&quot;&gt;&lt;/div&gt;</code>,添加了class属性和id属性。</li>
-</ul>
-<p>当我们不想出现这种特殊的情况是，我们可以在子组件中添加：<br><code>inheritAttrs: flase,</code>代码，这就等于时禁用了，<code>inheritAttrs</code>默认的值时true。</p>
-        
-          <a class="article-more-a" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">attribute</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">attrs</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/04/vue-easy/attribute%E5%92%8Cattrs/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-easy/vue-商品切换案例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">vue-商品切换案例</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/" class="archive-article-date">
-	<time datetime="2022-03-03T10:50:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-03-03
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">536字</span>
+      <span class="post-count">564字</span>
     </span>
   </span>
 
@@ -1252,29 +790,393 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<h2 id="商品切换小案例"><a href="#商品切换小案例" class="headerlink" title="商品切换小案例"></a>商品切换小案例</h2><blockquote>
-<p><strong>思路</strong></p>
-</blockquote>
-<p>1.父组件中定义<code>titles</code>数组<br>2.利用父传子的方式将<code>titles</code>数组传给子组件<br>3.子组件中接收，利用<code>v-for</code>指令遍历数组，动态绑定key。<br>4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。<br>5.<code>props</code>可以限定父组件传过来的值使什么，并添加默认值。<br>6.通过<code>@click</code>的方式，将<code>index</code>的值通过子传父传递父组件，同时在点击事件传值的同时将index的值赋给currentsIndex。<br>7.定义<code>contents</code>数组，并再次定义currentIndex，默认值为0。<br>8.最后监听子组件的传递并执行函数titleCLick，将index的值也赋值给currentIndex，目的是为了让title和content的变化是一致的。  </p>
+          		<h3 id="类数组-array-like-转成数组"><a href="#类数组-array-like-转成数组" class="headerlink" title="类数组(array-like)转成数组"></a>类数组(array-like)转成数组</h3><ol>
+<li><p>通过for循环遍历存入新的数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var newArguments = []</span><br><span class="line">for (var arg of arguments) &#123;</span><br><span class="line">	newarguments.push(arg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Array.from()  (ES6中的方式)</p>
+<p>from()中传入一个可迭代对象</p>
+<p><code>var newArgs1 = Array.from(arguments)</code></p>
+</li>
+<li><p><code>...</code>的语法   (ES6中的方式)</p>
+<p><code>var newArgs2 = [...arguments]</code></p>
+</li>
+<li><p>使用slice()方法</p>
+<p><code>var newArgs3 = [].slice.apply(arguments)</code></p>
+<p><code>var newArgs3 = Array.prototype.slice.apply(arguments)</code></p>
+<p>slice也可以说是一种浅拷贝的方法。</p>
+<p>slice不会对原数组进行修改，而是返回一个新数组。(纯函数)</p>
+<p>splice会返回一个新数组，也会对原数组进行修改。</p>
+</li>
+</ol>
+<p>箭头函数中没有arguments</p>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/4.%E6%9F%AF%E9%87%8C%E5%8C%96-%E7%BA%AF%E5%87%BD%E6%95%B0/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="类数组-array-like-转成数组"><a href="#类数组-array-like-转成数组" class="headerlink" title="类数组(array-like)转成数组"></a>类数组(array-like)转成数组</h3><ol>
+<li><p>通过for循环遍历存入新的数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var newArguments = []</span><br><span class="line">for (var arg of arguments) &#123;</span><br><span class="line">	newarguments.push(arg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>Array.from()  (ES6中的方式)</p>
+<p>from()中传入一个可迭代对象</p>
+<p><code>var newArgs1 = Array.from(arguments)</code></p>
+</li>
+<li><p><code>...</code>的语法   (ES6中的方式)</p>
+<p><code>var newArgs2 = [...arguments]</code></p>
+</li>
+<li><p>使用slice()方法</p>
+<p><code>var newArgs3 = [].slice.apply(arguments)</code></p>
+<p><code>var newArgs3 = Array.prototype.slice.apply(arguments)</code></p>
+<p>slice也可以说是一种浅拷贝的方法。</p>
+<p>slice不会对原数组进行修改，而是返回一个新数组。(纯函数)</p>
+<p>splice会返回一个新数组，也会对原数组进行修改。</p>
+</li>
+</ol>
+<p>箭头函数中没有arguments</p>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/4.%E6%9F%AF%E9%87%8C%E5%8C%96-%E7%BA%AF%E5%87%BD%E6%95%B0/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">柯里化</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">纯函数</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/4.%E6%9F%AF%E9%87%8C%E5%8C%96-%E7%BA%AF%E5%87%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/3.js的内存管理和闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/3.js%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/">3.js的内存管理和闭包</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/3.js%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/" class="archive-article-date">
+	<time datetime="2022-10-30T05:17:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">521字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="JS内存管理和闭包"><a href="#JS内存管理和闭包" class="headerlink" title="JS内存管理和闭包"></a>JS内存管理和闭包</h2><h3 id="1-JS内存管理"><a href="#1-JS内存管理" class="headerlink" title="1.JS内存管理"></a>1.JS内存管理</h3><h3 id="2-垃圾回收机制"><a href="#2-垃圾回收机制" class="headerlink" title="2.垃圾回收机制"></a>2.垃圾回收机制</h3><h5 id="常见的GC算法"><a href="#常见的GC算法" class="headerlink" title="常见的GC算法"></a>常见的GC算法</h5><ol>
+<li><p>引用计数(Reference Counting)</p>
+<p>当有一个对象引用指向它时，那么这个对象就+1</p>
+<p>当一个对象的引用为0时，这个对象就被销毁掉了</p>
+<p>ex: 循环引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;&#125;</span><br><span class="line">obj2 = &#123;&#125;</span><br><span class="line">obj1.info = obj2</span><br><span class="line">obj2.info = obj1</span><br><span class="line">// 此时obj1和obj2的引用计数都为2</span><br><span class="line"></span><br><span class="line">obj1 = null</span><br><span class="line">obj2 = null</span><br><span class="line">// 此时obj1和obj2的引用计数都为1，不为0，不会被销毁掉，需要我们手动销毁</span><br></pre></td></tr></table></figure></li>
+<li><p>标记清除(Mark-Sweep)</p>
+<p><strong>标记清除的核心思想就是可达性(Reachability)</strong></p>
+<p>描述: 这个算法是设置一个根对象(Root Object/window/Global Object，在不同地方有不同的叫法，但是i都是指的同一个对象)，垃圾回收器会定期从这个根开始，找所有从这个根开始有引用到的对象，对于那么没有引用到的对象，就认为是不可用对象。</p>
+<p><em><strong>这个算法能很好的解决循环引用的问题</strong></em></p>
+<p>ex:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var RootObject = &#123;</span><br><span class="line">	obj: &#123;</span><br><span class="line">        foo: function a() &#123;&#125;,</span><br><span class="line">        bar: function b() &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">RootObject -&gt; obj -&gt; foo/bar</span><br><span class="line">foo -&gt; function</span><br><span class="line">bar -&gt; function</span><br></pre></td></tr></table></figure></li></ol>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/3.js%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="JS内存管理和闭包"><a href="#JS内存管理和闭包" class="headerlink" title="JS内存管理和闭包"></a>JS内存管理和闭包</h2><h3 id="1-JS内存管理"><a href="#1-JS内存管理" class="headerlink" title="1.JS内存管理"></a>1.JS内存管理</h3><h3 id="2-垃圾回收机制"><a href="#2-垃圾回收机制" class="headerlink" title="2.垃圾回收机制"></a>2.垃圾回收机制</h3><h5 id="常见的GC算法"><a href="#常见的GC算法" class="headerlink" title="常见的GC算法"></a>常见的GC算法</h5><ol>
+<li><p>引用计数(Reference Counting)</p>
+<p>当有一个对象引用指向它时，那么这个对象就+1</p>
+<p>当一个对象的引用为0时，这个对象就被销毁掉了</p>
+<p>ex: 循环引用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">obj1 = &#123;&#125;</span><br><span class="line">obj2 = &#123;&#125;</span><br><span class="line">obj1.info = obj2</span><br><span class="line">obj2.info = obj1</span><br><span class="line">// 此时obj1和obj2的引用计数都为2</span><br><span class="line"></span><br><span class="line">obj1 = null</span><br><span class="line">obj2 = null</span><br><span class="line">// 此时obj1和obj2的引用计数都为1，不为0，不会被销毁掉，需要我们手动销毁</span><br></pre></td></tr></table></figure></li>
+<li><p>标记清除(Mark-Sweep)</p>
+<p><strong>标记清除的核心思想就是可达性(Reachability)</strong></p>
+<p>描述: 这个算法是设置一个根对象(Root Object/window/Global Object，在不同地方有不同的叫法，但是i都是指的同一个对象)，垃圾回收器会定期从这个根开始，找所有从这个根开始有引用到的对象，对于那么没有引用到的对象，就认为是不可用对象。</p>
+<p><em><strong>这个算法能很好的解决循环引用的问题</strong></em></p>
+<p>ex:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var RootObject = &#123;</span><br><span class="line">	obj: &#123;</span><br><span class="line">        foo: function a() &#123;&#125;,</span><br><span class="line">        bar: function b() &#123;&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">RootObject -&gt; obj -&gt; foo/bar</span><br><span class="line">foo -&gt; function</span><br><span class="line">bar -&gt; function</span><br></pre></td></tr></table></figure></li></ol>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/3.js%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内存管理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/3.js%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/2.浏览器和js的运行原理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/2.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cjs%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/">2.浏览器和js运行原理</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/2.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cjs%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/" class="archive-article-date">
+	<time datetime="2022-10-30T05:02:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">2.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">8分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="浏览器运行原理"><a href="#浏览器运行原理" class="headerlink" title="浏览器运行原理"></a>浏览器运行原理</h2><ul>
+<li>网页请求的过程<br>输入一个url/域名，会经过DNS解析成ip地址，然后去请求指定的服务器，服务器返回资源(大多是html)给域名进行展示</li>
+</ul>
+<h3 id="回流和重绘-面试重点"><a href="#回流和重绘-面试重点" class="headerlink" title="回流和重绘(面试重点)"></a>回流和重绘(面试重点)</h3><p><strong>回流</strong><br>回流reflow: (也可以称之为重排)</p>
 <ul>
-<li>代码如下</li>
+<li>第一次确定节点大小和位置称之为布局。</li>
+<li>之后对节点的大小，位置修改重新计算称之为回流<br>回流举例: 修改的盒子的大小/宽高，移除等。</li>
+</ul>
+<ol>
+<li>修改DOM结构(添加/删除节点)</li>
+<li>改变布局(width/height/padding/font-size)</li>
+<li>改变窗口大小(手动修改)<br>反面例子: 如果是修改了文字的颜色之类的是不需要进行重新布局，所以不会产生回流。</li>
+</ol>
+<p><strong>重绘</strong><br>第一次渲染内容称之为绘制(paint)<br>之后重新渲染称之为重绘</p>
+<p>回流一定会引起重绘，所以需要尽量避免回流，且非常消耗浏览器性能。<br>避免回流的方式:</p>
+<ul>
+<li>1.修改样式尽量一次性修改</li>
+<li>2.尽量避免频繁的操作DOM</li>
+<li>3.尽量避免通过getComputedStyle获取尺寸、位置等信息</li>
+<li>4.对某些元素使用position的absolute和fixed (会引起回流，但是开销相对较小)</li>
 </ul>
             
-              <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/2.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cjs%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/#more">more >></a>
             
 
           
         
       <!-- 
-        <h2 id="商品切换小案例"><a href="#商品切换小案例" class="headerlink" title="商品切换小案例"></a>商品切换小案例</h2><blockquote>
-<p><strong>思路</strong></p>
-</blockquote>
-<p>1.父组件中定义<code>titles</code>数组<br>2.利用父传子的方式将<code>titles</code>数组传给子组件<br>3.子组件中接收，利用<code>v-for</code>指令遍历数组，动态绑定key。<br>4.添加class，动态绑定class，使点击的那个标题处于活跃状态，利用index和自己定义的currentIndex的关系。<br>5.<code>props</code>可以限定父组件传过来的值使什么，并添加默认值。<br>6.通过<code>@click</code>的方式，将<code>index</code>的值通过子传父传递父组件，同时在点击事件传值的同时将index的值赋给currentsIndex。<br>7.定义<code>contents</code>数组，并再次定义currentIndex，默认值为0。<br>8.最后监听子组件的传递并执行函数titleCLick，将index的值也赋值给currentIndex，目的是为了让title和content的变化是一致的。  </p>
+        <h2 id="浏览器运行原理"><a href="#浏览器运行原理" class="headerlink" title="浏览器运行原理"></a>浏览器运行原理</h2><ul>
+<li>网页请求的过程<br>输入一个url/域名，会经过DNS解析成ip地址，然后去请求指定的服务器，服务器返回资源(大多是html)给域名进行展示</li>
+</ul>
+<h3 id="回流和重绘-面试重点"><a href="#回流和重绘-面试重点" class="headerlink" title="回流和重绘(面试重点)"></a>回流和重绘(面试重点)</h3><p><strong>回流</strong><br>回流reflow: (也可以称之为重排)</p>
 <ul>
-<li>代码如下</li>
+<li>第一次确定节点大小和位置称之为布局。</li>
+<li>之后对节点的大小，位置修改重新计算称之为回流<br>回流举例: 修改的盒子的大小/宽高，移除等。</li>
+</ul>
+<ol>
+<li>修改DOM结构(添加/删除节点)</li>
+<li>改变布局(width/height/padding/font-size)</li>
+<li>改变窗口大小(手动修改)<br>反面例子: 如果是修改了文字的颜色之类的是不需要进行重新布局，所以不会产生回流。</li>
+</ol>
+<p><strong>重绘</strong><br>第一次渲染内容称之为绘制(paint)<br>之后重新渲染称之为重绘</p>
+<p>回流一定会引起重绘，所以需要尽量避免回流，且非常消耗浏览器性能。<br>避免回流的方式:</p>
+<ul>
+<li>1.修改样式尽量一次性修改</li>
+<li>2.尽量避免频繁的操作DOM</li>
+<li>3.尽量避免通过getComputedStyle获取尺寸、位置等信息</li>
+<li>4.对某些元素使用position的absolute和fixed (会引起回流，但是开销相对较小)</li>
 </ul>
         
-          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/#more">more >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/2.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cjs%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/#more">more >></a>
         
        -->
 
@@ -1288,7 +1190,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">vue案例</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">浏览器运行原理</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">js运行原理</a>
         		</li>
       		
 		</ul>
@@ -1300,7 +1206,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -1309,7 +1215,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E5%95%86%E5%93%81%E5%88%87%E6%8D%A2%E6%A1%88%E4%BE%8B/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/2.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cjs%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/">展开全文 >></a>
         </p>
       
         
@@ -1342,14 +1248,14 @@
 
 
   
-    <article id="post-vue-easy/vue-组件传值" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/1.this指向问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">vue-组件传值</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/1.this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/">1.this指向问题</a>
     </h1>
   
 
@@ -1364,9 +1270,9 @@
 
 
         
-        <a href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/" class="archive-article-date">
-	<time datetime="2022-03-03T10:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-03-03
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/1.this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/" class="archive-article-date">
+	<time datetime="2022-10-30T05:00:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -1380,7 +1286,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">395字</span>
+      <span class="post-count">267字</span>
     </span>
   </span>
 
@@ -1399,32 +1305,49 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<h3 id="禁用Attribute继承和多根节点"><a href="#禁用Attribute继承和多根节点" class="headerlink" title="禁用Attribute继承和多根节点"></a>禁用Attribute继承和多根节点</h3><blockquote>
-<p><strong>父(组件)传子(组件)时</strong></p>
-</blockquote>
-<p>父组件中有<code>class</code>、<code>id</code>等元素的时候<br>在需要传值给子组件时<br>子组件中:<br><code>&lt;h2 :=&quot;$attrs&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</code><br>父组件中:<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;哈哈哈&quot; content=&quot;嘿嘿嘿&quot;&gt;&lt;/show-message</code></p>
-<blockquote>
-<p><strong>子组件传递信息给父组件</strong></p>
-</blockquote>
-<p>逻辑关系：<br>在子组件中定义需要传递的name -&gt; 通过<code>$emit</code>来传递。</p>
-            
-              <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
-            
+          
+            <p>严格模式下，独立调用的函数的this指向时undefined</p>
+<p>typeof null      =&gt; object<br>typeof undefined =&gt; undefined</p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数的返回值如果是一个对象，需要加一个小括号()<br>item =&gt; ({ name: ‘beichen’ })</p>
+<ul>
+<li>箭头函数中压根没有this，不能绑定arguments，super参数</li>
+<li>箭头函数是没有显示原型的，所以不能作为构造函数，不能使用new来创建对象</li>
+</ul>
+<h2 id="this绑定的规则的优先级"><a href="#this绑定的规则的优先级" class="headerlink" title="this绑定的规则的优先级"></a>this绑定的规则的优先级</h2><ul>
+<li>1.默认绑定的优先级是最低的</li>
+<li>2.显式绑定的优先级高于隐式绑定</li>
+<li>3.apply/bind/call的优先级高于隐式绑定</li>
+<li>4.new绑定优先级高于隐式绑定</li>
+<li>5.new不能和apply和call一起使用,也没有可比性</li>
+<li>6.new的优先级高于bind的优先级</li>
+<li>7.bind的优先级高于apply和call</li>
+</ul>
+<p><strong>优先级排序</strong><br>1.new<br>2.bind<br>3.apply/call<br>4.隐式绑定<br>5.默认绑定(独立函数调用)</p>
+<p><strong>sb面试题</strong><br><code>function foo() &#123;   console.log(this) &#125; var obj1 = &#123;   name: &#39;obj1&#39;,   foo: foo &#125; var obj2 = &#123;   name: &#39;obj2&#39; &#125;; (obj2.foo = obj1.foo)()  // this =&gt; Window</code></p>
 
+            
           
         
       <!-- 
-        <h3 id="禁用Attribute继承和多根节点"><a href="#禁用Attribute继承和多根节点" class="headerlink" title="禁用Attribute继承和多根节点"></a>禁用Attribute继承和多根节点</h3><blockquote>
-<p><strong>父(组件)传子(组件)时</strong></p>
-</blockquote>
-<p>父组件中有<code>class</code>、<code>id</code>等元素的时候<br>在需要传值给子组件时<br>子组件中:<br><code>&lt;h2 :=&quot;$attrs&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;&lt;h2 :class=&quot;$attrs.class&quot;&gt;&#123;&#123;title&#125;&#125;&lt;/h2&gt;</code><br>父组件中:<br><code>&lt;show-message class=&quot;beichen&quot; id=&quot;beichenzero&quot; title=&quot;哈哈哈&quot; content=&quot;嘿嘿嘿&quot;&gt;&lt;/show-message</code></p>
-<blockquote>
-<p><strong>子组件传递信息给父组件</strong></p>
-</blockquote>
-<p>逻辑关系：<br>在子组件中定义需要传递的name -&gt; 通过<code>$emit</code>来传递。</p>
-        
-          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/#more">more >></a>
-        
+        <p>严格模式下，独立调用的函数的this指向时undefined</p>
+<p>typeof null      =&gt; object<br>typeof undefined =&gt; undefined</p>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><p>箭头函数的返回值如果是一个对象，需要加一个小括号()<br>item =&gt; ({ name: ‘beichen’ })</p>
+<ul>
+<li>箭头函数中压根没有this，不能绑定arguments，super参数</li>
+<li>箭头函数是没有显示原型的，所以不能作为构造函数，不能使用new来创建对象</li>
+</ul>
+<h2 id="this绑定的规则的优先级"><a href="#this绑定的规则的优先级" class="headerlink" title="this绑定的规则的优先级"></a>this绑定的规则的优先级</h2><ul>
+<li>1.默认绑定的优先级是最低的</li>
+<li>2.显式绑定的优先级高于隐式绑定</li>
+<li>3.apply/bind/call的优先级高于隐式绑定</li>
+<li>4.new绑定优先级高于隐式绑定</li>
+<li>5.new不能和apply和call一起使用,也没有可比性</li>
+<li>6.new的优先级高于bind的优先级</li>
+<li>7.bind的优先级高于apply和call</li>
+</ul>
+<p><strong>优先级排序</strong><br>1.new<br>2.bind<br>3.apply/call<br>4.隐式绑定<br>5.默认绑定(独立函数调用)</p>
+<p><strong>sb面试题</strong><br><code>function foo() &#123;   console.log(this) &#125; var obj1 = &#123;   name: &#39;obj1&#39;,   foo: foo &#125; var obj2 = &#123;   name: &#39;obj2&#39; &#125;; (obj2.foo = obj1.foo)()  // this =&gt; Window</code></p>
+
        -->
 
       
@@ -1437,7 +1360,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">组件传值</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">this指向</a>
         		</li>
       		
 		</ul>
@@ -1449,7 +1372,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -1458,7 +1381,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/03/vue-easy/vue-%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/1.this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
         
@@ -1491,14 +1414,14 @@
 
 
   
-    <article id="post-vue-easy/vue-watch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-随笔/git基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/vue-easy/vue-watch/">vue-watch</a>
+      <a class="article-title" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">git基本使用</a>
     </h1>
   
 
@@ -1513,9 +1436,9 @@
 
 
         
-        <a href="/2022/02/28/vue-easy/vue-watch/" class="archive-article-date">
-	<time datetime="2022-02-28T14:33:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
+        <a href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+	<time datetime="2022-08-05T14:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-08-05
 	</time>
 </a>
 
@@ -1529,7 +1452,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">259字</span>
+      <span class="post-count">409字</span>
     </span>
   </span>
 
@@ -1548,19 +1471,68 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          
-            <h2 id="1-监听器-侦听器的基本使用watch"><a href="#1-监听器-侦听器的基本使用watch" class="headerlink" title="1. 监听器/侦听器的基本使用watch"></a>1. 监听器/侦听器的基本使用watch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    // message是需要监听的data中的属性名称</span><br><span class="line">    // newValue是变化后的新值</span><br><span class="line">    // oldValue是变化前的旧值</span><br><span class="line">    message: function(newValue, oldValue) &#123;</span><br><span class="line">        // console.log(&quot;新值&quot;, newValue, &quot;旧值&quot; ,oldValue);</span><br><span class="line">        this.queryAnwser();</span><br><span class="line">        // 监听到变化后就执行搜索答案的方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
-<h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          		<ul>
+<li>前期准备</li>
+</ul>
+<ol>
+<li>下载git</li>
+<li>登录github创建仓库</li>
+</ol>
+<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
+<ol>
+<li>设置用户名、密码、邮箱</li>
+</ol>
+<p><code>git config --global user.name &quot;yourname&quot;</code></p>
+<p><code>git config --global user.password &quot;password&quot;</code></p>
+<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
+<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
+<ol start="2">
+<li>生成密钥</li>
+</ol>
+<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
+<ol start="3">
+<li>添加密钥并验证</li>
+</ol>
+<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
+<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
             
+              <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+            
+
           
         
       <!-- 
-        <h2 id="1-监听器-侦听器的基本使用watch"><a href="#1-监听器-侦听器的基本使用watch" class="headerlink" title="1. 监听器/侦听器的基本使用watch"></a>1. 监听器/侦听器的基本使用watch</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">    // message是需要监听的data中的属性名称</span><br><span class="line">    // newValue是变化后的新值</span><br><span class="line">    // oldValue是变化前的旧值</span><br><span class="line">    message: function(newValue, oldValue) &#123;</span><br><span class="line">        // console.log(&quot;新值&quot;, newValue, &quot;旧值&quot; ,oldValue);</span><br><span class="line">        this.queryAnwser();</span><br><span class="line">        // 监听到变化后就执行搜索答案的方法</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其他的代码就没有放上去了，这里主要说明watch的用法。</p>
-<h3 id="2-监听器的配置选项"><a href="#2-监听器的配置选项" class="headerlink" title="2. 监听器的配置选项"></a>2. 监听器的配置选项</h3><p>默认情况下侦听器只会侦听数据本身的改变（对于内部发生的改变是监听不到的）<br>深度侦听(deep) / 立即执行(immediate)（一定会执行一次）<br><code>depp: true</code> 用于表示进行深度监听。<br><code>immediate: true</code> 用于表示在加载时就执行一次，无论被监听的值是否改变。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">watch: &#123;</span><br><span class="line">  // 语法糖</span><br><span class="line">  info(newValue, oldValue)&#123;</span><br><span class="line">    console.log(&quot;new&quot;,newValue, &quot;old&quot;,oldValue);</span><br><span class="line">  &#125;</span><br><span class="line">  // 普通写法</span><br><span class="line">  info: &#123;</span><br><span class="line">    handler: function(newInfo, oldInfo)&#123;</span><br><span class="line">      console.log(&quot;new&quot;,newInfo, &quot;old&quot;,oldInfo);</span><br><span class="line">    &#125;,</span><br><span class="line">    deep: true,//确认为深度监听</span><br><span class="line">    immediate: true, //立即执行</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <ul>
+<li>前期准备</li>
+</ul>
+<ol>
+<li>下载git</li>
+<li>登录github创建仓库</li>
+</ol>
+<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
+<ol>
+<li>设置用户名、密码、邮箱</li>
+</ol>
+<p><code>git config --global user.name &quot;yourname&quot;</code></p>
+<p><code>git config --global user.password &quot;password&quot;</code></p>
+<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
+<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
+<ol start="2">
+<li>生成密钥</li>
+</ol>
+<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
+<ol start="3">
+<li>添加密钥并验证</li>
+</ol>
+<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
+<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
+<p><code>ssh -T git@github.com</code></p>
+<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
+        
+          <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+        
        -->
 
       
@@ -1573,155 +1545,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">watch</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/vue-easy/vue-watch/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-随笔/electron出使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/02/28/%E9%9A%8F%E7%AC%94/electron%E5%87%BA%E4%BD%BF%E7%94%A8/">electron出使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/02/28/%E9%9A%8F%E7%AC%94/electron%E5%87%BA%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-02-28T14:28:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-02-28
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">76字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-            
-          
-        
-      <!-- 
-        <h1 id="利用脚手架创建一个新的项目"><a href="#利用脚手架创建一个新的项目" class="headerlink" title="利用脚手架创建一个新的项目"></a>利用脚手架创建一个新的项目</h1><ol>
-<li>创建一个electron的基础模板<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm create electron-app my-app</span><br></pre></td></tr></table></figure></li>
-<li>进入项目目录下<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd my-app</span><br></pre></td></tr></table></figure></li>
-<li>运行项目<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><ol>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run make</span><br></pre></td></tr></table></figure></li>
-<li>打包程序，变为可运行exe程序<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dist</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
         		</li>
       		
 		</ul>
@@ -1742,7 +1566,282 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/02/28/%E9%9A%8F%E7%AC%94/electron%E5%87%BA%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-随笔/宝塔部署node项目-vue+node+mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/">宝塔部署node项目-vue+node+mysql(前后端分离)</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/" class="archive-article-date">
+	<time datetime="2022-08-04T12:40:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-08-04
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">1.4k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h2 id="使用宝塔部署node项目"><a href="#使用宝塔部署node项目" class="headerlink" title="使用宝塔部署node项目"></a>使用宝塔部署node项目</h2><p>我的项目是vue+node+mysql完成的前后端分离项目</p>
+<p>如果你想通过域名或者ip访问的话，需要购买域名或者服务器，购买任意一个就可以了。</p>
+<h4 id="1-注册宝塔"><a href="#1-注册宝塔" class="headerlink" title="1.注册宝塔"></a>1.注册宝塔</h4><p>这个我就不多介绍了，宝塔也是比较好用的，是一个服务器面板，里面很多东西都是免费的，感兴趣的朋友可以去了解一下，用法不难。</p>
+<p><img src="/../../images/baota/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF.png" alt="宝塔面板首页"></p>
+            
+              <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h2 id="使用宝塔部署node项目"><a href="#使用宝塔部署node项目" class="headerlink" title="使用宝塔部署node项目"></a>使用宝塔部署node项目</h2><p>我的项目是vue+node+mysql完成的前后端分离项目</p>
+<p>如果你想通过域名或者ip访问的话，需要购买域名或者服务器，购买任意一个就可以了。</p>
+<h4 id="1-注册宝塔"><a href="#1-注册宝塔" class="headerlink" title="1.注册宝塔"></a>1.注册宝塔</h4><p>这个我就不多介绍了，宝塔也是比较好用的，是一个服务器面板，里面很多东西都是免费的，感兴趣的朋友可以去了解一下，用法不难。</p>
+<p><img src="/../../images/baota/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF.png" alt="宝塔面板首页"></p>
+        
+          <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">宝塔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-vue-other-component/自定义指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">自定义指令-vue3</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" class="archive-article-date">
+	<time datetime="2022-07-14T13:13:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-07-14
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">451字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h3 id="局部指令"><a href="#局部指令" class="headerlink" title="局部指令"></a>局部指令</h3><p>这里的是简单实现了一下输入框获取焦点的自定义指令</p>
+<p>这里的v-focus，focus是我们自己定义的，前缀是<code>v-</code>，简单来说就是<code>v-</code> + <code>自定义的名称</code>。</p>
+<p>这里的局部指令是仅限于当前组件中，我们需要在那个地方获取焦点，就将<code>v-focus</code>添加到那个标签里面。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-focus&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    /*</span><br><span class="line">     * 局部指令</span><br><span class="line">    */</span><br><span class="line">    directives: &#123;</span><br><span class="line">      focus: &#123;</span><br><span class="line">        mounted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">          console.log(&quot;focus mounted&quot;)</span><br><span class="line">          el.focus()</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+            
+              <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="局部指令"><a href="#局部指令" class="headerlink" title="局部指令"></a>局部指令</h3><p>这里的是简单实现了一下输入框获取焦点的自定义指令</p>
+<p>这里的v-focus，focus是我们自己定义的，前缀是<code>v-</code>，简单来说就是<code>v-</code> + <code>自定义的名称</code>。</p>
+<p>这里的局部指令是仅限于当前组件中，我们需要在那个地方获取焦点，就将<code>v-focus</code>添加到那个标签里面。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-focus&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    /*</span><br><span class="line">     * 局部指令</span><br><span class="line">    */</span><br><span class="line">    directives: &#123;</span><br><span class="line">      focus: &#123;</span><br><span class="line">        mounted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">          console.log(&quot;focus mounted&quot;)</span><br><span class="line">          el.focus()</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">展开全文 >></a>
         </p>
       
         
@@ -1777,7 +1876,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">到头了</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+      <a class="extend prev" rel="prev" href="/">到头了</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </nav>
   
 
@@ -1993,10 +2092,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">md5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宝塔</a>
               </li>
              
@@ -2006,6 +2101,134 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">this指向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Primise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">promiseAPI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">微任务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">宏任务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">debounce</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">throttle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">throw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">浏览器运行原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">js运行原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">闭包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">柯里化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">纯函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES5及ES6+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">let/const/var</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">模板字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Symbol</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">set/map</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES7-ES13</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reflect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">函数式编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">面向对象编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原型</a>
               </li>
             
             <div class="clearfix"></div>

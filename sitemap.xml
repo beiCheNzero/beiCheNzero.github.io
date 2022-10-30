@@ -2,6 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%8E%9F%E5%9E%8B%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB%E5%9B%BE/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/14.throw-Storage-%E6%AD%A3%E5%88%99/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/13.%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/12.%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%BE%AE%E4%BB%BB%E5%8A%A1-%E5%AE%8F%E4%BB%BB%E5%8A%A1/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/11.iterator-generator/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/10.Promise%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E7%90%86%E8%A7%A3/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/9.Proxy-reflect/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/8.ES7-ES13%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/7.ECMA-262%E4%B8%AD%E7%9A%84var-let-const/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/6.%E7%BB%A7%E6%89%BF%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E6%A1%88%E5%8F%8A%E5%85%B6%E4%BC%98%E7%BC%BA%E7%82%B9/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/5.%E5%AF%B9%E8%B1%A1%E5%A2%9E%E5%BC%BA/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/4.%E6%9F%AF%E9%87%8C%E5%8C%96-%E7%BA%AF%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/3.js%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E9%97%AD%E5%8C%85/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/2.%E6%B5%8F%E8%A7%88%E5%99%A8%E5%92%8Cjs%E7%9A%84%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/2022/10/30/js%E9%AB%98%E7%BA%A7/1.this%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2022-10-30</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://beichenzero.github.io/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</loc>
     
     <lastmod>2022-08-05</lastmod>
@@ -26,13 +138,6 @@
     <loc>http://beichenzero.github.io/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/</loc>
     
     <lastmod>2022-07-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/2022/06/27/%E9%9A%8F%E7%AC%94/md5%E5%8A%A0%E5%AF%86/</loc>
-    
-    <lastmod>2022-06-27</lastmod>
     
   </url>
   
@@ -214,7 +319,7 @@
 
   <url>
     <loc>http://beichenzero.github.io/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -222,203 +327,420 @@
   
   <url>
     <loc>http://beichenzero.github.io/tags/attribute/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/attrs/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/model/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/watch/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/vue%E6%A1%88%E4%BE%8B/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/animate/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/gsap/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/Composition-API/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/composition/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/computed/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/mixin/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/slot/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/toRefs/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/toRef/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/vue-components/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/transition/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/%E6%A1%88%E4%BE%8B/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/watchEffect/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/electron/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/transiton/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/markdown/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/nvm/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/vite/</loc>
-    <lastmod>2022-08-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://beichenzero.github.io/tags/md5/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/%E5%AE%9D%E5%A1%94/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/node/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/tags/git/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/this%E6%8C%87%E5%90%91/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/Primise/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/promiseAPI/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E8%BF%9B%E7%A8%8B/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E7%BA%BF%E7%A8%8B/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E5%BE%AE%E4%BB%BB%E5%8A%A1/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E5%AE%8F%E4%BB%BB%E5%8A%A1/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/iterator/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/generator/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/debounce/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/throttle/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/throw/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/storage/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E6%AD%A3%E5%88%99/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/js%E8%BF%90%E8%A1%8C%E5%8E%9F%E7%90%86/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E9%97%AD%E5%8C%85/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E6%9F%AF%E9%87%8C%E5%8C%96/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E7%BA%AF%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E7%BB%A7%E6%89%BF/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/ES5%E5%8F%8AES6/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/let-const-var/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/Symbol/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/set-map/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/ES7-ES13/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/proxy/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/reflect/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/tags/%E5%8E%9F%E5%9E%8B/</loc>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -427,28 +749,42 @@
   
   <url>
     <loc>http://beichenzero.github.io/categories/vue/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/categories/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/categories/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://beichenzero.github.io/categories/vite/</loc>
-    <lastmod>2022-08-05</lastmod>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/categories/JS/</loc>
+    <lastmod>2022-10-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://beichenzero.github.io/categories/%E5%A5%87%E6%80%9D%E5%A6%99%E6%83%B3/</loc>
+    <lastmod>2022-10-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

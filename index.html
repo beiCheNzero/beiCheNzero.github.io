@@ -86,7 +86,7 @@
 						</ul>
 					</nav>
 					<nav>
-						总文章数 28
+						总文章数 43
 					</nav>
 					<nav class="header-smart-menu">
 						
@@ -335,14 +335,14 @@
 
 
   
-    <article id="post-随笔/git基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/关于函数式编程的理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">git基本使用</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/">关于函数式编程的理解</a>
     </h1>
   
 
@@ -357,9 +357,9 @@
 
 
         
-        <a href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-08-05T14:09:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-08-05
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/" class="archive-article-date">
+	<time datetime="2022-10-30T05:35:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -373,7 +373,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">409字</span>
+      <span class="post-count">462字</span>
     </span>
   </span>
 
@@ -392,68 +392,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<ul>
-<li>前期准备</li>
-</ul>
-<ol>
-<li>下载git</li>
-<li>登录github创建仓库</li>
-</ol>
-<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
-<ol>
-<li>设置用户名、密码、邮箱</li>
-</ol>
-<p><code>git config --global user.name &quot;yourname&quot;</code></p>
-<p><code>git config --global user.password &quot;password&quot;</code></p>
-<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
-<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
-<ol start="2">
-<li>生成密钥</li>
-</ol>
-<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
-<ol start="3">
-<li>添加密钥并验证</li>
-</ol>
-<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
-<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
-<p><code>ssh -T git@github.com</code></p>
-<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
-            
-              <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
-            
+          
+            <p>现在的很多语言都慢慢的脱离或者说在抵制面向对象编程的这种形式，比如React的类组件到后来hooks的出现，慢慢的转向函数时编程，Vue也是如此，最开始optionsAPI的时候是export default()默认导出一个对象，在对象中编写methods、computed等等，到后面compositionAPI的出现，虽然也是导出一个对象，但是对象里面是一个setup() {}的函数，在这个函数中编写对应的逻辑代码。然后是在Vue3.2版本更新后的setup语法糖，直接<code>&lt;srcipt setup&gt;&lt;/script&gt;</code>，甚至都不需要写setup() {}就可以直接在script中编写对一个的代码，慢慢的，逐渐从面向对象转变成函数式编程的。</p>
+<p>引用：</p>
+<p>Williams表示：“在真正了解函数式编程后，我就不打算再使用其他范式了。”实际上，他在大学期间使用LISP的衍生编程语言Scheme和Racket 时就爱上了函数式编程。“面向对象编程很不错，至今仍有很多人使用。但很多开发人员在接触函数式编程后，就会成为忠实的粉丝。”</p>
+<p>当然，面向对象编程和命令式编程仍然是现代软件开发的主要范式，而Haskell和Elm之类的“纯”函数式编程语言在生产代码库中相对较少。但随着编程语言扩展对函数式编程方法的支持，以及软件开发新框架的迭代，函数式编程正迅速通过各种不同的途径进入越来越多的代码库。</p>
+<p>《Elm in Action》一书的作者Richard Feldman表示：“<strong>所有这些语言都开始支持方便实现函数式风格的功能，几乎每一种语言支持的范式都在增加。</strong>”</p>
 
+            
           
         
       <!-- 
-        <ul>
-<li>前期准备</li>
-</ul>
-<ol>
-<li>下载git</li>
-<li>登录github创建仓库</li>
-</ol>
-<h3 id="一-git的配置"><a href="#一-git的配置" class="headerlink" title="一.git的配置"></a>一.git的配置</h3><p>在你项目的目录下，vscode的终端(这里需要把bash设置为vscode终端的默认启动项)，或者是在项目的目录下打开git bash。</p>
-<ol>
-<li>设置用户名、密码、邮箱</li>
-</ol>
-<p><code>git config --global user.name &quot;yourname&quot;</code></p>
-<p><code>git config --global user.password &quot;password&quot;</code></p>
-<p><code>git config --global user.email &quot;your_email@youremail.com&quot;</code></p>
-<p>也可以通过<code>git config --list</code>查看你所添加的这些属性</p>
-<ol start="2">
-<li>生成密钥</li>
-</ol>
-<p><code>ssh-keygen -t rsa -C &quot;your_email@youremail.com&quot;</code></p>
-<ol start="3">
-<li>添加密钥并验证</li>
-</ol>
-<p>然后将你的C -&gt; user-&gt; &lt;用户名&gt; -&gt; .ssh -&gt; id_rsa.pub(也就是公匙)</p>
-<p>ctrl+a全选复制，粘贴到刚才你的执行的生成密钥的哪里，然后一直回车就可以了</p>
-<p><code>ssh -T git@github.com</code></p>
-<p>可以验证你的密钥是否添加成功，在github的仓库中也可以添加密钥。</p>
-        
-          <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
-        
+        <p>现在的很多语言都慢慢的脱离或者说在抵制面向对象编程的这种形式，比如React的类组件到后来hooks的出现，慢慢的转向函数时编程，Vue也是如此，最开始optionsAPI的时候是export default()默认导出一个对象，在对象中编写methods、computed等等，到后面compositionAPI的出现，虽然也是导出一个对象，但是对象里面是一个setup() {}的函数，在这个函数中编写对应的逻辑代码。然后是在Vue3.2版本更新后的setup语法糖，直接<code>&lt;srcipt setup&gt;&lt;/script&gt;</code>，甚至都不需要写setup() {}就可以直接在script中编写对一个的代码，慢慢的，逐渐从面向对象转变成函数式编程的。</p>
+<p>引用：</p>
+<p>Williams表示：“在真正了解函数式编程后，我就不打算再使用其他范式了。”实际上，他在大学期间使用LISP的衍生编程语言Scheme和Racket 时就爱上了函数式编程。“面向对象编程很不错，至今仍有很多人使用。但很多开发人员在接触函数式编程后，就会成为忠实的粉丝。”</p>
+<p>当然，面向对象编程和命令式编程仍然是现代软件开发的主要范式，而Haskell和Elm之类的“纯”函数式编程语言在生产代码库中相对较少。但随着编程语言扩展对函数式编程方法的支持，以及软件开发新框架的迭代，函数式编程正迅速通过各种不同的途径进入越来越多的代码库。</p>
+<p>《Elm in Action》一书的作者Richard Feldman表示：“<strong>所有这些语言都开始支持方便实现函数式风格的功能，几乎每一种语言支持的范式都在增加。</strong>”</p>
+
        -->
 
       
@@ -466,152 +421,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/05/%E9%9A%8F%E7%AC%94/git%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-随笔/宝塔部署node项目-vue+node+mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/">宝塔部署node项目-vue+node+mysql(前后端分离)</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/" class="archive-article-date">
-	<time datetime="2022-08-04T12:40:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-08-04
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">1.4k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">5分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<h2 id="使用宝塔部署node项目"><a href="#使用宝塔部署node项目" class="headerlink" title="使用宝塔部署node项目"></a>使用宝塔部署node项目</h2><p>我的项目是vue+node+mysql完成的前后端分离项目</p>
-<p>如果你想通过域名或者ip访问的话，需要购买域名或者服务器，购买任意一个就可以了。</p>
-<h4 id="1-注册宝塔"><a href="#1-注册宝塔" class="headerlink" title="1.注册宝塔"></a>1.注册宝塔</h4><p>这个我就不多介绍了，宝塔也是比较好用的，是一个服务器面板，里面很多东西都是免费的，感兴趣的朋友可以去了解一下，用法不难。</p>
-<p><img src="/../../images/baota/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF.png" alt="宝塔面板首页"></p>
-            
-              <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/#more">more >></a>
-            
-
-          
-        
-      <!-- 
-        <h2 id="使用宝塔部署node项目"><a href="#使用宝塔部署node项目" class="headerlink" title="使用宝塔部署node项目"></a>使用宝塔部署node项目</h2><p>我的项目是vue+node+mysql完成的前后端分离项目</p>
-<p>如果你想通过域名或者ip访问的话，需要购买域名或者服务器，购买任意一个就可以了。</p>
-<h4 id="1-注册宝塔"><a href="#1-注册宝塔" class="headerlink" title="1.注册宝塔"></a>1.注册宝塔</h4><p>这个我就不多介绍了，宝塔也是比较好用的，是一个服务器面板，里面很多东西都是免费的，感兴趣的朋友可以去了解一下，用法不难。</p>
-<p><img src="/../../images/baota/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF.png" alt="宝塔面板首页"></p>
-        
-          <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">宝塔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">函数式编程</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">面向对象编程</a>
         		</li>
       		
 		</ul>
@@ -623,7 +437,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="/categories/奇思妙想//" class="article-tag-list-link color5">奇思妙想</a>
         		</li>
       		
 		</ul>
@@ -632,7 +446,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/04/%E9%9A%8F%E7%AC%94/%E5%AE%9D%E5%A1%94%E9%83%A8%E7%BD%B2node%E9%A1%B9%E7%9B%AE-vue+node+mysql/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/%E5%85%B3%E4%BA%8E%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3/">展开全文 >></a>
         </p>
       
         
@@ -665,14 +479,14 @@
 
 
   
-    <article id="post-vue-other-component/自定义指令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/14.throw-Storage-正则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">自定义指令-vue3</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/14.throw-Storage-%E6%AD%A3%E5%88%99/">14.throw-Storage-正则</a>
     </h1>
   
 
@@ -687,9 +501,9 @@
 
 
         
-        <a href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/" class="archive-article-date">
-	<time datetime="2022-07-14T13:13:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-07-14
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/14.throw-Storage-%E6%AD%A3%E5%88%99/" class="archive-article-date">
+	<time datetime="2022-10-30T05:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -703,7 +517,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">451字</span>
+      <span class="post-count">854字</span>
     </span>
   </span>
 
@@ -712,7 +526,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-hourglass-half"></i>
       <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
+      <span class="post-count">3分</span>
     </span>
   </span>
 </div>
@@ -722,305 +536,55 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<h3 id="局部指令"><a href="#局部指令" class="headerlink" title="局部指令"></a>局部指令</h3><p>这里的是简单实现了一下输入框获取焦点的自定义指令</p>
-<p>这里的v-focus，focus是我们自己定义的，前缀是<code>v-</code>，简单来说就是<code>v-</code> + <code>自定义的名称</code>。</p>
-<p>这里的局部指令是仅限于当前组件中，我们需要在那个地方获取焦点，就将<code>v-focus</code>添加到那个标签里面。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-focus&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    /*</span><br><span class="line">     * 局部指令</span><br><span class="line">    */</span><br><span class="line">    directives: &#123;</span><br><span class="line">      focus: &#123;</span><br><span class="line">        mounted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">          console.log(&quot;focus mounted&quot;)</span><br><span class="line">          el.focus()</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-            
-              <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/#more">more >></a>
-            
+          		<h4 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h4><p>抛出异常，但是不会中断全局代码的执行，当前函数的代码还是会被中断。</p>
+<p>抛出的类型可以是String/Number/Boolean/Object</p>
+<p>系统默认的Error类</p>
+<p><code>throw new Error(&quot;错误信息！&quot;)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	<span class="comment">// 不报错执行    </span></span><br><span class="line">&#125;<span class="keyword">catch</span> (err) &#123;</span><br><span class="line">	<span class="comment">// 报错会执行</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">	<span class="comment">// 无论是否报错，都会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
-      <!-- 
-        <h3 id="局部指令"><a href="#局部指令" class="headerlink" title="局部指令"></a>局部指令</h3><p>这里的是简单实现了一下输入框获取焦点的自定义指令</p>
-<p>这里的v-focus，focus是我们自己定义的，前缀是<code>v-</code>，简单来说就是<code>v-</code> + <code>自定义的名称</code>。</p>
-<p>这里的局部指令是仅限于当前组件中，我们需要在那个地方获取焦点，就将<code>v-focus</code>添加到那个标签里面。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot; v-focus&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  </span><br><span class="line">  export default &#123;</span><br><span class="line">    /*</span><br><span class="line">     * 局部指令</span><br><span class="line">    */</span><br><span class="line">    directives: &#123;</span><br><span class="line">      focus: &#123;</span><br><span class="line">        mounted(el, bindings, vnode, preVnode) &#123;</span><br><span class="line">          console.log(&quot;focus mounted&quot;)</span><br><span class="line">          el.focus()</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/#more">more >></a>
-        
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/07/14/vue-other-component/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8C%87%E4%BB%A4/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-随笔/md5加密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/06/27/%E9%9A%8F%E7%AC%94/md5%E5%8A%A0%E5%AF%86/">vue之md5加密</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/06/27/%E9%9A%8F%E7%AC%94/md5%E5%8A%A0%E5%AF%86/" class="archive-article-date">
-	<time datetime="2022-06-27T01:19:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-06-27
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">49字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li>安装<code>npm install --save js -md5</code></li>
-<li>在main.js文件中引入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import md5 from &#x27;js-md5&#x27;  //引入</span><br><span class="line">Vue.prototype.$md5 = md5;  //定义全局变量</span><br></pre></td></tr></table></figure></li>
-<li>在methods中定义方法，然后调用<br>setMd5() {<br>var md5 =<br>}</li>
-<li></li>
-</ol>
-
-            
-          
-        
-      <!-- 
-        <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ol>
-<li>安装<code>npm install --save js -md5</code></li>
-<li>在main.js文件中引入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import md5 from &#x27;js-md5&#x27;  //引入</span><br><span class="line">Vue.prototype.$md5 = md5;  //定义全局变量</span><br></pre></td></tr></table></figure></li>
-<li>在methods中定义方法，然后调用<br>setMd5() {<br>var md5 =<br>}</li>
-<li></li>
-</ol>
-
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">md5</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/06/27/%E9%9A%8F%E7%AC%94/md5%E5%8A%A0%E5%AF%86/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-learn/watch以及watchEffect的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/09/vue-learn/watch%E4%BB%A5%E5%8F%8AwatchEffect%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">watch以及watchEffect的基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/05/09/vue-learn/watch%E4%BB%A5%E5%8F%8AwatchEffect%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-05-09T14:22:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-09
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">1.6k字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">8分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          		<p>在前面的Options API中，我们可以通过watch选项来侦听data或者props的数据变化，当数据变化时执行某一些操作。<br>在Composition API中，我们可以使用watchEffect和watch来完成响应式数据的侦听；</p>
+<h4 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4><p>WebSotrage：localStorage、sessionStorage</p>
+<p><strong>localStorage</strong>：本地存储，提供一种永久性的存储方法，在关闭网页重新打开的时候，存储的内容依然保留</p>
+<p><strong>sessionStorage</strong>：会话存储，提供的是本次会话的存储，在关闭掉会话时，存储的内容会被清除</p>
+<p>Storage常见方法和属性：</p>
 <ul>
-<li>watchEffect用于自动收集响应式数据的依赖；</li>
-<li>watch需要手动指定侦听的数据源；</li>
+<li>length</li>
+<li>getItem</li>
+<li>setItem</li>
+<li>clear</li>
+<li>key（根据索引获取key）</li>
+<li>removeItem（删除某个键值对，参数为key）</li>
 </ul>
-<h2 id="watchEffect的基本使用"><a href="#watchEffect的基本使用" class="headerlink" title="watchEffect的基本使用"></a>watchEffect的基本使用</h2><ul>
-<li>watchEffect传入的函数会被立即执行一次，并且在执行的过程中会收集依赖</li>
-<li>只有收集的依赖发生变化时，watchEffect传入的函数才会再次执行<br>首先需要引入<code>import &#123; ref, watchEffect &#125; from &#39;vue&#39;;</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">setup() &#123;</span><br><span class="line">  // watchEffect: 自动收集响应式的依赖</span><br><span class="line">  const name = ref(&quot;kobe&quot;);</span><br><span class="line">  const age = ref(18);</span><br><span class="line"></span><br><span class="line">  const changeName = () =&gt; name.value = &quot;beichen&quot;;</span><br><span class="line">  const changeAge = () =&gt; age.value++;</span><br><span class="line"></span><br><span class="line">  watchEffect(() =&gt; &#123;</span><br><span class="line">    // 会立即执行，因为他要收集所用到了那些响应式的依赖</span><br><span class="line">    // 相当于watch中的immediate(立即执行)</span><br><span class="line">    console.log(&quot;name:&quot;, name.value, &quot;age: &quot;, age.value);</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    name,</span><br><span class="line">    age,</span><br><span class="line">    changeName,</span><br><span class="line">    changeAge</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>一般我们在用到localStorage的时候会将封装一个工具函数，因为我们在存储对象的时候，setItem方法是会给我们转成字符串存取到Storage中，不便于我们观看，也不便于去获取，所以在封装函数的时候，判断是否是一个对象，然后转成字符串存取到Storage中，在通过getItem获取的时候在转成对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 转成字符串</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(object)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转回对象</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(Sting)</span><br></pre></td></tr></table></figure>
             
-              <a class="article-more-a" href="/2022/05/09/vue-learn/watch%E4%BB%A5%E5%8F%8AwatchEffect%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/14.throw-Storage-%E6%AD%A3%E5%88%99/#more">more >></a>
             
 
           
         
       <!-- 
-        <p>在前面的Options API中，我们可以通过watch选项来侦听data或者props的数据变化，当数据变化时执行某一些操作。<br>在Composition API中，我们可以使用watchEffect和watch来完成响应式数据的侦听；</p>
+        <h4 id="throw"><a href="#throw" class="headerlink" title="throw"></a>throw</h4><p>抛出异常，但是不会中断全局代码的执行，当前函数的代码还是会被中断。</p>
+<p>抛出的类型可以是String/Number/Boolean/Object</p>
+<p>系统默认的Error类</p>
+<p><code>throw new Error(&quot;错误信息！&quot;)</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">	<span class="comment">// 不报错执行    </span></span><br><span class="line">&#125;<span class="keyword">catch</span> (err) &#123;</span><br><span class="line">	<span class="comment">// 报错会执行</span></span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">	<span class="comment">// 无论是否报错，都会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Storage"><a href="#Storage" class="headerlink" title="Storage"></a>Storage</h4><p>WebSotrage：localStorage、sessionStorage</p>
+<p><strong>localStorage</strong>：本地存储，提供一种永久性的存储方法，在关闭网页重新打开的时候，存储的内容依然保留</p>
+<p><strong>sessionStorage</strong>：会话存储，提供的是本次会话的存储，在关闭掉会话时，存储的内容会被清除</p>
+<p>Storage常见方法和属性：</p>
 <ul>
-<li>watchEffect用于自动收集响应式数据的依赖；</li>
-<li>watch需要手动指定侦听的数据源；</li>
+<li>length</li>
+<li>getItem</li>
+<li>setItem</li>
+<li>clear</li>
+<li>key（根据索引获取key）</li>
+<li>removeItem（删除某个键值对，参数为key）</li>
 </ul>
-<h2 id="watchEffect的基本使用"><a href="#watchEffect的基本使用" class="headerlink" title="watchEffect的基本使用"></a>watchEffect的基本使用</h2><ul>
-<li>watchEffect传入的函数会被立即执行一次，并且在执行的过程中会收集依赖</li>
-<li>只有收集的依赖发生变化时，watchEffect传入的函数才会再次执行<br>首先需要引入<code>import &#123; ref, watchEffect &#125; from &#39;vue&#39;;</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">setup() &#123;</span><br><span class="line">  // watchEffect: 自动收集响应式的依赖</span><br><span class="line">  const name = ref(&quot;kobe&quot;);</span><br><span class="line">  const age = ref(18);</span><br><span class="line"></span><br><span class="line">  const changeName = () =&gt; name.value = &quot;beichen&quot;;</span><br><span class="line">  const changeAge = () =&gt; age.value++;</span><br><span class="line"></span><br><span class="line">  watchEffect(() =&gt; &#123;</span><br><span class="line">    // 会立即执行，因为他要收集所用到了那些响应式的依赖</span><br><span class="line">    // 相当于watch中的immediate(立即执行)</span><br><span class="line">    console.log(&quot;name:&quot;, name.value, &quot;age: &quot;, age.value);</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    name,</span><br><span class="line">    age,</span><br><span class="line">    changeName,</span><br><span class="line">    changeAge</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>一般我们在用到localStorage的时候会将封装一个工具函数，因为我们在存储对象的时候，setItem方法是会给我们转成字符串存取到Storage中，不便于我们观看，也不便于去获取，所以在封装函数的时候，判断是否是一个对象，然后转成字符串存取到Storage中，在通过getItem获取的时候在转成对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 转成字符串</span></span><br><span class="line"><span class="built_in">JSON</span>.stringify(object)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 转回对象</span></span><br><span class="line"><span class="built_in">JSON</span>.parse(Sting)</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/2022/05/09/vue-learn/watch%E4%BB%A5%E5%8F%8AwatchEffect%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more">more >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/14.throw-Storage-%E6%AD%A3%E5%88%99/#more">more >></a>
         
        -->
 
@@ -1034,307 +598,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">watch</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">throw</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">watchEffect</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/09/vue-learn/watch%E4%BB%A5%E5%8F%8AwatchEffect%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-learn/computed的基本使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/09/vue-learn/computed%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">computed的基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/05/09/vue-learn/computed%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-	<time datetime="2022-05-09T14:21:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-09
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">180字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h2 id="computed的使用"><a href="#computed的使用" class="headerlink" title="computed的使用"></a>computed的使用</h2><ul>
-<li>方式一：接收一个getter函数，并为 getter 函数返回的值，返回一个不变的 ref 对象；</li>
-<li>方式二：接收一个具有 get 和 set 的对象，返回一个可变的（可读写）ref 对象</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">setup() &#123;</span><br><span class="line">  const firstName = ref(&quot;Kobe&quot;);</span><br><span class="line">  const lastName = ref(&quot;Bryant&quot;);</span><br><span class="line"></span><br><span class="line">  // 用法一：传入一个getter函数</span><br><span class="line">  // computed的返回值是一个不可变的响应式ref对象</span><br><span class="line">  // const fullName = computed(() =&gt; firstName.value + &quot; &quot; + lastName.value);</span><br><span class="line"></span><br><span class="line">  // 用法二：传入一个对象，对象包含getter/setter</span><br><span class="line">  const fullName = computed(&#123;</span><br><span class="line">    get: () =&gt; firstName.value + &quot; &quot; + lastName.value,</span><br><span class="line">    set(newValue) &#123;</span><br><span class="line">      const names = newValue.split(&quot; &quot;);</span><br><span class="line">      firstName.value = names[0];</span><br><span class="line">      lastName.value = names[1];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  const changeName = () =&gt; &#123;</span><br><span class="line">    // firstName.value = &quot;beichen&quot;;</span><br><span class="line">    fullName.value = &quot;beichen zero&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  return &#123;</span><br><span class="line">    fullName,</span><br><span class="line">    changeName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-            
-          
-        
-      <!-- 
-        <h2 id="computed的使用"><a href="#computed的使用" class="headerlink" title="computed的使用"></a>computed的使用</h2><ul>
-<li>方式一：接收一个getter函数，并为 getter 函数返回的值，返回一个不变的 ref 对象；</li>
-<li>方式二：接收一个具有 get 和 set 的对象，返回一个可变的（可读写）ref 对象</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">setup() &#123;</span><br><span class="line">  const firstName = ref(&quot;Kobe&quot;);</span><br><span class="line">  const lastName = ref(&quot;Bryant&quot;);</span><br><span class="line"></span><br><span class="line">  // 用法一：传入一个getter函数</span><br><span class="line">  // computed的返回值是一个不可变的响应式ref对象</span><br><span class="line">  // const fullName = computed(() =&gt; firstName.value + &quot; &quot; + lastName.value);</span><br><span class="line"></span><br><span class="line">  // 用法二：传入一个对象，对象包含getter/setter</span><br><span class="line">  const fullName = computed(&#123;</span><br><span class="line">    get: () =&gt; firstName.value + &quot; &quot; + lastName.value,</span><br><span class="line">    set(newValue) &#123;</span><br><span class="line">      const names = newValue.split(&quot; &quot;);</span><br><span class="line">      firstName.value = names[0];</span><br><span class="line">      lastName.value = names[1];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  const changeName = () =&gt; &#123;</span><br><span class="line">    // firstName.value = &quot;beichen&quot;;</span><br><span class="line">    fullName.value = &quot;beichen zero&quot;;</span><br><span class="line">  &#125;</span><br><span class="line">  return &#123;</span><br><span class="line">    fullName,</span><br><span class="line">    changeName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">computed</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/09/vue-learn/computed%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">展开全文 >></a>
-        </p>
-      
-        
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-  
-    <article id="post-vue-learn/toRefs和toRef" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/09/vue-learn/toRefs%E5%92%8CtoRef/">toRefs和toRef的基本使用</a>
-    </h1>
-  
-
-
-        <!--显示阅读次数-->
-        <!--  -->
-
-        <!--显示阅读次数完毕-->
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-
-
-        
-        <a href="/2022/05/09/vue-learn/toRefs%E5%92%8CtoRef/" class="archive-article-date">
-	<time datetime="2022-05-09T13:59:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-09
-	</time>
-</a>
-
-<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
-
-        
-
-        
-            <div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <i class="fa fa-keyboard-o"></i>
-      <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">239字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="fa fa-hourglass-half"></i>
-      <span class="post-meta-item-text">  阅读时长: </span>
-      <span class="post-count">1分</span>
-    </span>
-  </span>
-</div>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          
-            <h2 id="toRefs和toRef"><a href="#toRefs和toRef" class="headerlink" title="toRefs和toRef"></a>toRefs和toRef</h2><h4 id="toRefs"><a href="#toRefs" class="headerlink" title="toRefs"></a>toRefs</h4><ul>
-<li>如果我们使用ES6的解构语法，对reactive返回的对象进行解构获取值，那么之后无论是修改结构后的变量，还是修改reactive<br>返回的state对象，数据都不再是响应式的<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;</span><br><span class="line">  name: &quot;beichen&quot;,</span><br><span class="line">  age: 22</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const &#123; name, age &#125; = info;</span><br></pre></td></tr></table></figure>
-在这里return返回的<code>name</code>和<code>age</code>我们在使用的时候就不再是响应式的了</li>
-</ul>
-<p>当我们使用<code>toRefs</code>时来解构时，return返回的数据就是响应式的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;</span><br><span class="line">  name: &quot;beichen&quot;,</span><br><span class="line">  age: 22</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const &#123; name, age &#125; = toRefs(info);</span><br></pre></td></tr></table></figure>
-<p><strong>这种做法相当于在<code>info.name</code>和<code>info.age</code>与<code>ref.value</code>之间建立的链接，修改其中任何一个的值，另外一个都会随之改变</strong></p>
-<h4 id="toRef"><a href="#toRef" class="headerlink" title="toRef"></a>toRef</h4><ul>
-<li>toRef: 对其中一个属性进行转换ref，建立链接<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;</span><br><span class="line">  name: &quot;beichen&quot;,</span><br><span class="line">  age: 22</span><br><span class="line">&#125;);</span><br><span class="line">// toRef中有两个参数第一个是object，第二个是key值</span><br><span class="line">const age = toRef(info, &quot;age&quot;);</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-            
-          
-        
-      <!-- 
-        <h2 id="toRefs和toRef"><a href="#toRefs和toRef" class="headerlink" title="toRefs和toRef"></a>toRefs和toRef</h2><h4 id="toRefs"><a href="#toRefs" class="headerlink" title="toRefs"></a>toRefs</h4><ul>
-<li>如果我们使用ES6的解构语法，对reactive返回的对象进行解构获取值，那么之后无论是修改结构后的变量，还是修改reactive<br>返回的state对象，数据都不再是响应式的<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;</span><br><span class="line">  name: &quot;beichen&quot;,</span><br><span class="line">  age: 22</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const &#123; name, age &#125; = info;</span><br></pre></td></tr></table></figure>
-在这里return返回的<code>name</code>和<code>age</code>我们在使用的时候就不再是响应式的了</li>
-</ul>
-<p>当我们使用<code>toRefs</code>时来解构时，return返回的数据就是响应式的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;</span><br><span class="line">  name: &quot;beichen&quot;,</span><br><span class="line">  age: 22</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">const &#123; name, age &#125; = toRefs(info);</span><br></pre></td></tr></table></figure>
-<p><strong>这种做法相当于在<code>info.name</code>和<code>info.age</code>与<code>ref.value</code>之间建立的链接，修改其中任何一个的值，另外一个都会随之改变</strong></p>
-<h4 id="toRef"><a href="#toRef" class="headerlink" title="toRef"></a>toRef</h4><ul>
-<li>toRef: 对其中一个属性进行转换ref，建立链接<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const info = reactive(&#123;</span><br><span class="line">  name: &quot;beichen&quot;,</span><br><span class="line">  age: 22</span><br><span class="line">&#125;);</span><br><span class="line">// toRef中有两个参数第一个是object，第二个是key值</span><br><span class="line">const age = toRef(info, &quot;age&quot;);</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-       -->
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">toRefs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">storage</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">toRef</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">正则</a>
         		</li>
       		
 		</ul>
@@ -1346,7 +618,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -1355,7 +627,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/09/vue-learn/toRefs%E5%92%8CtoRef/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/14.throw-Storage-%E6%AD%A3%E5%88%99/">展开全文 >></a>
         </p>
       
         
@@ -1388,14 +660,14 @@
 
 
   
-    <article id="post-vue-learn/compositionapi补充" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/13.防抖-节流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/">compositionAPI补充知识</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/13.%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81/">13.防抖-节流</a>
     </h1>
   
 
@@ -1410,9 +682,9 @@
 
 
         
-        <a href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/" class="archive-article-date">
-	<time datetime="2022-05-09T08:54:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-09
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/13.%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81/" class="archive-article-date">
+	<time datetime="2022-10-30T05:31:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -1426,7 +698,172 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-keyboard-o"></i>
       <span class="post-meta-item-text">  字数统计: </span>
-      <span class="post-count">429字</span>
+      <span class="post-count">714字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><h4 id="防抖的了解和基本使用"><a href="#防抖的了解和基本使用" class="headerlink" title="防抖的了解和基本使用"></a>防抖的了解和基本使用</h4><p>当我们在输入框中输入内容的时候，例如百度搜索和淘宝搜索的时候，下面会出现很多联想的内容，比如我们输入一个书，下面会出现如下图所示内容。<img src="../../images/img/防抖和节流/fangdou.png" width="70%"></p>
+<p>当我们频繁的去输入内容的时候，甚至是我在输入书的拼音s -&gt; sh -&gt; she的时候，他都会产生对应的联想内容，但是那些并不是我们想要去搜索的内容，这也就产生了很多不必要的网络请求。</p>
+<p>假设我们可以在输入我们想要的内容之前不去发送网络请求，或者是说尽量少发送几次网络请求。</p>
+<p>防抖就是让我们在输入 s和h之间的间隔事件比较短，就不去发送s所对应联想的内容，当我们输入框在一定时间内有内容改变的时候不去发送网络请求，在一定的的时间内内容没有改变，然后在去发送网络请求。</p>
+<p><strong>我的理解就是，在输入内容之后等待一定时间去发送网络请求，如果在此期间内输入框中的内容有改变，则重置时间，重新计算需要去发送发网络请求的时间。直到达到设定的等待时间，则去执行我们对应的操作或是发送网络请求。</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> input = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.input&#x27;</span>)</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> i = <span class="number">1</span></span></span><br><span class="line"><span class="javascript">        input.oninput = _.debounce(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`发送第<span class="subst">$&#123;i++&#125;</span>次网络请求`</span>)</span></span><br><span class="line"><span class="javascript">        &#125;, <span class="number">500</span>)</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>coderwhy的ppt中的解释：</p>
+<ul>
+<li>当事件触发的时候，响应的函数不会立即执行，而是会等待一定的时间</li>
+<li>当时间密集触发的时候，函数的触发会被频繁的推迟</li>
+<li>只有等待了一段时间也没有时间触发，才会真正的执行响应函数。</li>
+</ul>
+<p><img src="/2022/10/30/js%E9%AB%98%E7%BA%A7/13/JS高级\code\img\防抖和节流\fdzhixingguocheng.png"></p>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/13.%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h3><h4 id="防抖的了解和基本使用"><a href="#防抖的了解和基本使用" class="headerlink" title="防抖的了解和基本使用"></a>防抖的了解和基本使用</h4><p>当我们在输入框中输入内容的时候，例如百度搜索和淘宝搜索的时候，下面会出现很多联想的内容，比如我们输入一个书，下面会出现如下图所示内容。<img src="../../images/img/防抖和节流/fangdou.png" width="70%"></p>
+<p>当我们频繁的去输入内容的时候，甚至是我在输入书的拼音s -&gt; sh -&gt; she的时候，他都会产生对应的联想内容，但是那些并不是我们想要去搜索的内容，这也就产生了很多不必要的网络请求。</p>
+<p>假设我们可以在输入我们想要的内容之前不去发送网络请求，或者是说尽量少发送几次网络请求。</p>
+<p>防抖就是让我们在输入 s和h之间的间隔事件比较短，就不去发送s所对应联想的内容，当我们输入框在一定时间内有内容改变的时候不去发送网络请求，在一定的的时间内内容没有改变，然后在去发送网络请求。</p>
+<p><strong>我的理解就是，在输入内容之后等待一定时间去发送网络请求，如果在此期间内输入框中的内容有改变，则重置时间，重新计算需要去发送发网络请求的时间。直到达到设定的等待时间，则去执行我们对应的操作或是发送网络请求。</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">class</span>=<span class="string">&quot;input&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/underscore@1.13.6/underscore-umd-min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> input = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.input&#x27;</span>)</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> i = <span class="number">1</span></span></span><br><span class="line"><span class="javascript">        input.oninput = _.debounce(<span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">`发送第<span class="subst">$&#123;i++&#125;</span>次网络请求`</span>)</span></span><br><span class="line"><span class="javascript">        &#125;, <span class="number">500</span>)</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>coderwhy的ppt中的解释：</p>
+<ul>
+<li>当事件触发的时候，响应的函数不会立即执行，而是会等待一定的时间</li>
+<li>当时间密集触发的时候，函数的触发会被频繁的推迟</li>
+<li>只有等待了一段时间也没有时间触发，才会真正的执行响应函数。</li>
+</ul>
+<p><img src="/2022/10/30/js%E9%AB%98%E7%BA%A7/13/JS高级\code\img\防抖和节流\fdzhixingguocheng.png"></p>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/13.%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">debounce</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">throttle</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/13.%E9%98%B2%E6%8A%96-%E8%8A%82%E6%B5%81/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/12.进程-线程-微任务-宏任务" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/12.%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%BE%AE%E4%BB%BB%E5%8A%A1-%E5%AE%8F%E4%BB%BB%E5%8A%A1/">12.进程-线程</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/12.%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%BE%AE%E4%BB%BB%E5%8A%A1-%E5%AE%8F%E4%BB%BB%E5%8A%A1/" class="archive-article-date">
+	<time datetime="2022-10-30T05:30:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">404字</span>
     </span>
   </span>
 
@@ -1445,40 +882,35 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<h2 id="Reactive判断的API"><a href="#Reactive判断的API" class="headerlink" title="Reactive判断的API"></a>Reactive判断的API</h2><h4 id="1-isProxy"><a href="#1-isProxy" class="headerlink" title="1.isProxy"></a>1.isProxy</h4><ul>
-<li>检查对象是否是由 reactive 或 readonly创建的 proxy。<h4 id="2-isReactive"><a href="#2-isReactive" class="headerlink" title="2.isReactive"></a>2.isReactive</h4></li>
-<li>检查对象是否是由 reactive创建的响应式代理： </li>
-<li>如果该代理是 readonly 建的，但包裹了由 reactive 创建的另一个代理，它也会返回 true.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(reactive(&#123;name: &quot;beichen&quot;&#125;));</span><br></pre></td></tr></table></figure>
-这个时候就是返回<code>true</code></li>
-</ul>
-<h4 id="3-isReadonly"><a href="#3-isReadonly" class="headerlink" title="3.isReadonly"></a>3.isReadonly</h4><ul>
-<li>检查对象是否是由 readonly 创建的只读代理。</li>
-</ul>
-<h4 id="4-toRaw"><a href="#4-toRaw" class="headerlink" title="4.toRaw"></a>4.toRaw</h4><ul>
-<li>返回 reactive 或 readonly 代理的原始对象（不建议保留对原始对象的持久引用。请谨慎使用）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 第一种(常见用法)</span><br><span class="line">const info = &#123;name: &quot;beichen&quot;&#125;;</span><br><span class="line">const readonlyInfo = readonly(info);</span><br><span class="line">// 这里的info就是原始对象</span><br></pre></td></tr></table></figure></li>
-</ul>
-            
-              <a class="article-more-a" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/#more">more >></a>
-            
+          
+            <h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><p>进程：是计算机已经运行的程序，是操作系统管理程序的一种方式</p>
+<p>线程：操作系统能运行运算调度的最小单位，通常情况下是被包含在进程中·</p>
+<p><strong>每一个进程中至少有一个线程</strong>。</p>
+<p>当我们启动一个应用程序的时候，默认就会启动一个进程(也可以是多进程的)</p>
+<p>每一个进程中都会启动至少一个线程用来执行程序中的代码，这个线程被称为<strong>主线程</strong>。</p>
+<p>所以我们也说进程是线程的<strong>容器</strong>。</p>
+<h4 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h4><p>事件循环包含执行上下文，浏览器，同时也维护着队列。</p>
+<p>但是不止维护着一个队列，有宏任务队列和微任务队列。</p>
+<p><strong>宏任务队列</strong>：AJAX、setTimeout、setInterval、DOM监听、UI Rendering等</p>
+<p><strong>微任务队列</strong>：Promise的then回调、Mutation Observer API、queueMicrotask()等</p>
+<p>在执行上下文栈中为空时，会去队列中寻找任务进行执行，在HTML浏览器和NODE中都会按照这样一个方式执行。先执行微任务队列，然后在执行宏任务队列，在微任务还没有的时候，先去执行宏任务队列，如果在执行宏任务之前发现微任务队列中有任务，那么会优先去执行微任务队列。<strong>在每次执行宏任务之前都会去看一下微任务队列中有没有执行完，如果没有则会先清空微任务队列，然后在执行宏任务队列</strong>。</p>
 
+            
           
         
       <!-- 
-        <h2 id="Reactive判断的API"><a href="#Reactive判断的API" class="headerlink" title="Reactive判断的API"></a>Reactive判断的API</h2><h4 id="1-isProxy"><a href="#1-isProxy" class="headerlink" title="1.isProxy"></a>1.isProxy</h4><ul>
-<li>检查对象是否是由 reactive 或 readonly创建的 proxy。<h4 id="2-isReactive"><a href="#2-isReactive" class="headerlink" title="2.isReactive"></a>2.isReactive</h4></li>
-<li>检查对象是否是由 reactive创建的响应式代理： </li>
-<li>如果该代理是 readonly 建的，但包裹了由 reactive 创建的另一个代理，它也会返回 true.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const info = readonly(reactive(&#123;name: &quot;beichen&quot;&#125;));</span><br></pre></td></tr></table></figure>
-这个时候就是返回<code>true</code></li>
-</ul>
-<h4 id="3-isReadonly"><a href="#3-isReadonly" class="headerlink" title="3.isReadonly"></a>3.isReadonly</h4><ul>
-<li>检查对象是否是由 readonly 创建的只读代理。</li>
-</ul>
-<h4 id="4-toRaw"><a href="#4-toRaw" class="headerlink" title="4.toRaw"></a>4.toRaw</h4><ul>
-<li>返回 reactive 或 readonly 代理的原始对象（不建议保留对原始对象的持久引用。请谨慎使用）。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 第一种(常见用法)</span><br><span class="line">const info = &#123;name: &quot;beichen&quot;&#125;;</span><br><span class="line">const readonlyInfo = readonly(info);</span><br><span class="line">// 这里的info就是原始对象</span><br></pre></td></tr></table></figure></li>
-</ul>
-        
-          <a class="article-more-a" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/#more">more >></a>
-        
+        <h3 id="进程和线程"><a href="#进程和线程" class="headerlink" title="进程和线程"></a>进程和线程</h3><p>进程：是计算机已经运行的程序，是操作系统管理程序的一种方式</p>
+<p>线程：操作系统能运行运算调度的最小单位，通常情况下是被包含在进程中·</p>
+<p><strong>每一个进程中至少有一个线程</strong>。</p>
+<p>当我们启动一个应用程序的时候，默认就会启动一个进程(也可以是多进程的)</p>
+<p>每一个进程中都会启动至少一个线程用来执行程序中的代码，这个线程被称为<strong>主线程</strong>。</p>
+<p>所以我们也说进程是线程的<strong>容器</strong>。</p>
+<h4 id="宏任务和微任务"><a href="#宏任务和微任务" class="headerlink" title="宏任务和微任务"></a>宏任务和微任务</h4><p>事件循环包含执行上下文，浏览器，同时也维护着队列。</p>
+<p>但是不止维护着一个队列，有宏任务队列和微任务队列。</p>
+<p><strong>宏任务队列</strong>：AJAX、setTimeout、setInterval、DOM监听、UI Rendering等</p>
+<p><strong>微任务队列</strong>：Promise的then回调、Mutation Observer API、queueMicrotask()等</p>
+<p>在执行上下文栈中为空时，会去队列中寻找任务进行执行，在HTML浏览器和NODE中都会按照这样一个方式执行。先执行微任务队列，然后在执行宏任务队列，在微任务还没有的时候，先去执行宏任务队列，如果在执行宏任务之前发现微任务队列中有任务，那么会优先去执行微任务队列。<strong>在每次执行宏任务之前都会去看一下微任务队列中有没有执行完，如果没有则会先清空微任务队列，然后在执行宏任务队列</strong>。</p>
+
        -->
 
       
@@ -1491,7 +923,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">composition</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">进程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">线程</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">微任务</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">宏任务</a>
         		</li>
       		
 		</ul>
@@ -1503,7 +947,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -1512,7 +956,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/09/vue-learn/compositionapi%E8%A1%A5%E5%85%85/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/12.%E8%BF%9B%E7%A8%8B-%E7%BA%BF%E7%A8%8B-%E5%BE%AE%E4%BB%BB%E5%8A%A1-%E5%AE%8F%E4%BB%BB%E5%8A%A1/">展开全文 >></a>
         </p>
       
         
@@ -1545,14 +989,14 @@
 
 
   
-    <article id="post-vue-learn/composition_api" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-js高级/11.iterator-generator" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/08/vue-learn/composition_api/">CompositionAPI</a>
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/11.iterator-generator/">11.iterator-generator</a>
     </h1>
   
 
@@ -1567,9 +1011,321 @@
 
 
         
-        <a href="/2022/05/08/vue-learn/composition_api/" class="archive-article-date">
-	<time datetime="2022-05-08T07:17:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
-		2022-05-08
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/11.iterator-generator/" class="archive-article-date">
+	<time datetime="2022-10-30T05:29:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">1.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">6分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h3 id="iterator-迭代器"><a href="#iterator-迭代器" class="headerlink" title="iterator(迭代器)"></a>iterator(迭代器)</h3><p>含义：使用户在容器对象上遍访的对象，使用该接口无需关心对象的内部细节。</p>
+<p>迭代器在JavaScript中的标准：</p>
+<ul>
+<li>包含一个next方法<ul>
+<li>next方法的可以有0个或1个参数</li>
+<li>返回的对象应当包含done，value</li>
+<li>done(boolean)为false的时候表示这个对象还没有迭代完，为true表示该对象已经迭代完了</li>
+<li>value表示当前需要迭代的对象，迭代结束之后返回默认值undefined。</li>
+</ul>
+</li>
+</ul>
+<p>数组迭代器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> names = [<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;cba&#x27;</span>, <span class="string">&#x27;nba&#x27;</span>]</span><br><span class="line"><span class="comment">// 封装一个函数为数组创建迭代器。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createArrayIterator</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="function"><span class="title">next</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; arr.length) &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    <span class="attr">done</span>: <span class="literal">false</span>, <span class="attr">value</span>: arr[index++]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    <span class="attr">done</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// namesIterator就是迭代器。</span></span><br><span class="line"><span class="keyword">const</span> namesIterator = createArrayIterator(names)</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br></pre></td></tr></table></figure>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/11.iterator-generator/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="iterator-迭代器"><a href="#iterator-迭代器" class="headerlink" title="iterator(迭代器)"></a>iterator(迭代器)</h3><p>含义：使用户在容器对象上遍访的对象，使用该接口无需关心对象的内部细节。</p>
+<p>迭代器在JavaScript中的标准：</p>
+<ul>
+<li>包含一个next方法<ul>
+<li>next方法的可以有0个或1个参数</li>
+<li>返回的对象应当包含done，value</li>
+<li>done(boolean)为false的时候表示这个对象还没有迭代完，为true表示该对象已经迭代完了</li>
+<li>value表示当前需要迭代的对象，迭代结束之后返回默认值undefined。</li>
+</ul>
+</li>
+</ul>
+<p>数组迭代器：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> names = [<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;cba&#x27;</span>, <span class="string">&#x27;nba&#x27;</span>]</span><br><span class="line"><span class="comment">// 封装一个函数为数组创建迭代器。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createArrayIterator</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        <span class="function"><span class="title">next</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; arr.length) &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    <span class="attr">done</span>: <span class="literal">false</span>, <span class="attr">value</span>: arr[index++]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    <span class="attr">done</span>: <span class="literal">true</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// namesIterator就是迭代器。</span></span><br><span class="line"><span class="keyword">const</span> namesIterator = createArrayIterator(names)</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br><span class="line"><span class="built_in">console</span>.log(namesIterator.next())</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/11.iterator-generator/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">iterator</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">generator</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/11.iterator-generator/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/10.Promise基本使用和理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/10.Promise%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E7%90%86%E8%A7%A3/">10.Promise的基本使用和理解</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/10.Promise%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E7%90%86%E8%A7%A3/" class="archive-article-date">
+	<time datetime="2022-10-30T05:29:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">2.3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">10分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><h4 id="1-异步处理代码的困境"><a href="#1-异步处理代码的困境" class="headerlink" title="1.异步处理代码的困境"></a>1.异步处理代码的困境</h4><p>不用Promise处理异步代码，在ES6之前处理异步代码的一般方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">execCode</span>(<span class="params">count, successCallback, failureCallback</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(count)</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> totalCount = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">                totalCount += i</span><br><span class="line">            &#125;</span><br><span class="line">            successCallback(totalCount)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            failureCallback(<span class="string">`<span class="subst">$&#123;count&#125;</span>出错`</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">3000</span>)</span><br><span class="line">&#125;</span><br><span class="line">execCode(<span class="number">100</span>, <span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;执行成功，结果为:&#x27;</span>, value)</span><br><span class="line">&#125;, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;执行失败，原因为:&#x27;</span>, err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>设计处理异步代码函数的人，设计的方案可能有多种方法，比如函数名的不同、传递参数的顺序等</p>
+<p>当使用这个函数的人去使用这个处理异步代码函数的时候，不知道函数名的命名规范，不知道传递参数的顺序，很容易出现问题，就像“一千个人有一千个哈姆雷特”，很难统一规范，虽然随着时间的推移，在社区中也会慢慢的去统一这种规范，但是需要花费很长的时间的演变。</p>
+<p>在ES6之后推出了Promise，为了解决这种困境。</p>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/10.Promise%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E7%90%86%E8%A7%A3/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><h4 id="1-异步处理代码的困境"><a href="#1-异步处理代码的困境" class="headerlink" title="1.异步处理代码的困境"></a>1.异步处理代码的困境</h4><p>不用Promise处理异步代码，在ES6之前处理异步代码的一般方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">execCode</span>(<span class="params">count, successCallback, failureCallback</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(count)</span><br><span class="line">        <span class="keyword">if</span> (count &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> totalCount = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">                totalCount += i</span><br><span class="line">            &#125;</span><br><span class="line">            successCallback(totalCount)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            failureCallback(<span class="string">`<span class="subst">$&#123;count&#125;</span>出错`</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, <span class="number">3000</span>)</span><br><span class="line">&#125;</span><br><span class="line">execCode(<span class="number">100</span>, <span class="function"><span class="params">value</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;执行成功，结果为:&#x27;</span>, value)</span><br><span class="line">&#125;, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;执行失败，原因为:&#x27;</span>, err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>设计处理异步代码函数的人，设计的方案可能有多种方法，比如函数名的不同、传递参数的顺序等</p>
+<p>当使用这个函数的人去使用这个处理异步代码函数的时候，不知道函数名的命名规范，不知道传递参数的顺序，很容易出现问题，就像“一千个人有一千个哈姆雷特”，很难统一规范，虽然随着时间的推移，在社区中也会慢慢的去统一这种规范，但是需要花费很长的时间的演变。</p>
+<p>在ES6之后推出了Promise，为了解决这种困境。</p>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/10.Promise%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E7%90%86%E8%A7%A3/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Primise</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">promiseAPI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/10.Promise%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E5%92%8C%E7%90%86%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/9.Proxy-reflect" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/9.Proxy-reflect/">9.Proxy-Reflect</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/9.Proxy-reflect/" class="archive-article-date">
+	<time datetime="2022-10-30T05:28:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
 	</time>
 </a>
 
@@ -1602,45 +1358,35 @@
     <div class="article-entry" itemprop="articleBody">
       
         
-          		<h2 id="optionsAPi的弊端"><a href="#optionsAPi的弊端" class="headerlink" title="optionsAPi的弊端"></a>optionsAPi的弊端</h2><ul>
-<li>在vue2中我们编写组件的方式是optionsAPI<br>例如：data定义的数据、methods定义的方法、computed中定义的计算属性、watch中监听属性的改变，还包括生命周期钩子</li>
-</ul>
-<h4 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h4><p>在我们实现某些功能的时候，例如写一个计数器<br>往往我们需要定义methods，其中定义一个+1/-1的函数、需要定义data中的counter数据、监听counter的改变。<br>当我们的代码逻辑变得很庞大的时候，逻辑就会变得不清晰，且代码量会变大很大，定义的方法和数据不连贯，使得代码的阅读和理解会变得很困难。</p>
-<h2 id="CompositionAPI"><a href="#CompositionAPI" class="headerlink" title="CompositionAPI"></a>CompositionAPI</h2><p>我们要使用Composition API时我们需要在vue组件中使用setup函数。<br>setup函数就是用来替代之前所编写的大部分选项。包括methods、computed、data、watch、生命周期等</p>
-<h4 id="setup函数的参数"><a href="#setup函数的参数" class="headerlink" title="setup函数的参数"></a>setup函数的参数</h4><p>1.props<br>props非常好理解，它其实就是父组件传递过来的属性会被放到props对象中，我们在setup中如果需要使用，那么就可以直接通过props参数获取。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;home message=&quot;父组件中的message&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p>子组件中接收父组件传过来的messsage并指定类型和是否必须传过来。否则会报一个<strong>warning</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">      message: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        required: true,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<p>2.context<br>context也被称之为<strong>setupcontext</strong>,他包含三个属性：</p>
+          		<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><ol>
+<li><p>监听对象的操作</p>
+<p>vue2中响应式原理的核心代码(ES5之前)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;beichen&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">22</span>,</span><br><span class="line">    <span class="attr">height</span>: <span class="number">1.75</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">let</span> value = obj[key]</span><br><span class="line">    <span class="comment">// 存取属性描述符</span></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">        <span class="function"><span class="title">set</span>(<span class="params">newValue</span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`监听: <span class="subst">$&#123;key&#125;</span>属性的改变: <span class="subst">$&#123;newValue&#125;</span>`</span>)</span><br><span class="line">            value = newValue</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`监听: 获取<span class="subst">$&#123;key&#125;</span>属性的值`</span>)</span><br><span class="line">            <span class="keyword">return</span> value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name)</span><br><span class="line">obj.name = <span class="string">&quot;haixia&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>缺点：</p>
 <ul>
-<li>attrs<br>所有的非prop的attribute</li>
-<li>solts<br>父组件传递过来的插槽</li>
-<li>emit<br>当我们组件内部需要发出事件时会用到emit（因为我们不能访问this，所以不可以通过 this.$emit发出事件）</li>
-</ul>
+<li>Object.defineProperty设计初衷不是为了监听对象中的某个属性。</li>
+<li>我们在定义某些属性的时候，初衷是定义一个普通的属性，但是后面我们强行把它变成了数据属性描述符。</li>
+<li>如果我们想要监听更加更富的操作，比如，添加/删除属性，那么Object.defineProperty是做不到的。</li></ul></li></ol>
             
-              <a class="article-more-a" href="/2022/05/08/vue-learn/composition_api/#more">more >></a>
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/9.Proxy-reflect/#more">more >></a>
             
 
           
         
       <!-- 
-        <h2 id="optionsAPi的弊端"><a href="#optionsAPi的弊端" class="headerlink" title="optionsAPi的弊端"></a>optionsAPi的弊端</h2><ul>
-<li>在vue2中我们编写组件的方式是optionsAPI<br>例如：data定义的数据、methods定义的方法、computed中定义的计算属性、watch中监听属性的改变，还包括生命周期钩子</li>
-</ul>
-<h4 id="弊端"><a href="#弊端" class="headerlink" title="弊端"></a>弊端</h4><p>在我们实现某些功能的时候，例如写一个计数器<br>往往我们需要定义methods，其中定义一个+1/-1的函数、需要定义data中的counter数据、监听counter的改变。<br>当我们的代码逻辑变得很庞大的时候，逻辑就会变得不清晰，且代码量会变大很大，定义的方法和数据不连贯，使得代码的阅读和理解会变得很困难。</p>
-<h2 id="CompositionAPI"><a href="#CompositionAPI" class="headerlink" title="CompositionAPI"></a>CompositionAPI</h2><p>我们要使用Composition API时我们需要在vue组件中使用setup函数。<br>setup函数就是用来替代之前所编写的大部分选项。包括methods、computed、data、watch、生命周期等</p>
-<h4 id="setup函数的参数"><a href="#setup函数的参数" class="headerlink" title="setup函数的参数"></a>setup函数的参数</h4><p>1.props<br>props非常好理解，它其实就是父组件传递过来的属性会被放到props对象中，我们在setup中如果需要使用，那么就可以直接通过props参数获取。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;home message=&quot;父组件中的message&quot;/&gt;</span><br></pre></td></tr></table></figure>
-<p>子组件中接收父组件传过来的messsage并指定类型和是否必须传过来。否则会报一个<strong>warning</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: &#123;</span><br><span class="line">      message: &#123;</span><br><span class="line">        type: String,</span><br><span class="line">        required: true,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
-<p>2.context<br>context也被称之为<strong>setupcontext</strong>,他包含三个属性：</p>
+        <h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><ol>
+<li><p>监听对象的操作</p>
+<p>vue2中响应式原理的核心代码(ES5之前)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;beichen&quot;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">22</span>,</span><br><span class="line">    <span class="attr">height</span>: <span class="number">1.75</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">let</span> value = obj[key]</span><br><span class="line">    <span class="comment">// 存取属性描述符</span></span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">        <span class="function"><span class="title">set</span>(<span class="params">newValue</span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`监听: <span class="subst">$&#123;key&#125;</span>属性的改变: <span class="subst">$&#123;newValue&#125;</span>`</span>)</span><br><span class="line">            value = newValue</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`监听: 获取<span class="subst">$&#123;key&#125;</span>属性的值`</span>)</span><br><span class="line">            <span class="keyword">return</span> value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name)</span><br><span class="line">obj.name = <span class="string">&quot;haixia&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>缺点：</p>
 <ul>
-<li>attrs<br>所有的非prop的attribute</li>
-<li>solts<br>父组件传递过来的插槽</li>
-<li>emit<br>当我们组件内部需要发出事件时会用到emit（因为我们不能访问this，所以不可以通过 this.$emit发出事件）</li>
-</ul>
+<li>Object.defineProperty设计初衷不是为了监听对象中的某个属性。</li>
+<li>我们在定义某些属性的时候，初衷是定义一个普通的属性，但是后面我们强行把它变成了数据属性描述符。</li>
+<li>如果我们想要监听更加更富的操作，比如，添加/删除属性，那么Object.defineProperty是做不到的。</li></ul></li></ol>
         
-          <a class="article-more-a" href="/2022/05/08/vue-learn/composition_api/#more">more >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/9.Proxy-reflect/#more">more >></a>
         
        -->
 
@@ -1654,7 +1400,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Composition API</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">proxy</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">reflect</a>
         		</li>
       		
 		</ul>
@@ -1666,7 +1416,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
@@ -1675,7 +1425,373 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/08/vue-learn/composition_api/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/9.Proxy-reflect/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/8.ES7-ES13新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/8.ES7-ES13%E6%96%B0%E7%89%B9%E6%80%A7/">8.ES7-ES13新特性</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/8.ES7-ES13%E6%96%B0%E7%89%B9%E6%80%A7/" class="archive-article-date">
+	<time datetime="2022-10-30T05:27:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">609字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">2分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h4 id="ES7新特性"><a href="#ES7新特性" class="headerlink" title="ES7新特性"></a>ES7新特性</h4><ul>
+<li><strong>includes</strong>：查询是否包含某一个值</li>
+<li>******：类似<code>Math.pow</code>,做平方，比如<code>num ** 2 == Math.pow(num, 2)</code>  </li>
+</ul>
+<h4 id="ES8新特性"><a href="#ES8新特性" class="headerlink" title="ES8新特性"></a>ES8新特性</h4><ol>
+<li><p>对象相关属性</p>
+<ul>
+<li>Object.keys：获取常见对象的key</li>
+<li>Object.values：获取常见对象的value</li>
+<li>Object.entries：获取常见对象的[key，value]，也可以对数组/字符串进行操作。</li>
+</ul>
+</li>
+<li><p>字符串填充方法</p>
+<ul>
+<li><p>padStart/padEnd</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 场景一: 对事件处理</span></span><br><span class="line"><span class="keyword">const</span> minute = <span class="string">&#x27;5&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(minute.padStart(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)) <span class="comment">// 05</span></span><br><span class="line"><span class="comment">// 如果大于两位则不会变</span></span><br><span class="line"><span class="built_in">console</span>.log(minute.padEnd(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)) <span class="comment">// 50</span></span><br><span class="line"><span class="comment">// 场景二：对身份证/银行卡等进行隐藏数据</span></span><br><span class="line"><span class="keyword">const</span> cardNumber = <span class="string">&#x27;123456789123456789&#x27;</span></span><br><span class="line"><span class="keyword">const</span> lastNumber = cardNumber.slice(-<span class="number">4</span>) <span class="comment">// 截取最后四位</span></span><br><span class="line"><span class="keyword">const</span> finalCardNumber = lastNumber.padStart(cardNumber.length, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(finalCardNumber) <span class="comment">// **************6789</span></span><br></pre></td></tr></table></figure></li>
+<li><p><em>Object</em>.getOwnPropertyDescriptors</p>
+</li>
+<li><p>async/await(后续补充)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="ES9新特性"><a href="#ES9新特性" class="headerlink" title="ES9新特性"></a>ES9新特性</h4><ol>
+<li><p>iterators</p>
+</li>
+<li><p>Promise finally （后续补充）</p></li></ol>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/8.ES7-ES13%E6%96%B0%E7%89%B9%E6%80%A7/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h4 id="ES7新特性"><a href="#ES7新特性" class="headerlink" title="ES7新特性"></a>ES7新特性</h4><ul>
+<li><strong>includes</strong>：查询是否包含某一个值</li>
+<li>******：类似<code>Math.pow</code>,做平方，比如<code>num ** 2 == Math.pow(num, 2)</code>  </li>
+</ul>
+<h4 id="ES8新特性"><a href="#ES8新特性" class="headerlink" title="ES8新特性"></a>ES8新特性</h4><ol>
+<li><p>对象相关属性</p>
+<ul>
+<li>Object.keys：获取常见对象的key</li>
+<li>Object.values：获取常见对象的value</li>
+<li>Object.entries：获取常见对象的[key，value]，也可以对数组/字符串进行操作。</li>
+</ul>
+</li>
+<li><p>字符串填充方法</p>
+<ul>
+<li><p>padStart/padEnd</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 场景一: 对事件处理</span></span><br><span class="line"><span class="keyword">const</span> minute = <span class="string">&#x27;5&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(minute.padStart(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)) <span class="comment">// 05</span></span><br><span class="line"><span class="comment">// 如果大于两位则不会变</span></span><br><span class="line"><span class="built_in">console</span>.log(minute.padEnd(<span class="number">2</span>, <span class="string">&#x27;0&#x27;</span>)) <span class="comment">// 50</span></span><br><span class="line"><span class="comment">// 场景二：对身份证/银行卡等进行隐藏数据</span></span><br><span class="line"><span class="keyword">const</span> cardNumber = <span class="string">&#x27;123456789123456789&#x27;</span></span><br><span class="line"><span class="keyword">const</span> lastNumber = cardNumber.slice(-<span class="number">4</span>) <span class="comment">// 截取最后四位</span></span><br><span class="line"><span class="keyword">const</span> finalCardNumber = lastNumber.padStart(cardNumber.length, <span class="string">&#x27;*&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(finalCardNumber) <span class="comment">// **************6789</span></span><br></pre></td></tr></table></figure></li>
+<li><p><em>Object</em>.getOwnPropertyDescriptors</p>
+</li>
+<li><p>async/await(后续补充)</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="ES9新特性"><a href="#ES9新特性" class="headerlink" title="ES9新特性"></a>ES9新特性</h4><ol>
+<li><p>iterators</p>
+</li>
+<li><p>Promise finally （后续补充）</p></li></ol>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/8.ES7-ES13%E6%96%B0%E7%89%B9%E6%80%A7/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES7-ES13</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/8.ES7-ES13%E6%96%B0%E7%89%B9%E6%80%A7/">展开全文 >></a>
+        </p>
+      
+        
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+  
+    <article id="post-js高级/7.ECMA-262中的var-let-const" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/7.ECMA-262%E4%B8%AD%E7%9A%84var-let-const/">7.ECMA-262中的var-let-const</a>
+    </h1>
+  
+
+
+        <!--显示阅读次数-->
+        <!--  -->
+
+        <!--显示阅读次数完毕-->
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+
+
+        
+        <a href="/2022/10/30/js%E9%AB%98%E7%BA%A7/7.ECMA-262%E4%B8%AD%E7%9A%84var-let-const/" class="archive-article-date">
+	<time datetime="2022-10-30T05:25:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>
+		2022-10-30
+	</time>
+</a>
+
+<!-- <span id="busuanzi_container_page_pv"> 本文总阅读量<span id="busuanzi_value_page_pv"></span>次</span> -->
+
+        
+
+        
+            <div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-keyboard-o"></i>
+      <span class="post-meta-item-text">  字数统计: </span>
+      <span class="post-count">1.2k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="fa fa-hourglass-half"></i>
+      <span class="post-meta-item-text">  阅读时长: </span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          		<h3 id="ECMA-262中的var-let-const"><a href="#ECMA-262中的var-let-const" class="headerlink" title="ECMA-262中的var/let/const"></a>ECMA-262中的var/let/const</h3><p>在ECMA-262中，ES6之后对代码的执行流程描述改成了另外的一些词汇</p>
+<p>基本的执行思路是不变的</p>
+<p>比如：ECS(执行上下文栈)和EC(执行上下文)</p>
+<p>在代码被解析之前，执行上下文栈中会创建一个全局的执行上下文，但是其中包含的是词法环境(lexicalEnviroment)和变量环境(variableEnviroment)，同时会在堆内存中生成全局的词法环境，而词法环境又包含环境记录(Enviroment Record)和外部词法环境(outer)，全局的词法环境的outer为null，环境记录会指向对应的环境记录的对象，会有自己的属性和方法。</p>
+<p><em><strong>全局的环境记录!=window， 全局的环境记录是由两个环境记录合成的</strong></em></p>
+<p>环境记录主要包含声明式环境记录和对象环境记录。</p>
+<ul>
+<li>声明式环境记录：声明性环境记录用于定义ECMAScript语言语法元素的效果，如函数声明、变量声明和直接将标识符绑定与ECMAScript语言值关联起来的Catch子句。(全局的环境记录中-let/const)</li>
+<li>对象式环境记录：对象环境记录用于定义ECMAScript元素的效果，例如WithStatement，它将标识符绑定与某些对象的属性关联起来。（全局的环境记录中-window）</li>
+</ul>
+<p><img src="/2022/10/30/js%E9%AB%98%E7%BA%A7/7/JS高级\code\img\ES6~ES13\图片1.png"></p>
+<p><strong>var和let/const的区别</strong></p>
+<p>var是被存放在变量环境(variableEnvironment)中，当代码被解析的时候就创建出来了，可以在赋值执行前被访问到，值为undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(message) <span class="comment">// undefined</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> message = <span class="string">&quot;beichen&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>let/const是被存放在词法环境中(lexicalEnviroment)中，当代码被解析的时候也被创建出来了，但是在被赋值之前是不能被访问的，如果访问会报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;<span class="comment">// 从这个大括号开始</span></span><br><span class="line">    <span class="built_in">console</span>.log(message) <span class="comment">// 会报错</span></span><br><span class="line">    <span class="comment">//  暂时性死区(非官方，社区中讨论出的结果)</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// 直到下一行，执行结束前(message被赋值之前)会形成暂时性死区</span></span><br><span class="line">    <span class="keyword">let</span> message = <span class="string">&quot;beichen&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            
+              <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/7.ECMA-262%E4%B8%AD%E7%9A%84var-let-const/#more">more >></a>
+            
+
+          
+        
+      <!-- 
+        <h3 id="ECMA-262中的var-let-const"><a href="#ECMA-262中的var-let-const" class="headerlink" title="ECMA-262中的var/let/const"></a>ECMA-262中的var/let/const</h3><p>在ECMA-262中，ES6之后对代码的执行流程描述改成了另外的一些词汇</p>
+<p>基本的执行思路是不变的</p>
+<p>比如：ECS(执行上下文栈)和EC(执行上下文)</p>
+<p>在代码被解析之前，执行上下文栈中会创建一个全局的执行上下文，但是其中包含的是词法环境(lexicalEnviroment)和变量环境(variableEnviroment)，同时会在堆内存中生成全局的词法环境，而词法环境又包含环境记录(Enviroment Record)和外部词法环境(outer)，全局的词法环境的outer为null，环境记录会指向对应的环境记录的对象，会有自己的属性和方法。</p>
+<p><em><strong>全局的环境记录!=window， 全局的环境记录是由两个环境记录合成的</strong></em></p>
+<p>环境记录主要包含声明式环境记录和对象环境记录。</p>
+<ul>
+<li>声明式环境记录：声明性环境记录用于定义ECMAScript语言语法元素的效果，如函数声明、变量声明和直接将标识符绑定与ECMAScript语言值关联起来的Catch子句。(全局的环境记录中-let/const)</li>
+<li>对象式环境记录：对象环境记录用于定义ECMAScript元素的效果，例如WithStatement，它将标识符绑定与某些对象的属性关联起来。（全局的环境记录中-window）</li>
+</ul>
+<p><img src="/2022/10/30/js%E9%AB%98%E7%BA%A7/7/JS高级\code\img\ES6~ES13\图片1.png"></p>
+<p><strong>var和let/const的区别</strong></p>
+<p>var是被存放在变量环境(variableEnvironment)中，当代码被解析的时候就创建出来了，可以在赋值执行前被访问到，值为undefined。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(message) <span class="comment">// undefined</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> message = <span class="string">&quot;beichen&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>let/const是被存放在词法环境中(lexicalEnviroment)中，当代码被解析的时候也被创建出来了，但是在被赋值之前是不能被访问的，如果访问会报错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;<span class="comment">// 从这个大括号开始</span></span><br><span class="line">    <span class="built_in">console</span>.log(message) <span class="comment">// 会报错</span></span><br><span class="line">    <span class="comment">//  暂时性死区(非官方，社区中讨论出的结果)</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">// 直到下一行，执行结束前(message被赋值之前)会形成暂时性死区</span></span><br><span class="line">    <span class="keyword">let</span> message = <span class="string">&quot;beichen&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/7.ECMA-262%E4%B8%AD%E7%9A%84var-let-const/#more">more >></a>
+        
+       -->
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">let/const/var</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">模板字符串</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Symbol</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">set/map</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JS//" class="article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/30/js%E9%AB%98%E7%BA%A7/7.ECMA-262%E4%B8%AD%E7%9A%84var-let-const/">展开全文 >></a>
         </p>
       
         
@@ -1710,7 +1826,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </nav>
   
 
@@ -1926,10 +2042,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">md5</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">宝塔</a>
               </li>
              
@@ -1939,6 +2051,134 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">this指向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Primise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">promiseAPI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">进程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">微任务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">宏任务</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">iterator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">generator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">debounce</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">throttle</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">throw</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">storage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">正则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">浏览器运行原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">js运行原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内存管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">闭包</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">柯里化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">纯函数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">继承</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES5及ES6+</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">let/const/var</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">模板字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Symbol</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">set/map</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES7-ES13</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">proxy</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">reflect</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">函数式编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">面向对象编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">原型</a>
               </li>
             
             <div class="clearfix"></div>
